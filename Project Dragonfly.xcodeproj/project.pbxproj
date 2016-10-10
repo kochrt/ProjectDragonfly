@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */; };
+		D4519F601DAC4AA400FA274C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5F1DAC4AA400FA274C /* ViewController.swift */; };
+		D4519F631DAC4AA400FA274C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F611DAC4AA400FA274C /* Main.storyboard */; };
+		D4519F651DAC4AA400FA274C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4519F641DAC4AA400FA274C /* Assets.xcassets */; };
+		D4519F681DAC4AA400FA274C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */; };
+		D4519F731DAC4AA400FA274C /* Project_DragonflyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F721DAC4AA400FA274C /* Project_DragonflyTests.swift */; };
+		D4519F7E1DAC4AA400FA274C /* Project_DragonflyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F7D1DAC4AA400FA274C /* Project_DragonflyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4519F6F1DAC4AA400FA274C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4519F521DAC4AA400FA274C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4519F591DAC4AA400FA274C;
+			remoteInfo = "Project Dragonfly";
+		};
+		D4519F7A1DAC4AA400FA274C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4519F521DAC4AA400FA274C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4519F591DAC4AA400FA274C;
+			remoteInfo = "Project Dragonfly";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Dragonfly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4519F5F1DAC4AA400FA274C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4519F621DAC4AA400FA274C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4519F641DAC4AA400FA274C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4519F671DAC4AA400FA274C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D4519F691DAC4AA400FA274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4519F6E1DAC4AA400FA274C /* Project DragonflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project DragonflyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4519F721DAC4AA400FA274C /* Project_DragonflyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_DragonflyTests.swift; sourceTree = "<group>"; };
+		D4519F741DAC4AA400FA274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4519F791DAC4AA400FA274C /* Project DragonflyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project DragonflyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4519F7D1DAC4AA400FA274C /* Project_DragonflyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_DragonflyUITests.swift; sourceTree = "<group>"; };
+		D4519F7F1DAC4AA400FA274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4519F571DAC4AA400FA274C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4519F6B1DAC4AA400FA274C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4519F761DAC4AA400FA274C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4519F511DAC4AA400FA274C = {
+			isa = PBXGroup;
+			children = (
+				D4519F5C1DAC4AA400FA274C /* Project Dragonfly */,
+				D4519F711DAC4AA400FA274C /* Project DragonflyTests */,
+				D4519F7C1DAC4AA400FA274C /* Project DragonflyUITests */,
+				D4519F5B1DAC4AA400FA274C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4519F5B1DAC4AA400FA274C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */,
+				D4519F6E1DAC4AA400FA274C /* Project DragonflyTests.xctest */,
+				D4519F791DAC4AA400FA274C /* Project DragonflyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4519F5C1DAC4AA400FA274C /* Project Dragonfly */ = {
+			isa = PBXGroup;
+			children = (
+				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
+				D4519F5F1DAC4AA400FA274C /* ViewController.swift */,
+				D4519F611DAC4AA400FA274C /* Main.storyboard */,
+				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
+				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
+				D4519F691DAC4AA400FA274C /* Info.plist */,
+			);
+			path = "Project Dragonfly";
+			sourceTree = "<group>";
+		};
+		D4519F711DAC4AA400FA274C /* Project DragonflyTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4519F721DAC4AA400FA274C /* Project_DragonflyTests.swift */,
+				D4519F741DAC4AA400FA274C /* Info.plist */,
+			);
+			path = "Project DragonflyTests";
+			sourceTree = "<group>";
+		};
+		D4519F7C1DAC4AA400FA274C /* Project DragonflyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D4519F7D1DAC4AA400FA274C /* Project_DragonflyUITests.swift */,
+				D4519F7F1DAC4AA400FA274C /* Info.plist */,
+			);
+			path = "Project DragonflyUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4519F591DAC4AA400FA274C /* Project Dragonfly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4519F821DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project Dragonfly" */;
+			buildPhases = (
+				D4519F561DAC4AA400FA274C /* Sources */,
+				D4519F571DAC4AA400FA274C /* Frameworks */,
+				D4519F581DAC4AA400FA274C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Project Dragonfly";
+			productName = "Project Dragonfly";
+			productReference = D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4519F6D1DAC4AA400FA274C /* Project DragonflyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4519F851DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project DragonflyTests" */;
+			buildPhases = (
+				D4519F6A1DAC4AA400FA274C /* Sources */,
+				D4519F6B1DAC4AA400FA274C /* Frameworks */,
+				D4519F6C1DAC4AA400FA274C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4519F701DAC4AA400FA274C /* PBXTargetDependency */,
+			);
+			name = "Project DragonflyTests";
+			productName = "Project DragonflyTests";
+			productReference = D4519F6E1DAC4AA400FA274C /* Project DragonflyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D4519F781DAC4AA400FA274C /* Project DragonflyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4519F881DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project DragonflyUITests" */;
+			buildPhases = (
+				D4519F751DAC4AA400FA274C /* Sources */,
+				D4519F761DAC4AA400FA274C /* Frameworks */,
+				D4519F771DAC4AA400FA274C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4519F7B1DAC4AA400FA274C /* PBXTargetDependency */,
+			);
+			name = "Project DragonflyUITests";
+			productName = "Project DragonflyUITests";
+			productReference = D4519F791DAC4AA400FA274C /* Project DragonflyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4519F521DAC4AA400FA274C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = cse.miamioh;
+				TargetAttributes = {
+					D4519F591DAC4AA400FA274C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					D4519F6D1DAC4AA400FA274C = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D4519F591DAC4AA400FA274C;
+					};
+					D4519F781DAC4AA400FA274C = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D4519F591DAC4AA400FA274C;
+					};
+				};
+			};
+			buildConfigurationList = D4519F551DAC4AA400FA274C /* Build configuration list for PBXProject "Project Dragonfly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4519F511DAC4AA400FA274C;
+			productRefGroup = D4519F5B1DAC4AA400FA274C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4519F591DAC4AA400FA274C /* Project Dragonfly */,
+				D4519F6D1DAC4AA400FA274C /* Project DragonflyTests */,
+				D4519F781DAC4AA400FA274C /* Project DragonflyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4519F581DAC4AA400FA274C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4519F681DAC4AA400FA274C /* LaunchScreen.storyboard in Resources */,
+				D4519F651DAC4AA400FA274C /* Assets.xcassets in Resources */,
+				D4519F631DAC4AA400FA274C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4519F6C1DAC4AA400FA274C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4519F771DAC4AA400FA274C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4519F561DAC4AA400FA274C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4519F601DAC4AA400FA274C /* ViewController.swift in Sources */,
+				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4519F6A1DAC4AA400FA274C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4519F731DAC4AA400FA274C /* Project_DragonflyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4519F751DAC4AA400FA274C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4519F7E1DAC4AA400FA274C /* Project_DragonflyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4519F701DAC4AA400FA274C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4519F591DAC4AA400FA274C /* Project Dragonfly */;
+			targetProxy = D4519F6F1DAC4AA400FA274C /* PBXContainerItemProxy */;
+		};
+		D4519F7B1DAC4AA400FA274C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4519F591DAC4AA400FA274C /* Project Dragonfly */;
+			targetProxy = D4519F7A1DAC4AA400FA274C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4519F611DAC4AA400FA274C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4519F621DAC4AA400FA274C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4519F671DAC4AA400FA274C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4519F801DAC4AA400FA274C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4519F811DAC4AA400FA274C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4519F831DAC4AA400FA274C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Project Dragonfly/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-Dragonfly";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D4519F841DAC4AA400FA274C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Project Dragonfly/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-Dragonfly";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D4519F861DAC4AA400FA274C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Project DragonflyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-DragonflyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Project Dragonfly.app/Project Dragonfly";
+			};
+			name = Debug;
+		};
+		D4519F871DAC4AA400FA274C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Project DragonflyTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-DragonflyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Project Dragonfly.app/Project Dragonfly";
+			};
+			name = Release;
+		};
+		D4519F891DAC4AA400FA274C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Project DragonflyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-DragonflyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Project Dragonfly";
+			};
+			name = Debug;
+		};
+		D4519F8A1DAC4AA400FA274C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Project DragonflyUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-DragonflyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Project Dragonfly";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4519F551DAC4AA400FA274C /* Build configuration list for PBXProject "Project Dragonfly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4519F801DAC4AA400FA274C /* Debug */,
+				D4519F811DAC4AA400FA274C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4519F821DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project Dragonfly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4519F831DAC4AA400FA274C /* Debug */,
+				D4519F841DAC4AA400FA274C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D4519F851DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project DragonflyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4519F861DAC4AA400FA274C /* Debug */,
+				D4519F871DAC4AA400FA274C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D4519F881DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project DragonflyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4519F891DAC4AA400FA274C /* Debug */,
+				D4519F8A1DAC4AA400FA274C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4519F521DAC4AA400FA274C /* Project object */;
+}
