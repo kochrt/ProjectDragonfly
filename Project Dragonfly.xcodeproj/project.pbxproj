@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40A7DD21DB58EC100D78778 /* NewExperimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40A7DD11DB58EC100D78778 /* NewExperimentViewController.swift */; };
+		D40A7DD41DB5922B00D78778 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40A7DD31DB5922B00D78778 /* Models.swift */; };
 		D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */; };
 		D4519F631DAC4AA400FA274C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F611DAC4AA400FA274C /* Main.storyboard */; };
 		D4519F651DAC4AA400FA274C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4519F641DAC4AA400FA274C /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D40A7DD11DB58EC100D78778 /* NewExperimentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExperimentViewController.swift; sourceTree = "<group>"; };
+		D40A7DD31DB5922B00D78778 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Dragonfly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4519F621DAC4AA400FA274C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,8 +108,10 @@
 				D4519F8D1DAC4F7300FA274C /* ExperimentTableViewCell.swift */,
 				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
 				D4519F611DAC4AA400FA274C /* Main.storyboard */,
+				D40A7DD11DB58EC100D78778 /* NewExperimentViewController.swift */,
 				D4519F8F1DAC57AE00FA274C /* ExperimentDetailViewController.swift */,
 				D4519F8B1DAC4BB900FA274C /* ExperimentsTableViewController.swift */,
+				D40A7DD31DB5922B00D78778 /* Models.swift */,
 				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
 				D4519F691DAC4AA400FA274C /* Info.plist */,
@@ -263,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4519F8C1DAC4BB900FA274C /* ExperimentsTableViewController.swift in Sources */,
+				D40A7DD21DB58EC100D78778 /* NewExperimentViewController.swift in Sources */,
 				D4519F8E1DAC4F7300FA274C /* ExperimentTableViewCell.swift in Sources */,
+				D40A7DD41DB5922B00D78778 /* Models.swift in Sources */,
 				D4519F901DAC57AE00FA274C /* ExperimentDetailViewController.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 			);
@@ -490,6 +498,7 @@
 				D4519F841DAC4AA400FA274C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4519F851DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project DragonflyTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +507,7 @@
 				D4519F871DAC4AA400FA274C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4519F881DAC4AA400FA274C /* Build configuration list for PBXNativeTarget "Project DragonflyUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +516,7 @@
 				D4519F8A1DAC4AA400FA274C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

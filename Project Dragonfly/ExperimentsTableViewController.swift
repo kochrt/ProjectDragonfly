@@ -94,24 +94,14 @@ class ExperimentsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! ExperimentDetailViewController
-        vc.experiment = (sender as! ExperimentTableViewCell).experiment
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let id = segue.identifier {
+            switch id {
+            case "experimentDetail":
+                let vc = segue.destinationViewController as! ExperimentDetailViewController
+                vc.experiment = (sender as! ExperimentTableViewCell).experiment
+            default: break
+            }
+        }
     }
- 
-
 }
 
-class Experiment {
-    var title: String?
-    var date: String?
-    var description: String?
-    
-    init(title: String, date: String, desc: String) {
-        self.title = title
-        self.date = date
-        self.description = desc
-    }
-    
-}

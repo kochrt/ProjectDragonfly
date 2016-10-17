@@ -7,6 +7,70 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--New Experiment-->
+        <scene sceneID="5Ob-4M-P92">
+            <objects>
+                <viewController id="S68-ip-HkH" customClass="NewExperimentViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kXk-bQ-bEx"/>
+                        <viewControllerLayoutGuide type="bottom" id="f5C-EM-RRQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zgs-Jh-5yU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Experiment Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-o4-k5h">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your question?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-gt-4sJ">
+                                <rect key="frame" x="16" y="110" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjj-0R-hIb">
+                                <rect key="frame" x="27.5" y="225.5" width="320" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What tool do you need to start?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC0-AG-RcE">
+                                <rect key="frame" x="67" y="196.5" width="241" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jjj-0R-hIb" firstAttribute="top" secondItem="kC0-AG-RcE" secondAttribute="bottom" constant="8" id="27F-i7-57O"/>
+                            <constraint firstItem="bLd-gt-4sJ" firstAttribute="trailing" secondItem="fkL-o4-k5h" secondAttribute="trailing" id="3Wl-ht-PLy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fkL-o4-k5h" secondAttribute="trailing" id="3cw-jv-Jtt"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fkL-o4-k5h" secondAttribute="leading" id="3xz-uX-pK4"/>
+                            <constraint firstItem="fkL-o4-k5h" firstAttribute="top" secondItem="kXk-bQ-bEx" secondAttribute="bottom" constant="8" id="L6A-IG-9YQ"/>
+                            <constraint firstItem="bLd-gt-4sJ" firstAttribute="top" secondItem="fkL-o4-k5h" secondAttribute="bottom" constant="8" id="UYV-N7-Zwz"/>
+                            <constraint firstItem="Jjj-0R-hIb" firstAttribute="centerX" secondItem="zgs-Jh-5yU" secondAttribute="centerX" id="bge-Vn-5Dh"/>
+                            <constraint firstItem="kC0-AG-RcE" firstAttribute="centerX" secondItem="zgs-Jh-5yU" secondAttribute="centerX" id="d2o-pR-Sv9"/>
+                            <constraint firstItem="bLd-gt-4sJ" firstAttribute="leading" secondItem="fkL-o4-k5h" secondAttribute="leading" id="ht3-c7-aqs"/>
+                            <constraint firstItem="Jjj-0R-hIb" firstAttribute="centerY" secondItem="zgs-Jh-5yU" secondAttribute="centerY" id="nmE-Tu-H44"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Experiment" id="UnF-GY-sNg">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xFV-Me-htt">
+                            <connections>
+                                <action selector="cancel:" destination="S68-ip-HkH" id="Keb-HG-VS6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="DC8-gC-lX3">
+                            <connections>
+                                <segue destination="NsA-k9-POA" kind="show" identifier="showNewExperiment" id="rwe-5W-je5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K6s-Ag-XyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2184.5" y="-354.5"/>
+        </scene>
         <!--Experiments-->
         <scene sceneID="DFk-SI-PxN">
             <objects>
@@ -46,7 +110,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="SsQ-UO-jGw" id="qVg-dz-jx9"/>
                                     <outlet property="nameLabel" destination="5Xq-nd-Vtc" id="423-JF-hdf"/>
-                                    <segue destination="NsA-k9-POA" kind="show" id="D1G-j6-s8h"/>
+                                    <segue destination="NsA-k9-POA" kind="show" identifier="experimentDetail" id="D1G-j6-s8h"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -56,13 +120,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Experiments" id="THl-RN-O0T">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p">
+                            <connections>
+                                <segue destination="Rdv-ke-9R3" kind="presentation" identifier="newExperiment" id="uFz-wS-qD0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pti-aB-Lhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148.5" y="382.5"/>
+            <point key="canvasLocation" x="1726.5" y="382.5"/>
         </scene>
         <!--Experiment Detail View Controller-->
         <scene sceneID="gjJ-Uz-zZ5">
@@ -173,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yO-9Q-3N0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2688" y="359"/>
+            <point key="canvasLocation" x="2661.5" y="382.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DXX-yJ-Pe4">
@@ -192,7 +260,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKK-Gb-fZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700.5" y="382.5"/>
+            <point key="canvasLocation" x="1278.5" y="382.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hUE-XX-C8d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rdv-ke-9R3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qFJ-Em-uMo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S68-ip-HkH" kind="relationship" relationship="rootViewController" id="Cnj-lZ-hxU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-sE-62D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1726.5" y="-354.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="D1G-j6-s8h"/>
+    </inferredMetricsTieBreakers>
 </document>
