@@ -66,6 +66,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="experimentTitleTextField" destination="fkL-o4-k5h" id="ng6-rb-NND"/>
+                        <outlet property="questionTextField" destination="bLd-gt-4sJ" id="KE7-z6-Du2"/>
+                        <outlet property="toolPickerView" destination="Jjj-0R-hIb" id="I1B-cN-XCa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6s-Ag-XyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -282,6 +287,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="D1G-j6-s8h"/>
+        <segue reference="rwe-5W-je5"/>
     </inferredMetricsTieBreakers>
 </document>

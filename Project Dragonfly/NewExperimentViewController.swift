@@ -8,17 +8,50 @@
 
 import UIKit
 
-class NewExperimentViewController: UIViewController {
+class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet weak var experimentTitleTextField: UITextField!
+    @IBOutlet weak var questionTextField: UITextField!
+    @IBOutlet weak var toolPickerView: UIPickerView!
+    
+    var experiment: Experiment?
+    
+    let tools = [
+        "Comparative Timer",
+        "Counter",
+        "Interval Counter",
+        "Stopwatch",
+        ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        experiment = Experiment(title: "", date: "", desc: "")
+        
+        setUpToolPicker()
     }
 
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func setUpToolPicker() {
+        toolPickerView.delegate = self
+        toolPickerView.dataSource = self
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return tools.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return tools[row]
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
     /*
     // MARK: - Navigation
 
