@@ -9,13 +9,22 @@
 import Foundation
 
 class Experiment {
-    var title: String?
-    var date: String?
-    var description: String?
+    var experimentName: String?
+    var question: String?
+    var date: NSDate
     
-    init(title: String, date: String, desc: String) {
-        self.title = title
+    var tools: [String]
+    
+    init(experimentName: String, question: String, date: NSDate) {
+        self.experimentName = experimentName
+        self.question = question
         self.date = date
-        self.description = desc
+        self.tools = [String]()
+    }
+    
+    var description: String {
+        get {
+            return "\(experimentName): \(question)"
+        }
     }
 }

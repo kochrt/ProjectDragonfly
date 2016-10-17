@@ -67,6 +67,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="doneButton" destination="DC8-gC-lX3" id="Ln0-Ko-48E"/>
                         <outlet property="experimentTitleTextField" destination="fkL-o4-k5h" id="ng6-rb-NND"/>
                         <outlet property="questionTextField" destination="bLd-gt-4sJ" id="KE7-z6-Du2"/>
                         <outlet property="toolPickerView" destination="Jjj-0R-hIb" id="I1B-cN-XCa"/>

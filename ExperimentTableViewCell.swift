@@ -12,8 +12,8 @@ class ExperimentTableViewCell: UITableViewCell {
 
     var experiment: Experiment? {
         didSet {
-            nameLabel.text = experiment?.title
-            dateLabel.text = experiment?.date
+            nameLabel.text = experiment?.experimentName
+            dateLabel.text = experiment?.date.description
         }
     }
     

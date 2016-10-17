@@ -14,6 +14,8 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var toolPickerView: UIPickerView!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     var experiment: Experiment?
     
     let tools = [
@@ -26,15 +28,19 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        experiment = Experiment(title: "", date: "", desc: "")
+        experiment = Experiment(experimentName: "", question: "", date: NSDate())
         
         setUpToolPicker()
+        setUpTextFields()
+        
+        doneButton.enabled = false
     }
 
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: Picker View
     func setUpToolPicker() {
         toolPickerView.delegate = self
         toolPickerView.dataSource = self
@@ -52,6 +58,36 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         return 1
     }
     
+    // MARK: TextField Stuff
+    func setUpTextFields() {
+        experimentTitleTextField.delegate = self
+        questionTextField.delegate = self
+    
+        experimentTitleTextField.tag = 0
+        questionTextField.tag = 1
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField.tag {
+        // Experiment
+        case 0:
+            experiment?.experimentName = textField.text
+            checkExperiment()
+        // Question
+        case 1:
+            experiment?.question = textField.text
+            checkExperiment()
+        default: break
+        }
+        return true
+    }
+    
+    func checkExperiment() {
+        print(experiment!.description)
+        doneButton.enabled = experiment?.experimentName?.characters.count > 0 &&
+            experiment?.question!.characters.count > 0
+    }
     /*
     // MARK: - Navigation
 

@@ -12,7 +12,7 @@ class ExperimentDetailViewController: UIViewController {
 
     var experiment: Experiment? {
         didSet {
-            navigationItem.title = experiment?.title
+            navigationItem.title = experiment?.experimentName
         }
     }
     
@@ -29,8 +29,8 @@ class ExperimentDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateLabel.text = experiment?.date
-        descirptionLabel.text = experiment?.description
+        dateLabel.text = experiment?.date.description
+        descirptionLabel.text = experiment?.question
         
     }
     

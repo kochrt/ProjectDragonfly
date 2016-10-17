@@ -14,10 +14,10 @@ class ExperimentsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        experiments.append(Experiment(title: "Squirrels", date: "Yesterday", desc: "I am counting squirrels"))
-        experiments.append(Experiment(title: "Eagles", date: "Today", desc: "I am counting eagles"))
-        experiments.append(Experiment(title: "Birds out back", date: "One week ago", desc: "Why are there dead birds"))
+        
+        experiments.append(Experiment(experimentName: "Comparing red leaves to green leaves", question: "Are there more green leaves outside?", date: NSDate()))
+        experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: NSDate()))
+        experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: NSDate()))
         tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
