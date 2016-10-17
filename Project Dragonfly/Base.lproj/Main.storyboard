@@ -55,7 +55,9 @@
                             <outlet property="delegate" destination="MXp-QZ-b3U" id="3jB-F2-9EQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Experiments" id="THl-RN-O0T"/>
+                    <navigationItem key="navigationItem" title="Experiments" id="THl-RN-O0T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pti-aB-Lhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
