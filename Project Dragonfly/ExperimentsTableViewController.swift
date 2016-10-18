@@ -10,14 +10,14 @@ import UIKit
 
 class ExperimentsTableViewController: UITableViewController {
 
-    var experiments = [Experiment]()
+    var index: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        experiments.append(Experiment(experimentName: "Comparing red leaves to green leaves", question: "Are there more green leaves outside?", date: NSDate()))
-        experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: NSDate()))
-        experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: NSDate()))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Comparing red leaves to green leaves", question: "Are there more green leaves outside?", date: NSDate()))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: NSDate()))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: NSDate()))
         tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -26,12 +26,20 @@ class ExperimentsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if index != -1 {
+            performSegueWithIdentifier("experimentDetail", sender: tableView.cellForRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0)))
+        }
+        index = -1
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,14 +49,14 @@ class ExperimentsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return experiments.count
+        return Experiments.instance.experiments.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("experiment", forIndexPath: indexPath) as! ExperimentTableViewCell
 
-        cell.experiment = experiments[indexPath.row]
+        cell.experiment = Experiments.instance.experiments[indexPath.row]
 
         return cell
     }

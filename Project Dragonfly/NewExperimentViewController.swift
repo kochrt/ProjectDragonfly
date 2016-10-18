@@ -25,6 +25,17 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         "Stopwatch",
         ]
     
+   
+    @IBAction func experimentName(sender: UITextField) {
+        experiment?.experimentName = sender.text
+        checkExperiment()
+    }
+    
+    @IBAction func questionText(sender: UITextField) {
+        experiment?.question = sender.text
+        checkExperiment()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +48,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     }
 
     @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func done(sender: UIBarButtonItem) {
+        if checkExperiment() {
+            Experiments.instance.experiments.append(self.experiment!)
+        }
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -68,34 +85,19 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        
-        switch textField.tag {
-        // Experiment
-        case 0:
-            experiment?.experimentName = textField.text
-            checkExperiment()
-        // Question
-        case 1:
-            experiment?.question = textField.text
-            checkExperiment()
-        default: break
-        }
-        return true
+        return textField.text?.characters.count < 120
     }
     
-    func checkExperiment() {
-        print(experiment!.description)
+    func checkExperiment() -> Bool {
         doneButton.enabled = experiment?.experimentName?.characters.count > 0 &&
             experiment?.question!.characters.count > 0
+        return doneButton.enabled
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
-
 }

@@ -28,3 +28,13 @@ class Experiment {
         }
     }
 }
+
+class Experiments {
+    static let instance = Experiments()
+    
+    var experiments: [Experiment]
+    
+    init() {
+        experiments = [Experiment]()
+    }
+}

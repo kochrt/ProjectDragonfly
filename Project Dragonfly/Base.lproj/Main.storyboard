@@ -23,11 +23,17 @@
                                 <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="experimentName:" destination="S68-ip-HkH" eventType="editingChanged" id="wfz-Td-lIR"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your question?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-gt-4sJ">
                                 <rect key="frame" x="16" y="110" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="questionText:" destination="S68-ip-HkH" eventType="editingChanged" id="Qje-hf-zwp"/>
+                                </connections>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjj-0R-hIb">
                                 <rect key="frame" x="27.5" y="225.5" width="320" height="216"/>
@@ -61,7 +67,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="DC8-gC-lX3">
                             <connections>
-                                <segue destination="NsA-k9-POA" kind="show" identifier="showNewExperiment" id="rwe-5W-je5"/>
+                                <action selector="done:" destination="S68-ip-HkH" id="TWh-hB-9GP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -287,7 +293,4 @@
             <point key="canvasLocation" x="1726.5" y="-354.5"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="rwe-5W-je5"/>
-    </inferredMetricsTieBreakers>
 </document>
