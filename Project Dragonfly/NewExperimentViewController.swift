@@ -95,9 +95,9 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addExperiment" {
-            Experiments.instance.experiments.append(self.experiment!)
+            Experiments.instance.experiments.insert(self.experiment!, atIndex: 0)
             let vc = segue.destinationViewController as! ExperimentsTableViewController
-            vc.index = Experiments.instance.experiments.count - 1
+            vc.index = 0
         }
     }
 }

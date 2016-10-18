@@ -13,7 +13,7 @@ class ExperimentTableViewCell: UITableViewCell {
     var experiment: Experiment? {
         didSet {
             nameLabel.text = experiment?.experimentName
-            dateLabel.text = "Last updated: \(experiment?.dateString)"
+            dateLabel.text = "Last updated: \(experiment!.dateString)"
         }
     }
     
