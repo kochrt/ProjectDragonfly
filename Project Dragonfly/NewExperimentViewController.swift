@@ -50,12 +50,8 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     @IBAction func cancel(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func done(sender: UIBarButtonItem) {
-        if checkExperiment() {
-            Experiments.instance.experiments.append(self.experiment!)
-        }
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+    
+    
     
     // MARK: Picker View
     func setUpToolPicker() {
@@ -98,6 +94,10 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if segue.identifier == "addExperiment" {
+            Experiments.instance.experiments.append(self.experiment!)
+            let vc = segue.destinationViewController as! ExperimentsTableViewController
+            vc.index = Experiments.instance.experiments.count - 1
+        }
     }
 }

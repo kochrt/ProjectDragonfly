@@ -16,8 +16,8 @@ class ExperimentsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         Experiments.instance.experiments.append(Experiment(experimentName: "Comparing red leaves to green leaves", question: "Are there more green leaves outside?", date: NSDate()))
-        Experiments.instance.experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: NSDate()))
-        Experiments.instance.experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: NSDate()))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: NSDate(timeInterval: -86000.0, sinceDate: NSDate())))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: NSDate(timeInterval: -604800.0, sinceDate: NSDate())))
         tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -61,6 +61,9 @@ class ExperimentsTableViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

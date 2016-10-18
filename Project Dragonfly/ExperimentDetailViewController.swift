@@ -29,7 +29,7 @@ class ExperimentDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateLabel.text = experiment?.date.description
+        dateLabel.text = experiment?.dateString
         descirptionLabel.text = experiment?.question
         
     }

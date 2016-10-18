@@ -67,7 +67,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="DC8-gC-lX3">
                             <connections>
-                                <action selector="done:" destination="S68-ip-HkH" id="TWh-hB-9GP"/>
+                                <segue destination="LaI-Fy-EoO" kind="unwind" identifier="addExperiment" unwindAction="unwind:" id="Ojl-wj-eIS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,6 +80,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6s-Ag-XyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LaI-Fy-EoO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2184.5" y="-354.5"/>
         </scene>
@@ -96,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WM6-j7-hwJ" id="sU3-6d-Xhf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experiment name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xq-nd-Vtc">

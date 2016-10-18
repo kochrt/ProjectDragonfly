@@ -13,7 +13,7 @@ class ExperimentTableViewCell: UITableViewCell {
     var experiment: Experiment? {
         didSet {
             nameLabel.text = experiment?.experimentName
-            dateLabel.text = experiment?.date.description
+            dateLabel.text = experiment?.dateString
         }
     }
     
