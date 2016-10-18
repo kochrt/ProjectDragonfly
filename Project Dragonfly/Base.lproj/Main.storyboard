@@ -93,32 +93,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="experiment" rowHeight="65" id="WM6-j7-hwJ" customClass="ExperimentTableViewCell" customModule="Project_Dragonfly" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="65"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="experiment" rowHeight="64" id="WM6-j7-hwJ" customClass="ExperimentTableViewCell" customModule="Project_Dragonfly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WM6-j7-hwJ" id="sU3-6d-Xhf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="WM6-j7-hwJ" id="sU3-6d-Xhf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experiment name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xq-nd-Vtc">
-                                            <rect key="frame" x="8" y="0.0" width="134" height="21"/>
+                                            <rect key="frame" x="15" y="11.5" width="134" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsQ-UO-jGw">
-                                            <rect key="frame" x="8" y="29" width="200" height="21"/>
+                                            <rect key="frame" x="15" y="32.5" width="200" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="SsQ-UO-jGw" firstAttribute="top" secondItem="sU3-6d-Xhf" secondAttribute="centerY" id="5X7-Sm-8Ik"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="5Xq-nd-Vtc" secondAttribute="leading" id="UKT-FC-6rN"/>
                                         <constraint firstItem="SsQ-UO-jGw" firstAttribute="top" secondItem="5Xq-nd-Vtc" secondAttribute="bottom" constant="8" id="car-cw-D8R"/>
                                         <constraint firstItem="5Xq-nd-Vtc" firstAttribute="top" secondItem="sU3-6d-Xhf" secondAttribute="topMargin" constant="-8" id="duE-d4-cn3"/>
+                                        <constraint firstItem="5Xq-nd-Vtc" firstAttribute="bottom" secondItem="sU3-6d-Xhf" secondAttribute="centerY" id="md9-Ga-mJE"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="SsQ-UO-jGw" secondAttribute="leading" id="pTQ-Ht-YBC"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="duE-d4-cn3"/>
+                                            <exclude reference="car-cw-D8R"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="SsQ-UO-jGw" id="qVg-dz-jx9"/>
