@@ -11,27 +11,27 @@ import Foundation
 class Experiment {
     var experimentName: String?
     var question: String?
-    var date: NSDate
+    var date: Date
     
     var dateString: String {
         get {
             let format: String
-            let now = NSDate().timeIntervalSince1970 * 1000
+            let now = Date().timeIntervalSince1970 * 1000
             switch now - date.timeIntervalSince1970 * 1000 {
             case 0 ..< 72000000: format = "h:mm a"
             case 72000000 ..< 432000000: format = "EEEE"
             case 432000000 ..< 12000000000: format = "M/d"
             default: format = "MMM 'yy"
             }
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = format
-            return formatter.stringFromDate(date)
+            return formatter.string(from: date)
         }
     }
     
     var tools: [String]
     
-    init(experimentName: String, question: String, date: NSDate) {
+    init(experimentName: String, question: String, date: Date) {
         self.experimentName = experimentName
         self.question = question
         self.date = date

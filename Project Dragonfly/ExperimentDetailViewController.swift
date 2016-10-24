@@ -34,11 +34,11 @@ class ExperimentDetailViewController: UIViewController {
         
     }
     
-    @IBAction func add(sender: UIButton) {
+    @IBAction func add(_ sender: UIButton) {
         count += 1
     }
     
-    @IBAction func subtract(sender: AnyObject) {
+    @IBAction func subtract(_ sender: AnyObject) {
         count -= 1
     }
     

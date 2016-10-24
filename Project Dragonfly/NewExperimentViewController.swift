@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -26,12 +46,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         ]
     
    
-    @IBAction func experimentName(sender: UITextField) {
+    @IBAction func experimentName(_ sender: UITextField) {
         experiment?.experimentName = sender.text
         checkExperiment()
     }
     
-    @IBAction func questionText(sender: UITextField) {
+    @IBAction func questionText(_ sender: UITextField) {
         experiment?.question = sender.text
         checkExperiment()
     }
@@ -39,16 +59,16 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        experiment = Experiment(experimentName: "", question: "", date: NSDate())
+        experiment = Experiment(experimentName: "", question: "", date: Date())
         
         setUpToolPicker()
         setUpTextFields()
         
-        doneButton.enabled = false
+        doneButton.isEnabled = false
     }
 
-    @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -59,15 +79,15 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         toolPickerView.dataSource = self
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return tools.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return tools[row]
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
@@ -80,23 +100,23 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         questionTextField.tag = 1
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return textField.text?.characters.count < 120
     }
     
     func checkExperiment() -> Bool {
-        doneButton.enabled = experiment?.experimentName?.characters.count > 0 &&
+        doneButton.isEnabled = experiment?.experimentName?.characters.count > 0 &&
             experiment?.question!.characters.count > 0
-        return doneButton.enabled
+        return doneButton.isEnabled
     }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addExperiment" {
-            Experiments.instance.experiments.insert(self.experiment!, atIndex: 0)
-            let vc = segue.destinationViewController as! ExperimentsTableViewController
+            Experiments.instance.experiments.insert(self.experiment!, at: 0)
+            let vc = segue.destination as! ExperimentsTableViewController
             vc.index = 0
         }
     }

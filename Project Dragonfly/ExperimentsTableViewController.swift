@@ -15,9 +15,9 @@ class ExperimentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Experiments.instance.experiments.append(Experiment(experimentName: "Comparing red leaves to green leaves", question: "Are there more green leaves outside?", date: NSDate()))
-        Experiments.instance.experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: NSDate(timeInterval: -86000.0, sinceDate: NSDate())))
-        Experiments.instance.experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: NSDate(timeInterval: -604800.0, sinceDate: NSDate())))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Comparing red leaves to green leaves", question: "Are there more green leaves outside?", date: Date()))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: Date(timeInterval: -86000.0, since: Date())))
+        Experiments.instance.experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: Date(timeInterval: -604800.0, since: Date())))
         tableView.reloadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -27,41 +27,41 @@ class ExperimentsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if index != -1 {
-            performSegueWithIdentifier("experimentDetail", sender: tableView.cellForRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0)))
+            performSegue(withIdentifier: "experimentDetail", sender: tableView.cellForRow(at: IndexPath(item: index, section: 0)))
         }
         index = -1
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return Experiments.instance.experiments.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("experiment", forIndexPath: indexPath) as! ExperimentTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "experiment", for: indexPath) as! ExperimentTableViewCell
 
-        cell.experiment = Experiments.instance.experiments[indexPath.row]
+        cell.experiment = Experiments.instance.experiments[(indexPath as NSIndexPath).row]
 
         return cell
     }
     
-    @IBAction func unwind(segue: UIStoryboardSegue) {
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
         
     }
 
@@ -104,11 +104,11 @@ class ExperimentsTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
             case "experimentDetail":
-                let vc = segue.destinationViewController as! ExperimentDetailViewController
+                let vc = segue.destination as! ExperimentDetailViewController
                 vc.experiment = (sender as! ExperimentTableViewCell).experiment
             default: break
             }
