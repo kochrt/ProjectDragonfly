@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5FBA3B7067D6B9D4A89B134 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBA687C9D9409460ED505F /* Category.swift */; };
+		A5FBABD9518CCDAB8C26556C /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBA6347A30400181EC0F05 /* Investigation.swift */; };
+		A5FBAF2FDC9C37EFFDFDC3A8 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBAF7698A511F1B4E63C45 /* Component.swift */; };
 		D40A7DD21DB58EC100D78778 /* NewExperimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40A7DD11DB58EC100D78778 /* NewExperimentViewController.swift */; };
 		D40A7DD41DB5922B00D78778 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40A7DD31DB5922B00D78778 /* Models.swift */; };
 		D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5FBA6347A30400181EC0F05 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
+		A5FBA687C9D9409460ED505F /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A5FBAF7698A511F1B4E63C45 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		D40A7DD11DB58EC100D78778 /* NewExperimentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExperimentViewController.swift; sourceTree = "<group>"; };
 		D40A7DD31DB5922B00D78778 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Dragonfly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5FBA286544407DE657CF861 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5FBAF7698A511F1B4E63C45 /* Component.swift */,
+				A5FBA6347A30400181EC0F05 /* Investigation.swift */,
+				A5FBA687C9D9409460ED505F /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D4519F511DAC4AA400FA274C = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
 				D4519F691DAC4AA400FA274C /* Info.plist */,
+				A5FBA286544407DE657CF861 /* Models */,
 			);
 			path = "Project Dragonfly";
 			sourceTree = "<group>";
@@ -277,6 +294,9 @@
 				D40A7DD41DB5922B00D78778 /* Models.swift in Sources */,
 				D4519F901DAC57AE00FA274C /* ExperimentDetailViewController.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
+				A5FBAF2FDC9C37EFFDFDC3A8 /* Component.swift in Sources */,
+				A5FBABD9518CCDAB8C26556C /* Investigation.swift in Sources */,
+				A5FBA3B7067D6B9D4A89B134 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
