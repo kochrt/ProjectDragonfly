@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sqX-l6-g8U">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sqX-l6-g8U">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--New Experiment-->
+        <!--New Investigation-->
         <scene sceneID="5Ob-4M-P92">
             <objects>
                 <viewController id="S68-ip-HkH" customClass="NewExperimentViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Experiment Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-o4-k5h">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Investigation Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-o4-k5h">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -40,6 +40,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hv-GQ-Ofo">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44d-3y-I0P">
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="button.layer.border">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonTap:" destination="S68-ip-HkH" eventType="touchUpInside" id="1lk-sr-Oxu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -47,15 +63,19 @@
                             <constraint firstItem="bLd-gt-4sJ" firstAttribute="trailing" secondItem="fkL-o4-k5h" secondAttribute="trailing" id="3Wl-ht-PLy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fkL-o4-k5h" secondAttribute="trailing" id="3cw-jv-Jtt"/>
                             <constraint firstAttribute="leadingMargin" secondItem="fkL-o4-k5h" secondAttribute="leading" id="3xz-uX-pK4"/>
+                            <constraint firstItem="9hv-GQ-Ofo" firstAttribute="leading" secondItem="zgs-Jh-5yU" secondAttribute="leadingMargin" constant="97" id="7Sv-Gt-DGs"/>
+                            <constraint firstItem="44d-3y-I0P" firstAttribute="leading" secondItem="zgs-Jh-5yU" secondAttribute="leadingMargin" constant="148" id="9On-qV-Xh3"/>
                             <constraint firstItem="fkL-o4-k5h" firstAttribute="top" secondItem="kXk-bQ-bEx" secondAttribute="bottom" constant="8" id="L6A-IG-9YQ"/>
                             <constraint firstItem="bLd-gt-4sJ" firstAttribute="top" secondItem="fkL-o4-k5h" secondAttribute="bottom" constant="8" id="UYV-N7-Zwz"/>
+                            <constraint firstItem="9hv-GQ-Ofo" firstAttribute="top" secondItem="Jjj-0R-hIb" secondAttribute="bottom" constant="7.5" id="ZTY-ya-Mht"/>
                             <constraint firstItem="Jjj-0R-hIb" firstAttribute="centerX" secondItem="zgs-Jh-5yU" secondAttribute="centerX" id="bge-Vn-5Dh"/>
                             <constraint firstItem="kC0-AG-RcE" firstAttribute="centerX" secondItem="zgs-Jh-5yU" secondAttribute="centerX" id="d2o-pR-Sv9"/>
                             <constraint firstItem="bLd-gt-4sJ" firstAttribute="leading" secondItem="fkL-o4-k5h" secondAttribute="leading" id="ht3-c7-aqs"/>
                             <constraint firstItem="Jjj-0R-hIb" firstAttribute="centerY" secondItem="zgs-Jh-5yU" secondAttribute="centerY" id="nmE-Tu-H44"/>
+                            <constraint firstItem="44d-3y-I0P" firstAttribute="top" secondItem="9hv-GQ-Ofo" secondAttribute="bottom" constant="16" id="tXC-Gj-CVK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Experiment" id="UnF-GY-sNg">
+                    <navigationItem key="navigationItem" title="New Investigation" id="UnF-GY-sNg">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xFV-Me-htt">
                             <connections>
                                 <action selector="cancel:" destination="S68-ip-HkH" id="Keb-HG-VS6"/>
@@ -68,6 +88,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="categoryButton" destination="44d-3y-I0P" id="tCG-Ut-n5E"/>
                         <outlet property="doneButton" destination="DC8-gC-lX3" id="Ln0-Ko-48E"/>
                         <outlet property="experimentTitleTextField" destination="fkL-o4-k5h" id="ng6-rb-NND"/>
                         <outlet property="questionTextField" destination="bLd-gt-4sJ" id="KE7-z6-Du2"/>
@@ -77,7 +98,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6s-Ag-XyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LaI-Fy-EoO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2184.5" y="-354.5"/>
+            <point key="canvasLocation" x="2183.1999999999998" y="-354.87256371814095"/>
         </scene>
         <!--Experiments-->
         <scene sceneID="DFk-SI-PxN">
@@ -92,7 +113,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="WM6-j7-hwJ" id="sU3-6d-Xhf">
-                                    <frame key="frameInset" width="375" height="63.5"/>
+                                    <frame key="frameInset" width="375" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experiment name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xq-nd-Vtc">
@@ -230,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HX1-lx-fQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184.5" y="382.5"/>
+            <point key="canvasLocation" x="2354" y="382"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OQJ-0H-TbH">
@@ -248,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yO-9Q-3N0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2661.5" y="382.5"/>
+            <point key="canvasLocation" x="3009" y="376"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DXX-yJ-Pe4">
@@ -266,7 +287,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKK-Gb-fZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1278.5" y="382.5"/>
+            <point key="canvasLocation" x="1025" y="376"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hUE-XX-C8d">
@@ -284,7 +305,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-sE-62D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726.5" y="-354.5"/>
+            <point key="canvasLocation" x="1500" y="-355"/>
         </scene>
     </scenes>
 </document>
