@@ -47,6 +47,8 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         "Aquatic",
         ]
     
+    let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
+    
     var experiment: Experiment?
     
     let tools = [
@@ -81,6 +83,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         setUpTextFields()
         
         setupDropDown()
+        setupNewCategoryAlert()
         
         doneButton.isEnabled = false
     }
@@ -110,11 +113,32 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
             self.categoryButton.setTitle(item, for: .normal)
             if(item == temp[0]){
                 print("yay!")
+                self.present(self.alert, animated: true, completion: nil)
             }
         }
         dropdown.selectRow(at: 1)
         self.categoryButton.setTitle(temp[1], for: .normal)
     }
+    
+    // MARK: New Category Alert
+    
+    func setupNewCategoryAlert() {
+        alert.addTextField { (textField) in
+            textField.text = "Category name"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField.text)")
+            var temp = [""]
+            temp[0] = textField.text!
+            self.dropdown.dataSource += temp
+            let index = self.dropdown.dataSource.count - 1
+            self.dropdown.selectRow(at: index)
+            self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
+            
+
+        }))
+            }
     
     
     // MARK: Picker View
