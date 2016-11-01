@@ -124,7 +124,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     func setupNewCategoryAlert() {
         alert.addTextField { (textField) in
-            textField.text = "Category name"
+            textField.placeholder = "Category name"
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
