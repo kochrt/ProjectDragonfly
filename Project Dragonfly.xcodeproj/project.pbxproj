@@ -22,6 +22,9 @@
 		D4519F8C1DAC4BB900FA274C /* ExperimentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8B1DAC4BB900FA274C /* ExperimentsTableViewController.swift */; };
 		D4519F8E1DAC4F7300FA274C /* ExperimentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8D1DAC4F7300FA274C /* ExperimentTableViewCell.swift */; };
 		D4519F901DAC57AE00FA274C /* ExperimentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8F1DAC57AE00FA274C /* ExperimentDetailViewController.swift */; };
+		D492FEDE1DD149810052DBB0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDB1DD149810052DBB0 /* Category.swift */; };
+		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
+		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
 		E0675B42C92D817F23DADA0A /* Pods_Project_DragonflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BBE4D81DAE76F767A955C3 /* Pods_Project_DragonflyUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		D4519F8B1DAC4BB900FA274C /* ExperimentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentsTableViewController.swift; sourceTree = "<group>"; };
 		D4519F8D1DAC4F7300FA274C /* ExperimentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExperimentTableViewCell.swift; path = ../ExperimentTableViewCell.swift; sourceTree = "<group>"; };
 		D4519F8F1DAC57AE00FA274C /* ExperimentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperimentDetailViewController.swift; sourceTree = "<group>"; };
+		D492FEDB1DD149810052DBB0 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
+		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_DragonflyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +155,7 @@
 		D4519F5C1DAC4AA400FA274C /* Project Dragonfly */ = {
 			isa = PBXGroup;
 			children = (
+				D492FEDA1DD1496C0052DBB0 /* Models */,
 				D4519F8D1DAC4F7300FA274C /* ExperimentTableViewCell.swift */,
 				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
 				D4519F611DAC4AA400FA274C /* Main.storyboard */,
@@ -181,6 +188,17 @@
 				D4519F7F1DAC4AA400FA274C /* Info.plist */,
 			);
 			path = "Project DragonflyUITests";
+			sourceTree = "<group>";
+		};
+		D492FEDA1DD1496C0052DBB0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D492FEDB1DD149810052DBB0 /* Category.swift */,
+				D492FEDC1DD149810052DBB0 /* Investigation.swift */,
+				D492FEDD1DD149810052DBB0 /* Component.swift */,
+			);
+			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +273,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = cse.miamioh;
 				TargetAttributes = {
 					D4519F591DAC4AA400FA274C = {
@@ -468,7 +486,10 @@
 				D40A7DD21DB58EC100D78778 /* NewExperimentViewController.swift in Sources */,
 				D4519F8E1DAC4F7300FA274C /* ExperimentTableViewCell.swift in Sources */,
 				D40A7DD41DB5922B00D78778 /* Models.swift in Sources */,
+				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
+				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
 				D4519F901DAC57AE00FA274C /* ExperimentDetailViewController.swift in Sources */,
+				D492FEDE1DD149810052DBB0 /* Category.swift in Sources */,
 				D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 				D4254B481DC7FDD700979B57 /* InvestigationViewController.swift in Sources */,
@@ -540,8 +561,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -585,8 +608,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -605,6 +630,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -613,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB1D1D215A4B6B9DAE2F9C4F /* Pods-Project Dragonfly.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Project Dragonfly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -626,6 +653,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10321776282900C2050329BC /* Pods-Project Dragonfly.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Project Dragonfly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
