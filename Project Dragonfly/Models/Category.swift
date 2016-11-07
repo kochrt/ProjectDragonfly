@@ -4,3 +4,19 @@
 //
 
 import Foundation
+
+class Category {
+    var investigations: [Investigation]
+    
+    init() {
+        self.investigations = [Investigation]()
+    }
+    
+    func add(investigation: Investigation) {
+        self.investigations.append(investigation)
+    }
+    
+    func getSize() -> Int {
+        return investigations.count
+    }
+}
