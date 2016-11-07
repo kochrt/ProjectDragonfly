@@ -112,7 +112,6 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         dropdown.selectionAction = { [unowned self] (index, item) in
             self.categoryButton.setTitle(item, for: .normal)
             if(item == temp[0]){
-                print("yay!")
                 self.present(self.alert, animated: true, completion: nil)
             }
         }
@@ -126,9 +125,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         alert.addTextField { (textField) in
             textField.placeholder = "Category name"
         }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            self.dropdown.selectRow(at: 1)
+            self.categoryButton.setTitle(self.dropdown.dataSource[1], for: .normal)
+            }))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField.text)")
             var temp = [""]
             temp[0] = textField.text!
             self.dropdown.dataSource += temp
@@ -138,7 +140,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
             
 
         }))
-            }
+    }
     
     
     // MARK: Picker View
