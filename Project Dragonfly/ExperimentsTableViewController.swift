@@ -34,6 +34,8 @@ class ExperimentsTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // I forget why we did this
         if index != -1 {
             performSegue(withIdentifier: "experimentDetail", sender: tableView.cellForRow(at: IndexPath(item: index, section: 0)))
         }
@@ -108,7 +110,7 @@ class ExperimentsTableViewController: UITableViewController {
         if let id = segue.identifier {
             switch id {
             case "experimentDetail":
-                let vc = segue.destination as! ExperimentDetailViewController
+                let vc = segue.destination as! InvestigationViewController
                 vc.experiment = (sender as! ExperimentTableViewCell).experiment
             default: break
             }

@@ -17,29 +17,12 @@ class ExperimentDetailViewController: UIViewController {
     }
     
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descirptionLabel: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
     
-    var count = 0 {
-        didSet {
-            countLabel.text = String(count)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dateLabel.text = experiment?.dateString
-        descirptionLabel.text = experiment?.question
-        
-    }
-    
-    @IBAction func add(_ sender: UIButton) {
-        count += 1
-    }
-    
-    @IBAction func subtract(_ sender: AnyObject) {
-        count -= 1
     }
     
 }
