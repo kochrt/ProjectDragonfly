@@ -1,5 +1,5 @@
 //
-//  ExperimentsTableViewController.swift
+//  InvestigationTableViewController.swift
 //  Project Dragonfly
 //
 //  Created by Rob Koch on 10/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExperimentsTableViewController: UITableViewController {
+class InvestigationTableViewController: UITableViewController {
 
     var index: Int = -1
     
@@ -56,7 +56,7 @@ class ExperimentsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "experiment", for: indexPath) as! ExperimentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "experiment", for: indexPath) as! InvestigationTableViewCell
 
         cell.experiment = Experiments.instance.experiments[(indexPath as NSIndexPath).row]
 
@@ -111,7 +111,7 @@ class ExperimentsTableViewController: UITableViewController {
             switch id {
             case "experimentDetail":
                 let vc = segue.destination as! InvestigationViewController
-                vc.experiment = (sender as! ExperimentTableViewCell).experiment
+                vc.experiment = (sender as! InvestigationTableViewCell).experiment
             default: break
             }
         }

@@ -1,5 +1,5 @@
 //
-//  ExperimentDetailViewController.swift
+//  InvestigationDetailViewController.swift
 //  Project Dragonfly
 //
 //  Created by Rob Koch on 10/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExperimentDetailViewController: UIViewController {
+class InvestigationDetailViewController: UIViewController {
 
     var experiment: Experiment? {
         didSet {

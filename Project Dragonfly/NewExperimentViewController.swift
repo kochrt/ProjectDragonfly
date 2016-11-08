@@ -186,7 +186,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addExperiment" {
             Experiments.instance.experiments.insert(self.experiment!, at: 0)
-            let vc = segue.destination as! ExperimentsTableViewController
+            let vc = segue.destination as! InvestigationTableViewController
             vc.index = 0
         }
     }

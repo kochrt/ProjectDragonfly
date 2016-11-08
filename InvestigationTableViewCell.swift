@@ -1,5 +1,5 @@
 //
-//  ExperimentTableViewCell.swift
+//  InvestigationTableViewCell.swift
 //  Project Dragonfly
 //
 //  Created by Rob Koch on 10/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExperimentTableViewCell: UITableViewCell {
+class InvestigationTableViewCell: UITableViewCell {
 
     var experiment: Experiment? {
         didSet {
