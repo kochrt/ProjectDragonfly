@@ -59,7 +59,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="SsQ-UO-jGw" id="qVg-dz-jx9"/>
                                     <outlet property="nameLabel" destination="5Xq-nd-Vtc" id="423-JF-hdf"/>
-                                    <segue destination="T1N-TR-zca" kind="show" id="6rX-EN-o1z"/>
+                                    <segue destination="T1N-TR-zca" kind="show" identifier="investigationDetail" id="6rX-EN-o1z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
