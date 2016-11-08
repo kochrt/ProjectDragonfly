@@ -37,7 +37,7 @@ class ExperimentsTableViewController: UITableViewController {
         
         // I forget why we did this
         if index != -1 {
-            performSegue(withIdentifier: "experimentDetail", sender: tableView.cellForRow(at: IndexPath(item: index, section: 0)))
+            performSegue(withIdentifier: "investigationDetail", sender: tableView.cellForRow(at: IndexPath(item: index, section: 0)))
         }
         index = -1
     }
