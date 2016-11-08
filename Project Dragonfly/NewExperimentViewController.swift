@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DropDown
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -36,6 +37,18 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
+    let dropdown = DropDown()
+    @IBOutlet weak var categoryButton: UIButton!
+    var categoryButtonHeight: CGFloat = 0.0
+    // test categories, need to store real categories
+    let cats = [
+        "Backyard",
+        "School",
+        "Aquatic",
+        ]
+    
+    let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
+    
     var experiment: Experiment?
     
     let tools = [
@@ -44,8 +57,13 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         "Interval Counter",
         "Stopwatch",
         ]
+
     
-   
+    @IBAction func buttonTap(_ sender: UIButton) {
+        dropdown.show()
+    }
+
+    
     @IBAction func experimentName(_ sender: UITextField) {
         experiment?.experimentName = sender.text
         checkExperiment()
@@ -64,6 +82,9 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         setUpToolPicker()
         setUpTextFields()
         
+        setupDropDown()
+        setupNewCategoryAlert()
+        
         doneButton.isEnabled = false
     }
 
@@ -71,6 +92,55 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         dismiss(animated: true, completion: nil)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        categoryButtonHeight = categoryButton.frame.height
+        dropdown.topOffset = CGPoint(x: 0, y: -categoryButtonHeight)
+    }
+    
+    // MARK: DropDown
+    
+    func setupDropDown() {
+        dropdown.anchorView = categoryButton
+        var temp = ["New", "None"]
+            temp += cats
+        dropdown.dataSource = temp
+        
+        dropdown.direction = DropDown.Direction.top
+        // have to set dropdown offset in viewDidLayoutSubviews. otherwise the button height does not return correct value
+        
+        dropdown.selectionAction = { [unowned self] (index, item) in
+            self.categoryButton.setTitle(item, for: .normal)
+            if(item == temp[0]){
+                self.present(self.alert, animated: true, completion: nil)
+            }
+        }
+        dropdown.selectRow(at: 1)
+        self.categoryButton.setTitle(temp[1], for: .normal)
+    }
+    
+    // MARK: New Category Alert
+    
+    func setupNewCategoryAlert() {
+        alert.addTextField { (textField) in
+            textField.placeholder = "Category name"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            self.dropdown.selectRow(at: 1)
+            self.categoryButton.setTitle(self.dropdown.dataSource[1], for: .normal)
+            }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
+            var temp = [""]
+            temp[0] = textField.text!
+            self.dropdown.dataSource += temp
+            let index = self.dropdown.dataSource.count - 1
+            self.dropdown.selectRow(at: index)
+            self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
+            
+
+        }))
+    }
     
     
     // MARK: Picker View

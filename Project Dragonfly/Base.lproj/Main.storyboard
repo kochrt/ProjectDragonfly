@@ -12,82 +12,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--New Experiment-->
-        <scene sceneID="5Ob-4M-P92">
-            <objects>
-                <viewController id="S68-ip-HkH" customClass="NewExperimentViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kXk-bQ-bEx"/>
-                        <viewControllerLayoutGuide type="bottom" id="f5C-EM-RRQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zgs-Jh-5yU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Experiment Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkL-o4-k5h">
-                                <rect key="frame" x="16" y="72" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="experimentName:" destination="S68-ip-HkH" eventType="editingChanged" id="wfz-Td-lIR"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your question?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-gt-4sJ">
-                                <rect key="frame" x="16" y="110" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="questionText:" destination="S68-ip-HkH" eventType="editingChanged" id="Qje-hf-zwp"/>
-                                </connections>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjj-0R-hIb">
-                                <rect key="frame" x="27.5" y="225.5" width="320" height="216"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What tool do you need to start?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC0-AG-RcE">
-                                <rect key="frame" x="67" y="197" width="241" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Jjj-0R-hIb" firstAttribute="top" secondItem="kC0-AG-RcE" secondAttribute="bottom" constant="8" id="27F-i7-57O"/>
-                            <constraint firstItem="bLd-gt-4sJ" firstAttribute="trailing" secondItem="fkL-o4-k5h" secondAttribute="trailing" id="3Wl-ht-PLy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fkL-o4-k5h" secondAttribute="trailing" id="3cw-jv-Jtt"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="fkL-o4-k5h" secondAttribute="leading" id="3xz-uX-pK4"/>
-                            <constraint firstItem="fkL-o4-k5h" firstAttribute="top" secondItem="kXk-bQ-bEx" secondAttribute="bottom" constant="8" id="L6A-IG-9YQ"/>
-                            <constraint firstItem="bLd-gt-4sJ" firstAttribute="top" secondItem="fkL-o4-k5h" secondAttribute="bottom" constant="8" id="UYV-N7-Zwz"/>
-                            <constraint firstItem="Jjj-0R-hIb" firstAttribute="centerX" secondItem="zgs-Jh-5yU" secondAttribute="centerX" id="bge-Vn-5Dh"/>
-                            <constraint firstItem="kC0-AG-RcE" firstAttribute="centerX" secondItem="zgs-Jh-5yU" secondAttribute="centerX" id="d2o-pR-Sv9"/>
-                            <constraint firstItem="bLd-gt-4sJ" firstAttribute="leading" secondItem="fkL-o4-k5h" secondAttribute="leading" id="ht3-c7-aqs"/>
-                            <constraint firstItem="Jjj-0R-hIb" firstAttribute="centerY" secondItem="zgs-Jh-5yU" secondAttribute="centerY" id="nmE-Tu-H44"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="New Experiment" id="UnF-GY-sNg">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xFV-Me-htt">
-                            <connections>
-                                <action selector="cancel:" destination="S68-ip-HkH" id="Keb-HG-VS6"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="DC8-gC-lX3">
-                            <connections>
-                                <segue destination="LaI-Fy-EoO" kind="unwind" identifier="addExperiment" unwindAction="unwind:" id="Ojl-wj-eIS"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="doneButton" destination="DC8-gC-lX3" id="Ln0-Ko-48E"/>
-                        <outlet property="experimentTitleTextField" destination="fkL-o4-k5h" id="ng6-rb-NND"/>
-                        <outlet property="questionTextField" destination="bLd-gt-4sJ" id="KE7-z6-Du2"/>
-                        <outlet property="toolPickerView" destination="Jjj-0R-hIb" id="I1B-cN-XCa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K6s-Ag-XyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="LaI-Fy-EoO" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2184.5" y="-354.5"/>
-        </scene>
         <!--Investigations-->
         <scene sceneID="DFk-SI-PxN">
             <objects>
@@ -101,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="WM6-j7-hwJ" id="sU3-6d-Xhf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Experiment name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xq-nd-Vtc">
@@ -176,7 +100,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="idN-VN-exi" id="3yV-iC-hkz">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWg-Gf-Xf7">
@@ -306,12 +230,132 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="S68-ip-HkH" kind="relationship" relationship="rootViewController" id="Cnj-lZ-hxU"/>
+                        <segue destination="daX-xb-x1A" kind="relationship" relationship="rootViewController" id="HTl-8S-SWn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-sE-62D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1428" y="-355"/>
+        </scene>
+        <!--New Investigation-->
+        <scene sceneID="Aj9-hN-aMo">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="daX-xb-x1A" customClass="NewExperimentViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v1U-c0-dS9"/>
+                        <viewControllerLayoutGuide type="bottom" id="hvj-VE-bnM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hFA-D6-x3b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qa-uK-Pc1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="595"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pj-Ec-biM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Investigation Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C6g-bl-nPk">
+                                                <rect key="frame" x="16" y="11" width="343" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="experimentName:" destination="daX-xb-x1A" eventType="editingChanged" id="3Y4-wA-9bc"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your question?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-BC-iqM">
+                                                <rect key="frame" x="16" y="49" width="343" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="questionText:" destination="daX-xb-x1A" eventType="editingChanged" id="fnK-bt-REz"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What tool do you need to start?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXQ-dg-Jt9">
+                                                <rect key="frame" x="67" y="113" width="241" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vo0-d8-wF3">
+                                                <rect key="frame" x="28" y="149" width="320" height="216"/>
+                                            </pickerView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1b-99-tQV">
+                                                <rect key="frame" x="113" y="373" width="149" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlA-iV-qY3">
+                                                <rect key="frame" x="165" y="402" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="buttonTap:" destination="daX-xb-x1A" eventType="touchUpInside" id="YDF-n7-Ujw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="K1b-99-tQV" firstAttribute="top" secondItem="vo0-d8-wF3" secondAttribute="bottom" constant="8" id="1Zf-98-2u7"/>
+                                            <constraint firstItem="wXQ-dg-Jt9" firstAttribute="top" secondItem="E2d-BC-iqM" secondAttribute="bottom" constant="34" id="2Ai-9r-CTa"/>
+                                            <constraint firstItem="mlA-iV-qY3" firstAttribute="centerX" secondItem="2Pj-Ec-biM" secondAttribute="centerX" id="Ikg-UF-e2m"/>
+                                            <constraint firstItem="E2d-BC-iqM" firstAttribute="leading" secondItem="2Pj-Ec-biM" secondAttribute="leading" constant="16" id="NmV-Yu-AC1"/>
+                                            <constraint firstItem="E2d-BC-iqM" firstAttribute="top" secondItem="C6g-bl-nPk" secondAttribute="bottom" constant="8" id="QeE-GY-EPu"/>
+                                            <constraint firstAttribute="trailing" secondItem="C6g-bl-nPk" secondAttribute="trailing" constant="16" id="W9m-lw-gxG"/>
+                                            <constraint firstItem="K1b-99-tQV" firstAttribute="centerX" secondItem="2Pj-Ec-biM" secondAttribute="centerX" id="YdV-xa-6ZM"/>
+                                            <constraint firstItem="vo0-d8-wF3" firstAttribute="centerX" secondItem="2Pj-Ec-biM" secondAttribute="centerX" id="Z7e-ik-XzB"/>
+                                            <constraint firstItem="mlA-iV-qY3" firstAttribute="top" secondItem="K1b-99-tQV" secondAttribute="bottom" constant="8" id="cM5-Az-abh"/>
+                                            <constraint firstItem="C6g-bl-nPk" firstAttribute="top" secondItem="2Pj-Ec-biM" secondAttribute="top" constant="11" id="dKc-09-n80"/>
+                                            <constraint firstItem="C6g-bl-nPk" firstAttribute="leading" secondItem="2Pj-Ec-biM" secondAttribute="leading" constant="16" id="hOE-JA-40T"/>
+                                            <constraint firstItem="wXQ-dg-Jt9" firstAttribute="centerX" secondItem="2Pj-Ec-biM" secondAttribute="centerX" id="hYm-Bf-Wbi"/>
+                                            <constraint firstItem="vo0-d8-wF3" firstAttribute="top" secondItem="wXQ-dg-Jt9" secondAttribute="bottom" constant="15" id="oVV-6q-Hcl"/>
+                                            <constraint firstAttribute="trailing" secondItem="E2d-BC-iqM" secondAttribute="trailing" constant="16" id="y0z-fB-k2c"/>
+                                        </constraints>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="2Pj-Ec-biM" secondAttribute="bottom" id="Rld-BS-N1V"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="2Pj-Ec-biM" secondAttribute="trailing" constant="-8" id="cTn-TB-JQY"/>
+                                    <constraint firstItem="2Pj-Ec-biM" firstAttribute="top" secondItem="6qa-uK-Pc1" secondAttribute="topMargin" constant="-8" id="f9q-Zb-uAt"/>
+                                    <constraint firstItem="2Pj-Ec-biM" firstAttribute="centerX" secondItem="6qa-uK-Pc1" secondAttribute="centerX" id="gGu-yX-3cU"/>
+                                    <constraint firstItem="2Pj-Ec-biM" firstAttribute="centerY" secondItem="6qa-uK-Pc1" secondAttribute="centerY" id="iQF-od-IA8"/>
+                                    <constraint firstItem="2Pj-Ec-biM" firstAttribute="leading" secondItem="6qa-uK-Pc1" secondAttribute="leadingMargin" constant="-8" id="taP-gs-84L"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6qa-uK-Pc1" firstAttribute="top" secondItem="v1U-c0-dS9" secondAttribute="bottom" id="F4Z-FV-ZIp"/>
+                            <constraint firstAttribute="trailing" secondItem="6qa-uK-Pc1" secondAttribute="trailing" id="FsW-Ck-5hp"/>
+                            <constraint firstItem="hvj-VE-bnM" firstAttribute="top" secondItem="6qa-uK-Pc1" secondAttribute="bottom" constant="8" id="IFv-eI-yCW"/>
+                            <constraint firstItem="6qa-uK-Pc1" firstAttribute="leading" secondItem="hFA-D6-x3b" secondAttribute="leading" id="sFW-pC-QRE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Investigation" id="QNU-Nq-Vra">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5c9-gt-A1g">
+                            <connections>
+                                <action selector="cancel:" destination="daX-xb-x1A" id="jgC-i0-oep"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Kdq-5x-OG7">
+                            <connections>
+                                <segue destination="chW-vb-9ef" kind="unwind" identifier="addExperiment" unwindAction="unwind:" id="y3g-1X-lPh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoryButton" destination="mlA-iV-qY3" id="Moc-Fk-fEL"/>
+                        <outlet property="doneButton" destination="Kdq-5x-OG7" id="xDv-30-wen"/>
+                        <outlet property="experimentTitleTextField" destination="C6g-bl-nPk" id="4rC-gm-MrM"/>
+                        <outlet property="questionTextField" destination="E2d-BC-iqM" id="sQz-ZT-cQK"/>
+                        <outlet property="toolPickerView" destination="vo0-d8-wF3" id="3bc-G0-zEA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlh-34-kfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="chW-vb-9ef" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="-356"/>
         </scene>
     </scenes>
 </document>
