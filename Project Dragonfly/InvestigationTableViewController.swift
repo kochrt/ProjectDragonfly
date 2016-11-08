@@ -109,7 +109,7 @@ class InvestigationTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
-            case "experimentDetail":
+            case "investigationDetail":
                 let vc = segue.destination as! InvestigationViewController
                 vc.experiment = (sender as! InvestigationTableViewCell).experiment
             default: break

@@ -117,6 +117,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         }
         dropdown.selectRow(at: 1)
         self.categoryButton.setTitle(temp[1], for: .normal)
+        
     }
     
     // MARK: New Category Alert
@@ -137,8 +138,6 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
             let index = self.dropdown.dataSource.count - 1
             self.dropdown.selectRow(at: index)
             self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
-            
-
         }))
     }
     
