@@ -17,14 +17,14 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
     
     var category: String = "Category"
     
-    var experiment: Experiment?
+    var investigation: Investigation?
     
     var numComponents = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        dateLabel.text = experiment?.dateString
+        dateLabel.text = investigation?.lastUpdated
         categoryLabel.text = category
         
         tableView.dataSource = self

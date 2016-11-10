@@ -10,9 +10,9 @@ import UIKit
 
 class InvestigationDetailViewController: UIViewController {
 
-    var experiment: Experiment? {
+    var investigation: Investigation? {
         didSet {
-            navigationItem.title = experiment?.experimentName
+            navigationItem.title = investigation?.title
         }
     }
     
@@ -22,7 +22,7 @@ class InvestigationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateLabel.text = experiment?.dateString
+        dateLabel.text = investigation?.lastUpdated
     }
     
 }
