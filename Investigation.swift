@@ -34,5 +34,4 @@ class Investigation {
             return formatter.string(from: date)
         }
     }
-
 }

@@ -42,7 +42,6 @@ class Category: Comparable {
     public static func ==(lhs: Category, rhs: Category) -> Bool {
         return lhs.title == rhs.title
     }
-    
 }
 
 class CategoryList {
