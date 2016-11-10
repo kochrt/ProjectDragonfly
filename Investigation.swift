@@ -41,5 +41,12 @@ class Investigation {
 class Investigations {
     static let instance = Investigations()
     var investigations = [Investigation]()
+    var categories = Set<String>()
+    
+    /// Adds investigation and category
+    func addInvestigation(investigation: Investigation) {
+        investigations.append(investigation)
+        categories.insert(investigation.category)
+    }
 }
 
