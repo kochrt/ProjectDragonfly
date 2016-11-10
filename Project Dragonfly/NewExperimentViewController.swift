@@ -40,16 +40,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     let dropdown = DropDown()
     @IBOutlet weak var categoryButton: UIButton!
     var categoryButtonHeight: CGFloat = 0.0
-    // test categories, need to store real categories
-    let cats = [
-        "Backyard",
-        "School",
-        "Aquatic",
-        ]
+    
     
     let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
     var experiment: Experiment?
+    var investigation: Investigation?
     
     let tools = [
         "Comparative Timer",
@@ -66,11 +62,13 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     @IBAction func experimentName(_ sender: UITextField) {
         experiment?.experimentName = sender.text
+        investigation?.title = sender.text!
         checkExperiment()
     }
     
     @IBAction func questionText(_ sender: UITextField) {
         experiment?.question = sender.text
+        investigation?.question = sender.text!
         checkExperiment()
     }
     
@@ -78,7 +76,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         super.viewDidLoad()
         
         experiment = Experiment(experimentName: "", question: "", date: Date())
-        
+        investigation = Investigation(question: "", components: [], title: "")
         setUpToolPicker()
         setUpTextFields()
         
@@ -102,8 +100,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     func setupDropDown() {
         dropdown.anchorView = categoryButton
-        var temp = ["New", "None"]
-            temp += cats
+        var temp = ["New"]
+        var catList = [String]()
+        for i in 0 ..< CategoryList.instance.list.count{
+            catList.append(CategoryList.instance.list[i].title)
+        }
+        temp += catList
         dropdown.dataSource = temp
         
         dropdown.direction = DropDown.Direction.top
@@ -114,6 +116,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
             if(item == temp[0]){
                 self.present(self.alert, animated: true, completion: nil)
             }
+            
         }
         dropdown.selectRow(at: 1)
         self.categoryButton.setTitle(temp[1], for: .normal)
@@ -134,10 +137,44 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
             let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
             var temp = [""]
             temp[0] = textField.text!
+<<<<<<< HEAD
             self.dropdown.dataSource += temp
             let index = self.dropdown.dataSource.count - 1
             self.dropdown.selectRow(at: index)
             self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
+=======
+            // new category
+            let cat = Category(title: textField.text!)
+            // if the investigation is in any category, remove it from that cat.
+            for i in 0 ..< CategoryList.instance.list.count{
+                if(CategoryList.instance.list[i].investigations.contains(where: { (value) -> Bool in value.title == self.investigation!.title})){
+                    let ind = CategoryList.instance.list[i].investigations.index(where: { (value) -> Bool in value.title == self.investigation!.title})
+                    CategoryList.instance.list[i].investigations.remove(at: ind!)
+                }
+            }
+            
+            // if category already exists, add investigation to that category
+            if(CategoryList.instance.list.contains{
+                (element) -> Bool in
+                element.title == cat.title
+            }) {
+                let index = CategoryList.instance.list.index(of: cat)!
+                CategoryList.instance.list[index].investigations.append(self.investigation!)
+                
+                let dropIndex = self.dropdown.dataSource.index(of: cat.title)
+                self.dropdown.selectRow(at: dropIndex)
+                self.categoryButton.setTitle(self.dropdown.dataSource[dropIndex!], for: .normal)
+            }  // else create new category and add investigation to new category
+            else {
+                cat.investigations.append(self.investigation!)
+                CategoryList.instance.list.append(cat)
+                // update dropdown
+                self.dropdown.dataSource += temp
+                let index = self.dropdown.dataSource.count - 1
+                self.dropdown.selectRow(at: index)
+                self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
+            }
+>>>>>>> 4864889369a9c9921b16ee357cf20da264735eea
         }))
     }
     

@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        CategoryList.instance.list.append(Category(title: "None"))
+        CategoryList.instance.list.append(Category(title: "Aquatic"))
+        CategoryList.instance.list.append(Category(title: "Backyard"))
+        CategoryList.instance.list.append(Category(title: "School"))
+        
         return true
     }
 

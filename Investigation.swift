@@ -6,15 +6,17 @@
 import Foundation
 
 class Investigation {
+    var title: String
     var question: String
     var components: [Component]
     var date: Date
     var timer: Foundation.NSTimer?
 
-    init(question: String, components: [Component]) {
+    init(question: String, components: [Component], title: String) {
         self.components = components
         self.question = question
         self.date = Date()
+        self.title = title
     }
 
     var lastUpdated: String {
