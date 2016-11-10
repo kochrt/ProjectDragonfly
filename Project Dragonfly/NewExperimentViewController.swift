@@ -47,11 +47,11 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     var experiment: Experiment?
     var investigation: Investigation?
     
-    let tools = [
-        "Comparative Timer",
-        "Counter",
-        "Interval Counter",
-        "Stopwatch",
+    let tools: [String] = [
+        ComponentEnum.Counter.rawValue,
+        ComponentEnum.Stopwatch.rawValue,
+        ComponentEnum.IntervalCounter.rawValue,
+        ComponentEnum.IntervalCounter.rawValue
         ]
 
     
@@ -63,13 +63,13 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     @IBAction func experimentName(_ sender: UITextField) {
         experiment?.experimentName = sender.text
         investigation?.title = sender.text!
-        checkExperiment()
+        checkInvestigation()
     }
     
     @IBAction func questionText(_ sender: UITextField) {
         experiment?.question = sender.text
         investigation?.question = sender.text!
-        checkExperiment()
+        checkInvestigation()
     }
     
     override func viewDidLoad() {
@@ -189,6 +189,28 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         return 1
     }
     
+    func getTool() {
+        var data = toolPickerView.dataSource as! [UIPickerViewDataSource]
+        let selectedTool = data[toolPickerView.selectedRow(inComponent: 0)]
+        if(!(investigation?.components.isEmpty)!) {
+            investigation?.components.removeAll()
+        }
+        switch (selectedTool as! String) {
+        case ComponentEnum.Counter.rawValue :
+            investigation?.components.append(Counter())
+            break
+        case ComponentEnum.Stopwatch.rawValue:
+            investigation?.components.append(Stopwatch())
+            break
+        case ComponentEnum.IntervalCounter.rawValue :
+            investigation?.components.append(Counter())
+            // timer = true
+            break
+        default :
+            break
+        }
+    }
+    
     // MARK: TextField Stuff
     func setUpTextFields() {
         experimentTitleTextField.delegate = self
@@ -202,9 +224,9 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         return textField.text?.characters.count < 120
     }
     
-    func checkExperiment() -> Bool {
-        doneButton.isEnabled = experiment?.experimentName?.characters.count > 0 &&
-            experiment?.question!.characters.count > 0
+    func checkInvestigation() -> Bool {
+        doneButton.isEnabled = investigation?.title.characters.count > 0 &&
+            investigation?.question.characters.count > 0
         return doneButton.isEnabled
     }
     
@@ -213,6 +235,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addExperiment" {
+            getTool()
             Experiments.instance.experiments.insert(self.experiment!, at: 0)
             let vc = segue.destination as! InvestigationTableViewController
             vc.index = 0
