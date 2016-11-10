@@ -1,4 +1,4 @@
-//
+ //
 // Created by Zachery Eldemire on 10/31/16.
 // Copyright (c) 2016 cse.miamioh. All rights reserved.
 //
@@ -7,16 +7,18 @@ import Foundation
 
 class Investigation {
     var title: String
+    var category: String
     var question: String
     var components: [Component]
     var date: Date
     var timer: Foundation.NSTimer?
 
-    init(question: String, components: [Component], title: String) {
+    init(question: String, components: [Component], title: String, category: String) {
         self.components = components
         self.question = question
         self.date = Date()
         self.title = title
+        self.category = category
     }
 
     var lastUpdated: String {
@@ -34,5 +36,10 @@ class Investigation {
             return formatter.string(from: date)
         }
     }
-
 }
+ 
+class Investigations {
+    static let instance = Investigations()
+    var investigations = [Investigation]()
+}
+

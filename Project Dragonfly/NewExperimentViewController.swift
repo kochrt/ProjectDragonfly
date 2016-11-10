@@ -120,6 +120,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         }
         dropdown.selectRow(at: 1)
         self.categoryButton.setTitle(temp[1], for: .normal)
+        
     }
     
     // MARK: New Category Alert
@@ -136,6 +137,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
             let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
             var temp = [""]
             temp[0] = textField.text!
+
+            self.dropdown.dataSource += temp
+            let index = self.dropdown.dataSource.count - 1
+            self.dropdown.selectRow(at: index)
+            self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
+
             // new category
             let cat = Category(title: textField.text!)
             // if the investigation is in any category, remove it from that cat.
@@ -167,6 +174,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
                 self.dropdown.selectRow(at: index)
                 self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
             }
+
         }))
     }
     

@@ -14,12 +14,6 @@ class InvestigationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Experiments.instance.experiments.append(Experiment(experimentName: "Comparing red leaves to green leaves", question: "Are there more green leaves outside?", date: Date()))
-        Experiments.instance.experiments.append(Experiment(experimentName: "Squirrels", question: "Why are there so many?", date: Date(timeInterval: -86000.0, since: Date())))
-        Experiments.instance.experiments.append(Experiment(experimentName: "Birds out back", question: "How many birds are in my backyard?", date: Date(timeInterval: -604800.0, since: Date())))
-        tableView.reloadData()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -56,9 +50,9 @@ class InvestigationTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "experiment", for: indexPath) as! InvestigationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTableViewCell
 
-        cell.experiment = Experiments.instance.experiments[(indexPath as NSIndexPath).row]
+        cell.investigation = Investigations.instance.investigations[(indexPath as NSIndexPath).row]
 
         return cell
     }
@@ -109,9 +103,9 @@ class InvestigationTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
-            case "experimentDetail":
+            case "investigationDetail":
                 let vc = segue.destination as! InvestigationViewController
-                vc.experiment = (sender as! InvestigationTableViewCell).experiment
+                vc.investigation = (sender as! InvestigationTableViewCell).investigation
             default: break
             }
         }

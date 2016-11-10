@@ -10,10 +10,10 @@ import UIKit
 
 class InvestigationTableViewCell: UITableViewCell {
 
-    var experiment: Experiment? {
+    var investigation: Investigation? {
         didSet {
-            nameLabel.text = experiment?.experimentName
-            dateLabel.text = "Last updated: \(experiment!.dateString)"
+            nameLabel.text = investigation?.title
+            dateLabel.text = "Last updated: \(investigation!.lastUpdated)"
         }
     }
     
