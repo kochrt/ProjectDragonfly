@@ -21,7 +21,6 @@
 		D4519F8C1DAC4BB900FA274C /* InvestigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */; };
 		D4519F8E1DAC4F7300FA274C /* InvestigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */; };
 		D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */; };
-		D492FEDE1DD149810052DBB0 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDB1DD149810052DBB0 /* Category.swift */; };
 		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
 		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
 		D492FEE21DD150600052DBB0 /* NewExperimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEE11DD150600052DBB0 /* NewExperimentViewController.swift */; };
@@ -72,7 +71,6 @@
 		D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationTableViewController.swift; sourceTree = "<group>"; };
 		D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvestigationTableViewCell.swift; path = ../InvestigationTableViewCell.swift; sourceTree = "<group>"; };
 		D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationDetailViewController.swift; sourceTree = "<group>"; };
-		D492FEDB1DD149810052DBB0 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
 		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		D492FEE11DD150600052DBB0 /* NewExperimentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExperimentViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 		D492FEDA1DD1496C0052DBB0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D492FEDB1DD149810052DBB0 /* Category.swift */,
 				D492FEDC1DD149810052DBB0 /* Investigation.swift */,
 				D492FEDD1DD149810052DBB0 /* Component.swift */,
 			);
@@ -490,7 +487,6 @@
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
 				D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */,
-				D492FEDE1DD149810052DBB0 /* Category.swift in Sources */,
 				D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 				D4254B481DC7FDD700979B57 /* InvestigationViewController.swift in Sources */,

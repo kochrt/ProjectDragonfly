@@ -15,10 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        CategoryList.instance.list.append(Category(title: "None"))
-        CategoryList.instance.list.append(Category(title: "Aquatic"))
-        CategoryList.instance.list.append(Category(title: "Backyard"))
-        CategoryList.instance.list.append(Category(title: "School"))
+        let i = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels", category: "New")
+        Investigations.instance.investigations.append(i)
         
         return true
     }

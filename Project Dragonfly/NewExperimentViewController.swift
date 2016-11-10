@@ -174,6 +174,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
                 self.dropdown.selectRow(at: index)
                 self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
             }
+
         }))
     }
     
