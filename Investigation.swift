@@ -40,13 +40,33 @@ class Investigation {
  
 class Investigations {
     static let instance = Investigations()
-    var investigations = [Investigation]()
-    var categories = NSMutableOrderedSet()
+    
+    // Dictionary of category to investigation
+    var investigations = [String : [Investigation]]()
+    var sortedCategories = [String]()
     
     /// Adds investigation and category
-    func addInvestigation(investigation: Investigation) {
-        investigations.append(investigation)
-        categories.add(investigation.category)
+    func addInvestigation(investigation: Investigation) -> IndexPath {
+        let cat = investigation.category
+        if var array = investigations[cat] {
+            array.append(investigation)
+            return IndexPath(row: array.count - 1, section: sortedCategories.index(of: cat)!)
+        } else {
+            // New category
+            investigations[cat] = [investigation]
+            sortedCategories.append(cat)
+            sortedCategories.sort()
+            return IndexPath(row: 0, section: sortedCategories.index(of: cat)!)
+        }
+    }
+    
+    // TODO
+    func investigationForIndexPath(path: IndexPath) -> Investigation {
+        return
+    }
+    
+    func removeInvestigationAtIndexPath(path: IndexPath) -> Investigation {
+        
     }
 }
 
