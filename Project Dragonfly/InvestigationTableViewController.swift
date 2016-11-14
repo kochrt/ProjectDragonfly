@@ -16,7 +16,6 @@ class InvestigationTableViewController: UITableViewController {
         super.viewDidLoad()
         let i = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels", category: "New")
         Investigations.instance.addInvestigation(investigation: i)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
