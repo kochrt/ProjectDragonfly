@@ -71,7 +71,7 @@
                     <navigationItem key="navigationItem" title="Investigations" id="THl-RN-O0T">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p">
                             <connections>
-                                <segue destination="Rdv-ke-9R3" kind="presentation" identifier="newInvestigation" id="uFz-wS-qD0"/>
+                                <segue destination="aOP-C1-fyL" kind="presentation" id="5oh-Y2-avr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -199,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfc-OA-DKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="382"/>
+            <point key="canvasLocation" x="2190" y="382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DXX-yJ-Pe4">
@@ -219,6 +219,25 @@
             </objects>
             <point key="canvasLocation" x="764" y="382"/>
         </scene>
+        <!--new investigation-->
+        <scene sceneID="b7U-Tx-3J7">
+            <objects>
+                <viewController id="oOQ-5I-RWr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rcx-96-fvK"/>
+                        <viewControllerLayoutGuide type="bottom" id="fwL-pJ-l4h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="evR-FH-MOn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="new investigation" id="T1W-li-WAb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKh-ab-X6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2782" y="-290"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hUE-XX-C8d">
             <objects>
@@ -235,7 +254,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-sE-62D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="-277"/>
+            <point key="canvasLocation" x="3727" y="-287"/>
         </scene>
         <!--New Investigation-->
         <scene sceneID="Aj9-hN-aMo">
@@ -356,7 +375,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlh-34-kfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="chW-vb-9ef" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="-278"/>
+            <point key="canvasLocation" x="4399" y="-290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l0G-dv-rRt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOP-C1-fyL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kXo-hi-DV1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oOQ-5I-RWr" kind="relationship" relationship="rootViewController" id="PWI-l4-wZx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CdG-xO-xgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2102" y="-290"/>
         </scene>
     </scenes>
 </document>
