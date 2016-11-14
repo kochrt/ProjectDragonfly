@@ -40,13 +40,32 @@ class Investigation {
  
 class Investigations {
     static let instance = Investigations()
-    var investigations = [Investigation]()
-    var categories = Set<String>()
     
-    /// Adds investigation and category
-    func addInvestigation(investigation: Investigation) {
-        investigations.append(investigation)
-        categories.insert(investigation.category)
+    // Dictionary of category to investigation
+    var investigations = [String : [Investigation]]()
+    var sortedCategories = [String]()
+    
+    // Adds investigation and category
+    func addInvestigation(investigation: Investigation) -> IndexPath {
+        let cat = investigation.category
+        if var array = investigations[cat] {
+            array.append(investigation)
+            return IndexPath(row: array.count - 1, section: sortedCategories.index(of: cat)!)
+        } else {
+            // New category
+            investigations[cat] = [investigation]
+            sortedCategories.append(cat)
+            sortedCategories.sort()
+            return IndexPath(row: 0, section: sortedCategories.index(of: cat)!)
+        }
     }
+    
+    // TODO
+    func investigationForIndexPath(path: IndexPath) -> Investigation {
+        let cat = sortedCategories[path.section]
+        return investigations[cat]![path.row]
+    }
+    
+    // TODO: remove needs to be implemented
 }
 

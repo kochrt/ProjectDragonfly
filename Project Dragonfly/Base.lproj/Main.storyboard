@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="experiment" rowHeight="64" id="WM6-j7-hwJ" customClass="InvestigationTableViewCell" customModule="Project_Dragonfly" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="investigation" rowHeight="64" id="WM6-j7-hwJ" customClass="InvestigationTableViewCell" customModule="Project_Dragonfly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="WM6-j7-hwJ" id="sU3-6d-Xhf">
@@ -71,7 +71,7 @@
                     <navigationItem key="navigationItem" title="Investigations" id="THl-RN-O0T">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p">
                             <connections>
-                                <segue destination="Rdv-ke-9R3" kind="presentation" identifier="newExperiment" id="uFz-wS-qD0"/>
+                                <segue destination="aOP-C1-fyL" kind="presentation" id="5oh-Y2-avr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -199,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfc-OA-DKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="382"/>
+            <point key="canvasLocation" x="2190" y="382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DXX-yJ-Pe4">
@@ -219,6 +219,32 @@
             </objects>
             <point key="canvasLocation" x="764" y="382"/>
         </scene>
+        <!--new investigation-->
+        <scene sceneID="b7U-Tx-3J7">
+            <objects>
+                <viewController id="oOQ-5I-RWr" customClass="NewInvestigationVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rcx-96-fvK"/>
+                        <viewControllerLayoutGuide type="bottom" id="fwL-pJ-l4h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="evR-FH-MOn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="new investigation" id="T1W-li-WAb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0jA-G2-9kY">
+                            <connections>
+                                <action selector="cancel:" destination="oOQ-5I-RWr" id="es3-qP-HJ7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create" style="done" id="8Yx-S5-eNE"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKh-ab-X6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2870" y="-290"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hUE-XX-C8d">
             <objects>
@@ -235,12 +261,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJ5-sE-62D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="-277"/>
+            <point key="canvasLocation" x="3727" y="-287"/>
         </scene>
         <!--New Investigation-->
         <scene sceneID="Aj9-hN-aMo">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="daX-xb-x1A" customClass="NewExperimentViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="daX-xb-x1A" customClass="NewInvestigationViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v1U-c0-dS9"/>
                         <viewControllerLayoutGuide type="bottom" id="hvj-VE-bnM"/>
@@ -261,6 +287,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="experimentName:" destination="daX-xb-x1A" eventType="editingChanged" id="3Y4-wA-9bc"/>
+                                                    <action selector="investigationName:" destination="daX-xb-x1A" eventType="editingDidEnd" id="WzY-bV-ZbA"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your question?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-BC-iqM">
@@ -347,7 +374,7 @@
                     <connections>
                         <outlet property="categoryButton" destination="mlA-iV-qY3" id="Moc-Fk-fEL"/>
                         <outlet property="doneButton" destination="Kdq-5x-OG7" id="xDv-30-wen"/>
-                        <outlet property="experimentTitleTextField" destination="C6g-bl-nPk" id="4rC-gm-MrM"/>
+                        <outlet property="investigationTitleTextField" destination="C6g-bl-nPk" id="2u9-EC-7Hz"/>
                         <outlet property="questionTextField" destination="E2d-BC-iqM" id="sQz-ZT-cQK"/>
                         <outlet property="toolPickerView" destination="vo0-d8-wF3" id="3bc-G0-zEA"/>
                     </connections>
@@ -355,7 +382,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlh-34-kfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="chW-vb-9ef" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="-278"/>
+            <point key="canvasLocation" x="4399" y="-290"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l0G-dv-rRt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOP-C1-fyL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kXo-hi-DV1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oOQ-5I-RWr" kind="relationship" relationship="rootViewController" id="PWI-l4-wZx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CdG-xO-xgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="-290"/>
         </scene>
     </scenes>
 </document>

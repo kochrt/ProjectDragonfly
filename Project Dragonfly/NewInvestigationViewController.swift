@@ -29,9 +29,9 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewInvestigationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var experimentTitleTextField: UITextField!
+    @IBOutlet weak var investigationTitleTextField: UITextField!
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var toolPickerView: UIPickerView!
     
@@ -44,7 +44,6 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
-    var experiment: Experiment?
     var investigation: Investigation?
     
     let tools: [String] = [
@@ -60,14 +59,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     }
 
     
-    @IBAction func experimentName(_ sender: UITextField) {
-        experiment?.experimentName = sender.text
+    @IBAction func investigationName(_ sender: UITextField) {
         investigation?.title = sender.text!
         checkInvestigation()
     }
     
     @IBAction func questionText(_ sender: UITextField) {
-        experiment?.question = sender.text
         investigation?.question = sender.text!
         checkInvestigation()
     }
@@ -75,8 +72,7 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        experiment = Experiment(experimentName: "", question: "", date: Date())
-        investigation = Investigation(question: "", components: [], title: "")
+//        investigation = Investigation(question: "", components: [], title: "")
         setUpToolPicker()
         setUpTextFields()
         
@@ -100,26 +96,24 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     func setupDropDown() {
         dropdown.anchorView = categoryButton
-        var temp = ["New"]
-        var catList = [String]()
-        for i in 0 ..< CategoryList.instance.list.count{
-            catList.append(CategoryList.instance.list[i].title)
-        }
-        temp += catList
-        dropdown.dataSource = temp
+        var categoryList = ["New"]
+//        for cat in Investigations.instance.categories {
+//            categoryList.append(cat)
+//        }
+        dropdown.dataSource = categoryList
         
         dropdown.direction = DropDown.Direction.top
         // have to set dropdown offset in viewDidLayoutSubviews. otherwise the button height does not return correct value
         
         dropdown.selectionAction = { [unowned self] (index, item) in
             self.categoryButton.setTitle(item, for: .normal)
-            if(item == temp[0]){
+            if(item == categoryList[0]){
                 self.present(self.alert, animated: true, completion: nil)
             }
             
         }
         dropdown.selectRow(at: 1)
-        self.categoryButton.setTitle(temp[1], for: .normal)
+        self.categoryButton.setTitle(categoryList[1], for: .normal)
         
     }
     
@@ -144,36 +138,40 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
             self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
 
             // new category
-            let cat = Category(title: textField.text!)
-            // if the investigation is in any category, remove it from that cat.
-            for i in 0 ..< CategoryList.instance.list.count{
-                if(CategoryList.instance.list[i].investigations.contains(where: { (value) -> Bool in value.title == self.investigation!.title})){
-                    let ind = CategoryList.instance.list[i].investigations.index(where: { (value) -> Bool in value.title == self.investigation!.title})
-                    CategoryList.instance.list[i].investigations.remove(at: ind!)
-                }
-            }
+            let cat = Category(textField.text!)
             
-            // if category already exists, add investigation to that category
-            if(CategoryList.instance.list.contains{
-                (element) -> Bool in
-                element.title == cat.title
-            }) {
-                let index = CategoryList.instance.list.index(of: cat)!
-                CategoryList.instance.list[index].investigations.append(self.investigation!)
-                
-                let dropIndex = self.dropdown.dataSource.index(of: cat.title)
-                self.dropdown.selectRow(at: dropIndex)
-                self.categoryButton.setTitle(self.dropdown.dataSource[dropIndex!], for: .normal)
-            }  // else create new category and add investigation to new category
-            else {
-                cat.investigations.append(self.investigation!)
-                CategoryList.instance.list.append(cat)
-                // update dropdown
-                self.dropdown.dataSource += temp
-                let index = self.dropdown.dataSource.count - 1
-                self.dropdown.selectRow(at: index)
-                self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
-            }
+            // if the investigation is in any category, remove it from that cat.
+            
+            // Sorry Marian I didn't know what was going on and I wanted to build and run it 
+            
+//            for category in Investigations.instance.categories {
+//                if(CategoryList.instance.list[i].investigations.contains(where: { (value) -> Bool in value.title == self.investigation!.title})){
+//                    let ind = CategoryList.instance.list[i].investigations.index(where: { (value) -> Bool in value.title == self.investigation!.title})
+//                    CategoryList.instance.list[i].investigations.remove(at: ind!)
+//                }
+//            }
+//            
+//            // if category already exists, add investigation to that category
+//            if(CategoryList.instance.list.contains{
+//                (element) -> Bool in
+//                element.title == cat.title
+//            }) {
+//                let index = CategoryList.instance.list.index(of: cat)!
+//                CategoryList.instance.list[index].investigations.append(self.investigation!)
+//                
+//                let dropIndex = self.dropdown.dataSource.index(of: cat.title)
+//                self.dropdown.selectRow(at: dropIndex)
+//                self.categoryButton.setTitle(self.dropdown.dataSource[dropIndex!], for: .normal)
+//            }  // else create new category and add investigation to new category
+//            else {
+//                cat.investigations.append(self.investigation!)
+//                CategoryList.instance.list.append(cat)
+//                // update dropdown
+//                self.dropdown.dataSource += temp
+//                let index = self.dropdown.dataSource.count - 1
+//                self.dropdown.selectRow(at: index)
+//                self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
+//            }
 
         }))
     }
@@ -221,10 +219,10 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     // MARK: TextField Stuff
     func setUpTextFields() {
-        experimentTitleTextField.delegate = self
+        investigationTitleTextField.delegate = self
         questionTextField.delegate = self
     
-        experimentTitleTextField.tag = 0
+        investigationTitleTextField.tag = 0
         questionTextField.tag = 1
     }
     

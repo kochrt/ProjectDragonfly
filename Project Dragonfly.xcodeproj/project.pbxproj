@@ -10,7 +10,6 @@
 		24FE4FF80F49FA9CB76CAF2A /* Pods_Project_Dragonfly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885AC6D85B666548DD9F9A8E /* Pods_Project_Dragonfly.framework */; };
 		9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1828051DD5252E000D7BB6 /* ComponentEnum.swift */; };
 		B2C8BF8AA3A42A6E14604AB9 /* Pods_Project_DragonflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */; };
-		D40A7DD41DB5922B00D78778 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40A7DD31DB5922B00D78778 /* Models.swift */; };
 		D4254B481DC7FDD700979B57 /* InvestigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */; };
 		D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */; };
 		D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */; };
@@ -22,9 +21,10 @@
 		D4519F8C1DAC4BB900FA274C /* InvestigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */; };
 		D4519F8E1DAC4F7300FA274C /* InvestigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */; };
 		D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */; };
+		D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */; };
 		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
 		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
-		D492FEE21DD150600052DBB0 /* NewExperimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEE11DD150600052DBB0 /* NewExperimentViewController.swift */; };
+		D492FEE21DD150600052DBB0 /* NewInvestigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEE11DD150600052DBB0 /* NewInvestigationViewController.swift */; };
 		E0675B42C92D817F23DADA0A /* Pods_Project_DragonflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BBE4D81DAE76F767A955C3 /* Pods_Project_DragonflyUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +55,6 @@
 		885AC6D85B666548DD9F9A8E /* Pods_Project_Dragonfly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Dragonfly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1828051DD5252E000D7BB6 /* ComponentEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentEnum.swift; sourceTree = "<group>"; };
 		BB1D1D215A4B6B9DAE2F9C4F /* Pods-Project Dragonfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.debug.xcconfig"; sourceTree = "<group>"; };
-		D40A7DD31DB5922B00D78778 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationViewController.swift; sourceTree = "<group>"; };
 		D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentTableViewCell.swift; sourceTree = "<group>"; };
 		D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Dragonfly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,9 +72,10 @@
 		D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationTableViewController.swift; sourceTree = "<group>"; };
 		D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvestigationTableViewCell.swift; path = ../InvestigationTableViewCell.swift; sourceTree = "<group>"; };
 		D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationDetailViewController.swift; sourceTree = "<group>"; };
+		D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInvestigationVC.swift; sourceTree = "<group>"; };
 		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
 		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
-		D492FEE11DD150600052DBB0 /* NewExperimentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewExperimentViewController.swift; sourceTree = "<group>"; };
+		D492FEE11DD150600052DBB0 /* NewInvestigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInvestigationViewController.swift; sourceTree = "<group>"; };
 		D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_DragonflyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,7 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				D492FEDA1DD1496C0052DBB0 /* Models */,
-				D492FEE11DD150600052DBB0 /* NewExperimentViewController.swift */,
+				D492FEE11DD150600052DBB0 /* NewInvestigationViewController.swift */,
+				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
 				D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */,
 				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
 				D4519F611DAC4AA400FA274C /* Main.storyboard */,
@@ -164,7 +165,6 @@
 				D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */,
 				D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */,
 				D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */,
-				D40A7DD31DB5922B00D78778 /* Models.swift */,
 				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
 				D4519F691DAC4AA400FA274C /* Info.plist */,
@@ -484,11 +484,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4519F8C1DAC4BB900FA274C /* InvestigationTableViewController.swift in Sources */,
-				D492FEE21DD150600052DBB0 /* NewExperimentViewController.swift in Sources */,
+				D492FEE21DD150600052DBB0 /* NewInvestigationViewController.swift in Sources */,
 				D4519F8E1DAC4F7300FA274C /* InvestigationTableViewCell.swift in Sources */,
-				D40A7DD41DB5922B00D78778 /* Models.swift in Sources */,
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
+				D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */,
 				D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */,
 				D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
