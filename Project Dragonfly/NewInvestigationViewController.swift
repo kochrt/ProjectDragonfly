@@ -138,36 +138,40 @@ class NewInvestigationViewController: UIViewController, UITextFieldDelegate, UIP
             self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
 
             // new category
-            let cat = Category(title: textField.text!)
-            // if the investigation is in any category, remove it from that cat.
-            for i in 0 ..< CategoryList.instance.list.count{
-                if(CategoryList.instance.list[i].investigations.contains(where: { (value) -> Bool in value.title == self.investigation!.title})){
-                    let ind = CategoryList.instance.list[i].investigations.index(where: { (value) -> Bool in value.title == self.investigation!.title})
-                    CategoryList.instance.list[i].investigations.remove(at: ind!)
-                }
-            }
+            let cat = Category(textField.text!)
             
-            // if category already exists, add investigation to that category
-            if(CategoryList.instance.list.contains{
-                (element) -> Bool in
-                element.title == cat.title
-            }) {
-                let index = CategoryList.instance.list.index(of: cat)!
-                CategoryList.instance.list[index].investigations.append(self.investigation!)
-                
-                let dropIndex = self.dropdown.dataSource.index(of: cat.title)
-                self.dropdown.selectRow(at: dropIndex)
-                self.categoryButton.setTitle(self.dropdown.dataSource[dropIndex!], for: .normal)
-            }  // else create new category and add investigation to new category
-            else {
-                cat.investigations.append(self.investigation!)
-                CategoryList.instance.list.append(cat)
-                // update dropdown
-                self.dropdown.dataSource += temp
-                let index = self.dropdown.dataSource.count - 1
-                self.dropdown.selectRow(at: index)
-                self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
-            }
+            // if the investigation is in any category, remove it from that cat.
+            
+            // Sorry Marian I didn't know what was going on and I wanted to build and run it 
+            
+//            for category in Investigations.instance.categories {
+//                if(CategoryList.instance.list[i].investigations.contains(where: { (value) -> Bool in value.title == self.investigation!.title})){
+//                    let ind = CategoryList.instance.list[i].investigations.index(where: { (value) -> Bool in value.title == self.investigation!.title})
+//                    CategoryList.instance.list[i].investigations.remove(at: ind!)
+//                }
+//            }
+//            
+//            // if category already exists, add investigation to that category
+//            if(CategoryList.instance.list.contains{
+//                (element) -> Bool in
+//                element.title == cat.title
+//            }) {
+//                let index = CategoryList.instance.list.index(of: cat)!
+//                CategoryList.instance.list[index].investigations.append(self.investigation!)
+//                
+//                let dropIndex = self.dropdown.dataSource.index(of: cat.title)
+//                self.dropdown.selectRow(at: dropIndex)
+//                self.categoryButton.setTitle(self.dropdown.dataSource[dropIndex!], for: .normal)
+//            }  // else create new category and add investigation to new category
+//            else {
+//                cat.investigations.append(self.investigation!)
+//                CategoryList.instance.list.append(cat)
+//                // update dropdown
+//                self.dropdown.dataSource += temp
+//                let index = self.dropdown.dataSource.count - 1
+//                self.dropdown.selectRow(at: index)
+//                self.categoryButton.setTitle(self.dropdown.dataSource[index], for: .normal)
+//            }
 
         }))
     }

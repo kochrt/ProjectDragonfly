@@ -261,6 +261,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <action selector="experimentName:" destination="daX-xb-x1A" eventType="editingChanged" id="3Y4-wA-9bc"/>
+                                                    <action selector="investigationName:" destination="daX-xb-x1A" eventType="editingDidEnd" id="WzY-bV-ZbA"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your question?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E2d-BC-iqM">
@@ -347,7 +348,7 @@
                     <connections>
                         <outlet property="categoryButton" destination="mlA-iV-qY3" id="Moc-Fk-fEL"/>
                         <outlet property="doneButton" destination="Kdq-5x-OG7" id="xDv-30-wen"/>
-                        <outlet property="experimentTitleTextField" destination="C6g-bl-nPk" id="4rC-gm-MrM"/>
+                        <outlet property="investigationTitleTextField" destination="C6g-bl-nPk" id="2u9-EC-7Hz"/>
                         <outlet property="questionTextField" destination="E2d-BC-iqM" id="sQz-ZT-cQK"/>
                         <outlet property="toolPickerView" destination="vo0-d8-wF3" id="3bc-G0-zEA"/>
                     </connections>
