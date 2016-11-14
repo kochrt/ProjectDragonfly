@@ -71,7 +71,7 @@
                     <navigationItem key="navigationItem" title="Investigations" id="THl-RN-O0T">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p">
                             <connections>
-                                <segue destination="Rdv-ke-9R3" kind="presentation" identifier="newExperiment" id="uFz-wS-qD0"/>
+                                <segue destination="Rdv-ke-9R3" kind="presentation" identifier="newInvestigation" id="uFz-wS-qD0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -240,7 +240,7 @@
         <!--New Investigation-->
         <scene sceneID="Aj9-hN-aMo">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="daX-xb-x1A" customClass="NewExperimentViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="daX-xb-x1A" customClass="NewInvestigationViewController" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v1U-c0-dS9"/>
                         <viewControllerLayoutGuide type="bottom" id="hvj-VE-bnM"/>

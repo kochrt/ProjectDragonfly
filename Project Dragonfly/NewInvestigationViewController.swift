@@ -29,9 +29,9 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 
-class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewInvestigationViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var experimentTitleTextField: UITextField!
+    @IBOutlet weak var investigationTitleTextField: UITextField!
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var toolPickerView: UIPickerView!
     
@@ -44,7 +44,6 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
-    var experiment: Experiment?
     var investigation: Investigation?
     
     let tools = [
@@ -60,23 +59,20 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     }
 
     
-    @IBAction func experimentName(_ sender: UITextField) {
-        experiment?.experimentName = sender.text
+    @IBAction func investigationName(_ sender: UITextField) {
         investigation?.title = sender.text!
-        checkExperiment()
+        checkInvestigation()
     }
     
     @IBAction func questionText(_ sender: UITextField) {
-        experiment?.question = sender.text
         investigation?.question = sender.text!
-        checkExperiment()
+        checkInvestigation()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        experiment = Experiment(experimentName: "", question: "", date: Date())
-        investigation = Investigation(question: "", components: [], title: "")
+//        investigation = Investigation(question: "", components: [], title: "")
         setUpToolPicker()
         setUpTextFields()
         
@@ -100,26 +96,24 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     func setupDropDown() {
         dropdown.anchorView = categoryButton
-        var temp = ["New"]
-        var catList = [String]()
-        for i in 0 ..< CategoryList.instance.list.count{
-            catList.append(CategoryList.instance.list[i].title)
+        var categoryList = ["New"]
+        for cat in Investigations.instance.categories {
+            categoryList.append(cat)
         }
-        temp += catList
-        dropdown.dataSource = temp
+        dropdown.dataSource = categoryList
         
         dropdown.direction = DropDown.Direction.top
         // have to set dropdown offset in viewDidLayoutSubviews. otherwise the button height does not return correct value
         
         dropdown.selectionAction = { [unowned self] (index, item) in
             self.categoryButton.setTitle(item, for: .normal)
-            if(item == temp[0]){
+            if(item == categoryList[0]){
                 self.present(self.alert, animated: true, completion: nil)
             }
             
         }
         dropdown.selectRow(at: 1)
-        self.categoryButton.setTitle(temp[1], for: .normal)
+        self.categoryButton.setTitle(categoryList[1], for: .normal)
         
     }
     
@@ -199,10 +193,10 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
     
     // MARK: TextField Stuff
     func setUpTextFields() {
-        experimentTitleTextField.delegate = self
+        investigationTitleTextField.delegate = self
         questionTextField.delegate = self
     
-        experimentTitleTextField.tag = 0
+        investigationTitleTextField.tag = 0
         questionTextField.tag = 1
     }
     
@@ -210,9 +204,12 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
         return textField.text?.characters.count < 120
     }
     
-    func checkExperiment() -> Bool {
-        doneButton.isEnabled = experiment?.experimentName?.characters.count > 0 &&
-            experiment?.question!.characters.count > 0
+    func checkInvestigation() -> Bool {
+        
+        // TODO: This needs to be redone
+//        doneButton.isEnabled = experiment?.experimentName?.characters.count > 0 &&
+//            experiment?.question!.characters.count > 0
+        
         return doneButton.isEnabled
     }
     
@@ -220,8 +217,10 @@ class NewExperimentViewController: UIViewController, UITextFieldDelegate, UIPick
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addExperiment" {
-            Experiments.instance.experiments.insert(self.experiment!, at: 0)
+        if segue.identifier == "addInvestigation" {
+            
+            // Insert new investigation into tableview
+            
             let vc = segue.destination as! InvestigationTableViewController
             vc.index = 0
         }
