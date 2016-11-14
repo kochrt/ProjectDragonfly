@@ -45,7 +45,7 @@ class Investigations {
     var investigations = [String : [Investigation]]()
     var sortedCategories = [String]()
     
-    /// Adds investigation and category
+    // Adds investigation and category
     func addInvestigation(investigation: Investigation) -> IndexPath {
         let cat = investigation.category
         if var array = investigations[cat] {
@@ -62,11 +62,10 @@ class Investigations {
     
     // TODO
     func investigationForIndexPath(path: IndexPath) -> Investigation {
-        return
+        let cat = sortedCategories[path.section]
+        return investigations[cat]![path.row]
     }
     
-    func removeInvestigationAtIndexPath(path: IndexPath) -> Investigation {
-        
-    }
+    // TODO: remove needs to be implemented
 }
 

@@ -14,11 +14,9 @@ class InvestigationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        let i = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels", category: "New")
+        Investigations.instance.addInvestigation(investigation: i)
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,21 +38,18 @@ class InvestigationTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return Investigations.instance.categories.count
+        return Investigations.instance.sortedCategories.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Investigations.instance.investigations.count
+        return Investigations.instance.investigations[Investigations.instance.sortedCategories[section]]!.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTableViewCell
-        
-        // TODO: This needs to be implemented with sections in mind
-        
-        cell.investigation = Investigations.instance.investigations[(indexPath as NSIndexPath).row]
+        cell.investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
         return cell
     }
     

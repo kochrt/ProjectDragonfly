@@ -97,9 +97,9 @@ class NewInvestigationViewController: UIViewController, UITextFieldDelegate, UIP
     func setupDropDown() {
         dropdown.anchorView = categoryButton
         var categoryList = ["New"]
-        for cat in Investigations.instance.categories {
-            categoryList.append(cat)
-        }
+//        for cat in Investigations.instance.categories {
+//            categoryList.append(cat)
+//        }
         dropdown.dataSource = categoryList
         
         dropdown.direction = DropDown.Direction.top
