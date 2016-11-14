@@ -40,20 +40,21 @@ class InvestigationTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return Investigations.instance.categories.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Experiments.instance.experiments.count
+        return Investigations.instance.investigations.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTableViewCell
-
+        
+        // TODO: This needs to be implemented with sections in mind
+        
         cell.investigation = Investigations.instance.investigations[(indexPath as NSIndexPath).row]
-
         return cell
     }
     

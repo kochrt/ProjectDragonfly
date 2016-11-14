@@ -17,6 +17,9 @@ class NewInvestigationVC: FormViewController {
     }
 
     func setupForm() {
+        
+        // https://github.com/xmartlabs/Eureka#how-to-create-a-form
+        
         let detailSection = Section()
         detailSection.append(TextRow() { row in
             row.title = "Title"
