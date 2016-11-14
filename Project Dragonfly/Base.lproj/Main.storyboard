@@ -222,7 +222,7 @@
         <!--new investigation-->
         <scene sceneID="b7U-Tx-3J7">
             <objects>
-                <viewController id="oOQ-5I-RWr" sceneMemberID="viewController">
+                <viewController id="oOQ-5I-RWr" customClass="NewInvestigationVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rcx-96-fvK"/>
                         <viewControllerLayoutGuide type="bottom" id="fwL-pJ-l4h"/>
@@ -232,11 +232,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="new investigation" id="T1W-li-WAb"/>
+                    <navigationItem key="navigationItem" title="new investigation" id="T1W-li-WAb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0jA-G2-9kY">
+                            <connections>
+                                <action selector="cancel:" destination="oOQ-5I-RWr" id="es3-qP-HJ7"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Create" style="done" id="8Yx-S5-eNE"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKh-ab-X6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2782" y="-290"/>
+            <point key="canvasLocation" x="2870" y="-290"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hUE-XX-C8d">
@@ -393,7 +400,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdG-xO-xgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="-290"/>
+            <point key="canvasLocation" x="2190" y="-290"/>
         </scene>
     </scenes>
 </document>

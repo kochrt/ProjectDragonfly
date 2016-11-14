@@ -13,15 +13,40 @@ class NewInvestigationVC: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupForm()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupForm() {
+        let detailSection = Section()
+        detailSection.append(TextRow() { row in
+            row.title = "Title"
+            row.placeholder = "My Investigation"
+        })
+        detailSection.append(TextRow() { row in
+            row.title = "Question"
+            row.placeholder = "Why are there no squirrels anymore?"
+        })
+        
+        form.append(detailSection)
+        
+        let toolSection = SelectableSection<ListCheckRow<String>>("Which tool do you need?", selectionType: .singleSelection(enableDeselection: false))
+        
+        let tools = ["Comparative Timer", "Counter", "Interval Counter", "Stopwatch"]
+        
+        for tool in tools {
+            toolSection.append(ListCheckRow<String>(tool) { row in
+                row.title = tool
+                row.selectableValue = tool
+                row.value = nil
+            })
+        }
+        form.append(toolSection)
+        
     }
     
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
