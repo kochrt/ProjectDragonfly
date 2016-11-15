@@ -15,8 +15,6 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    var category: String = "Category"
-    
     var investigation: Investigation?
     
     var numComponents = 1
@@ -25,13 +23,16 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
 
         dateLabel.text = investigation?.lastUpdated
-        categoryLabel.text = category
+        
+        // Sets the category to the curent category name
+//        categoryLabel.text = investigation?.category
         
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = false
+        navigationItem.title = investigation?.title
     }
     
     @IBAction func addComponent(_ sender: Any) {

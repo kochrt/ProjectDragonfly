@@ -32,7 +32,6 @@ class NewInvestigationVC: FormViewController {
             row.title = "Question"
             row.placeholder = "Why are there no squirrels anymore?"
         })
-        
         form.append(detailSection)
         
         let toolSection = SelectableSection<ListCheckRow<String>>("Which tool do you need?", selectionType: .singleSelection(enableDeselection: false))
@@ -48,6 +47,7 @@ class NewInvestigationVC: FormViewController {
         }
         form.append(toolSection)
         
+
         let newCatSection = Section("New Category")
         newCatSection.append(ButtonRow() { row in
             row.title = "Create"
@@ -60,8 +60,7 @@ class NewInvestigationVC: FormViewController {
         
         let categorySection = SelectableSection<ListCheckRow<String>>("Choose a category:", selectionType: .singleSelection(enableDeselection: false))
         categorySection.tag = "Categories"
-        
-        //let cats = ["None"]
+
         for cat in Investigations.instance.sortedCategories {
             categorySection.append(ListCheckRow<String>(cat) { row in
                 row.title = cat
@@ -69,10 +68,7 @@ class NewInvestigationVC: FormViewController {
                 row.value = nil
             })
         }
-        
         form.append(categorySection)
-
-        
     }
     
     func setupNewCategoryAlert() {
@@ -83,8 +79,8 @@ class NewInvestigationVC: FormViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
             Investigations.instance.sortedCategories.append(textField.text!)
+            Investigations.instance.investigations[textField.text!] = []
             Investigations.instance.sortedCategories.sort()
-            
             
             let catSection = self.form.sectionBy(tag: "Categories")
             catSection!.append(ListCheckRow<String>(textField.text!) { row in
