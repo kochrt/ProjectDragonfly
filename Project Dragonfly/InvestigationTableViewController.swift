@@ -15,7 +15,13 @@ class InvestigationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let i = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels", category: "New")
+        let i2 = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels1", category: "Bew")
+        let i3 = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels2", category: "Bew")
+        let i4 = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels2", category: "ew")
         Investigations.instance.addInvestigation(investigation: i)
+        Investigations.instance.addInvestigation(investigation: i2)
+        Investigations.instance.addInvestigation(investigation: i3)
+        Investigations.instance.addInvestigation(investigation: i4)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +62,10 @@ class InvestigationTableViewController: UITableViewController {
         
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Returns the title of the section and places the investigation in the correct section
+        return Investigations.instance.sortedCategories[section]
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
