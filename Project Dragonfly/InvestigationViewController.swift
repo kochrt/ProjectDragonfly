@@ -46,7 +46,12 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var comp: Counter = investigation!.components[indexPath.row] as! Counter
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
+        
+        cell.component = comp
         return cell
     }
 }
