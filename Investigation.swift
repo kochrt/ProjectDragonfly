@@ -48,10 +48,9 @@ class Investigations {
     // Adds investigation and category
     func addInvestigation(investigation: Investigation) -> IndexPath {
         let cat = investigation.category
-        if var array = investigations[cat] {
-            array.append(investigation)
-            investigations[cat] = array
-            return IndexPath(row: array.count - 1, section: sortedCategories.index(of: cat)!)
+        if let _ = investigations[cat] {
+            investigations[cat]!.append(investigation)
+            return IndexPath(row: investigations[cat]!.count - 1, section: sortedCategories.index(of: cat)!)
         } else {
             // New category
             investigations[cat] = [investigation]

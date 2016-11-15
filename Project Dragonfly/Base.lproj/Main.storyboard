@@ -134,7 +134,7 @@
                                                         <action selector="subtract:" destination="idN-VN-exi" eventType="touchUpInside" id="ZIg-Fu-KcI"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5t-VN-GZV">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5t-VN-GZV">
                                                     <rect key="frame" x="8" y="14" width="209" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -219,7 +219,7 @@
             </objects>
             <point key="canvasLocation" x="764" y="382"/>
         </scene>
-        <!--new investigation-->
+        <!--New Investigation-->
         <scene sceneID="b7U-Tx-3J7">
             <objects>
                 <viewController id="oOQ-5I-RWr" customClass="NewInvestigationVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
@@ -232,7 +232,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="new investigation" id="T1W-li-WAb">
+                    <navigationItem key="navigationItem" title="New Investigation" id="T1W-li-WAb">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0jA-G2-9kY">
                             <connections>
                                 <action selector="cancel:" destination="oOQ-5I-RWr" id="es3-qP-HJ7"/>

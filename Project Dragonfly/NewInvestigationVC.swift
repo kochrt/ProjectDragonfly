@@ -29,7 +29,6 @@ class NewInvestigationVC: FormViewController {
             row.title = "Question"
             row.placeholder = "Why are there no squirrels anymore?"
         })
-        
         form.append(detailSection)
         
         let toolSection = SelectableSection<ListCheckRow<String>>("Which tool do you need?", selectionType: .singleSelection(enableDeselection: false))
@@ -45,6 +44,15 @@ class NewInvestigationVC: FormViewController {
         }
         form.append(toolSection)
         
+        let categorySection = SelectableSection<ListCheckRow<String>>("Category", selectionType: .singleSelection(enableDeselection: false))
+        for cat in Investigations.instance.sortedCategories {
+            categorySection.append(ListCheckRow<String>(cat) { row in
+                row.title = cat
+                row.selectableValue = cat
+                row.value = nil
+            })
+        }
+        form.append(categorySection)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
