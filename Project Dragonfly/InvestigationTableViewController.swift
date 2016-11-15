@@ -14,7 +14,7 @@ class InvestigationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let i = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels", category: "New")
+        let i = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels", category: "Mammals")
         Investigations.instance.addInvestigation(investigation: i)
     }
     

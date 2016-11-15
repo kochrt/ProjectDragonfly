@@ -239,12 +239,12 @@ class NewInvestigationViewController: UIViewController, UITextFieldDelegate, UIP
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addExperiment" {
             getTool()
             Experiments.instance.experiments.insert(self.experiment!, at: 0)
             let vc = segue.destination as! InvestigationTableViewController
             vc.index = 0
         }
-    }
+    }*/
 }
