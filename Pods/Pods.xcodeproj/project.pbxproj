@@ -1,0 +1,1306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		004C8AAA5143637A4360B55CAD850E4F /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B13A67115FFAE89BD02C31B62E1698 /* Operators.swift */; };
+		05E44C82FAED17D346EE349295CF4603 /* SelectableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A60C7B321E01CECF3C16F0E5859F0 /* SelectableSection.swift */; };
+		09CF18891EDF6544AA3114F03399667D /* Pods-Project DragonflyTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F050DE7D3307E6708656D3600E568CE /* Pods-Project DragonflyTests-dummy.m */; };
+		0BA986536326BCC266A0157A8C204CF8 /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69BE4D980A8E4C5BE095A17587A95A /* DropDown+Appearance.swift */; };
+		0E4A9CFDC8A87BA336CB32A38C20239D /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4BEF490553D2B67C52C98AD58CCE0F /* DropDownCell.xib */; };
+		0E7232F55A0147C548BF0C1D91AD29DC /* RowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACDE97385A18B280458F784CD252BD1 /* RowType.swift */; };
+		0FDA5004E470299B26D07B29CC208119 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		1039256A7B0AFBEB51D1BCD1DE192C30 /* ActionSheetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5104BB6A8724ED7BE5B4F7FC289DC7 /* ActionSheetRow.swift */; };
+		114B8967240AF21C565B7645215F8F44 /* InlineRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A361E0B7A8E7D0633C3F4E3CFD958C6 /* InlineRowType.swift */; };
+		130795E873137DA419183E8BBC2D2F9B /* PickerInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94666F1205DD4113F9922BF4C3673820 /* PickerInlineRow.swift */; };
+		14085738C1B57648ADD19DDB9E7AA93F /* SegmentedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE36793119C312ACA181D0810681E2BD /* SegmentedRow.swift */; };
+		1D2C3F458A7EC5E133380C552CF8DA90 /* PushRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB98622A9CEFE0908B7558189A21934 /* PushRow.swift */; };
+		224B45303C3A468B371039731B7BD2C2 /* Pods-Project DragonflyUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4ACA96A983EAB946B4C9F35493E81A6 /* Pods-Project DragonflyUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2395F5D2B2E9E8CDCC9B2C03F31A59B6 /* SelectableRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F68C201E5ECDB283FEB33C0ECFEB366 /* SelectableRowType.swift */; };
+		24B52E4528FE1CA5BBB438CF11441FA5 /* MultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16516B4B27D4F2F0C2B0B5513350DF8 /* MultipleSelectorRow.swift */; };
+		278DA7CAFEDFF0B3E479BF7310999C84 /* AlertRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F665CECF73C1A029C2D6FB4D857A3E2 /* AlertRow.swift */; };
+		2A84006D7A3BDF4D776324C3AD9D9F2F /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6662FA52F4BC04A56BA8E2BE159E4D /* Cell.swift */; };
+		2AC217E55DBAE620E9B1F36F371DE4BF /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB7457AB18DE2A8460B0AAD1950A67 /* ButtonRow.swift */; };
+		2ACBF08CF311E49CB4BA1F75D7F7209C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D2C86C61DEF45952385E2259D66B2F /* Section.swift */; };
+		2AFAE16062416674764562F22E85FB88 /* DateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B455B8CAABC6E4ACD5631D82181B10 /* DateRow.swift */; };
+		2F005065D096AE7E2DCEE8C7FAB91A2E /* FieldsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACEC6B52451E49FC25FC695A327BACB /* FieldsRow.swift */; };
+		30AAD30F48EB6531526A83E529E716BA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00145703B93CE9F78963B1CEEEDDAEC /* Protocols.swift */; };
+		311CF93EE9E301E3FAFD46BA0A62E3B8 /* RuleEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E77EBDBDAAAA20645B079E4783120E /* RuleEmail.swift */; };
+		311D5A4AFB0F3AEEFCABAA80BE1073D6 /* DropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9309ACDE78C13B249F524DBCA738BCBD /* DropDown-dummy.m */; };
+		37E2FFC149E2115469E943E6953CDE15 /* TextAreaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF63177C1EC292AD1C67CD07AC2381 /* TextAreaRow.swift */; };
+		3991DF903EE4C5D986052514554B67F6 /* PresenterRowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C452BAE24BE7E219C6E3AC193F0DBE /* PresenterRowType.swift */; };
+		3C15E44B6003282E5BE62A3D32D85A2A /* Eureka-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BB29107373445AE18078C0AAEBA140B2 /* Eureka-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		402EA4A022E376724E25504C36C522CD /* SelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC8FB5B4FDCF76555F43852756393E2 /* SelectorRow.swift */; };
+		405744B456508D7969A3BC54A1F4E927 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		4325E0AC8D1557CE015B4F35423277DA /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EA165B912ABACBD010B0C3D144752B /* Validation.swift */; };
+		43B9A00DB9436E7BD6D705E2872E26E8 /* BaseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C56ABF3041489AAEB6D342C2C4C81E3 /* BaseRow.swift */; };
+		498223C7F76DB7D28AE38C4B78829F9A /* FieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8551058F7C51E8D119F83BD04D01694 /* FieldRow.swift */; };
+		4DF81955654DBE4E02E806802D1D49B0 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3CF510AA11427BCB480CCDEBCD0B13 /* Row.swift */; };
+		4EE521ADDD025747F450378FDDE95372 /* RuleURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63B24EFB46F4E6C9728057B2F926E83 /* RuleURL.swift */; };
+		520E9F67AFBBC78EBE66297B8D52C6D2 /* LabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AF1A31492F9043C83C8BEA6454433A /* LabelRow.swift */; };
+		549A01629691F7DB092B3F8176AECD68 /* CheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19289875895510E2EAC5155156FD831E /* CheckRow.swift */; };
+		55582C1B0D02D5A84F1FBB731CDE35D9 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B12A070402A118325B19AF491F3139F /* Core.swift */; };
+		567F0E2EA3DD673DA28562ADFC489BE4 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96692AAD91C8BFCC14078743ACFA45 /* DPDKeyboardListener.swift */; };
+		598FA42A947DB0A73BF837326DFDB13C /* SelectorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85A3DBBF9AD36393F35E034A6D6D8EB /* SelectorAlertController.swift */; };
+		5CB85FC0E9168E9EC0CCD33A63FCBC1A /* NavigationAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84824267C266C62BE3197FD0A1E844 /* NavigationAccessoryView.swift */; };
+		5D49089662AC20A1CB3F05D33635229D /* RuleClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1A04211E916702A64B720AA2857175 /* RuleClosure.swift */; };
+		631DF9F374A7EC1041CB081DB75C16EC /* Pods-Project Dragonfly-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B9DBB358A0BE171D7C6A2CE02DB988 /* Pods-Project Dragonfly-dummy.m */; };
+		653F5F8E52EED5D8B9CF3FBDB0712CDD /* RuleRequired.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE13C6E6D7394A1C8B4A8345485D499 /* RuleRequired.swift */; };
+		68DFF9A114D3807FABAAC3CF260F21BE /* DatePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD47139CB4E8E30B518BE309D047459 /* DatePickerRow.swift */; };
+		6EA26283A0E32D5594BDA55FF3F704A0 /* DateInlineRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FAACC43EB324F88AFBB7ACF8BF602A /* DateInlineRow.swift */; };
+		6FAD7D08B301985BF129AC5A2B3D5CF4 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B79DEDA7CDE172DADE91FF5924551EB /* DPDConstants.swift */; };
+		6FBB071D9E7FE75CB93CD0F7A12CB69D /* PickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DAD078CBD4F3838F18E806DAA8CDC /* PickerRow.swift */; };
+		7614C1B751242708E332B18FF2684B19 /* DateInlineFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DF4D64EE8A488A02097D180DE68AD /* DateInlineFieldRow.swift */; };
+		77E3F47B9B5BFF547C55AC7573340572 /* DropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DECB977A2DEBC61B890BB8D61DCF118 /* DropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78808B8338BDEF0959D8B0F3DA3BA891 /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3483E1C8B8524DE83805BBE342CC54 /* CellType.swift */; };
+		79E5ACA311F3FD7FF5A52E73A822CE2D /* OptionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56190863828CD6E222CED3A0AC13D6E9 /* OptionsRow.swift */; };
+		7B9DC82FC3E433E06CC2FFBDDFE080B2 /* HeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C001524432466D35DA275E78C159 /* HeaderFooterView.swift */; };
+		7D11730931D713450A92011F53363A6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */; };
+		8036FBD9863FF1D763DD7A646B05CB5E /* PopoverSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9B515D0CA141D51F2FED05D2E68A6F /* PopoverSelectorRow.swift */; };
+		81A9042F668B62EA4E40C57566BEE0A2 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ECE296E84902C68DA7AF67DAAA5AF3 /* DPDUIView+Extension.swift */; };
+		9811132B36B59EEB8D144F8BCC0B443E /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1932E7B427BB6888724CC4391AFA9759 /* DropDown.swift */; };
+		98B82309DB2678065E73E3120988819A /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C5565A562D77C4BEF709888E9402F0 /* Form.swift */; };
+		9D60D45897372CC9DDC211AC12FD603B /* Pods-Project Dragonfly-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 24821D9F6E1A6803DC870F2951E4FB64 /* Pods-Project Dragonfly-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1132991F478D1A78DD1E5E99A7ABDD3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		AB3126F1CC735C7FD7D09DB7392FD4CA /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3928ACEA33E827AC5198D1D87DCDCF61 /* Helpers.swift */; };
+		AEA1BD08FC0BF44288F2B7B87C020AB3 /* DateFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4274149A307823B9A441AD1B2EB07765 /* DateFieldRow.swift */; };
+		B1A551C55FCF0AAB8BE1CBBD05B73BC4 /* Eureka.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 90B3B84DDEA09FDB9DD7ACC77E69804F /* Eureka.bundle */; };
+		B1D4D946E54FBADCA2EFDC284E86AECE /* Pods-Project DragonflyUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F051179F11DB21F6B158E542AFE7169B /* Pods-Project DragonflyUITests-dummy.m */; };
+		B5D1D75F4DFB50ECDBD359388B708E4A /* RowProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCA1E0DF1870533EBD55C7F94A8380 /* RowProtocols.swift */; };
+		B5EC10C580CB9C68EA42DB15B530C453 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		B8E82D98499955A6B39BDBCB56E048D8 /* SelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A23D14B0441BCA023B61A803D589D60 /* SelectorViewController.swift */; };
+		BE3AFC46419AC438FE1D409B7B0BFED4 /* RuleRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D861BF3DFB4FE41B1FCBB34AF0BB697 /* RuleRange.swift */; };
+		C3C0FF320CC9DE76423E6CDF1F8058EE /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1DB7DD51D82BF8179AE1FC96E85433 /* DecimalFormatter.swift */; };
+		C4E1ACB5AED0442E0212211FAFDA7975 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574A796B040AA73EB539CDB8F38DDAE7 /* SliderRow.swift */; };
+		C60F11C7D5479F0153B43DC78B6DA97D /* MultipleSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC7C77E206F1A9404BE7ADD610A2BD /* MultipleSelectorViewController.swift */; };
+		C812952EC34CF6C37FA7B066870741B4 /* RuleRegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0CC89C1D7C1682DC51346C3A786ED8 /* RuleRegExp.swift */; };
+		CD59136C12F97B812062B4AA0862AEC0 /* Eureka-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFC2AC3A01D8FC9BAC10D67158DCA1E /* Eureka-dummy.m */; };
+		D042F97BD6E9018B1E6AF3B78695F2F6 /* RuleLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE9BF73E71083C6C75DF43794384657 /* RuleLength.swift */; };
+		D2B2C73D23209F8B5571D5172C800ED8 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FC2BBC228E80E417D8A0614D8B5E45 /* DropDownCell.swift */; };
+		D38C4C82C4397D964431454DB9BA6B98 /* ListCheckRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C1813BA3F6815A8EE5000FF5662F3 /* ListCheckRow.swift */; };
+		DC59E613604D47744BB4D92C5265B0EF /* ButtonRowWithPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F616962E0FB5710729846D3D4866E55F /* ButtonRowWithPresent.swift */; };
+		E1F9FAA34CBFD565D9077D14CD9A3DAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */; };
+		E917A3B86DD4738405F8781859A097A7 /* Pods-Project DragonflyTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75C3E0D2ABF67D69875DC1AB34B2AFAF /* Pods-Project DragonflyTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED6498AD627581D3216938680A6D4614 /* RowControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E53DD28F7A5B3A63DDA2B2BCDA8A89 /* RowControllerType.swift */; };
+		F3247CD95148E670D550CC747A769404 /* SwitchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9B123BAA90DF6C1138BD669E7C517 /* SwitchRow.swift */; };
+		F8E3F64EA6FEDF34A2D5F5DB83EF044E /* GenericMultipleSelectorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBDE1E127C0C75B869B932101D4922E /* GenericMultipleSelectorRow.swift */; };
+		FF23400BEFE014C4818111FB1F2EB3EB /* StepperRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF752C6B2E7B0B3AA7B444DB1F6EDED /* StepperRow.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6D3EB37C80EA5DDFA88C646535F8F036 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 873B1A0D84F1FF2C0ECD8A2440705B43;
+			remoteInfo = Eureka;
+		};
+		88927D1B2BB06A06C566F46D459A0E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F766ADB76A46AB732825D44C4BAAABF;
+			remoteInfo = DropDown;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01D5EF2F6CEFC014CDA123C43E75A565 /* DropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-prefix.pch"; sourceTree = "<group>"; };
+		0A361E0B7A8E7D0633C3F4E3CFD958C6 /* InlineRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InlineRowType.swift; path = Source/Core/InlineRowType.swift; sourceTree = "<group>"; };
+		0EB98622A9CEFE0908B7558189A21934 /* PushRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PushRow.swift; path = Source/Rows/PushRow.swift; sourceTree = "<group>"; };
+		0EBDE1E127C0C75B869B932101D4922E /* GenericMultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericMultipleSelectorRow.swift; path = Source/Rows/Common/GenericMultipleSelectorRow.swift; sourceTree = "<group>"; };
+		0F84824267C266C62BE3197FD0A1E844 /* NavigationAccessoryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigationAccessoryView.swift; path = Source/Core/NavigationAccessoryView.swift; sourceTree = "<group>"; };
+		10B13A67115FFAE89BD02C31B62E1698 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Source/Core/Operators.swift; sourceTree = "<group>"; };
+		1351D2F89D82166537300EFD29077280 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13AF1A31492F9043C83C8BEA6454433A /* LabelRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LabelRow.swift; path = Source/Rows/LabelRow.swift; sourceTree = "<group>"; };
+		1548B950348DE4BFC5A1250C7C98A117 /* Pods_Project_DragonflyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_DragonflyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19289875895510E2EAC5155156FD831E /* CheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CheckRow.swift; path = Source/Rows/CheckRow.swift; sourceTree = "<group>"; };
+		1932E7B427BB6888724CC4391AFA9759 /* DropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDown.swift; path = DropDown/src/DropDown.swift; sourceTree = "<group>"; };
+		1A23D14B0441BCA023B61A803D589D60 /* SelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorViewController.swift; path = Source/Rows/Controllers/SelectorViewController.swift; sourceTree = "<group>"; };
+		1C4BEF490553D2B67C52C98AD58CCE0F /* DropDownCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DropDownCell.xib; path = DropDown/resources/DropDownCell.xib; sourceTree = "<group>"; };
+		23B4E16D7DDD4B9E09BDAB95B042C530 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24821D9F6E1A6803DC870F2951E4FB64 /* Pods-Project Dragonfly-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Project Dragonfly-umbrella.h"; sourceTree = "<group>"; };
+		28440A87F92D1DC32556F5A93682D49C /* Pods-Project DragonflyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Project DragonflyTests.release.xcconfig"; sourceTree = "<group>"; };
+		2BFC7C77E206F1A9404BE7ADD610A2BD /* MultipleSelectorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorViewController.swift; path = Source/Rows/Controllers/MultipleSelectorViewController.swift; sourceTree = "<group>"; };
+		2C56ABF3041489AAEB6D342C2C4C81E3 /* BaseRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseRow.swift; path = Source/Core/BaseRow.swift; sourceTree = "<group>"; };
+		2E6662FA52F4BC04A56BA8E2BE159E4D /* Cell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = Source/Core/Cell.swift; sourceTree = "<group>"; };
+		318EE55D8D2D4007FF6AD79E9C8F067B /* Eureka.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Eureka.xcconfig; sourceTree = "<group>"; };
+		324E1CE4C87300E834391D871580C6F8 /* Pods-Project DragonflyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Project DragonflyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3928ACEA33E827AC5198D1D87DCDCF61 /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Source/Core/Helpers.swift; sourceTree = "<group>"; };
+		3F050DE7D3307E6708656D3600E568CE /* Pods-Project DragonflyTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Project DragonflyTests-dummy.m"; sourceTree = "<group>"; };
+		3FAD641E1F3C0E00D3615D60E3D0AD13 /* Pods_Project_Dragonfly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Dragonfly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41E53DD28F7A5B3A63DDA2B2BCDA8A89 /* RowControllerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowControllerType.swift; path = Source/Core/RowControllerType.swift; sourceTree = "<group>"; };
+		4274149A307823B9A441AD1B2EB07765 /* DateFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFieldRow.swift; path = Source/Rows/Common/DateFieldRow.swift; sourceTree = "<group>"; };
+		4551A03D928B8ADBFC40694A2C7A883F /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CD47139CB4E8E30B518BE309D047459 /* DatePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerRow.swift; path = Source/Rows/DatePickerRow.swift; sourceTree = "<group>"; };
+		4D1DF4D64EE8A488A02097D180DE68AD /* DateInlineFieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineFieldRow.swift; path = Source/Rows/Common/DateInlineFieldRow.swift; sourceTree = "<group>"; };
+		4D96692AAD91C8BFCC14078743ACFA45 /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDKeyboardListener.swift; path = DropDown/helpers/DPDKeyboardListener.swift; sourceTree = "<group>"; };
+		4DC149BCFBCA18DC113887E84E204689 /* Pods-Project Dragonfly-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Project Dragonfly-resources.sh"; sourceTree = "<group>"; };
+		4F665CECF73C1A029C2D6FB4D857A3E2 /* AlertRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertRow.swift; path = Source/Rows/AlertRow.swift; sourceTree = "<group>"; };
+		541D8A8D867957E65A917B44640303BE /* Pods-Project Dragonfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Project Dragonfly.debug.xcconfig"; sourceTree = "<group>"; };
+		56190863828CD6E222CED3A0AC13D6E9 /* OptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionsRow.swift; path = Source/Rows/Common/OptionsRow.swift; sourceTree = "<group>"; };
+		571DAD078CBD4F3838F18E806DAA8CDC /* PickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerRow.swift; path = Source/Rows/PickerRow.swift; sourceTree = "<group>"; };
+		574A796B040AA73EB539CDB8F38DDAE7 /* SliderRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SliderRow.swift; path = Source/Rows/SliderRow.swift; sourceTree = "<group>"; };
+		58029CF4D185B7BE3177E7C94FED209F /* Pods_Project_DragonflyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_DragonflyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58EA165B912ABACBD010B0C3D144752B /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Core/Validation.swift; sourceTree = "<group>"; };
+		5B3483E1C8B8524DE83805BBE342CC54 /* CellType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CellType.swift; path = Source/Core/CellType.swift; sourceTree = "<group>"; };
+		5D332F4CB21BF7C14FDA33A574E759EC /* Pods-Project DragonflyTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Project DragonflyTests-frameworks.sh"; sourceTree = "<group>"; };
+		5D861BF3DFB4FE41B1FCBB34AF0BB697 /* RuleRange.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRange.swift; path = Source/Validations/RuleRange.swift; sourceTree = "<group>"; };
+		5DECB977A2DEBC61B890BB8D61DCF118 /* DropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-umbrella.h"; sourceTree = "<group>"; };
+		616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6881F98A02F42201E2281E9907FFC307 /* Pods-Project Dragonfly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Project Dragonfly.release.xcconfig"; sourceTree = "<group>"; };
+		6ACEC6B52451E49FC25FC695A327BACB /* FieldsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldsRow.swift; path = Source/Rows/FieldsRow.swift; sourceTree = "<group>"; };
+		6AEBA5D535C9A5C55DD11D872FD6B383 /* Pods-Project DragonflyTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Project DragonflyTests-resources.sh"; sourceTree = "<group>"; };
+		6CF752C6B2E7B0B3AA7B444DB1F6EDED /* StepperRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepperRow.swift; path = Source/Rows/StepperRow.swift; sourceTree = "<group>"; };
+		6D3CF510AA11427BCB480CCDEBCD0B13 /* Row.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Row.swift; path = Source/Core/Row.swift; sourceTree = "<group>"; };
+		6ED9B123BAA90DF6C1138BD669E7C517 /* SwitchRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwitchRow.swift; path = Source/Rows/SwitchRow.swift; sourceTree = "<group>"; };
+		6F68C201E5ECDB283FEB33C0ECFEB366 /* SelectableRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableRowType.swift; path = Source/Core/SelectableRowType.swift; sourceTree = "<group>"; };
+		74C5565A562D77C4BEF709888E9402F0 /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
+		75C3E0D2ABF67D69875DC1AB34B2AFAF /* Pods-Project DragonflyTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Project DragonflyTests-umbrella.h"; sourceTree = "<group>"; };
+		77D2C86C61DEF45952385E2259D66B2F /* Section.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Section.swift; path = Source/Core/Section.swift; sourceTree = "<group>"; };
+		79F90444C4DB15A015BED70CB69EF32B /* Pods-Project DragonflyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Project DragonflyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7B12A070402A118325B19AF491F3139F /* Core.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Core.swift; path = Source/Core/Core.swift; sourceTree = "<group>"; };
+		7CF0A9670ACC82BE1069DA3F336A043F /* Pods-Project DragonflyUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Project DragonflyUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7D5104BB6A8724ED7BE5B4F7FC289DC7 /* ActionSheetRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActionSheetRow.swift; path = Source/Rows/ActionSheetRow.swift; sourceTree = "<group>"; };
+		7D5FB7806634A9DED79E56CEBCB3B24D /* Pods-Project Dragonfly-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Project Dragonfly-frameworks.sh"; sourceTree = "<group>"; };
+		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		8087EC2740564C15D6925FFF78077C2B /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DropDown.modulemap; sourceTree = "<group>"; };
+		80FC2DD6300ED851C57764A70E1C46A7 /* Pods-Project Dragonfly-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Project Dragonfly-acknowledgements.markdown"; sourceTree = "<group>"; };
+		839727A403FDD49896D74E5C1EB9DA90 /* Pods-Project Dragonfly.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Project Dragonfly.modulemap"; sourceTree = "<group>"; };
+		83FC2BBC228E80E417D8A0614D8B5E45 /* DropDownCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDownCell.swift; path = DropDown/src/DropDownCell.swift; sourceTree = "<group>"; };
+		8B79DEDA7CDE172DADE91FF5924551EB /* DPDConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDConstants.swift; path = DropDown/helpers/DPDConstants.swift; sourceTree = "<group>"; };
+		8E12FC7586EC792B470C066547C80CD7 /* Pods-Project DragonflyUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Project DragonflyUITests-frameworks.sh"; sourceTree = "<group>"; };
+		90B3B84DDEA09FDB9DD7ACC77E69804F /* Eureka.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Eureka.bundle; path = Source/Resources/Eureka.bundle; sourceTree = "<group>"; };
+		9309ACDE78C13B249F524DBCA738BCBD /* DropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DropDown-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94666F1205DD4113F9922BF4C3673820 /* PickerInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PickerInlineRow.swift; path = Source/Rows/PickerInlineRow.swift; sourceTree = "<group>"; };
+		96B9DBB358A0BE171D7C6A2CE02DB988 /* Pods-Project Dragonfly-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Project Dragonfly-dummy.m"; sourceTree = "<group>"; };
+		96ECE296E84902C68DA7AF67DAAA5AF3 /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DPDUIView+Extension.swift"; path = "DropDown/helpers/DPDUIView+Extension.swift"; sourceTree = "<group>"; };
+		980C1813BA3F6815A8EE5000FF5662F3 /* ListCheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListCheckRow.swift; path = Source/Rows/SelectableRows/ListCheckRow.swift; sourceTree = "<group>"; };
+		9BC8FB5B4FDCF76555F43852756393E2 /* SelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorRow.swift; path = Source/Rows/Common/SelectorRow.swift; sourceTree = "<group>"; };
+		A00145703B93CE9F78963B1CEEEDDAEC /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Source/Rows/Common/Protocols.swift; sourceTree = "<group>"; };
+		A0FAACC43EB324F88AFBB7ACF8BF602A /* DateInlineRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateInlineRow.swift; path = Source/Rows/DateInlineRow.swift; sourceTree = "<group>"; };
+		A6C452BAE24BE7E219C6E3AC193F0DBE /* PresenterRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresenterRowType.swift; path = Source/Core/PresenterRowType.swift; sourceTree = "<group>"; };
+		A978C001524432466D35DA275E78C159 /* HeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeaderFooterView.swift; path = Source/Core/HeaderFooterView.swift; sourceTree = "<group>"; };
+		AB0A60C7B321E01CECF3C16F0E5859F0 /* SelectableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectableSection.swift; path = Source/Core/SelectableSection.swift; sourceTree = "<group>"; };
+		AB5921AF557724A915A88002E49EE6CE /* Pods-Project DragonflyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Project DragonflyTests.modulemap"; sourceTree = "<group>"; };
+		ADC82CF64AD0ECB9B3BE33543F0871D6 /* Eureka.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Eureka.modulemap; sourceTree = "<group>"; };
+		B85A3DBBF9AD36393F35E034A6D6D8EB /* SelectorAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SelectorAlertController.swift; path = Source/Rows/Controllers/SelectorAlertController.swift; sourceTree = "<group>"; };
+		BAE9BF73E71083C6C75DF43794384657 /* RuleLength.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleLength.swift; path = Source/Validations/RuleLength.swift; sourceTree = "<group>"; };
+		BB29107373445AE18078C0AAEBA140B2 /* Eureka-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-umbrella.h"; sourceTree = "<group>"; };
+		BC259248C7A88770C4C8BEB2F727901E /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFCCA1E0DF1870533EBD55C7F94A8380 /* RowProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowProtocols.swift; path = Source/Core/RowProtocols.swift; sourceTree = "<group>"; };
+		C04FFB4B64BECC266690A32803A3D023 /* Pods-Project DragonflyTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Project DragonflyTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C0E77EBDBDAAAA20645B079E4783120E /* RuleEmail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleEmail.swift; path = Source/Validations/RuleEmail.swift; sourceTree = "<group>"; };
+		C63B24EFB46F4E6C9728057B2F926E83 /* RuleURL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleURL.swift; path = Source/Validations/RuleURL.swift; sourceTree = "<group>"; };
+		CA54427DAA8E687527DAC1BDE809C5A0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CACDE97385A18B280458F784CD252BD1 /* RowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowType.swift; path = Source/Core/RowType.swift; sourceTree = "<group>"; };
+		CD1DB7DD51D82BF8179AE1FC96E85433 /* DecimalFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DecimalFormatter.swift; path = Source/Rows/Common/DecimalFormatter.swift; sourceTree = "<group>"; };
+		CEE13C6E6D7394A1C8B4A8345485D499 /* RuleRequired.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRequired.swift; path = Source/Validations/RuleRequired.swift; sourceTree = "<group>"; };
+		D49ED810E4E81C88AB5EA1FA4D75642F /* Pods-Project DragonflyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Project DragonflyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D62099F160C9E6A8BC26571C4554F6A3 /* Pods-Project DragonflyUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Project DragonflyUITests-resources.sh"; sourceTree = "<group>"; };
+		D8551058F7C51E8D119F83BD04D01694 /* FieldRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldRow.swift; path = Source/Rows/Common/FieldRow.swift; sourceTree = "<group>"; };
+		DDAB7457AB18DE2A8460B0AAD1950A67 /* ButtonRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRow.swift; path = Source/Rows/ButtonRow.swift; sourceTree = "<group>"; };
+		E4ACA96A983EAB946B4C9F35493E81A6 /* Pods-Project DragonflyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Project DragonflyUITests-umbrella.h"; sourceTree = "<group>"; };
+		EB9D749F522828DEF8F23A3B6FF6F185 /* Pods-Project DragonflyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Project DragonflyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC1A04211E916702A64B720AA2857175 /* RuleClosure.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleClosure.swift; path = Source/Validations/RuleClosure.swift; sourceTree = "<group>"; };
+		EC69BE4D980A8E4C5BE095A17587A95A /* DropDown+Appearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DropDown+Appearance.swift"; path = "DropDown/src/DropDown+Appearance.swift"; sourceTree = "<group>"; };
+		ED0CC89C1D7C1682DC51346C3A786ED8 /* RuleRegExp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRegExp.swift; path = Source/Validations/RuleRegExp.swift; sourceTree = "<group>"; };
+		ED9B515D0CA141D51F2FED05D2E68A6F /* PopoverSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverSelectorRow.swift; path = Source/Rows/PopoverSelectorRow.swift; sourceTree = "<group>"; };
+		EE36793119C312ACA181D0810681E2BD /* SegmentedRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedRow.swift; path = Source/Rows/SegmentedRow.swift; sourceTree = "<group>"; };
+		EEFF63177C1EC292AD1C67CD07AC2381 /* TextAreaRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextAreaRow.swift; path = Source/Rows/TextAreaRow.swift; sourceTree = "<group>"; };
+		EFC703F22131C5A688F20F39D384875B /* Eureka-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-prefix.pch"; sourceTree = "<group>"; };
+		F051179F11DB21F6B158E542AFE7169B /* Pods-Project DragonflyUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Project DragonflyUITests-dummy.m"; sourceTree = "<group>"; };
+		F16516B4B27D4F2F0C2B0B5513350DF8 /* MultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipleSelectorRow.swift; path = Source/Rows/MultipleSelectorRow.swift; sourceTree = "<group>"; };
+		F21F3C9DB69A60CCA63665B546E09513 /* Pods-Project DragonflyTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Project DragonflyTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		F42A6892BEF94E093D57210F050EDC6E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4ADD8C5D9AC5FB32737CA735BCC37D0 /* DropDown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.xcconfig; sourceTree = "<group>"; };
+		F5B455B8CAABC6E4ACD5631D82181B10 /* DateRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateRow.swift; path = Source/Rows/DateRow.swift; sourceTree = "<group>"; };
+		F5D78AFC8EF1728C34ABE818CE607936 /* Pods-Project DragonflyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Project DragonflyUITests.modulemap"; sourceTree = "<group>"; };
+		F616962E0FB5710729846D3D4866E55F /* ButtonRowWithPresent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonRowWithPresent.swift; path = Source/Rows/ButtonRowWithPresent.swift; sourceTree = "<group>"; };
+		F8195E2CFEBC5E9749620BA8C9B56F9B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9E377ACF5AB8872D00C1818B9660B2D /* Pods-Project Dragonfly-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Project Dragonfly-acknowledgements.plist"; sourceTree = "<group>"; };
+		FCFC2AC3A01D8FC9BAC10D67158DCA1E /* Eureka-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Eureka-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		116DAAD9477596BDFF4A47E93000F4AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1132991F478D1A78DD1E5E99A7ABDD3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2322C4F1B74F0AFB3B70D8A795EB5717 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1F9FAA34CBFD565D9077D14CD9A3DAE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E092B48A7CE73654FC872360FB8CE45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				405744B456508D7969A3BC54A1F4E927 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA683D27D5661355213E122843E59D1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FDA5004E470299B26D07B29CC208119 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2B83EC0FCE8537BA433BCAA8B14FF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5EC10C580CB9C68EA42DB15B530C453 /* Foundation.framework in Frameworks */,
+				7D11730931D713450A92011F53363A6E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12FBC290714344FA7F9CC847965D5C2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4551A03D928B8ADBFC40694A2C7A883F /* DropDown.framework */,
+				BC259248C7A88770C4C8BEB2F727901E /* Eureka.framework */,
+				3FAD641E1F3C0E00D3615D60E3D0AD13 /* Pods_Project_Dragonfly.framework */,
+				1548B950348DE4BFC5A1250C7C98A117 /* Pods_Project_DragonflyTests.framework */,
+				58029CF4D185B7BE3177E7C94FED209F /* Pods_Project_DragonflyUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20CAD374FE8B4428486A45C06E4CF640 /* Pods-Project Dragonfly */ = {
+			isa = PBXGroup;
+			children = (
+				1351D2F89D82166537300EFD29077280 /* Info.plist */,
+				839727A403FDD49896D74E5C1EB9DA90 /* Pods-Project Dragonfly.modulemap */,
+				80FC2DD6300ED851C57764A70E1C46A7 /* Pods-Project Dragonfly-acknowledgements.markdown */,
+				F9E377ACF5AB8872D00C1818B9660B2D /* Pods-Project Dragonfly-acknowledgements.plist */,
+				96B9DBB358A0BE171D7C6A2CE02DB988 /* Pods-Project Dragonfly-dummy.m */,
+				7D5FB7806634A9DED79E56CEBCB3B24D /* Pods-Project Dragonfly-frameworks.sh */,
+				4DC149BCFBCA18DC113887E84E204689 /* Pods-Project Dragonfly-resources.sh */,
+				24821D9F6E1A6803DC870F2951E4FB64 /* Pods-Project Dragonfly-umbrella.h */,
+				541D8A8D867957E65A917B44640303BE /* Pods-Project Dragonfly.debug.xcconfig */,
+				6881F98A02F42201E2281E9907FFC307 /* Pods-Project Dragonfly.release.xcconfig */,
+			);
+			name = "Pods-Project Dragonfly";
+			path = "Target Support Files/Pods-Project Dragonfly";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6EE98446B568159EE277B68FD442AF0 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44836FC8A62C605C339983CFF5CFC98A /* Eureka */ = {
+			isa = PBXGroup;
+			children = (
+				7D5104BB6A8724ED7BE5B4F7FC289DC7 /* ActionSheetRow.swift */,
+				4F665CECF73C1A029C2D6FB4D857A3E2 /* AlertRow.swift */,
+				2C56ABF3041489AAEB6D342C2C4C81E3 /* BaseRow.swift */,
+				DDAB7457AB18DE2A8460B0AAD1950A67 /* ButtonRow.swift */,
+				F616962E0FB5710729846D3D4866E55F /* ButtonRowWithPresent.swift */,
+				2E6662FA52F4BC04A56BA8E2BE159E4D /* Cell.swift */,
+				5B3483E1C8B8524DE83805BBE342CC54 /* CellType.swift */,
+				19289875895510E2EAC5155156FD831E /* CheckRow.swift */,
+				7B12A070402A118325B19AF491F3139F /* Core.swift */,
+				4274149A307823B9A441AD1B2EB07765 /* DateFieldRow.swift */,
+				4D1DF4D64EE8A488A02097D180DE68AD /* DateInlineFieldRow.swift */,
+				A0FAACC43EB324F88AFBB7ACF8BF602A /* DateInlineRow.swift */,
+				4CD47139CB4E8E30B518BE309D047459 /* DatePickerRow.swift */,
+				F5B455B8CAABC6E4ACD5631D82181B10 /* DateRow.swift */,
+				CD1DB7DD51D82BF8179AE1FC96E85433 /* DecimalFormatter.swift */,
+				D8551058F7C51E8D119F83BD04D01694 /* FieldRow.swift */,
+				6ACEC6B52451E49FC25FC695A327BACB /* FieldsRow.swift */,
+				74C5565A562D77C4BEF709888E9402F0 /* Form.swift */,
+				0EBDE1E127C0C75B869B932101D4922E /* GenericMultipleSelectorRow.swift */,
+				A978C001524432466D35DA275E78C159 /* HeaderFooterView.swift */,
+				3928ACEA33E827AC5198D1D87DCDCF61 /* Helpers.swift */,
+				0A361E0B7A8E7D0633C3F4E3CFD958C6 /* InlineRowType.swift */,
+				13AF1A31492F9043C83C8BEA6454433A /* LabelRow.swift */,
+				980C1813BA3F6815A8EE5000FF5662F3 /* ListCheckRow.swift */,
+				F16516B4B27D4F2F0C2B0B5513350DF8 /* MultipleSelectorRow.swift */,
+				2BFC7C77E206F1A9404BE7ADD610A2BD /* MultipleSelectorViewController.swift */,
+				0F84824267C266C62BE3197FD0A1E844 /* NavigationAccessoryView.swift */,
+				10B13A67115FFAE89BD02C31B62E1698 /* Operators.swift */,
+				56190863828CD6E222CED3A0AC13D6E9 /* OptionsRow.swift */,
+				94666F1205DD4113F9922BF4C3673820 /* PickerInlineRow.swift */,
+				571DAD078CBD4F3838F18E806DAA8CDC /* PickerRow.swift */,
+				ED9B515D0CA141D51F2FED05D2E68A6F /* PopoverSelectorRow.swift */,
+				A6C452BAE24BE7E219C6E3AC193F0DBE /* PresenterRowType.swift */,
+				A00145703B93CE9F78963B1CEEEDDAEC /* Protocols.swift */,
+				0EB98622A9CEFE0908B7558189A21934 /* PushRow.swift */,
+				6D3CF510AA11427BCB480CCDEBCD0B13 /* Row.swift */,
+				41E53DD28F7A5B3A63DDA2B2BCDA8A89 /* RowControllerType.swift */,
+				BFCCA1E0DF1870533EBD55C7F94A8380 /* RowProtocols.swift */,
+				CACDE97385A18B280458F784CD252BD1 /* RowType.swift */,
+				EC1A04211E916702A64B720AA2857175 /* RuleClosure.swift */,
+				C0E77EBDBDAAAA20645B079E4783120E /* RuleEmail.swift */,
+				BAE9BF73E71083C6C75DF43794384657 /* RuleLength.swift */,
+				5D861BF3DFB4FE41B1FCBB34AF0BB697 /* RuleRange.swift */,
+				ED0CC89C1D7C1682DC51346C3A786ED8 /* RuleRegExp.swift */,
+				CEE13C6E6D7394A1C8B4A8345485D499 /* RuleRequired.swift */,
+				C63B24EFB46F4E6C9728057B2F926E83 /* RuleURL.swift */,
+				77D2C86C61DEF45952385E2259D66B2F /* Section.swift */,
+				EE36793119C312ACA181D0810681E2BD /* SegmentedRow.swift */,
+				6F68C201E5ECDB283FEB33C0ECFEB366 /* SelectableRowType.swift */,
+				AB0A60C7B321E01CECF3C16F0E5859F0 /* SelectableSection.swift */,
+				B85A3DBBF9AD36393F35E034A6D6D8EB /* SelectorAlertController.swift */,
+				9BC8FB5B4FDCF76555F43852756393E2 /* SelectorRow.swift */,
+				1A23D14B0441BCA023B61A803D589D60 /* SelectorViewController.swift */,
+				574A796B040AA73EB539CDB8F38DDAE7 /* SliderRow.swift */,
+				6CF752C6B2E7B0B3AA7B444DB1F6EDED /* StepperRow.swift */,
+				6ED9B123BAA90DF6C1138BD669E7C517 /* SwitchRow.swift */,
+				EEFF63177C1EC292AD1C67CD07AC2381 /* TextAreaRow.swift */,
+				58EA165B912ABACBD010B0C3D144752B /* Validation.swift */,
+				B6A6477FDDDA050DCC63AE8FCCFDCA7D /* Resources */,
+				6C5C46AF0770ADC850BB2366BD303F4E /* Support Files */,
+			);
+			path = Eureka;
+			sourceTree = "<group>";
+		};
+		6379C88BA13AB0A8525B7DBEF445C4D1 /* Pods-Project DragonflyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F42A6892BEF94E093D57210F050EDC6E /* Info.plist */,
+				F5D78AFC8EF1728C34ABE818CE607936 /* Pods-Project DragonflyUITests.modulemap */,
+				79F90444C4DB15A015BED70CB69EF32B /* Pods-Project DragonflyUITests-acknowledgements.markdown */,
+				7CF0A9670ACC82BE1069DA3F336A043F /* Pods-Project DragonflyUITests-acknowledgements.plist */,
+				F051179F11DB21F6B158E542AFE7169B /* Pods-Project DragonflyUITests-dummy.m */,
+				8E12FC7586EC792B470C066547C80CD7 /* Pods-Project DragonflyUITests-frameworks.sh */,
+				D62099F160C9E6A8BC26571C4554F6A3 /* Pods-Project DragonflyUITests-resources.sh */,
+				E4ACA96A983EAB946B4C9F35493E81A6 /* Pods-Project DragonflyUITests-umbrella.h */,
+				EB9D749F522828DEF8F23A3B6FF6F185 /* Pods-Project DragonflyUITests.debug.xcconfig */,
+				D49ED810E4E81C88AB5EA1FA4D75642F /* Pods-Project DragonflyUITests.release.xcconfig */,
+			);
+			name = "Pods-Project DragonflyUITests";
+			path = "Target Support Files/Pods-Project DragonflyUITests";
+			sourceTree = "<group>";
+		};
+		6C5C46AF0770ADC850BB2366BD303F4E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ADC82CF64AD0ECB9B3BE33543F0871D6 /* Eureka.modulemap */,
+				318EE55D8D2D4007FF6AD79E9C8F067B /* Eureka.xcconfig */,
+				FCFC2AC3A01D8FC9BAC10D67158DCA1E /* Eureka-dummy.m */,
+				EFC703F22131C5A688F20F39D384875B /* Eureka-prefix.pch */,
+				BB29107373445AE18078C0AAEBA140B2 /* Eureka-umbrella.h */,
+				23B4E16D7DDD4B9E09BDAB95B042C530 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Eureka";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				E63A3BE91A4CAB5A2BEED54945772C9A /* Pods */,
+				12FBC290714344FA7F9CC847965D5C2C /* Products */,
+				AAF92A97CA255931D5FBECF0B2E2228E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9DFE6DEACACCEDEDC0DE09B8A43A30F4 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				8B79DEDA7CDE172DADE91FF5924551EB /* DPDConstants.swift */,
+				4D96692AAD91C8BFCC14078743ACFA45 /* DPDKeyboardListener.swift */,
+				96ECE296E84902C68DA7AF67DAAA5AF3 /* DPDUIView+Extension.swift */,
+				1932E7B427BB6888724CC4391AFA9759 /* DropDown.swift */,
+				EC69BE4D980A8E4C5BE095A17587A95A /* DropDown+Appearance.swift */,
+				83FC2BBC228E80E417D8A0614D8B5E45 /* DropDownCell.swift */,
+				EFBC67599176CA83AE51A1B4FEBC7216 /* Resources */,
+				A07617FB3F615AEF29483887446BED6E /* Support Files */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		A07617FB3F615AEF29483887446BED6E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8087EC2740564C15D6925FFF78077C2B /* DropDown.modulemap */,
+				F4ADD8C5D9AC5FB32737CA735BCC37D0 /* DropDown.xcconfig */,
+				9309ACDE78C13B249F524DBCA738BCBD /* DropDown-dummy.m */,
+				01D5EF2F6CEFC014CDA123C43E75A565 /* DropDown-prefix.pch */,
+				5DECB977A2DEBC61B890BB8D61DCF118 /* DropDown-umbrella.h */,
+				F8195E2CFEBC5E9749620BA8C9B56F9B /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DropDown";
+			sourceTree = "<group>";
+		};
+		A53F100CE2419FCB70186BD70789AC68 /* Pods-Project DragonflyTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA54427DAA8E687527DAC1BDE809C5A0 /* Info.plist */,
+				AB5921AF557724A915A88002E49EE6CE /* Pods-Project DragonflyTests.modulemap */,
+				C04FFB4B64BECC266690A32803A3D023 /* Pods-Project DragonflyTests-acknowledgements.markdown */,
+				F21F3C9DB69A60CCA63665B546E09513 /* Pods-Project DragonflyTests-acknowledgements.plist */,
+				3F050DE7D3307E6708656D3600E568CE /* Pods-Project DragonflyTests-dummy.m */,
+				5D332F4CB21BF7C14FDA33A574E759EC /* Pods-Project DragonflyTests-frameworks.sh */,
+				6AEBA5D535C9A5C55DD11D872FD6B383 /* Pods-Project DragonflyTests-resources.sh */,
+				75C3E0D2ABF67D69875DC1AB34B2AFAF /* Pods-Project DragonflyTests-umbrella.h */,
+				324E1CE4C87300E834391D871580C6F8 /* Pods-Project DragonflyTests.debug.xcconfig */,
+				28440A87F92D1DC32556F5A93682D49C /* Pods-Project DragonflyTests.release.xcconfig */,
+			);
+			name = "Pods-Project DragonflyTests";
+			path = "Target Support Files/Pods-Project DragonflyTests";
+			sourceTree = "<group>";
+		};
+		AAF92A97CA255931D5FBECF0B2E2228E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				20CAD374FE8B4428486A45C06E4CF640 /* Pods-Project Dragonfly */,
+				A53F100CE2419FCB70186BD70789AC68 /* Pods-Project DragonflyTests */,
+				6379C88BA13AB0A8525B7DBEF445C4D1 /* Pods-Project DragonflyUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B6A6477FDDDA050DCC63AE8FCCFDCA7D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				90B3B84DDEA09FDB9DD7ACC77E69804F /* Eureka.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E63A3BE91A4CAB5A2BEED54945772C9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DFE6DEACACCEDEDC0DE09B8A43A30F4 /* DropDown */,
+				44836FC8A62C605C339983CFF5CFC98A /* Eureka */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				616BEB51ECCAD129BDBCB7A956B56CC6 /* Foundation.framework */,
+				7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		EFBC67599176CA83AE51A1B4FEBC7216 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C4BEF490553D2B67C52C98AD58CCE0F /* DropDownCell.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3D17D4EBFBE7F70D8076F61126E9D0CD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D60D45897372CC9DDC211AC12FD603B /* Pods-Project Dragonfly-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A8F015FF72B8873D7849C18F597FD0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C15E44B6003282E5BE62A3D32D85A2A /* Eureka-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B4E2638DF381880A8A7099E1237417 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				224B45303C3A468B371039731B7BD2C2 /* Pods-Project DragonflyUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BA686B126558CD682C3FA8A4009A98F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E917A3B86DD4738405F8781859A097A7 /* Pods-Project DragonflyTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A1C83F7A1632C4F56EA70EBF0AB9E1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77E3F47B9B5BFF547C55AC7573340572 /* DropDown-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		834C14A7CDF79C11C6C10C29EFDC80C3 /* Pods-Project DragonflyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 890F5ABC0EBCBA9A1D9773DDBB7278DA /* Build configuration list for PBXNativeTarget "Pods-Project DragonflyTests" */;
+			buildPhases = (
+				96DC32D0703D57C2B2D884208BAE01F8 /* Sources */,
+				AA683D27D5661355213E122843E59D1C /* Frameworks */,
+				6BA686B126558CD682C3FA8A4009A98F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Project DragonflyTests";
+			productName = "Pods-Project DragonflyTests";
+			productReference = 1548B950348DE4BFC5A1250C7C98A117 /* Pods_Project_DragonflyTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		873B1A0D84F1FF2C0ECD8A2440705B43 /* Eureka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE17FD22F754341BD6DBF1E339AAF8A4 /* Build configuration list for PBXNativeTarget "Eureka" */;
+			buildPhases = (
+				C43AAC6F8D19904C0EB7666E96B8B1D6 /* Sources */,
+				CE2B83EC0FCE8537BA433BCAA8B14FF5 /* Frameworks */,
+				52DC994007D06EF6E18A6327FC53EFFE /* Resources */,
+				46A8F015FF72B8873D7849C18F597FD0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Eureka;
+			productName = Eureka;
+			productReference = BC259248C7A88770C4C8BEB2F727901E /* Eureka.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9A6C323DE091BF446C8788EB4DEECFAF /* Pods-Project Dragonfly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 885C80AE5957CB4C3F506A33C2D5FAC5 /* Build configuration list for PBXNativeTarget "Pods-Project Dragonfly" */;
+			buildPhases = (
+				7BB15BFFE8461F8E5F6EA6735C0D5BBC /* Sources */,
+				116DAAD9477596BDFF4A47E93000F4AA /* Frameworks */,
+				3D17D4EBFBE7F70D8076F61126E9D0CD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFDEF06C6BFA2109A0F92AD96DE84C08 /* PBXTargetDependency */,
+				F698133D0F0DB2A10213DC28CD3D0AB9 /* PBXTargetDependency */,
+			);
+			name = "Pods-Project Dragonfly";
+			productName = "Pods-Project Dragonfly";
+			productReference = 3FAD641E1F3C0E00D3615D60E3D0AD13 /* Pods_Project_Dragonfly.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9F766ADB76A46AB732825D44C4BAAABF /* DropDown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEBA9E088F9F2D1C4E4D758CD3F35F4A /* Build configuration list for PBXNativeTarget "DropDown" */;
+			buildPhases = (
+				2C0B57F66C794301ABC64C8C58FA49E1 /* Sources */,
+				2322C4F1B74F0AFB3B70D8A795EB5717 /* Frameworks */,
+				D1EE6F4CCC213A2F33B327428BD4C413 /* Resources */,
+				B0A1C83F7A1632C4F56EA70EBF0AB9E1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DropDown;
+			productName = DropDown;
+			productReference = 4551A03D928B8ADBFC40694A2C7A883F /* DropDown.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A19587A017CC6D248DB82C0963A61047 /* Pods-Project DragonflyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 498E5A56FA60BEB33354FAF139EC970C /* Build configuration list for PBXNativeTarget "Pods-Project DragonflyUITests" */;
+			buildPhases = (
+				FEFF1B9E1C67FD9B728ECBE7DB788AEB /* Sources */,
+				5E092B48A7CE73654FC872360FB8CE45 /* Frameworks */,
+				63B4E2638DF381880A8A7099E1237417 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Project DragonflyUITests";
+			productName = "Pods-Project DragonflyUITests";
+			productReference = 58029CF4D185B7BE3177E7C94FED209F /* Pods_Project_DragonflyUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 12FBC290714344FA7F9CC847965D5C2C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F766ADB76A46AB732825D44C4BAAABF /* DropDown */,
+				873B1A0D84F1FF2C0ECD8A2440705B43 /* Eureka */,
+				9A6C323DE091BF446C8788EB4DEECFAF /* Pods-Project Dragonfly */,
+				834C14A7CDF79C11C6C10C29EFDC80C3 /* Pods-Project DragonflyTests */,
+				A19587A017CC6D248DB82C0963A61047 /* Pods-Project DragonflyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52DC994007D06EF6E18A6327FC53EFFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A551C55FCF0AAB8BE1CBBD05B73BC4 /* Eureka.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1EE6F4CCC213A2F33B327428BD4C413 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E4A9CFDC8A87BA336CB32A38C20239D /* DropDownCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C0B57F66C794301ABC64C8C58FA49E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FAD7D08B301985BF129AC5A2B3D5CF4 /* DPDConstants.swift in Sources */,
+				567F0E2EA3DD673DA28562ADFC489BE4 /* DPDKeyboardListener.swift in Sources */,
+				81A9042F668B62EA4E40C57566BEE0A2 /* DPDUIView+Extension.swift in Sources */,
+				0BA986536326BCC266A0157A8C204CF8 /* DropDown+Appearance.swift in Sources */,
+				311D5A4AFB0F3AEEFCABAA80BE1073D6 /* DropDown-dummy.m in Sources */,
+				9811132B36B59EEB8D144F8BCC0B443E /* DropDown.swift in Sources */,
+				D2B2C73D23209F8B5571D5172C800ED8 /* DropDownCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BB15BFFE8461F8E5F6EA6735C0D5BBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631DF9F374A7EC1041CB081DB75C16EC /* Pods-Project Dragonfly-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96DC32D0703D57C2B2D884208BAE01F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09CF18891EDF6544AA3114F03399667D /* Pods-Project DragonflyTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C43AAC6F8D19904C0EB7666E96B8B1D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1039256A7B0AFBEB51D1BCD1DE192C30 /* ActionSheetRow.swift in Sources */,
+				278DA7CAFEDFF0B3E479BF7310999C84 /* AlertRow.swift in Sources */,
+				43B9A00DB9436E7BD6D705E2872E26E8 /* BaseRow.swift in Sources */,
+				2AC217E55DBAE620E9B1F36F371DE4BF /* ButtonRow.swift in Sources */,
+				DC59E613604D47744BB4D92C5265B0EF /* ButtonRowWithPresent.swift in Sources */,
+				2A84006D7A3BDF4D776324C3AD9D9F2F /* Cell.swift in Sources */,
+				78808B8338BDEF0959D8B0F3DA3BA891 /* CellType.swift in Sources */,
+				549A01629691F7DB092B3F8176AECD68 /* CheckRow.swift in Sources */,
+				55582C1B0D02D5A84F1FBB731CDE35D9 /* Core.swift in Sources */,
+				AEA1BD08FC0BF44288F2B7B87C020AB3 /* DateFieldRow.swift in Sources */,
+				7614C1B751242708E332B18FF2684B19 /* DateInlineFieldRow.swift in Sources */,
+				6EA26283A0E32D5594BDA55FF3F704A0 /* DateInlineRow.swift in Sources */,
+				68DFF9A114D3807FABAAC3CF260F21BE /* DatePickerRow.swift in Sources */,
+				2AFAE16062416674764562F22E85FB88 /* DateRow.swift in Sources */,
+				C3C0FF320CC9DE76423E6CDF1F8058EE /* DecimalFormatter.swift in Sources */,
+				CD59136C12F97B812062B4AA0862AEC0 /* Eureka-dummy.m in Sources */,
+				498223C7F76DB7D28AE38C4B78829F9A /* FieldRow.swift in Sources */,
+				2F005065D096AE7E2DCEE8C7FAB91A2E /* FieldsRow.swift in Sources */,
+				98B82309DB2678065E73E3120988819A /* Form.swift in Sources */,
+				F8E3F64EA6FEDF34A2D5F5DB83EF044E /* GenericMultipleSelectorRow.swift in Sources */,
+				7B9DC82FC3E433E06CC2FFBDDFE080B2 /* HeaderFooterView.swift in Sources */,
+				AB3126F1CC735C7FD7D09DB7392FD4CA /* Helpers.swift in Sources */,
+				114B8967240AF21C565B7645215F8F44 /* InlineRowType.swift in Sources */,
+				520E9F67AFBBC78EBE66297B8D52C6D2 /* LabelRow.swift in Sources */,
+				D38C4C82C4397D964431454DB9BA6B98 /* ListCheckRow.swift in Sources */,
+				24B52E4528FE1CA5BBB438CF11441FA5 /* MultipleSelectorRow.swift in Sources */,
+				C60F11C7D5479F0153B43DC78B6DA97D /* MultipleSelectorViewController.swift in Sources */,
+				5CB85FC0E9168E9EC0CCD33A63FCBC1A /* NavigationAccessoryView.swift in Sources */,
+				004C8AAA5143637A4360B55CAD850E4F /* Operators.swift in Sources */,
+				79E5ACA311F3FD7FF5A52E73A822CE2D /* OptionsRow.swift in Sources */,
+				130795E873137DA419183E8BBC2D2F9B /* PickerInlineRow.swift in Sources */,
+				6FBB071D9E7FE75CB93CD0F7A12CB69D /* PickerRow.swift in Sources */,
+				8036FBD9863FF1D763DD7A646B05CB5E /* PopoverSelectorRow.swift in Sources */,
+				3991DF903EE4C5D986052514554B67F6 /* PresenterRowType.swift in Sources */,
+				30AAD30F48EB6531526A83E529E716BA /* Protocols.swift in Sources */,
+				1D2C3F458A7EC5E133380C552CF8DA90 /* PushRow.swift in Sources */,
+				4DF81955654DBE4E02E806802D1D49B0 /* Row.swift in Sources */,
+				ED6498AD627581D3216938680A6D4614 /* RowControllerType.swift in Sources */,
+				B5D1D75F4DFB50ECDBD359388B708E4A /* RowProtocols.swift in Sources */,
+				0E7232F55A0147C548BF0C1D91AD29DC /* RowType.swift in Sources */,
+				5D49089662AC20A1CB3F05D33635229D /* RuleClosure.swift in Sources */,
+				311CF93EE9E301E3FAFD46BA0A62E3B8 /* RuleEmail.swift in Sources */,
+				D042F97BD6E9018B1E6AF3B78695F2F6 /* RuleLength.swift in Sources */,
+				BE3AFC46419AC438FE1D409B7B0BFED4 /* RuleRange.swift in Sources */,
+				C812952EC34CF6C37FA7B066870741B4 /* RuleRegExp.swift in Sources */,
+				653F5F8E52EED5D8B9CF3FBDB0712CDD /* RuleRequired.swift in Sources */,
+				4EE521ADDD025747F450378FDDE95372 /* RuleURL.swift in Sources */,
+				2ACBF08CF311E49CB4BA1F75D7F7209C /* Section.swift in Sources */,
+				14085738C1B57648ADD19DDB9E7AA93F /* SegmentedRow.swift in Sources */,
+				2395F5D2B2E9E8CDCC9B2C03F31A59B6 /* SelectableRowType.swift in Sources */,
+				05E44C82FAED17D346EE349295CF4603 /* SelectableSection.swift in Sources */,
+				598FA42A947DB0A73BF837326DFDB13C /* SelectorAlertController.swift in Sources */,
+				402EA4A022E376724E25504C36C522CD /* SelectorRow.swift in Sources */,
+				B8E82D98499955A6B39BDBCB56E048D8 /* SelectorViewController.swift in Sources */,
+				C4E1ACB5AED0442E0212211FAFDA7975 /* SliderRow.swift in Sources */,
+				FF23400BEFE014C4818111FB1F2EB3EB /* StepperRow.swift in Sources */,
+				F3247CD95148E670D550CC747A769404 /* SwitchRow.swift in Sources */,
+				37E2FFC149E2115469E943E6953CDE15 /* TextAreaRow.swift in Sources */,
+				4325E0AC8D1557CE015B4F35423277DA /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEFF1B9E1C67FD9B728ECBE7DB788AEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1D4D946E54FBADCA2EFDC284E86AECE /* Pods-Project DragonflyUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFDEF06C6BFA2109A0F92AD96DE84C08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DropDown;
+			target = 9F766ADB76A46AB732825D44C4BAAABF /* DropDown */;
+			targetProxy = 88927D1B2BB06A06C566F46D459A0E40 /* PBXContainerItemProxy */;
+		};
+		F698133D0F0DB2A10213DC28CD3D0AB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Eureka;
+			target = 873B1A0D84F1FF2C0ECD8A2440705B43 /* Eureka */;
+			targetProxy = 6D3EB37C80EA5DDFA88C646535F8F036 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1E9033750D8E7A50C68462EFA62D700F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 318EE55D8D2D4007FF6AD79E9C8F067B /* Eureka.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Eureka;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5AA8DDB809D494CE1458BB2A3186964F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6881F98A02F42201E2281E9907FFC307 /* Pods-Project Dragonfly.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Project Dragonfly/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Project_Dragonfly;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5FAB4B0885ED5BB1724D29553CD3B61F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 324E1CE4C87300E834391D871580C6F8 /* Pods-Project DragonflyTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Project DragonflyTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Project DragonflyTests/Pods-Project DragonflyTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Project_DragonflyTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8488CAF66FFC0BC13C0CE8DC11AAA9B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28440A87F92D1DC32556F5A93682D49C /* Pods-Project DragonflyTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Project DragonflyTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Project DragonflyTests/Pods-Project DragonflyTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Project_DragonflyTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A1DBBA67F2D279B6D419F575C79819A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB9D749F522828DEF8F23A3B6FF6F185 /* Pods-Project DragonflyUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Project DragonflyUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Project DragonflyUITests/Pods-Project DragonflyUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Project_DragonflyUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A1BCAAE9A58F3342FCC1DF7451BC95E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4ADD8C5D9AC5FB32737CA735BCC37D0 /* DropDown.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DropDown/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DropDown;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A25DB3C12CE1EEE8B1458AF98CB94E9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 318EE55D8D2D4007FF6AD79E9C8F067B /* Eureka.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Eureka/Eureka-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Eureka/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Eureka/Eureka.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Eureka;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ABC9A682CE43ECE554F45BE64D0654AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4ADD8C5D9AC5FB32737CA735BCC37D0 /* DropDown.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DropDown/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DropDown;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F5A0829185672D7F4239ABCFFE06BBB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 541D8A8D867957E65A917B44640303BE /* Pods-Project Dragonfly.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Project Dragonfly/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Project_Dragonfly;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F60A24BB49013E13D6483EFAA7FCEB34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D49ED810E4E81C88AB5EA1FA4D75642F /* Pods-Project DragonflyUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Project DragonflyUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Project DragonflyUITests/Pods-Project DragonflyUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Project_DragonflyUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */,
+				862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		498E5A56FA60BEB33354FAF139EC970C /* Build configuration list for PBXNativeTarget "Pods-Project DragonflyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A1DBBA67F2D279B6D419F575C79819A /* Debug */,
+				F60A24BB49013E13D6483EFAA7FCEB34 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		885C80AE5957CB4C3F506A33C2D5FAC5 /* Build configuration list for PBXNativeTarget "Pods-Project Dragonfly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A0829185672D7F4239ABCFFE06BBB9 /* Debug */,
+				5AA8DDB809D494CE1458BB2A3186964F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		890F5ABC0EBCBA9A1D9773DDBB7278DA /* Build configuration list for PBXNativeTarget "Pods-Project DragonflyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FAB4B0885ED5BB1724D29553CD3B61F /* Debug */,
+				8488CAF66FFC0BC13C0CE8DC11AAA9B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE17FD22F754341BD6DBF1E339AAF8A4 /* Build configuration list for PBXNativeTarget "Eureka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A25DB3C12CE1EEE8B1458AF98CB94E9F /* Debug */,
+				1E9033750D8E7A50C68462EFA62D700F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEBA9E088F9F2D1C4E4D758CD3F35F4A /* Build configuration list for PBXNativeTarget "DropDown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABC9A682CE43ECE554F45BE64D0654AF /* Debug */,
+				A1BCAAE9A58F3342FCC1DF7451BC95E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

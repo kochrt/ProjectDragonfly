@@ -1,0 +1,15 @@
+PODS:
+  - DropDown (2)
+  - Eureka (2.0.0-beta.1)
+
+DEPENDENCIES:
+  - DropDown
+  - Eureka (~> 2.0.0-beta.1)
+
+SPEC CHECKSUMS:
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
+
+PODFILE CHECKSUM: e3eca1264d1ef197ecc6536d66224b5b1d31ec56
+
+COCOAPODS: 1.1.1
