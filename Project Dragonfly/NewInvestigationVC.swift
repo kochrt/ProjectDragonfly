@@ -102,7 +102,7 @@ class NewInvestigationVC: FormViewController {
     }
 /*
     func checkInvestigation() -> Bool {
-        doneButton.isEnabled = investigation?.title.characters.count > 0 &&
+        //doneButton.isEnabled = investigation?.title.characters.count > 0 &&
             investigation?.question.characters.count > 0
         return doneButton.isEnabled
     }*/
