@@ -50,6 +50,7 @@ class Investigations {
         let cat = investigation.category
         if var array = investigations[cat] {
             array.append(investigation)
+            investigations[cat] = array
             return IndexPath(row: array.count - 1, section: sortedCategories.index(of: cat)!)
         } else {
             // New category
