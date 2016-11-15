@@ -25,7 +25,7 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
         dateLabel.text = investigation?.lastUpdated
         
         // Sets the category to the curent category name
-//        categoryLabel.text = investigation?.category
+        categoryLabel.text = investigation?.category
         
         tableView.dataSource = self
         tableView.delegate = self
