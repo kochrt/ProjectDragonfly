@@ -9,35 +9,38 @@
 import UIKit
 
 class ComponentTableViewCell: UITableViewCell {
-
     
-    @IBOutlet weak var countLabel: UILabel!
-    
-    var count: Int = 0 {
-        didSet {
-            countLabel.text = "\(count)"
+    var component: Counter!{
+        didSet{
+            countLabel.text = "\(component.count)"
         }
     }
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var componentName: UIView!
+    
     
     @IBAction func subtract(_ sender: UIButton) {
-        if (count > 0) {
-            count -= 1
+        if (component.count > 0) {
+            print (component.count)
+            component.subtract()
+            countLabel.text = "\(component.count)"
         }
     }
     
     @IBAction func add(_ sender: UIButton) {
-        count += 1
+        component.add()
+        countLabel.text = "\(component.count)"
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+        super.setSelected(false, animated: animated)
+        
         // Configure the view for the selected state
     }
-
+    
 }
