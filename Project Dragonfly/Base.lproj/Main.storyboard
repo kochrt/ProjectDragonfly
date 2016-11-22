@@ -289,7 +289,13 @@
                             <outlet property="delegate" destination="Oc4-4p-StE" id="bbn-YK-f4M"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="manage categories" id="SBM-gd-SZX"/>
+                    <navigationItem key="navigationItem" title="manage categories" id="SBM-gd-SZX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RRf-eh-ogg">
+                            <connections>
+                                <action selector="cancel" destination="Oc4-4p-StE" id="BPh-c3-9Nv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoF-by-TJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
