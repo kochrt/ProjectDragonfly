@@ -17,7 +17,7 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
     
     var investigation: Investigation?
     
-    var numComponents = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +36,13 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func addComponent(_ sender: Any) {
-        let indexPath = IndexPath(row: numComponents, section: 0)
-        numComponents += 1
+        let indexPath = IndexPath(row: investigation!.components.count, section: 0)
+        investigation!.components.append(Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numComponents
+        return investigation!.components.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

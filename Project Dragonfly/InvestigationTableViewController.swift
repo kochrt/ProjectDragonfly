@@ -10,7 +10,7 @@ import UIKit
 
 class InvestigationTableViewController: UITableViewController {
 
-    var index: Int = -1
+    var investigationToSegueTo: Investigation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +32,9 @@ class InvestigationTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // I forget why we did this
-        if index != -1 {
-            performSegue(withIdentifier: "investigationDetail", sender: tableView.cellForRow(at: IndexPath(item: index, section: 0)))
+        if let i = investigationToSegueTo {
+            performSegue(withIdentifier: "investigationDetail", sender: nil)
         }
-        index = -1
     }
     
     // MARK: - Table view data source
@@ -110,7 +108,12 @@ class InvestigationTableViewController: UITableViewController {
             switch id {
             case "investigationDetail":
                 let vc = segue.destination as! InvestigationViewController
-                vc.investigation = (sender as! InvestigationTableViewCell).investigation
+                if let cell = sender as? InvestigationTableViewCell {
+                    vc.investigation = cell.investigation
+                } else {
+                    vc.investigation = investigationToSegueTo
+                    investigationToSegueTo = nil
+                }
             default: break
             }
         }

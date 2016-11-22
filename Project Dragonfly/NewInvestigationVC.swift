@@ -13,12 +13,22 @@ class NewInvestigationVC: FormViewController {
 
      let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
+    var investigation = Investigation(question: "", components: [], title: "", category: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupForm()
         setupNewCategoryAlert()
     }
 
+    @IBOutlet weak var createButton: UIBarButtonItem!
+    
+    @IBAction func create(_ sender: UIBarButtonItem) {
+        addInvestigationToCategory()
+    }
+    
+    
+    
     func setupForm() {
         
         // https://github.com/xmartlabs/Eureka#how-to-create-a-form
@@ -27,22 +37,33 @@ class NewInvestigationVC: FormViewController {
         detailSection.append(TextRow() { row in
             row.title = "Title"
             row.placeholder = "My Investigation"
+            row.onChange({ (text) in
+                self.investigation.title = text.title!
+            })
         })
         detailSection.append(TextRow() { row in
             row.title = "Question"
             row.placeholder = "Why are there no squirrels anymore?"
+            row.onChange({ (text) in
+                self.investigation.question = text.title!
+            })
         })
         form.append(detailSection)
         
         let toolSection = SelectableSection<ListCheckRow<String>>("Which tool do you need?", selectionType: .singleSelection(enableDeselection: false))
         
-        let tools = ["Comparative Timer", "Counter", "Interval Counter", "Stopwatch"]
+        let tools = [ComponentEnum.Counter, ComponentEnum.IntervalCounter, ComponentEnum.Stopwatch]
         
         for tool in tools {
-            toolSection.append(ListCheckRow<String>(tool) { row in
-                row.title = tool
-                row.selectableValue = tool
+            toolSection.append(ListCheckRow<String> { row in
+                row.title = tool.rawValue
+                row.selectableValue = tool.rawValue
                 row.value = nil
+                row.onCellSelection({ (cell, row) in
+                    self.investigation.components.removeAll()
+                    self.investigation.components.append(Component.componentFromEnum(e: row.selectableValue!)!)
+                    //self.investigation.componentType = row.selectableValue!
+                })
             })
         }
         form.append(toolSection)
@@ -66,6 +87,9 @@ class NewInvestigationVC: FormViewController {
                 row.title = cat
                 row.selectableValue = cat
                 row.value = nil
+                row.onCellSelection({ (cell, row) in
+                    self.investigation.category = row.title!
+                })
             })
         }
         form.append(categorySection)
@@ -96,6 +120,21 @@ class NewInvestigationVC: FormViewController {
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    func getComponent(s: String) -> Component? {
+        switch(s) {
+        case ComponentEnum.Counter.rawValue:
+            return Counter()
+        case ComponentEnum.IntervalCounter.rawValue:
+            return Counter()
+        case ComponentEnum.Stopwatch.rawValue:
+            return Stopwatch()
+        default:
+            return nil
+        }
+    }
+    
 /*
     func checkInvestigation() -> Bool {
         //doneButton.isEnabled = investigation?.title.characters.count > 0 &&
@@ -103,20 +142,29 @@ class NewInvestigationVC: FormViewController {
         return doneButton.isEnabled
     }*/
     
-    func createInvestigation() {
-        
-        
+    func addInvestigationToCategory(){
+        investigation.date = Date()
+        Investigations.instance.addInvestigation(investigation: investigation)
+        performSegue(withIdentifier: "createdInvestigation", sender: self)
     }
-
     
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        createInvestigation()
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let id = segue.identifier {
+            switch (id) {
+            case "createdInvestigation" :
+                let vc = segue.destination as! InvestigationTableViewController
+                vc.investigationToSegueTo = investigation
+            default: break
+            }
+            
+        }
+        
     }
  
 

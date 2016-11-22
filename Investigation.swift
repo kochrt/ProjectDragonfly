@@ -9,16 +9,19 @@ class Investigation {
     var title: String
     var category: String
     var question: String
+    var componentType: ComponentEnum
     var components: [Component]
     var date: Date
     var timer: Foundation.NSTimer?
 
+    // TODO
     init(question: String, components: [Component], title: String, category: String) {
         self.components = components
         self.question = question
         self.date = Date()
         self.title = title
         self.category = category
+        self.componentType = .Counter
     }
 
     var lastUpdated: String {

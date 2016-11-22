@@ -10,6 +10,19 @@ class Component {
     init(title: String) {
         self.title = title
     }
+    
+    static func componentFromEnum(e: String) -> Component? {
+        switch e {
+        case ComponentEnum.Counter.rawValue:
+            return Counter()
+        case ComponentEnum.IntervalCounter.rawValue:
+            return Counter()
+        case ComponentEnum.Stopwatch.rawValue:
+            return Stopwatch()
+        default:
+            return nil
+        }
+    }
 }
 
 class Counter: Component {
