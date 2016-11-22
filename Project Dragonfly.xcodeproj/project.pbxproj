@@ -12,6 +12,7 @@
 		B2C8BF8AA3A42A6E14604AB9 /* Pods_Project_DragonflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */; };
 		D4254B481DC7FDD700979B57 /* InvestigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */; };
 		D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */; };
+		D42773BF1DE3C03E00A1D775 /* CategoryManagementTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */; };
 		D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */; };
 		D4519F631DAC4AA400FA274C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F611DAC4AA400FA274C /* Main.storyboard */; };
 		D4519F651DAC4AA400FA274C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4519F641DAC4AA400FA274C /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		BB1D1D215A4B6B9DAE2F9C4F /* Pods-Project Dragonfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.debug.xcconfig"; sourceTree = "<group>"; };
 		D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationViewController.swift; sourceTree = "<group>"; };
 		D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentTableViewCell.swift; sourceTree = "<group>"; };
+		D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryManagementTVC.swift; sourceTree = "<group>"; };
 		D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Dragonfly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4519F621DAC4AA400FA274C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */,
 				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
 				D4519F611DAC4AA400FA274C /* Main.storyboard */,
+				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
 				D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */,
 				D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */,
 				D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */,
@@ -485,6 +488,7 @@
 			files = (
 				D4519F8C1DAC4BB900FA274C /* InvestigationTableViewController.swift in Sources */,
 				D492FEE21DD150600052DBB0 /* NewInvestigationViewController.swift in Sources */,
+				D42773BF1DE3C03E00A1D775 /* CategoryManagementTVC.swift in Sources */,
 				D4519F8E1DAC4F7300FA274C /* InvestigationTableViewCell.swift in Sources */,
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,

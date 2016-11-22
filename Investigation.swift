@@ -71,4 +71,3 @@ class Investigations {
     
     // TODO: remove needs to be implemented
 }
-

@@ -64,6 +64,11 @@ class InvestigationTableViewController: UITableViewController {
         // Returns the title of the section and places the investigation in the correct section
         return Investigations.instance.sortedCategories[section]
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
