@@ -33,7 +33,7 @@ class InvestigationTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         if let i = investigationToSegueTo {
-            performSegue(withIdentifier: "investigationDetail", sender: nil)
+            performSegue(withIdentifier: "investigationDetail", sender: i)
         }
     }
     
@@ -67,6 +67,11 @@ class InvestigationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
+        performSegue(withIdentifier: "investigationDetail", sender: investigation)
     }
     
     /*
@@ -113,11 +118,8 @@ class InvestigationTableViewController: UITableViewController {
             switch id {
             case "investigationDetail":
                 let vc = segue.destination as! InvestigationViewController
-                if let cell = sender as? InvestigationTableViewCell {
-                    vc.investigation = cell.investigation
-                } else {
-                    vc.investigation = investigationToSegueTo
-                    investigationToSegueTo = nil
+                if let investigation = sender as? Investigation {
+                    vc.investigation = investigation
                 }
             default: break
             }

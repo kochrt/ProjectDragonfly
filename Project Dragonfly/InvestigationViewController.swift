@@ -17,8 +17,6 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
     
     var investigation: Investigation?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
