@@ -75,7 +75,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p">
                             <connections>
-                                <segue destination="aOP-C1-fyL" kind="presentation" id="5oh-Y2-avr"/>
+                                <segue destination="aOP-C1-fyL" kind="presentation" identifier="createInvestigation" id="5oh-Y2-avr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
