@@ -5,7 +5,7 @@
 
 import Foundation
 
-class Investigation {
+ class Investigation: CustomStringConvertible {
     var title: String
     var category: String
     var question: String
@@ -14,6 +14,12 @@ class Investigation {
     var date: Date
     var timer: Foundation.NSTimer?
 
+    var description: String {
+        get {
+            return "\(title): \(question). \(components.count) \(componentType)"
+        }
+    }
+    
     // TODO
     init(question: String, components: [Component], title: String, category: String) {
         self.components = components
