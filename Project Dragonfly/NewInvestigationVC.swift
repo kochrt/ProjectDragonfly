@@ -19,6 +19,7 @@ class NewInvestigationVC: FormViewController {
         super.viewDidLoad()
         setupForm()
         setupNewCategoryAlert()
+        checkInvestigation()
     }
 
     @IBOutlet weak var createButton: UIBarButtonItem!
@@ -27,6 +28,7 @@ class NewInvestigationVC: FormViewController {
         addInvestigationToCategory()
     }
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     
     func setupForm() {
@@ -38,14 +40,20 @@ class NewInvestigationVC: FormViewController {
             row.title = "Title"
             row.placeholder = "My Investigation"
             row.onChange({ (text) in
-                self.investigation.title = text.title!
+                if let title = text.value {
+                    self.investigation.title = title
+                }
+                self.checkInvestigation()
             })
         })
         detailSection.append(TextRow() { row in
             row.title = "Question"
             row.placeholder = "Why are there no squirrels anymore?"
             row.onChange({ (text) in
-                self.investigation.question = text.title!
+                if let question = text.value {
+                    self.investigation.question = question
+                }
+                self.checkInvestigation()
             })
         })
         form.append(detailSection)
@@ -59,12 +67,15 @@ class NewInvestigationVC: FormViewController {
                 row.title = tool.rawValue
                 row.selectableValue = tool.rawValue
                 row.value = nil
-                row.onCellSelection({ (cell, row) in
-                    self.investigation.components.removeAll()
-                    self.investigation.components.append(Component.componentFromEnum(e: row.selectableValue!)!)
-                    //self.investigation.componentType = row.selectableValue!
-                })
             })
+        }
+        
+        toolSection.onSelectSelectableRow = { (cell, row) in
+            self.investigation.components.removeAll()
+            self.investigation.components.append(Component.componentFromEnum(e: row.selectableValue!)!)
+            print("Component Count: \(self.investigation.components.count)")
+            self.checkInvestigation()
+            //self.investigation.componentType = row.selectableValue!
         }
         form.append(toolSection)
         
@@ -74,6 +85,7 @@ class NewInvestigationVC: FormViewController {
             row.title = "Create"
             row.onCellSelection({ (cell, row) in
                 self.present(self.alert, animated: true, completion: nil)
+                self.checkInvestigation()
             })
             
         })
@@ -89,6 +101,7 @@ class NewInvestigationVC: FormViewController {
                 row.value = nil
                 row.onCellSelection({ (cell, row) in
                     self.investigation.category = row.title!
+                   
                 })
             })
         }
@@ -135,12 +148,19 @@ class NewInvestigationVC: FormViewController {
         }
     }
     
-/*
+
     func checkInvestigation() -> Bool {
-        //doneButton.isEnabled = investigation?.title.characters.count > 0 &&
-            investigation?.question.characters.count > 0
+        doneButton.isEnabled = false
+        print("components: \(investigation.components.count)")
+       
+            if investigation.title.characters.count > 0 &&
+                investigation.question.characters.count > 0 &&
+                investigation.components.count > 0 {
+                doneButton.isEnabled = true
+            }
+        
         return doneButton.isEnabled
-    }*/
+    }
     
     func addInvestigationToCategory(){
         investigation.date = Date()
