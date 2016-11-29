@@ -44,7 +44,7 @@ class Counter: Component {
     var count: Int
     init() {
         self.count = 0
-        super.init(title: "Counter")
+        super.init(title: "")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,7 +75,7 @@ class Stopwatch: Component {
 
     init() {
         self.time = 0.0
-        super.init(title: "Stopwatch")
+        super.init(title: "")
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -13,8 +13,16 @@ class ComponentTableViewCell: UITableViewCell {
     var component: Counter!{
         didSet{
             countLabel.text = "\(component.count)"
+            nameField.text = component.title!
         }
     }
+    @IBOutlet weak var nameField: UITextField!
+    
+    @IBAction func nameInput(_ sender: UITextField) {
+        component.title = sender.text
+    }
+    
+    
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var componentName: UIView!
     
