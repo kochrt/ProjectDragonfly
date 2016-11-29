@@ -82,7 +82,6 @@ class NewInvestigationVC: FormViewController {
         toolSection.onSelectSelectableRow = { (cell, row) in
             self.investigation.components.removeAll()
             self.investigation.components.append(Component.componentFromEnum(e: row.selectableValue!)!)
-            print("Component Count: \(self.investigation.components.count)")
             self.checkInvestigation()
             //self.investigation.componentType = row.selectableValue!
         }
@@ -108,11 +107,10 @@ class NewInvestigationVC: FormViewController {
                 row.title = cat
                 row.selectableValue = cat
                 row.value = nil
-                row.onCellSelection({ (cell, row) in
-                    self.investigation.category = row.title!
-                   
-                })
             })
+        }
+        categorySection.onSelectSelectableRow = { (cell, row) in
+            self.investigation.category = row.value!
         }
         form.append(categorySection)
     }
@@ -160,7 +158,6 @@ class NewInvestigationVC: FormViewController {
 
     func checkInvestigation() -> Bool {
         doneButton.isEnabled = false
-        print("components: \(investigation.components.count)")
        
             if investigation.title.characters.count > 0 &&
                 investigation.question.characters.count > 0 &&
