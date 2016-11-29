@@ -1,27 +1,21 @@
- //
+//
 // Created by Zachery Eldemire on 10/31/16.
 // Copyright (c) 2016 cse.miamioh. All rights reserved.
 //
 
 import Foundation
 
- class Investigation: CustomStringConvertible {
+class Investigation: NSObject, NSCoding {
+    
     var title: String
     var category: String
     var question: String
     var componentType: ComponentEnum
     var components: [Component]
     var date: Date
-    var timer: Foundation.NSTimer?
-
-    var description: String {
-        get {
-            return "\(title): \(question). \(components.count) \(componentType)"
-        }
-    }
     
     // TODO
-    init(question: String, components: [Component], title: String, category: String) {
+    required init(question: String, components: [Component], title: String, category: String) {
         self.components = components
         self.question = question
         self.date = Date()
@@ -29,7 +23,37 @@ import Foundation
         self.category = category
         self.componentType = .Counter
     }
-
+    
+    required init(coder decoder: NSCoder) {
+        self.components = decoder.decodeObject(forKey: "component") as! [Component]
+        self.question = decoder.decodeObject(forKey: "question") as! String
+        self.date = decoder.decodeObject(forKey: "date") as! Date
+        self.title = decoder.decodeObject(forKey: "title") as! String
+        self.category = decoder.decodeObject(forKey: "category") as! String
+        self.componentType = .Counter
+    }
+    // MARK: Types
+    
+    struct PropertyKey {
+        static let titleKey = "title"
+        static let categoryKey = "category"
+        static let questionKey = "question"
+        static let componentsKey = "components"
+        static let dateKey = "date"
+        static let componentTypeKey = "componentType"
+    }
+    
+    // MARK: NSCoding
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(title, forKey: PropertyKey.titleKey)
+        aCoder.encode(category, forKey: PropertyKey.categoryKey)
+        aCoder.encode(question, forKey: PropertyKey.questionKey)
+        aCoder.encode(components, forKey: PropertyKey.componentsKey)
+        aCoder.encode(date, forKey: PropertyKey.dateKey)
+        aCoder.encode(componentType, forKey: PropertyKey.componentTypeKey)
+    }
+    
     var lastUpdated: String {
         get {
             let format: String
@@ -46,7 +70,7 @@ import Foundation
         }
     }
 }
- 
+
 class Investigations {
     static let instance = Investigations()
     
