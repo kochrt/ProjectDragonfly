@@ -107,11 +107,10 @@ class NewInvestigationVC: FormViewController {
                 row.title = cat
                 row.selectableValue = cat
                 row.value = nil
-                row.onCellSelection({ (cell, row) in
-                    self.investigation.category = row.title!
-                   
-                })
             })
+        }
+        categorySection.onSelectSelectableRow = { (cell, row) in
+            self.investigation.category = row.value!
         }
         form.append(categorySection)
     }
