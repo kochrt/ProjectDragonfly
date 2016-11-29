@@ -29,7 +29,6 @@ class ComponentTableViewCell: UITableViewCell {
     
     @IBAction func subtract(_ sender: UIButton) {
         if (component.count > 0) {
-            print (component.count)
             component.subtract()
             countLabel.text = "\(component.count)"
         }

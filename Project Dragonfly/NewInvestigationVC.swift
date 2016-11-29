@@ -18,11 +18,7 @@ class NewInvestigationVC: FormViewController {
      let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
     var investigation = Investigation(question: "", components: [], title: "", category: "")
-    var delegate: NewInvestigationDelegate? {
-        didSet {
-            print("delegate did set")
-        }
-    }
+    var delegate: NewInvestigationDelegate? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
