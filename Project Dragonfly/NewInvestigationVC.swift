@@ -9,11 +9,16 @@
 import UIKit
 import Eureka
 
+protocol NewInvestigationDelegate {
+    func createdInvestigation(investigation: Investigation)
+}
+
 class NewInvestigationVC: FormViewController {
 
      let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
     var investigation = Investigation(question: "", components: [], title: "", category: "")
+    var delegate: NewInvestigationDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +33,8 @@ class NewInvestigationVC: FormViewController {
         addInvestigationToCategory()
     }
     
+
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    
     
     func setupForm() {
         
@@ -165,27 +170,8 @@ class NewInvestigationVC: FormViewController {
     func addInvestigationToCategory(){
         investigation.date = Date()
         Investigations.instance.addInvestigation(investigation: investigation)
-        performSegue(withIdentifier: "createdInvestigation", sender: self)
+        dismiss(animated: true, completion: {
+            self.delegate?.createdInvestigation(investigation: self.investigation)
+        })
     }
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if let id = segue.identifier {
-            switch (id) {
-            case "createdInvestigation" :
-                let vc = segue.destination as! InvestigationTableViewController
-                vc.investigationToSegueTo = investigation
-            default: break
-            }
-            
-        }
-        
-    }
- 
-
 }

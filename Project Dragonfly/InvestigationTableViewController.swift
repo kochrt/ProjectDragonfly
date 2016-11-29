@@ -8,9 +8,7 @@
 
 import UIKit
 
-class InvestigationTableViewController: UITableViewController {
-
-    var investigationToSegueTo: Investigation?
+class InvestigationTableViewController: UITableViewController, NewInvestigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +25,6 @@ class InvestigationTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if let i = investigationToSegueTo {
-            performSegue(withIdentifier: "investigationDetail", sender: nil)
-        }
     }
     
     // MARK: - Table view data source
@@ -67,6 +57,11 @@ class InvestigationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
+        performSegue(withIdentifier: "investigationDetail", sender: investigation)
     }
     
     /*
@@ -113,15 +108,22 @@ class InvestigationTableViewController: UITableViewController {
             switch id {
             case "investigationDetail":
                 let vc = segue.destination as! InvestigationViewController
-                if let cell = sender as? InvestigationTableViewCell {
-                    vc.investigation = cell.investigation
-                } else {
-                    vc.investigation = investigationToSegueTo
-                    investigationToSegueTo = nil
+                if let investigation = sender as? Investigation {
+                    vc.investigation = investigation
+                }
+            case "createInvestigation":
+                if let create = segue.destination as? NewInvestigationVC {
+                    create.delegate = self
                 }
             default: break
             }
         }
     }
+    
+    // MARK: NewInvestigationDelegate
+    func createdInvestigation(investigation: Investigation) {
+        performSegue(withIdentifier: "investigationDetail", sender: investigation)
+    }
+    
 }
 
