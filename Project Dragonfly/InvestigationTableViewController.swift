@@ -112,8 +112,10 @@ class InvestigationTableViewController: UITableViewController, NewInvestigationD
                     vc.investigation = investigation
                 }
             case "createInvestigation":
-                if let create = segue.destination as? NewInvestigationVC {
-                    create.delegate = self
+                if let navcon = segue.destination as? UINavigationController {
+                    if let create = navcon.visibleViewController as? NewInvestigationVC {
+                        create.delegate = self
+                    }
                 }
             default: break
             }
@@ -124,6 +126,5 @@ class InvestigationTableViewController: UITableViewController, NewInvestigationD
     func createdInvestigation(investigation: Investigation) {
         performSegue(withIdentifier: "investigationDetail", sender: investigation)
     }
-    
 }
 
