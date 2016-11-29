@@ -25,33 +25,42 @@ class Investigation: NSObject, NSCoding {
     }
     
     required init(coder decoder: NSCoder) {
-        self.components = decoder.decodeObject(forKey: "component") as! [Component]
-        self.question = decoder.decodeObject(forKey: "question") as! String
-        self.date = decoder.decodeObject(forKey: "date") as! Date
-        self.title = decoder.decodeObject(forKey: "title") as! String
-        self.category = decoder.decodeObject(forKey: "category") as! String
-        self.componentType = .Counter
+        if let data = decoder.decodeObject(forKey: Keys.components) as? Data {
+            if let comps = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Component] {
+                self.components = comps
+            } else {
+                self.components = []
+            }
+        } else {
+            self.components = []
+        }
+        self.question = decoder.decodeObject(forKey: Keys.question) as! String
+        self.date = decoder.decodeObject(forKey: Keys.date) as! Date
+        self.title = decoder.decodeObject(forKey: Keys.title) as! String
+        self.category = decoder.decodeObject(forKey: Keys.category) as! String
+        self.componentType = ComponentEnum(rawValue: decoder.decodeObject(forKey: Keys.componentType) as! String)!
     }
-    // MARK: Types
     
-    struct PropertyKey {
-        static let titleKey = "title"
-        static let categoryKey = "category"
-        static let questionKey = "question"
-        static let componentsKey = "components"
-        static let dateKey = "date"
-        static let componentTypeKey = "componentType"
+    struct Keys {
+        static let title = "title"
+        static let category = "category"
+        static let question = "question"
+        static let components = "components"
+        static let date = "date"
+        static let componentType = "componentType"
     }
     
     // MARK: NSCoding
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(title, forKey: PropertyKey.titleKey)
-        aCoder.encode(category, forKey: PropertyKey.categoryKey)
-        aCoder.encode(question, forKey: PropertyKey.questionKey)
-        aCoder.encode(components, forKey: PropertyKey.componentsKey)
-        aCoder.encode(date, forKey: PropertyKey.dateKey)
-        aCoder.encode(componentType, forKey: PropertyKey.componentTypeKey)
+        aCoder.encode(title, forKey: Keys.title)
+        aCoder.encode(category, forKey: Keys.category)
+        aCoder.encode(question, forKey: Keys.question)
+        aCoder.encode(date, forKey: Keys.date)
+        aCoder.encode(componentType.rawValue, forKey: Keys.componentType)
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: components)
+        aCoder.encode(data, forKey: Keys.components)
     }
     
     var lastUpdated: String {
@@ -99,5 +108,24 @@ class Investigations {
         return investigations[cat]![path.row]
     }
     
-    // TODO: remove needs to be implemented
+    func restoreInvestigations() {
+        if let data = UserDefaults.standard.object(forKey: "investigations") as? Data {
+            if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Investigation] {
+                for investigation in tigations {
+                    let _ = addInvestigation(investigation: investigation)
+                }
+            }
+        } else {
+            print("not data/nothing there")
+        }
+    }
+    
+    func saveInvestigations() {
+        var array = [Investigation]()
+        for (_, arr) in investigations {
+            array += arr
+        }
+        let data = NSKeyedArchiver.archivedData(withRootObject: array)
+        UserDefaults.standard.set(data, forKey: "investigations")
+    }
 }

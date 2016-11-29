@@ -21,7 +21,6 @@
 		D4519F7E1DAC4AA400FA274C /* Project_DragonflyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F7D1DAC4AA400FA274C /* Project_DragonflyUITests.swift */; };
 		D4519F8C1DAC4BB900FA274C /* InvestigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */; };
 		D4519F8E1DAC4F7300FA274C /* InvestigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */; };
-		D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */; };
 		D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */; };
 		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
 		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
@@ -72,7 +71,6 @@
 		D4519F7F1DAC4AA400FA274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationTableViewController.swift; sourceTree = "<group>"; };
 		D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvestigationTableViewCell.swift; path = ../InvestigationTableViewCell.swift; sourceTree = "<group>"; };
-		D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationDetailViewController.swift; sourceTree = "<group>"; };
 		D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInvestigationVC.swift; sourceTree = "<group>"; };
 		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
 		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
 				D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */,
 				D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */,
-				D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */,
 				D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */,
 				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
@@ -489,7 +486,6 @@
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
 				D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */,
-				D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */,
 				D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 				9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */,

@@ -153,16 +153,10 @@ class NewInvestigationVC: FormViewController {
         }
     }
     
-    func checkInvestigation() -> Bool {
-        doneButton.isEnabled = false
-       
-            if investigation.title.characters.count > 0 &&
-                investigation.question.characters.count > 0 &&
-                investigation.components.count > 0 {
-                doneButton.isEnabled = true
-            }
-        
-        return doneButton.isEnabled
+    func checkInvestigation() {
+        doneButton.isEnabled = investigation.title.characters.count > 0 &&
+            investigation.question.characters.count > 0 &&
+            investigation.components.count > 0
     }
     
     func addInvestigationToCategory(){
