@@ -138,11 +138,9 @@ class NewInvestigationVC: FormViewController {
         }))
     }
     
-    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
     
     func getComponent(s: String) -> Component? {
         switch(s) {
@@ -157,7 +155,6 @@ class NewInvestigationVC: FormViewController {
         }
     }
     
-
     func checkInvestigation() -> Bool {
         doneButton.isEnabled = false
         print("components: \(investigation.components.count)")
