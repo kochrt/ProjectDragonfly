@@ -83,7 +83,7 @@ class NewInvestigationVC: FormViewController {
             self.investigation.components.removeAll()
             self.investigation.components.append(Component.componentFromEnum(e: row.selectableValue!)!)
             self.checkInvestigation()
-            //self.investigation.componentType = row.selectableValue!
+            self.investigation.componentType = ComponentEnum(rawValue: row.selectableValue!)!
         }
         form.append(toolSection)
         

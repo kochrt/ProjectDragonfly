@@ -44,11 +44,32 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // need to: switch (component), then get component cell of that type.
         
+        switch investigation!.componentType {
+        case ComponentEnum.Counter :
+            var comp: Counter = investigation!.components[indexPath.row] as! Counter
+            let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
+            
+            cell.component = comp
+            return cell
+            break
+        case ComponentEnum.Stopwatch :
+            var comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
+            let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTableViewCell
+            cell.component = comp
+            return cell
+        default:
+            break;
+
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
+        return cell
+        /*
         var comp: Counter = investigation!.components[indexPath.row] as! Counter
         let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
         
         cell.component = comp
-        return cell
+        return cell*/
     }
 }

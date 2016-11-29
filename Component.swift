@@ -29,7 +29,7 @@ class Counter: Component {
     var count: Int
     init() {
         self.count = 0
-        super.init(title: "Counter")
+        super.init(title: "")
     }
 
     func add() {
@@ -46,7 +46,7 @@ class Stopwatch: Component {
 
     init() {
         self.time = 0.0
-        super.init(title: "Stopwatch")
+        super.init(title: "")
     }
 
     func increment() {
