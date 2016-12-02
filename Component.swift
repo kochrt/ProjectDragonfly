@@ -42,26 +42,21 @@ class Component: NSObject, NSCoding {
 
 class Counter: Component {
     var count: Int
+    
     init() {
         self.count = 0
         super.init(title: "")
     }
     
     required init?(coder aDecoder: NSCoder) {
-        if let c = aDecoder.decodeObject(forKey: Keys.count) as? Int {
-            print("count decoded: \(c)")
-            count = c
-        } else {
-            print("count not decoded")
-            count = 0
-        }
+        count = aDecoder.decodeInteger(forKey: Keys.count)
         super.init(coder: aDecoder)
     }
     
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
         aCoder.encode(count, forKey: Keys.count)
-        print("counter encoded")
+        print("counter encoded \(count)")
     }
 
     func add() { count += 1 }
@@ -78,13 +73,7 @@ class Stopwatch: Component {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        if let t = aDecoder.decodeObject(forKey: Keys.time) as? Double {
-            print("time set: \(t)")
-            time = t
-        } else {
-            print("time not decoded")
-            time = 0
-        }
+        time = aDecoder.decodeDouble(forKey: Keys.time)
         super.init(coder: aDecoder)
     }
     
@@ -95,6 +84,6 @@ class Stopwatch: Component {
     }
 
     func increment() {
-        time = time + 0.1
+        time += 0.1
     }
 }

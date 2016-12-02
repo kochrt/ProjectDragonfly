@@ -78,11 +78,16 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell*/
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destination = segue.destination as? UIViewController
+        if let navcon = segue.destination as? UINavigationController {
+            destination = navcon.visibleViewController
+        }
+        if let dest = destination as? ResultsVC {
+            dest.investigation = investigation
+        }
     }
-    
-    
     
     func updated(date: Date) {
         investigation?.date = date

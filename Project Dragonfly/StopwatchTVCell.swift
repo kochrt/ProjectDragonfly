@@ -18,8 +18,7 @@ class StopwatchTVCell: UITableViewCell {
     
     var component: Stopwatch!{
         didSet{
-            let time: TimeInterval = component.time
-            formatTime(eTime: time)
+            formatTime(eTime: component.time)
             nameField.text = component.title!
         }
     }
@@ -43,7 +42,6 @@ class StopwatchTVCell: UITableViewCell {
             startButton.setTitle("Stop", for: .normal)
         } else {
             timer.invalidate()
-            timer == nil
             
             let currentTime = NSDate.timeIntervalSinceReferenceDate
             
