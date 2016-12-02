@@ -14,6 +14,12 @@ class Investigation: NSObject, NSCoding {
     var components: [Component]
     var date: Date
     
+    override var description: String {
+        get {
+            return "\(title): \(category)"
+        }
+    }
+    
     // TODO
     required init(question: String, components: [Component], title: String, category: String) {
         self.components = components
@@ -57,7 +63,6 @@ class Investigation: NSObject, NSCoding {
     }
     
     // MARK: NSCoding
-    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(title, forKey: Keys.title)
         aCoder.encode(category, forKey: Keys.category)
@@ -112,6 +117,30 @@ class Investigations {
     func investigationForIndexPath(path: IndexPath) -> Investigation {
         let cat = sortedCategories[path.section]
         return investigations[cat]![path.row]
+    }
+    
+    func deleteInvestigation(at indexPath: IndexPath) {
+        deleteInvestigation(i: investigationForIndexPath(path: indexPath))
+    }
+    
+    func deleteInvestigation(i: Investigation) {
+        let cat = i.category
+        if var section = investigations[cat] {
+            if let index = section.index(of: i) {
+                section.remove(at: index)
+            }
+            investigations[cat] = section
+        }
+        
+        for cat in sortedCategories {
+            print("category: \(cat)")
+            if let array = investigations[cat] {
+                for i in array {
+                    print("investigation \(i)")
+                }
+            }
+        }
+        
     }
     
     func restoreInvestigations() {
