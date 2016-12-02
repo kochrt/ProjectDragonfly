@@ -11,12 +11,14 @@ import UIKit
 // TODO: Why isn't this a subclass of ComponentTVCell
 class StopwatchTVCell: UITableViewCell {
    
+    var investigationController: DateUpdated!
+    
     var startTime = TimeInterval()
     var timer = Timer()
     
     var component: Stopwatch!{
         didSet{
-            var time: TimeInterval = component.time
+            let time: TimeInterval = component.time
             formatTime(eTime: time)
             nameField.text = component.title!
         }
@@ -47,6 +49,7 @@ class StopwatchTVCell: UITableViewCell {
             
             component.time = currentTime - startTime
             startButton.setTitle("Start", for: .normal)
+            investigationController.updated(date: Date())
         }
         
     }

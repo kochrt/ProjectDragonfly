@@ -50,16 +50,17 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         switch investigation!.componentType {
         case ComponentEnum.Counter :
-            var comp: Counter = investigation!.components[indexPath.row] as! Counter
-            let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTVCell
+            let comp: Counter = investigation!.components[indexPath.row] as! Counter
+            let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! CounterTVCell
             
-            cell.component = comp
+            cell.selectionStyle = .none
+            cell.counter = comp
             cell.investigationController = self
             return cell
-            break
         case ComponentEnum.Stopwatch :
-            var comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
+            let comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
             let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTVCell
+            cell.selectionStyle = .none
             cell.component = comp
             //cell.investigationController = self
             return cell
@@ -76,6 +77,12 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.component = comp
         return cell*/
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    
     
     func updated(date: Date) {
         investigation?.date = date
