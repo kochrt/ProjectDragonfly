@@ -14,11 +14,7 @@ class Investigation: NSObject, NSCoding {
     var components: [Component]
     var date: Date
     
-    override var description: String {
-        get {
-            return "\(title): \(category)"
-        }
-    }
+    override var description: String { get { return "\(title): \(category)" } }
     
     // TODO
     required init(question: String, components: [Component], title: String, category: String) {
@@ -131,16 +127,6 @@ class Investigations {
             }
             investigations[cat] = section
         }
-        
-        for cat in sortedCategories {
-            print("category: \(cat)")
-            if let array = investigations[cat] {
-                for i in array {
-                    print("investigation \(i)")
-                }
-            }
-        }
-        
     }
     
     func restoreInvestigations() {
