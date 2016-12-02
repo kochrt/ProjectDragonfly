@@ -8,7 +8,8 @@
 
 import UIKit
 
-class StopwatchTableViewCell: UITableViewCell {
+// TODO: Why isn't this a subclass of ComponentTVCell
+class StopwatchTVCell: UITableViewCell {
    
     var startTime = TimeInterval()
     var timer = Timer()
@@ -33,7 +34,7 @@ class StopwatchTableViewCell: UITableViewCell {
     
     @IBAction func toggleButton(_ sender: UIButton) {
         if !timer.isValid {
-            let aSelector : Selector = #selector(StopwatchTableViewCell.updateTime)
+            let aSelector : Selector = #selector(StopwatchTVCell.updateTime)
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate
             

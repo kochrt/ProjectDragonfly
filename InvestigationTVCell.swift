@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InvestigationTableViewCell: UITableViewCell {
+class InvestigationTVCell: UITableViewCell {
 
     var investigation: Investigation? {
         didSet {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComponentTableViewCell: UITableViewCell {
+class ComponentTVCell: UITableViewCell {
     
     var component: Counter!{
         didSet{
@@ -29,7 +29,6 @@ class ComponentTableViewCell: UITableViewCell {
     
     @IBAction func subtract(_ sender: UIButton) {
         if (component.count > 0) {
-            print (component.count)
             component.subtract()
             countLabel.text = "\(component.count)"
         }

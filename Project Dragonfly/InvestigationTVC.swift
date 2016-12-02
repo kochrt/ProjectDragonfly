@@ -8,22 +8,11 @@
 
 import UIKit
 
-class InvestigationTableViewController: UITableViewController, NewInvestigationDelegate {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let i = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels", category: "New")
-        let i2 = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels1", category: "Bew")
-        let i3 = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels2", category: "Bew")
-        let i4 = Investigation(question: "How many are there", components: [Counter()], title: "Squirrels2", category: "ew")
-        Investigations.instance.addInvestigation(investigation: i)
-        Investigations.instance.addInvestigation(investigation: i2)
-        Investigations.instance.addInvestigation(investigation: i3)
-        Investigations.instance.addInvestigation(investigation: i4)
-    }
+class InvestigationTVC: UITableViewController, NewInvestigationDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Investigations.instance.saveInvestigations()
         tableView.reloadData()
     }
     
@@ -41,7 +30,7 @@ class InvestigationTableViewController: UITableViewController, NewInvestigationD
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTVCell
         cell.investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
         return cell
     }
@@ -107,7 +96,7 @@ class InvestigationTableViewController: UITableViewController, NewInvestigationD
         if let id = segue.identifier {
             switch id {
             case "investigationDetail":
-                let vc = segue.destination as! InvestigationViewController
+                let vc = segue.destination as! InvestigationVC
                 if let investigation = sender as? Investigation {
                     vc.investigation = investigation
                 }

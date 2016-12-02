@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InvestigationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -49,21 +49,21 @@ class InvestigationViewController: UIViewController, UITableViewDelegate, UITabl
         switch investigation!.componentType {
         case ComponentEnum.Counter :
             var comp: Counter = investigation!.components[indexPath.row] as! Counter
-            let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTVCell
             
             cell.component = comp
             return cell
             break
         case ComponentEnum.Stopwatch :
             var comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
-            let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTVCell
             cell.component = comp
             return cell
         default:
             break;
 
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTVCell
         return cell
         /*
         var comp: Counter = investigation!.components[indexPath.row] as! Counter

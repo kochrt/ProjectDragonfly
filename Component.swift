@@ -5,10 +5,25 @@
 
 import Foundation
 
-class Component {
+class Component: NSObject, NSCoding {
+    
+    struct Keys {
+        static let title = "componentTitle"
+        static let count = "componentCount"
+        static let time = "componentTime"
+    }
+    
     var title: String?
     init(title: String) {
         self.title = title
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        title = aDecoder.decodeObject(forKey: Keys.title) as? String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(title, forKey: Keys.title)
     }
     
     static func componentFromEnum(e: String) -> Component? {
@@ -31,14 +46,27 @@ class Counter: Component {
         self.count = 0
         super.init(title: "")
     }
-
-    func add() {
-        count += 1
+    
+    required init?(coder aDecoder: NSCoder) {
+        if let c = aDecoder.decodeObject(forKey: Keys.count) as? Int {
+            print("count decoded: \(c)")
+            count = c
+        } else {
+            print("count not decoded")
+            count = 0
+        }
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(count, forKey: Keys.count)
+        print("counter encoded")
     }
 
-    func subtract() {
-        count -= 1
-    }
+    func add() { count += 1 }
+
+    func subtract() { count -= 1 }
 }
 
 class Stopwatch: Component {
@@ -47,6 +75,23 @@ class Stopwatch: Component {
     init() {
         self.time = 0.0
         super.init(title: "")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        if let t = aDecoder.decodeObject(forKey: Keys.time) as? Double {
+            print("time set: \(t)")
+            time = t
+        } else {
+            print("time not decoded")
+            time = 0
+        }
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(time, forKey: Keys.time)
+        print("stopwatch encoded")
     }
 
     func increment() {

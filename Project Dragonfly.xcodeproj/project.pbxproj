@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		24FE4FF80F49FA9CB76CAF2A /* Pods_Project_Dragonfly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885AC6D85B666548DD9F9A8E /* Pods_Project_Dragonfly.framework */; };
 		9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1828051DD5252E000D7BB6 /* ComponentEnum.swift */; };
-		9F57ABD01DED069F001BB221 /* CounterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57ABCF1DED069F001BB221 /* CounterTableViewCell.swift */; };
-		9F57ABD21DED06AA001BB221 /* StopwatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57ABD11DED06AA001BB221 /* StopwatchTableViewCell.swift */; };
+		9F57ABD01DED069F001BB221 /* CounterTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57ABCF1DED069F001BB221 /* CounterTVCell.swift */; };
+		9F57ABD21DED06AA001BB221 /* StopwatchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */; };
 		B2C8BF8AA3A42A6E14604AB9 /* Pods_Project_DragonflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */; };
-		D4254B481DC7FDD700979B57 /* InvestigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */; };
-		D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */; };
+		D4254B481DC7FDD700979B57 /* InvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B471DC7FDD700979B57 /* InvestigationVC.swift */; };
+		D4254B4A1DC809F100979B57 /* ComponentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B491DC809F100979B57 /* ComponentTVCell.swift */; };
 		D42773BF1DE3C03E00A1D775 /* CategoryManagementTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */; };
 		D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */; };
 		D4519F631DAC4AA400FA274C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F611DAC4AA400FA274C /* Main.storyboard */; };
@@ -21,9 +21,8 @@
 		D4519F681DAC4AA400FA274C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */; };
 		D4519F731DAC4AA400FA274C /* Project_DragonflyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F721DAC4AA400FA274C /* Project_DragonflyTests.swift */; };
 		D4519F7E1DAC4AA400FA274C /* Project_DragonflyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F7D1DAC4AA400FA274C /* Project_DragonflyUITests.swift */; };
-		D4519F8C1DAC4BB900FA274C /* InvestigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */; };
-		D4519F8E1DAC4F7300FA274C /* InvestigationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */; };
-		D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */; };
+		D4519F8C1DAC4BB900FA274C /* InvestigationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8B1DAC4BB900FA274C /* InvestigationTVC.swift */; };
+		D4519F8E1DAC4F7300FA274C /* InvestigationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F8D1DAC4F7300FA274C /* InvestigationTVCell.swift */; };
 		D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */; };
 		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
 		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
@@ -56,11 +55,11 @@
 		7E524F6D5B462EA427575A20 /* Pods-Project DragonflyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project DragonflyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project DragonflyTests/Pods-Project DragonflyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		885AC6D85B666548DD9F9A8E /* Pods_Project_Dragonfly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Dragonfly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F1828051DD5252E000D7BB6 /* ComponentEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentEnum.swift; sourceTree = "<group>"; };
-		9F57ABCF1DED069F001BB221 /* CounterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterTableViewCell.swift; sourceTree = "<group>"; };
-		9F57ABD11DED06AA001BB221 /* StopwatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchTableViewCell.swift; sourceTree = "<group>"; };
+		9F57ABCF1DED069F001BB221 /* CounterTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterTVCell.swift; sourceTree = "<group>"; };
+		9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchTVCell.swift; sourceTree = "<group>"; };
 		BB1D1D215A4B6B9DAE2F9C4F /* Pods-Project Dragonfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.debug.xcconfig"; sourceTree = "<group>"; };
-		D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationViewController.swift; sourceTree = "<group>"; };
-		D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentTableViewCell.swift; sourceTree = "<group>"; };
+		D4254B471DC7FDD700979B57 /* InvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationVC.swift; sourceTree = "<group>"; };
+		D4254B491DC809F100979B57 /* ComponentTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentTVCell.swift; sourceTree = "<group>"; };
 		D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryManagementTVC.swift; sourceTree = "<group>"; };
 		D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Dragonfly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,9 +73,8 @@
 		D4519F791DAC4AA400FA274C /* Project DragonflyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project DragonflyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4519F7D1DAC4AA400FA274C /* Project_DragonflyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_DragonflyUITests.swift; sourceTree = "<group>"; };
 		D4519F7F1DAC4AA400FA274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationTableViewController.swift; sourceTree = "<group>"; };
-		D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvestigationTableViewCell.swift; path = ../InvestigationTableViewCell.swift; sourceTree = "<group>"; };
-		D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationDetailViewController.swift; sourceTree = "<group>"; };
+		D4519F8B1DAC4BB900FA274C /* InvestigationTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationTVC.swift; sourceTree = "<group>"; };
+		D4519F8D1DAC4F7300FA274C /* InvestigationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvestigationTVCell.swift; path = ../InvestigationTVCell.swift; sourceTree = "<group>"; };
 		D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInvestigationVC.swift; sourceTree = "<group>"; };
 		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
 		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
@@ -161,16 +159,15 @@
 			children = (
 				D492FEDA1DD1496C0052DBB0 /* Models */,
 				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
-				D4519F8D1DAC4F7300FA274C /* InvestigationTableViewCell.swift */,
+				D4519F8D1DAC4F7300FA274C /* InvestigationTVCell.swift */,
 				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
 				D4519F611DAC4AA400FA274C /* Main.storyboard */,
 				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
-				D4254B471DC7FDD700979B57 /* InvestigationViewController.swift */,
-				9F57ABCF1DED069F001BB221 /* CounterTableViewCell.swift */,
-				9F57ABD11DED06AA001BB221 /* StopwatchTableViewCell.swift */,
-				D4254B491DC809F100979B57 /* ComponentTableViewCell.swift */,
-				D4519F8F1DAC57AE00FA274C /* InvestigationDetailViewController.swift */,
-				D4519F8B1DAC4BB900FA274C /* InvestigationTableViewController.swift */,
+				D4254B471DC7FDD700979B57 /* InvestigationVC.swift */,
+				9F57ABCF1DED069F001BB221 /* CounterTVCell.swift */,
+				9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */,
+				D4254B491DC809F100979B57 /* ComponentTVCell.swift */,
+				D4519F8B1DAC4BB900FA274C /* InvestigationTVC.swift */,
 				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
 				D4519F691DAC4AA400FA274C /* Info.plist */,
@@ -489,19 +486,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4519F8C1DAC4BB900FA274C /* InvestigationTableViewController.swift in Sources */,
+				D4519F8C1DAC4BB900FA274C /* InvestigationTVC.swift in Sources */,
 				D42773BF1DE3C03E00A1D775 /* CategoryManagementTVC.swift in Sources */,
-				D4519F8E1DAC4F7300FA274C /* InvestigationTableViewCell.swift in Sources */,
+				D4519F8E1DAC4F7300FA274C /* InvestigationTVCell.swift in Sources */,
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
 				D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */,
-				D4519F901DAC57AE00FA274C /* InvestigationDetailViewController.swift in Sources */,
-				D4254B4A1DC809F100979B57 /* ComponentTableViewCell.swift in Sources */,
-				9F57ABD01DED069F001BB221 /* CounterTableViewCell.swift in Sources */,
+				D4254B4A1DC809F100979B57 /* ComponentTVCell.swift in Sources */,
+				9F57ABD01DED069F001BB221 /* CounterTVCell.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 				9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */,
-				9F57ABD21DED06AA001BB221 /* StopwatchTableViewCell.swift in Sources */,
-				D4254B481DC7FDD700979B57 /* InvestigationViewController.swift in Sources */,
+				9F57ABD21DED06AA001BB221 /* StopwatchTVCell.swift in Sources */,
+				D4254B481DC7FDD700979B57 /* InvestigationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

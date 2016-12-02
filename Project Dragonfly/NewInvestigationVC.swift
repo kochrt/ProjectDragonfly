@@ -18,11 +18,7 @@ class NewInvestigationVC: FormViewController {
      let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
     var investigation = Investigation(question: "", components: [], title: "", category: "")
-    var delegate: NewInvestigationDelegate? {
-        didSet {
-            print("delegate did set")
-        }
-    }
+    var delegate: NewInvestigationDelegate? 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,11 +132,9 @@ class NewInvestigationVC: FormViewController {
         }))
     }
     
-    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
     
     func getComponent(s: String) -> Component? {
         switch(s) {
@@ -155,17 +149,10 @@ class NewInvestigationVC: FormViewController {
         }
     }
     
-
-    func checkInvestigation() -> Bool {
-        doneButton.isEnabled = false
-       
-            if investigation.title.characters.count > 0 &&
-                investigation.question.characters.count > 0 &&
-                investigation.components.count > 0 {
-                doneButton.isEnabled = true
-            }
-        
-        return doneButton.isEnabled
+    func checkInvestigation() {
+        doneButton.isEnabled = investigation.title.characters.count > 0 &&
+            investigation.question.characters.count > 0 &&
+            investigation.components.count > 0
     }
     
     func addInvestigationToCategory(){
