@@ -90,6 +90,16 @@ class Investigation: NSObject, NSCoding {
 class Investigations {
     static let instance = Investigations()
     
+    struct Names {
+        static let Uncategorized = "(uncategorized)"
+    }
+    
+    init() {
+        let uncat = Names.Uncategorized
+        investigations[uncat] = []
+        sortedCategories.append(uncat)
+    }
+    
     // Dictionary of category to investigation
     var investigations = [String : [Investigation]]()
     var sortedCategories = [String]()
@@ -109,7 +119,6 @@ class Investigations {
         }
     }
     
-    // TODO
     func investigationForIndexPath(path: IndexPath) -> Investigation {
         let cat = sortedCategories[path.section]
         return investigations[cat]![path.row]
@@ -149,4 +158,13 @@ class Investigations {
         let data = NSKeyedArchiver.archivedData(withRootObject: array)
         UserDefaults.standard.set(data, forKey: "investigations")
     }
+    
+    func deleteCategory(named: String) {
+        guard named != Names.Uncategorized else { return }
+        if let array = investigations[named] {
+            
+            sortedCategories.remove(at: sortedCategories.index(of: named)!)
+        }
+    }
+    
 }

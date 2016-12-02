@@ -17,7 +17,7 @@ class NewInvestigationVC: FormViewController {
 
      let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
-    var investigation = Investigation(question: "", components: [], title: "", category: "")
+    var investigation = Investigation(question: "", components: [], title: "", category: Investigations.Names.Uncategorized)
     var delegate: NewInvestigationDelegate? 
     
     override func viewDidLoad() {
@@ -37,9 +37,6 @@ class NewInvestigationVC: FormViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     func setupForm() {
-        
-        // https://github.com/xmartlabs/Eureka#how-to-create-a-form
-        
         let detailSection = Section()
         detailSection.append(TextRow() { row in
             row.title = "Title"
