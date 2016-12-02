@@ -12,9 +12,8 @@ class ComponentTVCell: UITableViewCell {
    
     var investigationController: DateUpdated!
     
-    var component: Counter!{
+    var component: Component!{
         didSet{
-            countLabel.text = "\(component.count)"
             nameField.text = component.title!
         }
     }
@@ -24,26 +23,34 @@ class ComponentTVCell: UITableViewCell {
         component.title = sender.text
     }
     
-    
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var componentName: UIView!
-    
-    
-    @IBAction func subtract(_ sender: UIButton) {
-        if (component.count > 0) {
-            component.subtract()
-            countLabel.text = "\(component.count)"
-            investigationController.updated(date: Date())
-            
-        }
+    func initialize(c: Component) {
+        component = c
+        nameField.text = component.title!
     }
     
-    @IBAction func add(_ sender: UIButton) {
-        component.add()
-        countLabel.text = "\(component.count)"
+    func investigationWasChanged() {
         investigationController.updated(date: Date())
     }
     
+//    @IBOutlet weak var countLabel: UILabel!
+//    @IBOutlet weak var componentName: UIView!
+//    
+//    
+//    @IBAction func subtract(_ sender: UIButton) {
+//        if (component.count > 0) {
+//            component.subtract()
+//            countLabel.text = "\(component.count)"
+//            investigationController.updated(date: Date())
+//            
+//        }
+//    }
+//    
+//    @IBAction func add(_ sender: UIButton) {
+//        component.add()
+//        countLabel.text = "\(component.count)"
+//        investigationController.updated(date: Date())
+//    }
+//    
     
     override func awakeFromNib() {
         super.awakeFromNib()
