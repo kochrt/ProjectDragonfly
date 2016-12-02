@@ -85,6 +85,29 @@ class Investigation: NSObject, NSCoding {
             return formatter.string(from: date)
         }
     }
+    
+    func getValues() -> [String: Double]{
+        
+        var items = [String: Double]()
+        
+        switch componentType {
+            
+        case .Counter:
+            
+            for component in components {
+                    items[component.title!] = Double((component as! Counter).count)
+            }
+        case .Stopwatch:
+            for component in components {
+                items[component.title!] = (component as! Stopwatch).time
+            }
+        default:
+            break
+            //do nothing
+        }
+        
+        return items
+    }
 }
 
 class Investigations {
@@ -149,4 +172,6 @@ class Investigations {
         let data = NSKeyedArchiver.archivedData(withRootObject: array)
         UserDefaults.standard.set(data, forKey: "investigations")
     }
+    
+    
 }
