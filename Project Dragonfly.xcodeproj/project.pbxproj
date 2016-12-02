@@ -26,6 +26,7 @@
 		D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */; };
 		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
 		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
+		D4E2D5E61DF2252D00360D89 /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */; };
 		E0675B42C92D817F23DADA0A /* Pods_Project_DragonflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BBE4D81DAE76F767A955C3 /* Pods_Project_DragonflyUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInvestigationVC.swift; sourceTree = "<group>"; };
 		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
 		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_DragonflyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
 				D4519F691DAC4AA400FA274C /* Info.plist */,
+				D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */,
 			);
 			path = "Project Dragonfly";
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
 				D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */,
 				D4254B4A1DC809F100979B57 /* ComponentTVCell.swift in Sources */,
+				D4E2D5E61DF2252D00360D89 /* ResultsVC.swift in Sources */,
 				9F57ABD01DED069F001BB221 /* CounterTVCell.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 				9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */,

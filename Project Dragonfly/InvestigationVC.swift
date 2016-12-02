@@ -50,7 +50,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         switch investigation!.componentType {
         case ComponentEnum.Counter :
-            var comp: Counter = investigation!.components[indexPath.row] as! Counter
+            let comp = investigation!.components[indexPath.row] as! Counter
             let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTVCell
             
             cell.component = comp
@@ -58,7 +58,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             return cell
             break
         case ComponentEnum.Stopwatch :
-            var comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
+            let comp = investigation!.components[indexPath.row] as! Stopwatch
             let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTVCell
             cell.component = comp
             //cell.investigationController = self
@@ -75,6 +75,16 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         cell.component = comp
         return cell*/
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destination = segue.destination as? UIViewController
+        if let navcon = segue.destination as? UINavigationController {
+            destination = navcon.visibleViewController
+        }
+        if let dest = destination as? ResultsVC {
+            dest.investigation = investigation
+        }
     }
     
     func updated(date: Date) {

@@ -1,15 +1,23 @@
 PODS:
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - DropDown (2)
   - Eureka (2.0.0-beta.1)
+  - SwiftCharts (0.5.1)
 
 DEPENDENCIES:
+  - Charts
   - DropDown
   - Eureka (~> 2.0.0-beta.1)
+  - SwiftCharts
 
 SPEC CHECKSUMS:
+  Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
+  SwiftCharts: d263289cdc7fc955fef54ae3bc6529f696e69933
 
-PODFILE CHECKSUM: e3eca1264d1ef197ecc6536d66224b5b1d31ec56
+PODFILE CHECKSUM: 7c1889656949c7c435ebee2febd45a1c375aae52
 
 COCOAPODS: 1.1.1
