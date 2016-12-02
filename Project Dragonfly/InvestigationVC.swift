@@ -8,14 +8,15 @@
 
 import UIKit
 
-class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DateUpdated {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    var investigation: Investigation?
+    var investigation: Investigation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         // Sets the category to the curent category name
         categoryLabel.text = investigation?.category
+        questionLabel.text = investigation?.question
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -52,12 +54,14 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTVCell
             
             cell.component = comp
+            cell.investigationController = self
             return cell
             break
         case ComponentEnum.Stopwatch :
             var comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
             let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTVCell
             cell.component = comp
+            //cell.investigationController = self
             return cell
         default:
             break;
@@ -72,4 +76,13 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.component = comp
         return cell*/
     }
+    
+    func updated(date: Date) {
+        investigation?.date = date
+    }
+}
+
+
+protocol DateUpdated {
+    func updated(date: Date)
 }
