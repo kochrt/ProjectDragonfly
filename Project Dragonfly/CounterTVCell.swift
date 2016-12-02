@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CounterTableViewCell: ComponentTableViewCell {
+class CounterTVCell: ComponentTVCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

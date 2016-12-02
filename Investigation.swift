@@ -28,10 +28,16 @@ class Investigation: NSObject, NSCoding {
         if let data = decoder.decodeObject(forKey: Keys.components) as? Data {
             if let comps = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Component] {
                 self.components = comps
+                print("components unarchived")
+                for comp in comps {
+                    print(comp)
+                }
             } else {
+                print("couldnt unarchive components")
                 self.components = []
             }
         } else {
+            print("couldnt decode components")
             self.components = []
         }
         self.question = decoder.decodeObject(forKey: Keys.question) as! String

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InvestigationTableViewController: UITableViewController, NewInvestigationDelegate {
+class InvestigationTVC: UITableViewController, NewInvestigationDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,7 +30,7 @@ class InvestigationTableViewController: UITableViewController, NewInvestigationD
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTVCell
         cell.investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
         return cell
     }
@@ -96,7 +96,7 @@ class InvestigationTableViewController: UITableViewController, NewInvestigationD
         if let id = segue.identifier {
             switch id {
             case "investigationDetail":
-                let vc = segue.destination as! InvestigationViewController
+                let vc = segue.destination as! InvestigationVC
                 if let investigation = sender as? Investigation {
                     vc.investigation = investigation
                 }

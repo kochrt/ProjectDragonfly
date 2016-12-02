@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComponentTableViewCell: UITableViewCell {
+class ComponentTVCell: UITableViewCell {
     
     var component: Counter!{
         didSet{
