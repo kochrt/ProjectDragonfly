@@ -9,6 +9,8 @@
 import UIKit
 
 class ComponentTVCell: UITableViewCell {
+   
+    var investigationController: DateUpdated!
     
     var component: Counter!{
         didSet{
@@ -31,13 +33,17 @@ class ComponentTVCell: UITableViewCell {
         if (component.count > 0) {
             component.subtract()
             countLabel.text = "\(component.count)"
+            investigationController.updated(date: Date())
+            
         }
     }
     
     @IBAction func add(_ sender: UIButton) {
         component.add()
         countLabel.text = "\(component.count)"
+        investigationController.updated(date: Date())
     }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
