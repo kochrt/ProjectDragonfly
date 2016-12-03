@@ -30,16 +30,13 @@ class Investigation: NSObject, NSCoding {
         if let data = decoder.decodeObject(forKey: Keys.components) as? Data {
             if let comps = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Component] {
                 self.components = comps
-                print("components unarchived")
                 for comp in comps {
                     print(comp)
                 }
             } else {
-                print("couldnt unarchive components")
                 self.components = []
             }
         } else {
-            print("couldnt decode components")
             self.components = []
         }
         self.question = decoder.decodeObject(forKey: Keys.question) as! String
@@ -86,16 +83,14 @@ class Investigation: NSObject, NSCoding {
         }
     }
     
-    func getValues() -> [String: Double]{
+    func getValues() -> [String : Double] {
         
-        var items = [String: Double]()
+        var items = [String : Double]()
         
         switch componentType {
-            
         case .Counter:
-            
             for component in components {
-                    items[component.title!] = Double((component as! Counter).count)
+                items[component.title!] = Double((component as! Counter).count)
             }
         case .Stopwatch:
             for component in components {
@@ -168,8 +163,6 @@ class Investigations {
                     let _ = addInvestigation(investigation: investigation)
                 }
             }
-        } else {
-            print("not data/nothing there")
         }
     }
     
@@ -185,7 +178,10 @@ class Investigations {
     func deleteCategory(named: String) {
         guard named != Names.Uncategorized else { return }
         if let array = investigations[named] {
-            
+            for i in array {
+                i.category = Names.Uncategorized
+                addInvestigation(investigation: i)
+            }
             sortedCategories.remove(at: sortedCategories.index(of: named)!)
         }
     }

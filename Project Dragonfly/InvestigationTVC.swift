@@ -60,7 +60,6 @@ class InvestigationTVC: UITableViewController, NewInvestigationDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            print(Investigations.instance.investigationForIndexPath(path: indexPath))
             Investigations.instance.deleteInvestigation(at: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
