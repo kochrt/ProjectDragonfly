@@ -27,6 +27,8 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         dateLabel.text = investigation?.lastUpdated
         
         // Sets the category to the curent category name
@@ -107,7 +109,8 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // do it
+            investigation.components.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
