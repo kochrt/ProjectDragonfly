@@ -42,26 +42,30 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func addComponent(_ sender: Any) {
-        let indexPath = IndexPath(row: investigation!.components.count, section: 0)
-       // let comp = Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!
-        //self.present(self.alert, animated: true, completion: nil)
+//        let indexPath = IndexPath(row: investigation!.components.count, section: 0)
+//        let comp = Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!
+        self.present(self.alert, animated: true, completion: nil)
         
-        investigation!.components.append(Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        //investigation!.components.append(Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!)
+        //tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
-//    func setupNewCategoryAlert() {
-//        alert.addTextField { (textField) in
-//            textField.placeholder = "Component name"
-//        }
+    func setupNewCategoryAlert() {
+        alert.addTextField { (textField) in
+            textField.placeholder = "Component name"
+        }
 //        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
 //        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
 //            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
 //            // set created component's name
-//            
-//            
+//            //let indexPath = IndexPath(row: self.investigation!.components.count, section: 0)
+//            let comp = Component.componentFromEnum(e: (self.investigation?.componentType.rawValue)!)!
+//            comp.title = textField.text!
+//    
+//            //self.investigation!.components.append(comp)
+//            //self.tableView.insertRows(at: [indexPath], with: .automatic)
 //        }))
-//    }
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
