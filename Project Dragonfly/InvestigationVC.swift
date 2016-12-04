@@ -27,7 +27,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        setupNewComponentAlert()
         
         dateLabel.text = investigation?.lastUpdated
         
@@ -52,21 +52,21 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         //tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
-    func setupNewCategoryAlert() {
+    func setupNewComponentAlert() {
         alert.addTextField { (textField) in
             textField.placeholder = "Component name"
         }
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-//            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
-//            // set created component's name
-//            //let indexPath = IndexPath(row: self.investigation!.components.count, section: 0)
-//            let comp = Component.componentFromEnum(e: (self.investigation?.componentType.rawValue)!)!
-//            comp.title = textField.text!
-//    
-//            //self.investigation!.components.append(comp)
-//            //self.tableView.insertRows(at: [indexPath], with: .automatic)
-//        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
+            // set created component's name
+            let indexPath = IndexPath(row: self.investigation!.components.count, section: 0)
+            let comp = Component.componentFromEnum(e: (self.investigation?.componentType.rawValue)!)!
+            comp.title = textField.text!
+    
+            self.investigation!.components.append(comp)
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
+        }))
     }
     
     
