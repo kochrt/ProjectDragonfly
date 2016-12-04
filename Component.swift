@@ -56,7 +56,6 @@ class Counter: Component {
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
         aCoder.encode(count, forKey: Keys.count)
-        print("counter encoded \(count)")
     }
 
     func add() { count += 1 }
@@ -80,7 +79,6 @@ class Stopwatch: Component {
     override func encode(with aCoder: NSCoder) {
         super.encode(with: aCoder)
         aCoder.encode(time, forKey: Keys.time)
-        print("stopwatch encoded")
     }
 
     func increment() {

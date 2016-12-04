@@ -24,8 +24,6 @@ class ResultsVC: UIViewController {
         
         var items = investigation.getValues()
         
-
-        
         let chart = BarsChart(
             frame: CGRect(x: 0, y: 70, width: 300, height: 500),
             chartConfig: chartConfig,

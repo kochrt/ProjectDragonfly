@@ -135,15 +135,46 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Vh2-T1-9Kt"/>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62P-sc-ngE">
+                                <rect key="frame" x="16" y="130" width="343" height="134"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UoB-ry-hUo">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="Xzp-EV-F8Z"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="502581285.88002503">
+                                            <!--2016-12-04 21:54:45 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5J9-QY-gm2">
+                                        <rect key="frame" x="0.0" y="88" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="4D2-KT-cyv"/>
+                                        </constraints>
+                                        <state key="normal" title="Start"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="UoB-ry-hUo" firstAttribute="top" secondItem="62P-sc-ngE" secondAttribute="top" id="2GT-qf-VUD"/>
+                                    <constraint firstItem="5J9-QY-gm2" firstAttribute="leading" secondItem="UoB-ry-hUo" secondAttribute="leading" id="PzF-dp-U3P"/>
+                                    <constraint firstItem="5J9-QY-gm2" firstAttribute="trailing" secondItem="UoB-ry-hUo" secondAttribute="trailing" id="o4P-wH-zZe"/>
+                                    <constraint firstItem="5J9-QY-gm2" firstAttribute="top" secondItem="UoB-ry-hUo" secondAttribute="bottom" constant="8" symbolic="YES" id="q2M-Jh-3zX"/>
+                                    <constraint firstItem="5J9-QY-gm2" firstAttribute="bottom" secondItem="62P-sc-ngE" secondAttribute="bottomMargin" constant="-8" id="rMT-Zf-m00"/>
+                                    <constraint firstItem="UoB-ry-hUo" firstAttribute="leading" secondItem="62P-sc-ngE" secondAttribute="leading" id="rN6-qP-tOv"/>
+                                    <constraint firstAttribute="trailing" secondItem="UoB-ry-hUo" secondAttribute="trailing" id="t0K-Zs-eOa"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qj5-JV-jGp">
-                                <rect key="frame" x="16" y="130" width="343" height="493"/>
+                                <rect key="frame" x="16" y="264" width="343" height="359"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="component" rowHeight="59" id="idN-VN-exi" customClass="CounterTVCell" customModule="Project_Dragonfly" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="idN-VN-exi" id="3yV-iC-hkz">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="58.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWg-Gf-Xf7">
@@ -210,7 +241,7 @@
                                         <rect key="frame" x="0.0" y="87" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eqa-xU-aAf" id="JYd-CS-GdZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h3j-xY-Ay6">
@@ -264,15 +295,19 @@
                             <constraint firstItem="hvc-QC-YdC" firstAttribute="top" secondItem="Yst-tu-mk8" secondAttribute="bottom" constant="8" id="2tc-Kn-iNd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qj5-JV-jGp" secondAttribute="trailing" id="6En-H6-kdo"/>
                             <constraint firstItem="0bo-Fn-yJD" firstAttribute="centerX" secondItem="IGa-lf-OJC" secondAttribute="centerX" id="6aN-Ho-th6"/>
+                            <constraint firstItem="62P-sc-ngE" firstAttribute="leading" secondItem="IGa-lf-OJC" secondAttribute="leading" id="FYX-KI-HyG"/>
                             <constraint firstItem="IGa-lf-OJC" firstAttribute="top" secondItem="Zih-g5-GFu" secondAttribute="bottom" constant="8" symbolic="YES" id="MJp-SE-3Xr"/>
                             <constraint firstItem="Zih-g5-GFu" firstAttribute="top" secondItem="Yst-tu-mk8" secondAttribute="bottom" constant="8" id="N9b-zp-lh2"/>
                             <constraint firstAttribute="leadingMargin" secondItem="IGa-lf-OJC" secondAttribute="leading" id="OnC-WV-g4G"/>
                             <constraint firstItem="Qj5-JV-jGp" firstAttribute="leading" secondItem="Kid-il-979" secondAttribute="leadingMargin" id="S0P-Cd-f0L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hvc-QC-YdC" secondAttribute="trailing" id="Suh-va-Ota"/>
+                            <constraint firstItem="62P-sc-ngE" firstAttribute="top" secondItem="IGa-lf-OJC" secondAttribute="bottom" constant="8" symbolic="YES" id="Uz8-bb-jhw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IGa-lf-OJC" secondAttribute="trailing" id="Zk5-Ne-MOr"/>
                             <constraint firstItem="0bo-Fn-yJD" firstAttribute="bottom" secondItem="lKP-bc-yWu" secondAttribute="top" id="flM-Ju-o0a"/>
                             <constraint firstItem="0bo-Fn-yJD" firstAttribute="top" secondItem="Qj5-JV-jGp" secondAttribute="bottom" id="hKO-VA-69l"/>
-                            <constraint firstItem="Qj5-JV-jGp" firstAttribute="top" secondItem="IGa-lf-OJC" secondAttribute="bottom" constant="8" symbolic="YES" id="jSL-mF-eSV"/>
+                            <constraint firstItem="Qj5-JV-jGp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IGa-lf-OJC" secondAttribute="bottom" constant="8" symbolic="YES" id="jSL-mF-eSV"/>
+                            <constraint firstItem="62P-sc-ngE" firstAttribute="trailing" secondItem="IGa-lf-OJC" secondAttribute="trailing" id="mxH-w8-QOD"/>
+                            <constraint firstItem="Qj5-JV-jGp" firstAttribute="top" secondItem="62P-sc-ngE" secondAttribute="bottom" id="o0O-6G-non"/>
                             <constraint firstItem="e6e-hX-l7e" firstAttribute="top" secondItem="Yst-tu-mk8" secondAttribute="bottom" constant="8" symbolic="YES" id="ovu-rV-RCf"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Zih-g5-GFu" secondAttribute="leading" id="rSD-wn-UDv"/>
                             <constraint firstItem="hvc-QC-YdC" firstAttribute="leading" secondItem="e6e-hX-l7e" secondAttribute="trailing" constant="3" id="uOP-F3-re1"/>
@@ -291,11 +326,14 @@
                         <outlet property="dateLabel" destination="hvc-QC-YdC" id="afo-n1-iev"/>
                         <outlet property="questionLabel" destination="IGa-lf-OJC" id="hVq-IS-Esg"/>
                         <outlet property="tableView" destination="Qj5-JV-jGp" id="dBA-TW-60T"/>
+                        <outlet property="timerButton" destination="5J9-QY-gm2" id="3gW-ab-ESy"/>
+                        <outlet property="timerContainerView" destination="62P-sc-ngE" id="d3Q-42-Hoh"/>
+                        <outlet property="timerPicker" destination="62P-sc-ngE" id="qeZ-TF-S7b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfc-OA-DKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2190" y="382"/>
+            <point key="canvasLocation" x="2189.5999999999999" y="381.85907046476763"/>
         </scene>
         <!--Results-->
         <scene sceneID="tGP-2G-Ma1">

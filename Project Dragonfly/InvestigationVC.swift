@@ -18,6 +18,10 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    @IBOutlet weak var timerContainerView: UIView!
+    @IBOutlet weak var timerPicker: UIView!
+    @IBOutlet weak var timerButton: UIButton!
+    
     var investigation: Investigation!
     
     override func viewDidLoad() {
