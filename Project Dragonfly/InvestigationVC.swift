@@ -27,6 +27,12 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if investigation.componentType != .IntervalCounter {
+            timerContainerView.bounds.size.height = 0
+            timerContainerView.clipsToBounds = true
+//            timerContainerView.isHidden = true
+        }
+        
         setupNewComponentAlert()
         
         dateLabel.text = investigation?.lastUpdated
@@ -99,12 +105,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTVCell
         return cell
-        /*
-        var comp: Counter = investigation!.components[indexPath.row] as! Counter
-        let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
-        
-        cell.component = comp
-        return cell*/
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
