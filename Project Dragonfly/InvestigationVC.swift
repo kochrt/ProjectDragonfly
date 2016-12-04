@@ -27,6 +27,12 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if investigation.componentType != .IntervalCounter {
+            timerContainerView.bounds.size.height = 0
+            timerContainerView.clipsToBounds = true
+//            timerContainerView.isHidden = true
+        }
+        
         setupNewComponentAlert()
         
         dateLabel.text = investigation?.lastUpdated
