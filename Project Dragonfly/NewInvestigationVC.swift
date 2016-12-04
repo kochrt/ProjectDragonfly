@@ -100,6 +100,7 @@ class NewInvestigationVC: FormViewController {
                 row.title = cat
                 row.selectableValue = cat
                 row.value = nil
+                row.tag = cat
             })
         }
         categorySection.onSelectSelectableRow = { (cell, row) in
@@ -114,17 +115,28 @@ class NewInvestigationVC: FormViewController {
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
-            Investigations.instance.sortedCategories.append(textField.text!)
-            Investigations.instance.investigations[textField.text!] = []
-            Investigations.instance.sortedCategories.sort()
+            let text = self.alert.textFields![0].text! // Force unwrapping because we know it exists.
+            let catSection = self.form.sectionBy(tag: "Categories")!
             
-            let catSection = self.form.sectionBy(tag: "Categories")
-            catSection!.append(ListCheckRow<String>(textField.text!) { row in
-                row.title = textField.text!
-                row.selectableValue = textField.text!
-                row.value = nil
-            })
+            
+            
+            if (Investigations.instance.sortedCategories.contains(text)) {
+                let row: ListCheckRow<String> = catSection.rowBy(tag: text)!
+                row.select()
+                
+            } else {
+                Investigations.instance.sortedCategories.append(text)
+                Investigations.instance.investigations[text] = []
+                Investigations.instance.sortedCategories.sort()
+                catSection.append(ListCheckRow<String>(text) { row in
+                    row.title = text
+                    row.selectableValue = text
+                    row.value = nil
+                    row.tag = text
+                })
+            }
+            
+            
             
         }))
     }
