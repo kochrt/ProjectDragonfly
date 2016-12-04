@@ -123,8 +123,9 @@ class NewInvestigationVC: FormViewController {
             if (Investigations.instance.sortedCategories.contains(text)) {
                 let row: ListCheckRow<String> = catSection.rowBy(tag: text)!
                 row.select()
-                
+                print("already exists")
             } else {
+                print("new category")
                 Investigations.instance.sortedCategories.append(text)
                 Investigations.instance.investigations[text] = []
                 Investigations.instance.sortedCategories.sort()
@@ -135,9 +136,6 @@ class NewInvestigationVC: FormViewController {
                     row.tag = text
                 })
             }
-            
-            
-            
         }))
     }
     
