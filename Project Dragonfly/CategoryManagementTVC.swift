@@ -27,12 +27,10 @@ class CategoryManagementTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return Investigations.instance.sortedCategories.count
     }
     
@@ -41,7 +39,10 @@ class CategoryManagementTVC: UITableViewController {
         let cat = Investigations.instance.sortedCategories[indexPath.row]
         cell.textLabel?.text = cat
         let count = Investigations.instance.investigations[cat]!.count
-        cell.detailTextLabel?.text = "\(count) investigation\(count > 1 ? "s" : "")"
+        cell.detailTextLabel?.text = "\(count) investigation\(count > 1 || count == 0 ? "s" : "")"
+        if indexPath.row == 0 {
+            cell.selectionStyle = .none
+        }
         return cell
     }
     
@@ -54,13 +55,14 @@ class CategoryManagementTVC: UITableViewController {
         return indexPath.row != 0
     }
  
-
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            Investigations.instance.deleteCategory(named: Investigations.instance.sortedCategories[indexPath.row])
+            tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            tableView.endUpdates()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
