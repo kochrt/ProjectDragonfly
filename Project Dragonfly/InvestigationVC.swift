@@ -101,7 +101,15 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell*/
     }
     
-
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // do it
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destination = segue.destination as? UIViewController
         if let navcon = segue.destination as? UINavigationController {
