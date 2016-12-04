@@ -10,6 +10,8 @@ import UIKit
 
 class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DateUpdated {
 
+    let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var questionLabel: UILabel!
@@ -41,9 +43,26 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBAction func addComponent(_ sender: Any) {
         let indexPath = IndexPath(row: investigation!.components.count, section: 0)
+       // let comp = Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!
+        //self.present(self.alert, animated: true, completion: nil)
+        
         investigation!.components.append(Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
+    
+//    func setupNewCategoryAlert() {
+//        alert.addTextField { (textField) in
+//            textField.placeholder = "Component name"
+//        }
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+//            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
+//            // set created component's name
+//            
+//            
+//        }))
+//    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return investigation!.components.count
@@ -82,7 +101,15 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell*/
     }
     
-
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // do it
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destination = segue.destination as? UIViewController
         if let navcon = segue.destination as? UINavigationController {
