@@ -58,7 +58,7 @@ class StopwatchTVCell: UITableViewCell {
         
         //Find the difference between current time and start time.
         
-        var elapsedTime: TimeInterval = currentTime - startTime
+        let elapsedTime: TimeInterval = currentTime - startTime
         
         formatTime(eTime: elapsedTime)
         

@@ -13,7 +13,8 @@ class Component: NSObject, NSCoding {
         static let time = "componentTime"
     }
     
-    var title: String?
+    var title: String? {
+    }
     init(title: String) {
         self.title = title
     }

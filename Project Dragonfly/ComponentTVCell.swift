@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// CURRENTLY NOT IN USE
 class ComponentTVCell: UITableViewCell {
    
     var investigationController: DateUpdated!

@@ -44,12 +44,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     @IBAction func addComponent(_ sender: Any) {
-//        let indexPath = IndexPath(row: investigation!.components.count, section: 0)
-//        let comp = Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!
         self.present(self.alert, animated: true, completion: nil)
-        
-        //investigation!.components.append(Component.componentFromEnum(e: (investigation?.componentType.rawValue)!)!)
-        //tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
     func setupNewComponentAlert() {
@@ -91,7 +86,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTVCell
             cell.selectionStyle = .none
             cell.component = comp
-            //cell.investigationController = self
+            cell.investigationController = self
             return cell
         default:
             break;
@@ -99,12 +94,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTVCell
         return cell
-        /*
-        var comp: Counter = investigation!.components[indexPath.row] as! Counter
-        let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! ComponentTableViewCell
-        
-        cell.component = comp
-        return cell*/
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
