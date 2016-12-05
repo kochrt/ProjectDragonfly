@@ -9,6 +9,9 @@
 import UIKit
 
 class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DateUpdated {
+    
+    var startTime = TimeInterval()  // for timer
+    var timer = Timer()             // for timer
 
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -30,7 +33,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if investigation.componentType != .IntervalCounter {
             timerContainerView.bounds.size.height = 0
             timerContainerView.clipsToBounds = true
-//            timerContainerView.isHidden = true
+            timerContainerView.isHidden = true
         }
         
         setupNewComponentAlert()
@@ -70,7 +73,49 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }))
     }
     
+    // MARK: timer functions
     
+    func updateTime() {
+        
+        let currentTime = NSDate.timeIntervalSinceReferenceDate
+        
+        //Find the difference between current time and start time.
+        
+        let elapsedTime: TimeInterval = currentTime - startTime
+        
+        formatTime(eTime: elapsedTime)
+        
+    }
+    
+    func formatTime(eTime: TimeInterval) {
+        var elapsedTime = eTime
+        let minutes = UInt8(elapsedTime / 60.0)
+        
+        elapsedTime -= (TimeInterval(minutes) * 60)
+        
+        //calculate the seconds in elapsed time.
+        
+        let seconds = UInt8(elapsedTime)
+        
+        elapsedTime -= TimeInterval(seconds)
+        
+        //find out the fraction of milliseconds to be displayed.
+        
+        let fraction = UInt8(elapsedTime * 100)
+        
+        //add the leading zero for minutes, seconds and millseconds and store them as string constants
+        
+        let strMinutes = String(format: "%02d", minutes)
+        let strSeconds = String(format: "%02d", seconds)
+        let strFraction = String(format: "%02d", fraction)
+        
+        //concatenate minuets, seconds and milliseconds as assign it to the UILabel
+        
+        //stopwatchTimeText.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+    }
+    
+    
+    // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return investigation!.components.count
     }
