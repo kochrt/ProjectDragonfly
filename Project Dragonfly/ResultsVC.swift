@@ -15,6 +15,7 @@ class ResultsVC: UIViewController {
     
     var items : [(String ,Double)]!
     
+    @IBOutlet weak var containerView: UIView!
     fileprivate var chart: Chart?
     
     override func viewDidLoad() {
@@ -27,7 +28,7 @@ class ResultsVC: UIViewController {
         items = investigation.getValues()
         
         let chart = BarsChart(
-            frame: CGRect(x: 0, y: 70, width: 300, height: 500),
+            frame: containerView.frame,
             chartConfig: chartConfig,
             xTitle: "X axis",
             yTitle: "Y axis",
