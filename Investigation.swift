@@ -83,18 +83,19 @@ class Investigation: NSObject, NSCoding {
         }
     }
     
-    func getValues() -> [String : Double] {
+    func getValues() -> [(String , Double)] {
         
-        var items = [String : Double]()
+        var items : [(String ,Double)] = []
+        
         
         switch componentType {
         case .Counter:
             for component in components {
-                items[component.title!] = Double((component as! Counter).count)
+                items += [(component.title!,Double((component as! Counter).count))]
             }
         case .Stopwatch:
             for component in components {
-                items[component.title!] = (component as! Stopwatch).time
+//                items[component.title!] = (component as! Stopwatch).time
             }
         default:
             break

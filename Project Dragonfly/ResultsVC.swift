@@ -13,6 +13,8 @@ class ResultsVC: UIViewController {
 
     var investigation: Investigation!
     
+    var items : [(String ,Double)]!
+    
     fileprivate var chart: Chart?
     
     override func viewDidLoad() {
@@ -22,21 +24,14 @@ class ResultsVC: UIViewController {
             valsAxisConfig: ChartAxisConfig(from: 0, to: 8, by: 2)
         )
         
-        var items = investigation.getValues()
+        items = investigation.getValues()
         
         let chart = BarsChart(
             frame: CGRect(x: 0, y: 70, width: 300, height: 500),
             chartConfig: chartConfig,
             xTitle: "X axis",
             yTitle: "Y axis",
-            bars: [
-                ("A", 2),
-                ("B", 4.5),
-                ("C", 3),
-                ("D", 5.4),
-                ("E", 6.8),
-                ("F", 0.5)
-            ],
+            bars: items,
             color: UIColor.red,
             barWidth: 20
         )
