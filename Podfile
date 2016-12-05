@@ -9,7 +9,6 @@ target 'Project Dragonfly' do
 
   pod 'DropDown'
   pod 'Eureka', '~> 2.0.0-beta.1'
-  pod 'Charts'
   pod 'SwiftCharts'
 
   target 'Project DragonflyTests' do
