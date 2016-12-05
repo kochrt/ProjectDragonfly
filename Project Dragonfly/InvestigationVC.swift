@@ -170,7 +170,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func updated(date: Date) {
         investigation?.date = date
         dateLabel.text = investigation?.lastUpdated
-        
     }
 }
 
