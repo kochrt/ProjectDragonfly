@@ -18,21 +18,10 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    @IBOutlet weak var timerContainerView: UIView!
-    @IBOutlet weak var timerPicker: UIView!
-    @IBOutlet weak var timerButton: UIButton!
-    
     var investigation: Investigation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if investigation.componentType != .IntervalCounter {
-            timerContainerView.bounds.size.height = 0
-            timerContainerView.clipsToBounds = true
-//            timerContainerView.isHidden = true
-        }
-        
         setupNewComponentAlert()
         
         dateLabel.text = investigation?.lastUpdated
