@@ -9,9 +9,6 @@
 import UIKit
 
 class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DateUpdated {
-    
-    var startTime = TimeInterval()  // for timer
-    var timer = Timer()             // for timer
 
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -31,9 +28,13 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
 
         if investigation.componentType != .IntervalCounter {
-            timerContainerView.bounds.size.height = 0
-            timerContainerView.clipsToBounds = true
-            timerContainerView.isHidden = true
+            print("test???")
+//            timerContainerView.bounds.size.height = 0
+//            timerContainerView.clipsToBounds = true
+//            timerContainerView.isHidden = true
+            print("Timer x: \(timerContainerView.frame.origin.x)")
+            print("Timer y: \(timerContainerView.frame.origin.y)")
+//            tableView.frame = CGRect(x: timerContainerView.frame.origin.x, y: timerContainerView.frame.origin.y, width: timerContainerView.frame.width, height: tableView.frame.height)
         }
         
         setupNewComponentAlert()
@@ -73,47 +74,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }))
     }
     
-    // MARK: timer functions
-    
-    func updateTime() {
-        
-        let currentTime = NSDate.timeIntervalSinceReferenceDate
-        
-        //Find the difference between current time and start time.
-        
-        let elapsedTime: TimeInterval = currentTime - startTime
-        
-        formatTime(eTime: elapsedTime)
-        
-    }
-    
-    func formatTime(eTime: TimeInterval) {
-        var elapsedTime = eTime
-        let minutes = UInt8(elapsedTime / 60.0)
-        
-        elapsedTime -= (TimeInterval(minutes) * 60)
-        
-        //calculate the seconds in elapsed time.
-        
-        let seconds = UInt8(elapsedTime)
-        
-        elapsedTime -= TimeInterval(seconds)
-        
-        //find out the fraction of milliseconds to be displayed.
-        
-        let fraction = UInt8(elapsedTime * 100)
-        
-        //add the leading zero for minutes, seconds and millseconds and store them as string constants
-        
-        let strMinutes = String(format: "%02d", minutes)
-        let strSeconds = String(format: "%02d", seconds)
-        let strFraction = String(format: "%02d", fraction)
-        
-        //concatenate minuets, seconds and milliseconds as assign it to the UILabel
-        
-        //stopwatchTimeText.text = "\(strMinutes):\(strSeconds):\(strFraction)"
-    }
-    
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,7 +84,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         // need to: switch (component), then get component cell of that type.
         
         switch investigation!.componentType {
-        case ComponentEnum.Counter :
+        case .Counter, .IntervalCounter :
             let comp: Counter = investigation!.components[indexPath.row] as! Counter
             let cell = tableView.dequeueReusableCell(withIdentifier: "component") as! CounterTVCell
             
@@ -132,7 +92,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell.counter = comp
             cell.investigationController = self
             return cell
-        case ComponentEnum.Stopwatch :
+        case .Stopwatch :
             let comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
             let cell = tableView.dequeueReusableCell(withIdentifier: "stopwatchCell") as! StopwatchTVCell
             cell.selectionStyle = .none
@@ -177,3 +137,4 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 protocol DateUpdated {
     func updated(date: Date)
 }
+
