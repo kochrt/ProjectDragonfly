@@ -95,7 +95,7 @@ class Investigation: NSObject, NSCoding {
             }
         case .Stopwatch:
             for component in components {
-//                items[component.title!] = (component as! Stopwatch).time
+                items += [(component.title!, Double((component as! Stopwatch).time))]
             }
         default:
             break
@@ -104,6 +104,10 @@ class Investigation: NSObject, NSCoding {
         
         return items
     }
+    
+//    func getMax() -> Int {
+//        return
+//    }
 }
 
 class Investigations {
