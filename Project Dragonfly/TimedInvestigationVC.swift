@@ -1,26 +1,27 @@
 //
-//  InvestigationViewController.swift
+//  TimedInvestigationVC.swift
 //  Project Dragonfly
 //
-//  Created by Rob Koch on 10/31/16.
+//  Created by Willard, Marian on 12/8/16.
 //  Copyright © 2016 cse.miamioh. All rights reserved.
 //
 
 import UIKit
 
-class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DateUpdated {
-
+class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DateUpdated {
+    
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
-    @IBOutlet weak var tableView: UITableView!
+    var investigation: Investigation!
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var timePicker: UIView!
+    @IBOutlet weak var timeButton: UIButton!
+    @IBOutlet weak var timePickerView: UIView!
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-    
-    var investigation: Investigation!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +40,14 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = false
         navigationItem.title = investigation?.title
+        
     }
     
     @IBAction func addComponent(_ sender: Any) {
         self.present(self.alert, animated: true, completion: nil)
         
     }
-    
+
     func setupNewComponentAlert() {
         alert.addTextField { (textField) in
             textField.placeholder = "Component name"
@@ -57,12 +59,11 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             let indexPath = IndexPath(row: self.investigation!.components.count, section: 0)
             let comp = Component.componentFromEnum(e: (self.investigation?.componentType.rawValue)!)!
             comp.title = textField.text!
-    
+            
             self.investigation!.components.append(comp)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
         }))
     }
-    
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -117,10 +118,10 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         investigation?.date = date
         dateLabel.text = investigation?.lastUpdated
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
 }
-
-
-protocol DateUpdated {
-    func updated(date: Date)
-}
-

@@ -50,7 +50,13 @@ class InvestigationTVC: UITableViewController, NewInvestigationDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
+        switch investigation.componentType {
+        case .Counter, .Stopwatch:
         performSegue(withIdentifier: "investigationDetail", sender: investigation)
+            break
+        case .IntervalCounter:
+            performSegue(withIdentifier: "timedInvestigation", sender: investigation)
+        }
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -91,6 +97,11 @@ class InvestigationTVC: UITableViewController, NewInvestigationDelegate {
             switch id {
             case "investigationDetail":
                 let vc = segue.destination as! InvestigationVC
+                if let investigation = sender as? Investigation {
+                    vc.investigation = investigation
+                }
+            case "timedInvestigation":
+                let vc = segue.destination as! TimedInvestigationVC
                 if let investigation = sender as? Investigation {
                     vc.investigation = investigation
                 }

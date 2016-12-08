@@ -12,15 +12,14 @@ class CounterTVCell: UITableViewCell {
     
     var investigationController: DateUpdated!
     
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var countLabel: UILabel!
     var counter: Counter! {
         didSet{
             nameField.text = counter.title!
             countLabel.text = "\(counter.count)"
         }
     }
-
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var countLabel: UILabel!
     
     @IBAction func nameInput(_ sender: UITextField) {
         counter.title = sender.text
