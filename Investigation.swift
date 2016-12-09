@@ -13,6 +13,7 @@ class Investigation: NSObject, NSCoding {
     var componentType: ComponentEnum
     var components: [Component]
     var date: Date
+    //var timerLength: Double
     
     override var description: String { get { return "\(title): \(category)" } }
     
