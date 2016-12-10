@@ -161,22 +161,14 @@
 		D4519F5C1DAC4AA400FA274C /* Project Dragonfly */ = {
 			isa = PBXGroup;
 			children = (
+				D4993C091DFCB5260034C54C /* TableViewCells */,
+				D4993C081DFCB5050034C54C /* View Controllers */,
 				D492FEDA1DD1496C0052DBB0 /* Models */,
-				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
-				D4519F8D1DAC4F7300FA274C /* InvestigationTVCell.swift */,
 				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
 				D4519F611DAC4AA400FA274C /* Main.storyboard */,
-				9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */,
-				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
-				D4254B471DC7FDD700979B57 /* InvestigationVC.swift */,
-				9F57ABCF1DED069F001BB221 /* CounterTVCell.swift */,
-				9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */,
-				D4254B491DC809F100979B57 /* ComponentTVCell.swift */,
-				D4519F8B1DAC4BB900FA274C /* InvestigationTVC.swift */,
 				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
 				D4519F691DAC4AA400FA274C /* Info.plist */,
-				D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */,
 			);
 			path = "Project Dragonfly";
 			sourceTree = "<group>";
@@ -208,6 +200,30 @@
 			);
 			name = Models;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D4993C081DFCB5050034C54C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */,
+				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
+				9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */,
+				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
+				D4254B471DC7FDD700979B57 /* InvestigationVC.swift */,
+				D4519F8B1DAC4BB900FA274C /* InvestigationTVC.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D4993C091DFCB5260034C54C /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D4519F8D1DAC4F7300FA274C /* InvestigationTVCell.swift */,
+				9F57ABCF1DED069F001BB221 /* CounterTVCell.swift */,
+				9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */,
+				D4254B491DC809F100979B57 /* ComponentTVCell.swift */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
