@@ -15,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         Investigations.instance.restoreInvestigations()
+        
+        let appearance = UINavigationBar.appearance()
+        appearance.tintColor = UIColor.black
+        appearance.barTintColor = UIColor(colorLiteralRed: 224.0/255.0, green: 250.0/255.0, blue: 231.0/255.0, alpha: 1.0)
+        
+        let font = UIFont(name: "ChalkboardSE-light", size: 17.0)!
+        
+        appearance.titleTextAttributes = [NSFontAttributeName: font]
+        
         return true
     }
 

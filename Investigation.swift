@@ -31,9 +31,6 @@ class Investigation: NSObject, NSCoding {
         if let data = decoder.decodeObject(forKey: Keys.components) as? Data {
             if let comps = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Component] {
                 self.components = comps
-                for comp in comps {
-                    print(comp)
-                }
             } else {
                 self.components = []
             }
@@ -88,7 +85,6 @@ class Investigation: NSObject, NSCoding {
         
         var items : [(String ,Double)] = []
         
-        
         switch componentType {
         case .Counter:
             for component in components {
@@ -106,9 +102,6 @@ class Investigation: NSObject, NSCoding {
         return items
     }
     
-//    func getMax() -> Int {
-//        return
-//    }
 }
 
 class Investigations {
@@ -154,11 +147,8 @@ class Investigations {
     
     func deleteInvestigation(i: Investigation) {
         let cat = i.category
-        if var section = investigations[cat] {
-            if let index = section.index(of: i) {
-                section.remove(at: index)
-            }
-            investigations[cat] = section
+        if let section = investigations[cat] {
+            investigations[cat] = section.filter { $0 != i }
         }
     }
     
@@ -189,6 +179,7 @@ class Investigations {
                 addInvestigation(investigation: i)
             }
             sortedCategories.remove(at: sortedCategories.index(of: named)!)
+            investigations.removeValue(forKey: named)
         }
     }
 }
