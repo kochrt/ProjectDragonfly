@@ -341,7 +341,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" tag="20" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j0C-tl-Es9">
-                                <rect key="frame" x="16" y="129" width="343" height="352"/>
+                                <rect key="frame" x="16" y="129" width="343" height="494"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="counter" rowHeight="59" id="SQK-Ho-XHz" customClass="CounterTVCell" customModule="Project_Dragonfly" customModuleProvider="target">
@@ -461,6 +461,33 @@
                                             <outlet property="stopwatchTimeText" destination="b85-Do-MX3" id="tKS-Wx-etg"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="button" id="oKS-q9-qB0" customClass="AddComponentTVCell" customModule="Project_Dragonfly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="147" width="343" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oKS-q9-qB0" id="bwn-aQ-IDH">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-kJ-dfm">
+                                                    <rect key="frame" x="8" y="8" width="327" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="pressed:" destination="oKS-q9-qB0" eventType="touchUpInside" id="u7N-sj-0bm"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wfo-kJ-dfm" firstAttribute="trailing" secondItem="bwn-aQ-IDH" secondAttribute="trailingMargin" id="9BO-F8-lam"/>
+                                                <constraint firstItem="wfo-kJ-dfm" firstAttribute="top" secondItem="bwn-aQ-IDH" secondAttribute="topMargin" id="QeM-9V-cdx"/>
+                                                <constraint firstItem="wfo-kJ-dfm" firstAttribute="bottom" secondItem="bwn-aQ-IDH" secondAttribute="bottomMargin" id="aZ8-5Z-l3e"/>
+                                                <constraint firstItem="wfo-kJ-dfm" firstAttribute="leading" secondItem="bwn-aQ-IDH" secondAttribute="leadingMargin" id="tiy-fQ-7ro"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="button" destination="wfo-kJ-dfm" id="WwU-a1-EeE"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -473,7 +500,7 @@
                             <constraint firstItem="j0C-tl-Es9" firstAttribute="top" secondItem="tG3-uA-Sm9" secondAttribute="bottom" constant="8" id="BH1-MV-XGB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tG3-uA-Sm9" secondAttribute="trailing" id="D6g-Yn-c8A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kQi-lw-Bdw" secondAttribute="trailing" id="MGj-Ri-n1J"/>
-                            <constraint firstItem="PVS-n8-550" firstAttribute="top" secondItem="j0C-tl-Es9" secondAttribute="bottom" constant="142" id="OB8-T4-wI7"/>
+                            <constraint firstItem="PVS-n8-550" firstAttribute="top" secondItem="j0C-tl-Es9" secondAttribute="bottom" id="OB8-T4-wI7"/>
                             <constraint firstAttribute="leadingMargin" secondItem="CTT-cQ-7bb" secondAttribute="leading" id="Vha-Aq-1uO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="j0C-tl-Es9" secondAttribute="trailing" id="WTh-iZ-hWc"/>
                             <constraint firstItem="kQi-lw-Bdw" firstAttribute="leading" secondItem="ibB-jk-gsY" secondAttribute="trailing" constant="3" id="ZYL-L8-Jcy"/>
@@ -486,13 +513,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" id="i22-CE-Jja">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="whH-UT-ccE">
-                            <connections>
-                                <action selector="addComponent:" destination="tGP-GP-kP9" id="hFg-RN-i2D"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="i22-CE-Jja"/>
                     <connections>
                         <outlet property="categoryLabel" destination="CTT-cQ-7bb" id="Zyk-1q-SzM"/>
                         <outlet property="dateLabel" destination="kQi-lw-Bdw" id="vdr-ML-FOF"/>
@@ -677,6 +698,33 @@
                                             <outlet property="stopwatchTimeText" destination="O4H-T2-9NM" id="mdw-tb-Yni"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="button" id="jZb-TZ-NBi" customClass="AddComponentTVCell" customModule="Project_Dragonfly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="147" width="343" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jZb-TZ-NBi" id="Wzb-Pa-S9Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dX-br-s38">
+                                                    <rect key="frame" x="8" y="8" width="327" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="pressed:" destination="jZb-TZ-NBi" eventType="touchUpInside" id="ljh-hN-0el"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0dX-br-s38" firstAttribute="trailing" secondItem="Wzb-Pa-S9Z" secondAttribute="trailingMargin" id="A1L-Gg-sFp"/>
+                                                <constraint firstItem="0dX-br-s38" firstAttribute="bottom" secondItem="Wzb-Pa-S9Z" secondAttribute="bottomMargin" id="BA3-kd-NW9"/>
+                                                <constraint firstItem="0dX-br-s38" firstAttribute="top" secondItem="Wzb-Pa-S9Z" secondAttribute="topMargin" id="Foc-6b-fRK"/>
+                                                <constraint firstItem="0dX-br-s38" firstAttribute="leading" secondItem="Wzb-Pa-S9Z" secondAttribute="leadingMargin" id="SFU-S9-d7M"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="button" destination="0dX-br-s38" id="swc-DQ-3dq"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZw-pL-KD7">
@@ -714,13 +762,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" id="lz3-xz-bXt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NDn-F0-gN8">
-                            <connections>
-                                <action selector="addComponent:" destination="qtV-N3-2Gg" id="OlK-jZ-Rlc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="lz3-xz-bXt"/>
                     <connections>
                         <outlet property="categoryLabel" destination="PHF-ze-KNd" id="qK1-Oy-FwE"/>
                         <outlet property="dateLabel" destination="z3C-Me-Rfz" id="zBl-eX-ms2"/>

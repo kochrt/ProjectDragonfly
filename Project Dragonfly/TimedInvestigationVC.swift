@@ -8,14 +8,15 @@
 
 import UIKit
 
-class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, DateUpdated {
+class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, InvestigationDelegate {
     var timerLength: Double = 0.0
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
     var investigation: Investigation!
     
-    var pickerDataSource = [["1", "2", "3"],["1", "2", "3"],["1", "2", "3"]]
+    var pickerDataSource = Array(repeating: Array(repeating: "", count: 60), count: 3)
+
     
     // for timer
     var startTime = TimeInterval()
@@ -34,7 +35,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction func timerButton(_ sender: UIButton) {
         if !timer.isValid {
-            
             let hours = timerPickerView.selectedRow(inComponent: 0)
             let mins = timerPickerView.selectedRow(inComponent: 1)
             let secs = timerPickerView.selectedRow(inComponent: 2)
@@ -42,8 +42,8 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             let time = secs + (mins * 60) + (hours * 60)
             timerLength = Double(time)
             
-            let aSelector : Selector = #selector(StopwatchTVCell.updateTime)
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
+            timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate
             
             timeButton.setTitle("Stop", for: .normal)
@@ -63,48 +63,63 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         
         let elapsedTime: TimeInterval = currentTime - startTime
         
-        formatTime(eTime: elapsedTime)
+        
         if ( elapsedTime > (timerLength)) {
             timer.invalidate()
-            
+            //formatTime(eTime: TimeInterval(timerLength))
             timeButton.setTitle("Start", for: .normal)
             updated(date: Date())
             // disable counters?
+        } else {
+            formatTime(eTime: elapsedTime)
         }
         
     }
-    
+    // format time
     func formatTime(eTime: TimeInterval) {
-        var elapsedTime = eTime
-        let minutes = UInt8(elapsedTime / 60.0)
-        
-        elapsedTime -= (TimeInterval(minutes) * 60)
-        
-        //calculate the seconds in elapsed time.
-        
-        let seconds = UInt8(elapsedTime)
-        
-        elapsedTime -= TimeInterval(seconds)
-        
-        //find out the fraction of milliseconds to be displayed.
-        
-        let fraction = UInt8(elapsedTime * 100)
-        
+        var elapsedTime = UInt8(floor(timerLength - eTime)) // in seconds with fractions
+        //elapsedTime = floor(elapsedTime)
+        print("elapsedTime 1: \(elapsedTime)")
+        let seconds = UInt8(elapsedTime) % 60
+        elapsedTime -= seconds
+        print("elapsedTime 2: \(elapsedTime)")
+        var min = UInt8(elapsedTime) % 60
+        if(min == 0 && elapsedTime >= 60) {
+            min = 1
+        }
+        elapsedTime -= min * 60
+        print("elapsedTime 3: \(elapsedTime)")
+        let hours = UInt8(elapsedTime / 60)
         //add the leading zero for minutes, seconds and millseconds and store them as string constants
-        
-        let strMinutes = String(format: "%02d", minutes)
-        let strSeconds = String(format: "%02d", seconds)
-        let strFraction = String(format: "%02d", fraction)
+        print("seconds : \(seconds)")
+        print("mins : \(min)")
+        print("hours : \(hours)")
+       // let strMinutes = String(format: "%02d", min)
+       // let strSeconds = String(format: "%02d", seconds)
+        //let strHours = String(format: "%02d", hours)
         
         //concatenate minuets, seconds and milliseconds as assign it to the UILabel
         // Make picker display count down
         //stopwatchTimeText.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
+        timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
+        timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
+        
+    }
+    
+    func setupTimerDataSource() {
+        for i in 0..<3 {
+            for j in 0..<60 {
+                pickerDataSource[i][j] = "\(j)"
+            }
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNewComponentAlert()
+        setupTimerDataSource()
 
         dateLabel.text = "Last Edited: \(investigation!.lastUpdated)"
         
@@ -123,10 +138,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.delegate = self
     }
     
-    @IBAction func addComponent(_ sender: Any) {
-        self.present(self.alert, animated: true, completion: nil)
-    }
-
     func setupNewComponentAlert() {
         alert.addTextField { (textField) in
             textField.placeholder = "Component name"
@@ -160,11 +171,17 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return investigation!.components.count
+        return investigation!.components.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // need to: switch (component), then get component cell of that type.
+        
+        if indexPath.row == investigation.components.count {
+            let addComp = tableView.dequeueReusableCell(withIdentifier: "button") as! AddComponentTVCell
+            addComp.delegate = self
+            addComp.separatorInset = UIEdgeInsetsMake(0, addComp.bounds.size.width, 0, 0)
+            return addComp
+        }
         
         switch investigation!.componentType {
         case .Counter, .IntervalCounter :
@@ -182,12 +199,10 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             cell.investigationController = self
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "counter") as! ComponentTVCell
-        return cell
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row != 0
+        return indexPath.row != 0 && indexPath.row != investigation.components.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -213,10 +228,9 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             dateLabel.text = "Last Edited: \(i.lastUpdated)"
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func addComponent() {
+        self.present(self.alert, animated: true, completion: nil)
     }
-
+    
 }
