@@ -94,6 +94,10 @@ class Investigation: NSObject, NSCoding {
             for component in components {
                 items += [(component.title!, Double((component as! Stopwatch).time))]
             }
+        case .IntervalCounter:
+            for component in components{
+//                items += [(component.title!, Double((component as! IntervalCounter).count))]
+            }
         default:
             break
             //do nothing
