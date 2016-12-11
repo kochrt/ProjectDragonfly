@@ -22,27 +22,10 @@ class InvestigationTVCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var componentLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func setComponentString() {
         let string: String
         componentLabel.font = UIFont.fontAwesome(ofSize: 18)
-        
-        switch investigation!.componentType {
-        case .Counter:
-            string = String.fontAwesomeIcon(name: .sort)
-        case .IntervalCounter:
-            string = String.fontAwesomeIcon(name: .hourglassHalf)
-        case .Stopwatch:
-            string = String.fontAwesomeIcon(name: .clockO)
-        }
-        
-        componentLabel.text = string
-
+        componentLabel.text = investigation?.componentType.fontAwesomeString
     }
-
 }
