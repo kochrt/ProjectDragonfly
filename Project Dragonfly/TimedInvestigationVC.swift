@@ -180,6 +180,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             let addComp = tableView.dequeueReusableCell(withIdentifier: "button") as! AddComponentTVCell
             addComp.delegate = self
             addComp.separatorInset = UIEdgeInsetsMake(0, addComp.bounds.size.width, 0, 0)
+            addComp.selectionStyle = .none
             return addComp
         }
         

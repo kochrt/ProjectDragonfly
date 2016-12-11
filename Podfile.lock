@@ -1,18 +1,21 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
   - Eureka (2.0.0-beta.1)
+  - FontAwesome.swift (1.0.0)
   - SwiftCharts (0.5.1)
 
 DEPENDENCIES:
   - DZNEmptyDataSet
   - Eureka (~> 2.0.0-beta.1)
+  - FontAwesome.swift
   - SwiftCharts
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
+  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
   SwiftCharts: d263289cdc7fc955fef54ae3bc6529f696e69933
 
-PODFILE CHECKSUM: b73bf58282e28caea680fb3acd6f72337b8b4144
+PODFILE CHECKSUM: 900a9540f82e35aa985664b4fc1a2a99f2da25d1
 
 COCOAPODS: 1.1.1

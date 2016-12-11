@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Project Dragonfly.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +52,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2AD7E08E45624A9762B0996D67B779BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5E952E950568FFCAB085A13F840CC3ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A34B5BBFC8F3A14E50892B68EF1AB0DA</key>
+		<key>77979430716929ED71E6E262A9F9A184</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A749CB6926CF264FB3E0323675CC1682</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9F27F84509422ABCD7951F773C75F39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C74D47B051BF84CA30E0723F127F42AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

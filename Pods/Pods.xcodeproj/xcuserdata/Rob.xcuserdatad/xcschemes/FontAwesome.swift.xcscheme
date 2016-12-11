@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B9F27F84509422ABCD7951F773C75F39"
-               BuildableName = "Pods_Project_Dragonfly.framework"
-               BlueprintName = "Pods-Project Dragonfly"
+               BlueprintIdentifier = "C74D47B051BF84CA30E0723F127F42AD"
+               BuildableName = "FontAwesome_swift.framework"
+               BlueprintName = "FontAwesome.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B9F27F84509422ABCD7951F773C75F39"
-            BuildableName = "Pods_Project_Dragonfly.framework"
-            BlueprintName = "Pods-Project Dragonfly"
+            BlueprintIdentifier = "C74D47B051BF84CA30E0723F127F42AD"
+            BuildableName = "FontAwesome_swift.framework"
+            BlueprintName = "FontAwesome.swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -69,6 +69,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             let addCompButton = tableView.dequeueReusableCell(withIdentifier: "button") as! AddComponentTVCell
             addCompButton.delegate = self
             addCompButton.separatorInset = UIEdgeInsetsMake(0, addCompButton.bounds.size.width, 0, 0)
+            addCompButton.selectionStyle = .none
             return addCompButton
         }
         

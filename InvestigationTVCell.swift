@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class InvestigationTVCell: UITableViewCell {
 
@@ -14,20 +15,34 @@ class InvestigationTVCell: UITableViewCell {
         didSet {
             nameLabel.text = investigation?.title
             dateLabel.text = "Last updated: \(investigation!.lastUpdated)"
+            setComponentString()
         }
     }
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var componentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+    func setComponentString() {
+        let string: String
+        componentLabel.font = UIFont.fontAwesome(ofSize: 18)
+        
+        switch investigation!.componentType {
+        case .Counter:
+            string = String.fontAwesomeIcon(name: .sort)
+        case .IntervalCounter:
+            string = String.fontAwesomeIcon(name: .hourglassHalf)
+        case .Stopwatch:
+            string = String.fontAwesomeIcon(name: .clockO)
+        }
+        
+        componentLabel.text = string
+
     }
 
 }

@@ -40,9 +40,9 @@ class CategoryManagementTVC: UITableViewController {
         cell.textLabel?.text = cat
         let count = Investigations.instance.investigations[cat]!.count
         cell.detailTextLabel?.text = "\(count) investigation\(count > 1 || count == 0 ? "s" : "")"
-        if indexPath.row == 0 {
+//        if indexPath.row == 0 {
             cell.selectionStyle = .none
-        }
+//        }
         return cell
     }
     
