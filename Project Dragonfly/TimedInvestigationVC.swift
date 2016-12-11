@@ -99,6 +99,9 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         //concatenate minuets, seconds and milliseconds as assign it to the UILabel
         // Make picker display count down
         //stopwatchTimeText.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        timerPickerView.selectRow(Int(seconds), inComponent: 1, animated: true)
+        timerPickerView.selectRow(Int(minutes), inComponent: 2, animated: true)
+        //timerPickerView.selectRow(Int(hours), inComponent: 3, animated: true)
     }
 
     override func viewDidLoad() {
