@@ -7,16 +7,12 @@
 //
 
 import UIKit
+
 // CURRENTLY NOT IN USE
-class ComponentTVCell: UITableViewCell {
+class ComponentTVCell: UITableViewCell, UITextFieldDelegate {
    
-    var investigationController: DateUpdated!
-    
-    var component: Component!{
-        didSet{
-            nameField.text = component.title!
-        }
-    }
+    var investigationController: InvestigationDelegate!
+    var component: Component!{ didSet { nameField.text = component.title! } }
     @IBOutlet weak var nameField: UITextField!
     
     @IBAction func nameInput(_ sender: UITextField) {
@@ -32,35 +28,18 @@ class ComponentTVCell: UITableViewCell {
         investigationController.updated(date: Date())
     }
     
-//    @IBOutlet weak var countLabel: UILabel!
-//    @IBOutlet weak var componentName: UIView!
-//    
-//    
-//    @IBAction func subtract(_ sender: UIButton) {
-//        if (component.count > 0) {
-//            component.subtract()
-//            countLabel.text = "\(component.count)"
-//            investigationController.updated(date: Date())
-//            
-//        }
-//    }
-//    
-//    @IBAction func add(_ sender: UIButton) {
-//        component.add()
-//        countLabel.text = "\(component.count)"
-//        investigationController.updated(date: Date())
-//    }
-//    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        nameField.delegate = self
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(false, animated: animated)
-        
-        // Configure the view for the selected state
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(string)
+        if string == "\n" {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
 }

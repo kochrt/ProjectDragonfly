@@ -81,9 +81,9 @@ class NewInvestigationVC: FormViewController {
         form.append(toolSection)
         
 
-        let newCatSection = Section("New Category")
+        let newCatSection = Section()
         newCatSection.append(ButtonRow() { row in
-            row.title = "Create"
+            row.title = "Create new category"
             row.onCellSelection({ (cell, row) in
                 self.present(self.alert, animated: true, completion: nil)
                 self.checkInvestigation()

@@ -8,12 +8,11 @@
 
 import UIKit
 
-class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, DateUpdated {
+class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, InvestigationDelegate {
 
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
     @IBOutlet weak var tableView: UITableView!
-    
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -41,11 +40,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         navigationItem.title = investigation?.title
     }
     
-    @IBAction func addComponent(_ sender: Any) {
-        self.present(self.alert, animated: true, completion: nil)
-        
-    }
-    
     func setupNewComponentAlert() {
         alert.addTextField { (textField) in
             textField.placeholder = "Component name"
@@ -66,12 +60,17 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return investigation!.components.count
+        return investigation!.components.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // need to: switch (component), then get component cell of that type.
         
+        if indexPath.row == investigation.components.count {
+            let addCompButton = tableView.dequeueReusableCell(withIdentifier: "button") as! AddComponentTVCell
+            addCompButton.delegate = self
+            addCompButton.separatorInset = UIEdgeInsetsMake(0, addCompButton.bounds.size.width, 0, 0)
+            return addCompButton
+        }
         
         switch investigation!.componentType {
         case .Counter, .IntervalCounter :
@@ -89,12 +88,10 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell.investigationController = self
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "counter") as! ComponentTVCell
-        return cell
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row != 0
+        return indexPath.row != 0 && indexPath.row != investigation.components.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -117,10 +114,15 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         investigation?.date = date
         dateLabel.text = investigation?.lastUpdated
     }
+    
+    func addComponent() {
+        self.present(self.alert, animated: true, completion: nil)
+    }
 }
 
 
-protocol DateUpdated {
+protocol InvestigationDelegate {
     func updated(date: Date)
+    func addComponent()
 }
 

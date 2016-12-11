@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CounterTVCell: UITableViewCell {
+class CounterTVCell: UITableViewCell, UITextFieldDelegate {
     
-    var investigationController: DateUpdated!
+    var investigationController: InvestigationDelegate!
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var countLabel: UILabel!
@@ -41,13 +41,16 @@ class CounterTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        nameField.delegate = self
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(string)
+        if string == "\n" {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
 
 }
