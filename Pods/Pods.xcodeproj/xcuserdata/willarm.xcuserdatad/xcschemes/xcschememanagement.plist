@@ -30,6 +30,16 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>Pods-Project Dragonfly.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -96,6 +106,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>77979430716929ED71E6E262A9F9A184</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>834C14A7CDF79C11C6C10C29EFDC80C3</key>
 		<dict>
 			<key>primary</key>
@@ -126,7 +141,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A749CB6926CF264FB3E0323675CC1682</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AE09883652FD8AA3D5353CA5370B44A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9F27F84509422ABCD7951F773C75F39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C74D47B051BF84CA30E0723F127F42AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
