@@ -13,12 +13,12 @@
 		9F57ABD21DED06AA001BB221 /* StopwatchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */; };
 		9FA585981DFA1C1B00357C19 /* TimedInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */; };
 		B2C8BF8AA3A42A6E14604AB9 /* Pods_Project_DragonflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */; };
+		D4112B4A1DFDBE7E009BF1B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4112B491DFDBE7E009BF1B0 /* Assets.xcassets */; };
 		D4254B481DC7FDD700979B57 /* InvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B471DC7FDD700979B57 /* InvestigationVC.swift */; };
 		D4254B4A1DC809F100979B57 /* ComponentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4254B491DC809F100979B57 /* ComponentTVCell.swift */; };
 		D42773BF1DE3C03E00A1D775 /* CategoryManagementTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */; };
 		D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */; };
 		D4519F631DAC4AA400FA274C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F611DAC4AA400FA274C /* Main.storyboard */; };
-		D4519F651DAC4AA400FA274C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4519F641DAC4AA400FA274C /* Assets.xcassets */; };
 		D4519F681DAC4AA400FA274C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */; };
 		D4519F731DAC4AA400FA274C /* Project_DragonflyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F721DAC4AA400FA274C /* Project_DragonflyTests.swift */; };
 		D4519F7E1DAC4AA400FA274C /* Project_DragonflyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4519F7D1DAC4AA400FA274C /* Project_DragonflyUITests.swift */; };
@@ -61,13 +61,13 @@
 		9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchTVCell.swift; sourceTree = "<group>"; };
 		9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedInvestigationVC.swift; sourceTree = "<group>"; };
 		BB1D1D215A4B6B9DAE2F9C4F /* Pods-Project Dragonfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.debug.xcconfig"; sourceTree = "<group>"; };
+		D4112B491DFDBE7E009BF1B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4254B471DC7FDD700979B57 /* InvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationVC.swift; sourceTree = "<group>"; };
 		D4254B491DC809F100979B57 /* ComponentTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentTVCell.swift; sourceTree = "<group>"; };
 		D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryManagementTVC.swift; sourceTree = "<group>"; };
 		D4519F5A1DAC4AA400FA274C /* Project Dragonfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Dragonfly.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4519F621DAC4AA400FA274C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D4519F641DAC4AA400FA274C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4519F671DAC4AA400FA274C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4519F691DAC4AA400FA274C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4519F6E1DAC4AA400FA274C /* Project DragonflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project DragonflyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,22 +161,14 @@
 		D4519F5C1DAC4AA400FA274C /* Project Dragonfly */ = {
 			isa = PBXGroup;
 			children = (
+				D4112B491DFDBE7E009BF1B0 /* Assets.xcassets */,
+				D4993C091DFCB5260034C54C /* TableViewCells */,
+				D4993C081DFCB5050034C54C /* View Controllers */,
 				D492FEDA1DD1496C0052DBB0 /* Models */,
-				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
-				D4519F8D1DAC4F7300FA274C /* InvestigationTVCell.swift */,
 				D4519F5D1DAC4AA400FA274C /* AppDelegate.swift */,
 				D4519F611DAC4AA400FA274C /* Main.storyboard */,
-				9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */,
-				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
-				D4254B471DC7FDD700979B57 /* InvestigationVC.swift */,
-				9F57ABCF1DED069F001BB221 /* CounterTVCell.swift */,
-				9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */,
-				D4254B491DC809F100979B57 /* ComponentTVCell.swift */,
-				D4519F8B1DAC4BB900FA274C /* InvestigationTVC.swift */,
-				D4519F641DAC4AA400FA274C /* Assets.xcassets */,
 				D4519F661DAC4AA400FA274C /* LaunchScreen.storyboard */,
 				D4519F691DAC4AA400FA274C /* Info.plist */,
-				D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */,
 			);
 			path = "Project Dragonfly";
 			sourceTree = "<group>";
@@ -208,6 +200,30 @@
 			);
 			name = Models;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D4993C081DFCB5050034C54C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */,
+				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
+				9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */,
+				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
+				D4254B471DC7FDD700979B57 /* InvestigationVC.swift */,
+				D4519F8B1DAC4BB900FA274C /* InvestigationTVC.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D4993C091DFCB5260034C54C /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				D4519F8D1DAC4F7300FA274C /* InvestigationTVCell.swift */,
+				9F57ABCF1DED069F001BB221 /* CounterTVCell.swift */,
+				9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */,
+				D4254B491DC809F100979B57 /* ComponentTVCell.swift */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4519F681DAC4AA400FA274C /* LaunchScreen.storyboard in Resources */,
-				D4519F651DAC4AA400FA274C /* Assets.xcassets in Resources */,
+				D4112B4A1DFDBE7E009BF1B0 /* Assets.xcassets in Resources */,
 				D4519F631DAC4AA400FA274C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

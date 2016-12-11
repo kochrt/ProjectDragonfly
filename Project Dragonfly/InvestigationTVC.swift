@@ -19,12 +19,10 @@ class InvestigationTVC: UITableViewController, NewInvestigationDelegate {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return Investigations.instance.sortedCategories.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return Investigations.instance.investigations[Investigations.instance.sortedCategories[section]]!.count
     }
 
