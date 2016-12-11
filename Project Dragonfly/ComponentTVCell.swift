@@ -10,7 +10,7 @@ import UIKit
 // CURRENTLY NOT IN USE
 class ComponentTVCell: UITableViewCell {
    
-    var investigationController: DateUpdated!
+    var investigationController: InvestigationDelegate!
     
     var component: Component!{
         didSet{

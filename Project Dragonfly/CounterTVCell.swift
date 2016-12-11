@@ -10,7 +10,7 @@ import UIKit
 
 class CounterTVCell: UITableViewCell {
     
-    var investigationController: DateUpdated!
+    var investigationController: InvestigationDelegate!
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var countLabel: UILabel!

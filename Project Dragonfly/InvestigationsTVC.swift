@@ -147,7 +147,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     }
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
-        return -30.0
+        return -20.0
     }
 }
 

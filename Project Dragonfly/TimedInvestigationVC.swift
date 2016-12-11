@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, DateUpdated {
+class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, InvestigationDelegate {
     var timerLength: Double = 0.0
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
@@ -123,10 +123,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.delegate = self
     }
     
-    @IBAction func addComponent(_ sender: Any) {
-        self.present(self.alert, animated: true, completion: nil)
-    }
-
     func setupNewComponentAlert() {
         alert.addTextField { (textField) in
             textField.placeholder = "Component name"
@@ -160,11 +156,17 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return investigation!.components.count
+        return investigation!.components.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // need to: switch (component), then get component cell of that type.
+        
+        if indexPath.row == investigation.components.count {
+            let addComp = tableView.dequeueReusableCell(withIdentifier: "button") as! AddComponentTVCell
+            addComp.delegate = self
+            addComp.separatorInset = UIEdgeInsetsMake(0, addComp.bounds.size.width, 0, 0)
+            return addComp
+        }
         
         switch investigation!.componentType {
         case .Counter, .IntervalCounter :
@@ -182,12 +184,10 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             cell.investigationController = self
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "counter") as! ComponentTVCell
-        return cell
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row != 0
+        return indexPath.row != 0 && indexPath.row != investigation.components.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -213,10 +213,9 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             dateLabel.text = "Last Edited: \(i.lastUpdated)"
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func addComponent() {
+        self.present(self.alert, animated: true, completion: nil)
     }
-
+    
 }

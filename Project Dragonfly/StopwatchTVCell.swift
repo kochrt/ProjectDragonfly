@@ -11,7 +11,7 @@ import UIKit
 // TODO: Why isn't this a subclass of ComponentTVCell
 class StopwatchTVCell: UITableViewCell {
    
-    var investigationController: DateUpdated!
+    var investigationController: InvestigationDelegate!
     
     var startTime = TimeInterval()
     var timer = Timer()
