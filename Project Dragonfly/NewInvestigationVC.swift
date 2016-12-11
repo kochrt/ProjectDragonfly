@@ -8,6 +8,7 @@
 
 import UIKit
 import Eureka
+import FontAwesome_swift
 
 protocol NewInvestigationDelegate {
     func createdInvestigation(investigation: Investigation)
@@ -69,7 +70,9 @@ class NewInvestigationVC: FormViewController {
                 row.title = tool.rawValue
                 row.selectableValue = tool.rawValue
                 row.value = nil
-            })
+            }.cellSetup({ (cell, row) in
+                cell.imageView?.image = tool.fontAwesomeImage
+            }))
         }
         
         toolSection.onSelectSelectableRow = { (cell, row) in
@@ -117,8 +120,6 @@ class NewInvestigationVC: FormViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             let text = self.alert.textFields![0].text! // Force unwrapping because we know it exists.
             let catSection = self.form.sectionBy(tag: "Categories")!
-            
-            
             
             if (Investigations.instance.sortedCategories.contains(text)) {
                 let row: ListCheckRow<String> = catSection.rowBy(tag: text)!
