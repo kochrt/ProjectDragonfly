@@ -77,34 +77,28 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     }
     // format time
     func formatTime(eTime: TimeInterval) {
-        var elapsedTime = UInt8(floor(timerLength - eTime)) // in seconds with fractions
-        //elapsedTime = floor(elapsedTime)
-        print("elapsedTime 1: \(elapsedTime)")
-        let seconds = UInt8(elapsedTime) % 60
-        elapsedTime -= seconds
-        print("elapsedTime 2: \(elapsedTime)")
-        var min = UInt8(elapsedTime) % 60
-        if(min == 0 && elapsedTime >= 60) {
-            min = 1
-        }
-        elapsedTime -= min * 60
-        print("elapsedTime 3: \(elapsedTime)")
-        let hours = UInt8(elapsedTime / 60)
-        //add the leading zero for minutes, seconds and millseconds and store them as string constants
-        print("seconds : \(seconds)")
-        print("mins : \(min)")
-        print("hours : \(hours)")
-       // let strMinutes = String(format: "%02d", min)
-       // let strSeconds = String(format: "%02d", seconds)
-        //let strHours = String(format: "%02d", hours)
+        print("timerLength: \(timerLength)")
+        print("eTime \(eTime)")
+        var elapsedTime = UInt16(floor(timerLength - eTime)) // in seconds with fractions
         
-        //concatenate minuets, seconds and milliseconds as assign it to the UILabel
+        //elapsedTime = floor(elapsedTime)
+
+        let seconds = UInt16(elapsedTime) % 60
+        elapsedTime -= seconds
+        elapsedTime = elapsedTime / 60  // elapsedTime is in minutes
+        let min = UInt16(elapsedTime) % 60
+//        if(min == 0 && elapsedTime == 60) {
+//            min = 1
+//        }
+        elapsedTime -= min
+        let hours = UInt16(elapsedTime / 60)
+        //add the leading zero for minutes, seconds and millseconds and store them as string constants
+        
         // Make picker display count down
-        //stopwatchTimeText.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+
         timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
         timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
         timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
-        
     }
     
     func setupTimerDataSource() {
