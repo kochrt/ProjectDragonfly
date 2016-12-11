@@ -7,9 +7,9 @@ target 'Project Dragonfly' do
 
   # Pods for Project Dragonfly
 
-  pod 'DropDown'
   pod 'Eureka', '~> 2.0.0-beta.1'
   pod 'SwiftCharts'
+  pod 'DZNEmptyDataSet'
 
   target 'Project DragonflyTests' do
     inherit! :search_paths

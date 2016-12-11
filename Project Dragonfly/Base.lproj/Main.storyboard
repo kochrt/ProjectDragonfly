@@ -15,7 +15,7 @@
         <!--Investigations-->
         <scene sceneID="DFk-SI-PxN">
             <objects>
-                <tableViewController id="MXp-QZ-b3U" customClass="InvestigationTVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MXp-QZ-b3U" customClass="InvestigationsTVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="C0f-CC-t76">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +134,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqX-l6-g8U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="22D-7A-ylx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="22D-7A-ylx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.87701628200560855" green="0.98132258653640747" blue="0.9042252992498242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

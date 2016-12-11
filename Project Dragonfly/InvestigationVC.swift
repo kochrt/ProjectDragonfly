@@ -14,7 +14,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
