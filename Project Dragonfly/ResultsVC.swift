@@ -15,6 +15,7 @@ class ResultsVC: UIViewController {
     
     var items : [(String ,Double)]!
     
+    
     @IBOutlet weak var containerView: UIView!
     fileprivate var chart: Chart?
     
@@ -31,8 +32,12 @@ class ResultsVC: UIViewController {
         }
         return maxSize
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let investigationType = investigation.componentType
+        
         items = investigation.getValues()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         let chartConfig = BarsChartConfig(
@@ -46,7 +51,7 @@ class ResultsVC: UIViewController {
             frame: frame,
             chartConfig: chartConfig,
             xTitle: "Components",
-            yTitle: "Frequency",
+            yTitle: investigationType.rawValue,
             bars: items,
             color: UIColor.red,
             barWidth: 20
