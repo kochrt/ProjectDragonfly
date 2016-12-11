@@ -9,7 +9,7 @@
 import UIKit
 
 // TODO: Why isn't this a subclass of ComponentTVCell
-class StopwatchTVCell: UITableViewCell {
+class StopwatchTVCell: UITableViewCell, UITextFieldDelegate {
    
     var investigationController: InvestigationDelegate!
     
@@ -17,7 +17,7 @@ class StopwatchTVCell: UITableViewCell {
     var timer = Timer()
     
     var component: Stopwatch!{
-        didSet{
+        didSet {
             formatTime(eTime: component.time)
             nameField.text = component.title!
         }
@@ -28,9 +28,7 @@ class StopwatchTVCell: UITableViewCell {
     }
     
     @IBOutlet weak var nameField: UITextField!
-    
     @IBOutlet weak var stopwatchTimeText: UILabel!
-    
     @IBOutlet weak var startButton: UIButton!
     
     @IBAction func toggleButton(_ sender: UIButton) {
@@ -94,13 +92,16 @@ class StopwatchTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        nameField.delegate = self
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(string)
+        if string == "\n" {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
 
 }

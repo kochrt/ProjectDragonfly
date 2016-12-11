@@ -125,7 +125,11 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     // MARK: NewInvestigationDelegate
     func createdInvestigation(investigation: Investigation) {
-        performSegue(withIdentifier: "investigationDetail", sender: investigation)
+        if investigation.componentType == .IntervalCounter {
+            performSegue(withIdentifier: "timedInvestigation", sender: investigation)
+        } else {
+            performSegue(withIdentifier: "investigationDetail", sender: investigation)
+        }
     }
     
     // MARK: Empty Data Set
