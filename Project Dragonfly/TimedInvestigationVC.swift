@@ -15,9 +15,8 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     var investigation: Investigation!
     
-    var pickerDataSource = Array(repeating: Array(repeating: "", count: 60), count: 3)
+    var pickerDataSource = Array(repeating: [String](), count: 3)
 
-    
     // for timer
     var startTime = TimeInterval()
     var timer = Timer()
@@ -46,11 +45,11 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate
             
-            timeButton.setTitle("Stop", for: .normal)
+            setButtonToStop(true)
+            
         } else {
             timer.invalidate()
-            
-            timeButton.setTitle("Start", for: .normal)
+            setButtonToStart(true)
             updated(date: Date())
         }
     }
@@ -59,15 +58,14 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         
         let currentTime = NSDate.timeIntervalSinceReferenceDate
         
-        //Find the difference between current time and start time.
+        // Find the difference between current time and start time.
         
         let elapsedTime: TimeInterval = currentTime - startTime
         
-        
-        if ( elapsedTime > (timerLength)) {
+        if (elapsedTime > (timerLength)) {
             timer.invalidate()
             //formatTime(eTime: TimeInterval(timerLength))
-            timeButton.setTitle("Start", for: .normal)
+            setButtonToStart(true)
             updated(date: Date())
             // disable counters?
         } else {
@@ -75,6 +73,36 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
+    
+    func setButtonToStart(_ animated: Bool) {
+        timeButton.setTitle("Start", for: .normal)
+        
+        if animated {
+            UIView.animate(withDuration: 0.1, animations: {
+                self.timeButton.backgroundColor = UIColor(red: 11/255.0, green: 200/255.0, blue: 117/255.0, alpha: 1.0)
+            })
+            
+        } else {
+            timeButton.backgroundColor = UIColor(red: 11/255.0, green: 200/255.0, blue: 117/255.0, alpha: 1.0)
+        }
+        timeButton.setTitleColor(.black, for: .normal)
+        timerPickerView.isUserInteractionEnabled = true
+    }
+    
+    func setButtonToStop(_ animated: Bool) {
+        timeButton.setTitle("Stop", for: .normal)
+        
+        if animated {
+            UIView.animate(withDuration: 0.1, animations: {
+                self.timeButton.backgroundColor = UIColor.red
+            })
+        } else {
+            timeButton.backgroundColor = UIColor.red
+        }
+        timeButton.setTitleColor(.white, for: .normal)
+        timerPickerView.isUserInteractionEnabled = false
+    }
+    
     // format time
     func formatTime(eTime: TimeInterval) {
         print("timerLength: \(timerLength)")
@@ -104,7 +132,10 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     func setupTimerDataSource() {
         for i in 0..<3 {
             for j in 0..<60 {
-                pickerDataSource[i][j] = "\(j)"
+                if i == 0 && j > 23 {
+                    break
+                }
+                pickerDataSource[i].append("\(i == 2 && j < 10 ? "0" : "")\(j)")
             }
         }
     }
