@@ -38,7 +38,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             let mins = timerPickerView.selectedRow(inComponent: 1)
             let secs = timerPickerView.selectedRow(inComponent: 2)
             
-            let time = secs + (mins * 60) + (hours * 60)
+            let time = secs + (mins * 60) + (hours * 3600)
             timerLength = Double(time)
             
             let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
@@ -105,8 +105,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     // format time
     func formatTime(eTime: TimeInterval) {
-        print("timerLength: \(timerLength)")
-        print("eTime \(eTime)")
         var elapsedTime = UInt16(floor(timerLength - eTime)) // in seconds with fractions
         
         //elapsedTime = floor(elapsedTime)
@@ -114,14 +112,11 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         let seconds = UInt16(elapsedTime) % 60
         elapsedTime -= seconds
         elapsedTime = elapsedTime / 60  // elapsedTime is in minutes
-        let min = UInt16(elapsedTime) % 60
-//        if(min == 0 && elapsedTime == 60) {
-//            min = 1
-//        }
+        var min = UInt16(elapsedTime) % 60
         elapsedTime -= min
+        
         let hours = UInt16(elapsedTime / 60)
         //add the leading zero for minutes, seconds and millseconds and store them as string constants
-        
         // Make picker display count down
 
         timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
