@@ -13,7 +13,7 @@ class Investigation: NSObject, NSCoding {
     var componentType: ComponentEnum
     var components: [Component]
     var date: Date
-    //var timerLength: Double
+    var timerLength: Double = 0.0
     
     override var description: String { get { return "\(title): \(category)" } }
     
@@ -41,6 +41,7 @@ class Investigation: NSObject, NSCoding {
         self.date = decoder.decodeObject(forKey: Keys.date) as! Date
         self.title = decoder.decodeObject(forKey: Keys.title) as! String
         self.category = decoder.decodeObject(forKey: Keys.category) as! String
+        self.timerLength = decoder.decodeObject(forKey: Keys.timerLength) as! Double
         self.componentType = ComponentEnum(rawValue: decoder.decodeObject(forKey: Keys.componentType) as! String)!
     }
     
@@ -51,6 +52,7 @@ class Investigation: NSObject, NSCoding {
         static let components = "components"
         static let date = "date"
         static let componentType = "componentType"
+        static let timerLength = "timerLength"
     }
     
     // MARK: NSCoding
@@ -60,6 +62,7 @@ class Investigation: NSObject, NSCoding {
         aCoder.encode(question, forKey: Keys.question)
         aCoder.encode(date, forKey: Keys.date)
         aCoder.encode(componentType.rawValue, forKey: Keys.componentType)
+        aCoder.encode(timerLength, forKey: Keys.timerLength)
         
         let data = NSKeyedArchiver.archivedData(withRootObject: components)
         aCoder.encode(data, forKey: Keys.components)

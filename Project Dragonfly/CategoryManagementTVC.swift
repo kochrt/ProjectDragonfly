@@ -10,15 +10,6 @@ import UIKit
 
 class CategoryManagementTVC: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
     @IBAction
     func cancel() {
         dismiss(animated: true, completion: nil)
@@ -31,7 +22,11 @@ class CategoryManagementTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Investigations.instance.sortedCategories.count
+        let count = Investigations.instance.sortedCategories.count
+        if count > 1 {
+            self.navigationItem.rightBarButtonItem = self.editButtonItem
+        }
+        return count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,9 +35,7 @@ class CategoryManagementTVC: UITableViewController {
         cell.textLabel?.text = cat
         let count = Investigations.instance.investigations[cat]!.count
         cell.detailTextLabel?.text = "\(count) investigation\(count > 1 || count == 0 ? "s" : "")"
-//        if indexPath.row == 0 {
-            cell.selectionStyle = .none
-//        }
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -63,35 +56,9 @@ class CategoryManagementTVC: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
             tableView.endUpdates()
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            if Investigations.instance.sortedCategories.count > 1 {
+                self.navigationItem.rightBarButtonItem = self.editButtonItem
+            }
+        }
     }
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
