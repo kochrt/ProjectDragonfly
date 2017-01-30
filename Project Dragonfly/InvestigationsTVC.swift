@@ -22,6 +22,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Investigations.instance.saveInvestigations()
         tableView.reloadData()
     }
     

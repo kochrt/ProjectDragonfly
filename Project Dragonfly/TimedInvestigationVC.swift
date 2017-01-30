@@ -9,7 +9,6 @@
 import UIKit
 
 class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, InvestigationDelegate {
-    var timerLength: Double = 0.0
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -20,7 +19,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     // for timer
     var startTime = TimeInterval()
     var timer = Timer()
-
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var timeButton: UIButton!
@@ -43,7 +41,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             let secs = timerPickerView.selectedRow(inComponent: 2)
             
             let time = secs + (mins * 60) + (hours * 3600)
-            timerLength = Double(time)
+            investigation.timerLength = Double(time)
             
             let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
             timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
@@ -66,7 +64,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         
         let elapsedTime: TimeInterval = currentTime - startTime
         
-        if (elapsedTime > (timerLength)) {
+        if (elapsedTime > investigation.timerLength) {
             timer.invalidate()
             //formatTime(eTime: TimeInterval(timerLength))
             setButtonToStart(true)
@@ -109,14 +107,14 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     // format time
     func formatTime(eTime: TimeInterval) {
-        var elapsedTime = UInt16(floor(timerLength - eTime)) // in seconds with fractions
+        var elapsedTime = UInt16(floor(investigation.timerLength - eTime)) // in seconds with fractions
         
         //elapsedTime = floor(elapsedTime)
 
         let seconds = UInt16(elapsedTime) % 60
         elapsedTime -= seconds
         elapsedTime = elapsedTime / 60  // elapsedTime is in minutes
-        var min = UInt16(elapsedTime) % 60
+        let min = UInt16(elapsedTime) % 60
         elapsedTime -= min
         
         let hours = UInt16(elapsedTime / 60)
@@ -257,5 +255,4 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     func addComponent() {
         self.present(self.alert, animated: true, completion: nil)
     }
-    
 }
