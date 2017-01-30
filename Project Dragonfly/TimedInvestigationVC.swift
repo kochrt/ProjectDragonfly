@@ -51,7 +51,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             timer.invalidate()
             setButtonToStart(true)
             // reset timer to timerLength
-            
             updated(date: Date())
         }
     }
