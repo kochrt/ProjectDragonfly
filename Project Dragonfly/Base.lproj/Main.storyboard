@@ -127,6 +127,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="WyM-Xy-DoM">
                             <connections>
                                 <action selector="share:" destination="HBe-TF-mgY" id="zxN-Jd-yJF"/>
+                                <segue destination="GDU-bB-YPo" kind="presentation" id="1kE-NG-2xx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -137,6 +138,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bit-77-3pY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3502" y="382"/>
+        </scene>
+        <!--ShareVC-->
+        <scene sceneID="UsK-vE-7Ec">
+            <objects>
+                <viewController id="GDU-bB-YPo" customClass="ShareVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ee-GT-f1Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="Obt-31-hv8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hLE-gp-tFg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OqU-PU-X5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4210" y="382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DXX-yJ-Pe4">

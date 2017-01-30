@@ -30,8 +30,6 @@ class ShareVC: UIViewController, MFMailComposeViewControllerDelegate {
         } else {
             self.showSendMailErrorAlert()
         }
-        
-    
     }
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
