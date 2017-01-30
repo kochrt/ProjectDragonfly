@@ -50,6 +50,8 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             timer.invalidate()
             setButtonToStart(true)
+            // reset timer to timerLength
+            
             updated(date: Date())
         }
     }
@@ -67,6 +69,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             //formatTime(eTime: TimeInterval(timerLength))
             setButtonToStart(true)
             updated(date: Date())
+            resetTimer()
             // disable counters?
         } else {
             formatTime(eTime: elapsedTime)
@@ -101,6 +104,20 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         }
         timeButton.setTitleColor(.white, for: .normal)
         timerPickerView.isUserInteractionEnabled = false
+    }
+    
+    func resetTimer() {
+        var temp = UInt16(timerLength)
+        let seconds = UInt16(temp) % 60
+        temp -= seconds
+        temp = temp / 60  // elapsedTime is in minutes
+        var min = UInt16(temp) % 60
+        temp -= min
+        
+        let hours = UInt16(temp / 60)
+        timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
+        timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
+        timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
     }
     
     // format time
