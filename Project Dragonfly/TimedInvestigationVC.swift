@@ -31,6 +31,10 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var questionLabel: UILabel!
 
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBAction func reset(_ sender: UIButton) {
+        
+    }
     
     @IBAction func timerButton(_ sender: UIButton) {
         if !timer.isValid {
