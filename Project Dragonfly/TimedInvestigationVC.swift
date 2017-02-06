@@ -32,52 +32,17 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func reset(_ sender: UIButton) {
-        //print(timer.isValid)
         if !timer.isValid {
-            //print(timer.isValid)
-            //timer.invalidate()
             
-            
-            //print(timer.isValid)
-            //print()
         } else {
-            //print(timer.isValid)
             self.timer.invalidate()
             setButtonToStart(true)
-            // reset timer to timerLength
             updated(date: Date())
-            //print(timer.isValid)
-            //print()
-
         }
         
-        //setButtonToStart(true)
-        //resetTimer()
-        
-        
-        // reset timer to timerLength
+        setButtonToStart(true)
+        resetTimer()
     }
-    
-//    func resumeTimer() {
-//        
-//    }
-//    
-//    func startTimer() {
-//        
-//    }
-//    
-//    func stopTimer() {
-//        
-//    }
-//    
-//    func resetTimer() {
-//        if !stopped {
-//            stopTimer()
-//        }
-//        resetPickerView()
-//    }
-//    
-//    func
     
     @IBAction func timerButton(_ sender: UIButton) {
         if !timer.isValid {
@@ -169,7 +134,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     func formatTime(eTime: TimeInterval) {
         var elapsedTime = UInt16(floor(investigation.timerLength - eTime)) // in seconds with fractions
         
-        //elapsedTime = floor(elapsedTime)
 
         let seconds = UInt16(elapsedTime) % 60
         elapsedTime -= seconds
@@ -184,8 +148,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
         timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
         timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
-        
-        
     }
     
     func setupTimerDataSource() {
