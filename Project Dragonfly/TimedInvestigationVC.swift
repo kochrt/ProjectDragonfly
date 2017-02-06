@@ -32,9 +32,54 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
+    
     @IBAction func reset(_ sender: UIButton) {
+        //print(timer.isValid)
+        if !timer.isValid {
+            //print(timer.isValid)
+            //timer.invalidate()
+            
+            
+            //print(timer.isValid)
+            //print()
+        } else {
+            //print(timer.isValid)
+            self.timer.invalidate()
+            setButtonToStart(true)
+            // reset timer to timerLength
+            updated(date: Date())
+            //print(timer.isValid)
+            //print()
+
+        }
         
+        //setButtonToStart(true)
+        //resetTimer()
+        
+        
+        // reset timer to timerLength
     }
+    
+//    func resumeTimer() {
+//        
+//    }
+//    
+//    func startTimer() {
+//        
+//    }
+//    
+//    func stopTimer() {
+//        
+//    }
+//    
+//    func resetTimer() {
+//        if !stopped {
+//            stopTimer()
+//        }
+//        resetPickerView()
+//    }
+//    
+//    func
     
     @IBAction func timerButton(_ sender: UIButton) {
         if !timer.isValid {
@@ -46,38 +91,36 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             timerLength = Double(time)
             
             let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
-            timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate
             
             setButtonToStop(true)
             
         } else {
-            timer.invalidate()
-            setButtonToStart(true)
-            // reset timer to timerLength
-            updated(date: Date())
+            self.timer.invalidate() // invalidate timer
+            setButtonToStart(true)  // set button to look like start
+            updated(date: Date())   // update the last modified date on the investigation
         }
     }
     
     func updateTime() {
-        
-        let currentTime = NSDate.timeIntervalSinceReferenceDate
-        
-        // Find the difference between current time and start time.
-        
-        let elapsedTime: TimeInterval = currentTime - startTime
-        
-        if (elapsedTime > (timerLength)) {
-            timer.invalidate()
-            //formatTime(eTime: TimeInterval(timerLength))
-            setButtonToStart(true)
-            updated(date: Date())
-            resetTimer()
-            // disable counters?
-        } else {
-            formatTime(eTime: elapsedTime)
+        if timer.isValid {
+            let currentTime = NSDate.timeIntervalSinceReferenceDate
+            
+            // Find the difference between current time and start time.
+            
+            let elapsedTime: TimeInterval = currentTime - startTime
+            
+            if (elapsedTime > (timerLength)) {
+                timer.invalidate()
+                setButtonToStart(true)
+                updated(date: Date())
+                resetTimer()
+                // disable counters?
+            } else {
+                formatTime(eTime: elapsedTime)
+            }
         }
-        
     }
     
     func setButtonToStart(_ animated: Bool) {
@@ -109,12 +152,13 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.isUserInteractionEnabled = false
     }
     
+    // this func should only set the timerpickerview to show the time stored in timerLength
     func resetTimer() {
         var temp = UInt16(timerLength)
         let seconds = UInt16(temp) % 60
         temp -= seconds
         temp = temp / 60  // elapsedTime is in minutes
-        var min = UInt16(temp) % 60
+        let min = UInt16(temp) % 60
         temp -= min
         
         let hours = UInt16(temp / 60)
@@ -132,7 +176,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         let seconds = UInt16(elapsedTime) % 60
         elapsedTime -= seconds
         elapsedTime = elapsedTime / 60  // elapsedTime is in minutes
-        var min = UInt16(elapsedTime) % 60
+        let min = UInt16(elapsedTime) % 60
         elapsedTime -= min
         
         let hours = UInt16(elapsedTime / 60)
