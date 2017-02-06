@@ -45,7 +45,7 @@ class Investigation: NSObject, NSCoding {
         self.date = decoder.decodeObject(forKey: Keys.date) as! Date
         self.title = decoder.decodeObject(forKey: Keys.title) as! String
         self.category = decoder.decodeObject(forKey: Keys.category) as! String
-        self.timerLength = decoder.decodeObject(forKey: Keys.timerLength) as? Double ?? 0.0
+        self.timerLength = decoder.decodeDouble(forKey: Keys.timerLength)
         self.componentType = ComponentEnum(rawValue: decoder.decodeObject(forKey: Keys.componentType) as! String)!
     }
     
@@ -112,10 +112,8 @@ class Investigation: NSObject, NSCoding {
             break
             //do nothing
         }
-        
         return items
     }
-    
 }
 
 class Investigations {
@@ -177,6 +175,7 @@ class Investigations {
     }
     
     func saveInvestigations() {
+        print("saving investigations")
         var array = [Investigation]()
         for (_, arr) in investigations {
             array += arr
