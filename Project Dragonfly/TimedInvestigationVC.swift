@@ -32,38 +32,32 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func reset(_ sender: UIButton) {
-        if !timer.isValid {
-            
-        } else {
-            self.timer.invalidate()
-            setButtonToStart(true)
-            updated(date: Date())
+        if timer.isValid {
+            stopTimer()
         }
-        
-        setButtonToStart(true)
         resetTimer()
     }
     
     @IBAction func timerButton(_ sender: UIButton) {
         if !timer.isValid {
-            let hours = timerPickerView.selectedRow(inComponent: 0)
-            let mins = timerPickerView.selectedRow(inComponent: 1)
-            let secs = timerPickerView.selectedRow(inComponent: 2)
-            
-            let time = secs + (mins * 60) + (hours * 3600)
-            investigation.timerLength = Double(time)
-            
-            let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
-            self.timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
-            startTime = NSDate.timeIntervalSinceReferenceDate
-            
-            setButtonToStop(true)
-            
+            startTimer()
         } else {
-            self.timer.invalidate() // invalidate timer
-            setButtonToStart(true)  // set button to look like start
-            updated(date: Date())   // update the last modified date on the investigation
+            stopTimer()
         }
+    }
+    
+    func startTimer() {
+        let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
+        startTime = NSDate.timeIntervalSinceReferenceDate
+        
+        setButtonToStop(true)
+    }
+    
+    func stopTimer() {
+        timer.invalidate()      // invalidate timer
+        setButtonToStart(true)  // set button to look like start
+        updated(date: Date())   // update the last modified date on the investigation
     }
     
     func updateTime() {
@@ -71,17 +65,13 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             let currentTime = NSDate.timeIntervalSinceReferenceDate
             
             // Find the difference between current time and start time.
-            
             let elapsedTime: TimeInterval = currentTime - startTime
             
             if (elapsedTime > (investigation.timerLength)) {
-                timer.invalidate()
-                setButtonToStart(true)
-                updated(date: Date())
+                stopTimer()
                 resetTimer()
-                // disable counters?
             } else {
-                formatTime(eTime: elapsedTime)
+                updateTimerView(time: floor(investigation.timerLength - elapsedTime))
             }
         }
     }
@@ -117,49 +107,24 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     // this func should only set the timerpickerview to show the time stored in timerLength
     func resetTimer() {
-        var temp = UInt16(investigation.timerLength)
-        let seconds = UInt16(temp) % 60
+        updateTimerView(time: investigation.timerLength)
+    }
+    
+    func updateTimerView(time: Double) {
+        var temp = UInt16(time)
+        let seconds = UInt16(time) % 60
         temp -= seconds
-        temp = temp / 60  // elapsedTime is in minutes
+        temp = temp / 60  // temp is in minutes
         let min = UInt16(temp) % 60
         temp -= min
-        
         let hours = UInt16(temp / 60)
-        timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
-        timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
-        timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
-    }
-    
-    // format time
-    func formatTime(eTime: TimeInterval) {
-        var elapsedTime = UInt16(floor(investigation.timerLength - eTime)) // in seconds with fractions
         
-
-        let seconds = UInt16(elapsedTime) % 60
-        elapsedTime -= seconds
-        elapsedTime = elapsedTime / 60  // elapsedTime is in minutes
-        let min = UInt16(elapsedTime) % 60
-        elapsedTime -= min
-        
-        let hours = UInt16(elapsedTime / 60)
-        //add the leading zero for minutes, seconds and millseconds and store them as string constants
         // Make picker display count down
-
         timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
         timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
         timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
     }
     
-    func setupTimerDataSource() {
-        for i in 0..<3 {
-            for j in 0..<60 {
-                if i == 0 && j > 23 {
-                    break
-                }
-                pickerDataSource[i].append("\(i == 2 && j < 10 ? "0" : "")\(j)")
-            }
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -182,6 +147,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         
         timerPickerView.dataSource = self
         timerPickerView.delegate = self
+        resetTimer()
     }
     
     func setupNewComponentAlert() {
@@ -212,6 +178,26 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDataSource[component][row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let hours = timerPickerView.selectedRow(inComponent: 0)
+        let mins = timerPickerView.selectedRow(inComponent: 1)
+        let secs = timerPickerView.selectedRow(inComponent: 2)
+        
+        let time = secs + (mins * 60) + (hours * 3600)
+        investigation.timerLength = Double(time)
+    }
+    
+    func setupTimerDataSource() {
+        for i in 0..<3 {
+            for j in 0..<60 {
+                if i == 0 && j > 23 {
+                    break
+                }
+                pickerDataSource[i].append("\(i == 2 && j < 10 ? "0" : "")\(j)")
+            }
+        }
     }
     
     // MARK: tableview stuff
