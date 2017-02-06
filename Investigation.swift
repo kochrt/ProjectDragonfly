@@ -13,7 +13,11 @@ class Investigation: NSObject, NSCoding {
     var componentType: ComponentEnum
     var components: [Component]
     var date: Date
-    var timerLength: Double = 0.0
+    var timerLength: Double = 0.0 {
+        didSet {
+            print("did set timerLength: \(timerLength)")
+        }
+    }
     
     override var description: String { get { return "\(title): \(category)" } }
     
@@ -41,7 +45,7 @@ class Investigation: NSObject, NSCoding {
         self.date = decoder.decodeObject(forKey: Keys.date) as! Date
         self.title = decoder.decodeObject(forKey: Keys.title) as! String
         self.category = decoder.decodeObject(forKey: Keys.category) as! String
-        self.timerLength = decoder.decodeObject(forKey: Keys.timerLength) as! Double
+        self.timerLength = decoder.decodeObject(forKey: Keys.timerLength) as? Double ?? 0.0
         self.componentType = ComponentEnum(rawValue: decoder.decodeObject(forKey: Keys.componentType) as! String)!
     }
     
@@ -57,6 +61,9 @@ class Investigation: NSObject, NSCoding {
     
     // MARK: NSCoding
     func encode(with aCoder: NSCoder) {
+        
+        print("encoding with time: \(timerLength)")
+        
         aCoder.encode(title, forKey: Keys.title)
         aCoder.encode(category, forKey: Keys.category)
         aCoder.encode(question, forKey: Keys.question)

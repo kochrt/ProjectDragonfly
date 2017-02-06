@@ -9,7 +9,6 @@
 import UIKit
 
 class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, InvestigationDelegate {
-    var timerLength: Double = 0.0
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -20,7 +19,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     // for timer
     var startTime = TimeInterval()
     var timer = Timer()
-
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var timeButton: UIButton!
@@ -88,7 +86,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             let secs = timerPickerView.selectedRow(inComponent: 2)
             
             let time = secs + (mins * 60) + (hours * 3600)
-            timerLength = Double(time)
+            investigation.timerLength = Double(time)
             
             let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
             self.timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
@@ -111,7 +109,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             
             let elapsedTime: TimeInterval = currentTime - startTime
             
-            if (elapsedTime > (timerLength)) {
+            if (elapsedTime > (investigation.timerLength)) {
                 timer.invalidate()
                 setButtonToStart(true)
                 updated(date: Date())
@@ -154,7 +152,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     // this func should only set the timerpickerview to show the time stored in timerLength
     func resetTimer() {
-        var temp = UInt16(timerLength)
+        var temp = UInt16(investigation.timerLength)
         let seconds = UInt16(temp) % 60
         temp -= seconds
         temp = temp / 60  // elapsedTime is in minutes
@@ -169,7 +167,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     
     // format time
     func formatTime(eTime: TimeInterval) {
-        var elapsedTime = UInt16(floor(timerLength - eTime)) // in seconds with fractions
+        var elapsedTime = UInt16(floor(investigation.timerLength - eTime)) // in seconds with fractions
         
         //elapsedTime = floor(elapsedTime)
 
@@ -186,6 +184,8 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
         timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
         timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
+        
+        
     }
     
     func setupTimerDataSource() {
@@ -252,7 +252,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         return pickerDataSource[component][row]
     }
     
-    
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return investigation!.components.count + 1
@@ -317,5 +316,4 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     func addComponent() {
         self.present(self.alert, animated: true, completion: nil)
     }
-    
 }

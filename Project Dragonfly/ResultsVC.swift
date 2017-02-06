@@ -73,7 +73,7 @@ class ResultsVC: UIViewController {
     }
     
     @IBAction func share(_ sender: Any) {
-        print("share")
+        
     }
 
     /*
