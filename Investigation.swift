@@ -61,6 +61,9 @@ class Investigation: NSObject, NSCoding {
     
     // MARK: NSCoding
     func encode(with aCoder: NSCoder) {
+        
+        print("encoding with time: \(timerLength)")
+        
         aCoder.encode(title, forKey: Keys.title)
         aCoder.encode(category, forKey: Keys.category)
         aCoder.encode(question, forKey: Keys.question)

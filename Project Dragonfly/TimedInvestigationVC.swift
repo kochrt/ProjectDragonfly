@@ -124,6 +124,8 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.selectRow(Int(hours), inComponent: 0, animated: true)
         timerPickerView.selectRow(Int(min), inComponent: 1, animated: true)
         timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
+        
+        
     }
     
     func setupTimerDataSource() {
@@ -189,7 +191,6 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDataSource[component][row]
     }
-    
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
