@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 import SwiftCharts
 
-class ResultsVC: UIViewController {
+class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
 
     var investigation: Investigation!
     
@@ -73,9 +74,39 @@ class ResultsVC: UIViewController {
     }
     
     @IBAction func share(_ sender: Any) {
-        
+        print("here we are")
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            print("can mail")
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            print("cannot send mail")
+            self.showSendMailErrorAlert()
+        }
     }
-
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["kochrt@miamioh.edu"])
+        mailComposerVC.setSubject("Share Experiment Test")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        //  let sendMailErrorController = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.")
+        //  sendMailErrorController.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

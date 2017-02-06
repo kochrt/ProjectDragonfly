@@ -13,6 +13,7 @@
 		9F57ABD21DED06AA001BB221 /* StopwatchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */; };
 		9FA585981DFA1C1B00357C19 /* TimedInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */; };
 		B2C8BF8AA3A42A6E14604AB9 /* Pods_Project_DragonflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */; };
+		D4015EF21E3FF3D0000CDEEC /* ShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4015EF11E3FF3D0000CDEEC /* ShareVC.swift */; };
 		D4112B4A1DFDBE7E009BF1B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4112B491DFDBE7E009BF1B0 /* Assets.xcassets */; };
 		D4112B4C1DFDC432009BF1B0 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4112B4B1DFDC432009BF1B0 /* Styles.swift */; };
 		D4112B4E1DFDC860009BF1B0 /* AddComponentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4112B4D1DFDC860009BF1B0 /* AddComponentTVCell.swift */; };
@@ -63,6 +64,7 @@
 		9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchTVCell.swift; sourceTree = "<group>"; };
 		9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedInvestigationVC.swift; sourceTree = "<group>"; };
 		BB1D1D215A4B6B9DAE2F9C4F /* Pods-Project Dragonfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.debug.xcconfig"; sourceTree = "<group>"; };
+		D4015EF11E3FF3D0000CDEEC /* ShareVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareVC.swift; sourceTree = "<group>"; };
 		D4112B491DFDBE7E009BF1B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4112B4B1DFDC432009BF1B0 /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		D4112B4D1DFDC860009BF1B0 /* AddComponentTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddComponentTVCell.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		D4993C081DFCB5050034C54C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4015EF11E3FF3D0000CDEEC /* ShareVC.swift */,
 				D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */,
 				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
 				9FA585971DFA1C1B00357C19 /* TimedInvestigationVC.swift */,
@@ -525,6 +528,7 @@
 				D4E2D5E61DF2252D00360D89 /* ResultsVC.swift in Sources */,
 				D4112B4E1DFDC860009BF1B0 /* AddComponentTVCell.swift in Sources */,
 				9F57ABD01DED069F001BB221 /* CounterTVCell.swift in Sources */,
+				D4015EF21E3FF3D0000CDEEC /* ShareVC.swift in Sources */,
 				9FA585981DFA1C1B00357C19 /* TimedInvestigationVC.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 				9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */,
@@ -681,7 +685,7 @@
 				DEVELOPMENT_TEAM = DR72V7UDA7;
 				INFOPLIST_FILE = "Project Dragonfly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-Dragonfly";
+				PRODUCT_BUNDLE_IDENTIFIER = cse.miamioh.dragonfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -696,7 +700,7 @@
 				DEVELOPMENT_TEAM = DR72V7UDA7;
 				INFOPLIST_FILE = "Project Dragonfly/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cse.miamioh.Project-Dragonfly";
+				PRODUCT_BUNDLE_IDENTIFIER = cse.miamioh.dragonfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
