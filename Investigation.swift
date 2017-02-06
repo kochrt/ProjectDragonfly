@@ -112,10 +112,8 @@ class Investigation: NSObject, NSCoding {
             break
             //do nothing
         }
-        
         return items
     }
-    
 }
 
 class Investigations {
@@ -177,6 +175,7 @@ class Investigations {
     }
     
     func saveInvestigations() {
+        print("saving investigations")
         var array = [Investigation]()
         for (_, arr) in investigations {
             array += arr
