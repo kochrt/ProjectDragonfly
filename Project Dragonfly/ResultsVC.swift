@@ -84,6 +84,20 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
         }
     }
     
+    func getScreenshot() ->  UIImage{
+        // grab reference to the view you'd like to capture
+        let wholeScreen = self.view!
+        
+        // define the size and grab a UIImage from it
+        UIGraphicsBeginImageContextWithOptions(wholeScreen.bounds.size, wholeScreen.isOpaque, 0.0);
+        
+        wholeScreen.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let screengrab = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return screengrab!
+    }
+    
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
