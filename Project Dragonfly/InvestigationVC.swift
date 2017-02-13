@@ -18,8 +18,13 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    var investigation: Investigation!
+    @IBAction func clone(_ sender: Any) {
+        let c = investigation.clone()
+        let _ = Investigations.instance.addInvestigation(investigation: c)
+        navigationController?.popViewController(animated: true)
+    }
     
+    var investigation: Investigation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +61,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.tableView.insertRows(at: [indexPath], with: .automatic)
         }))
     }
-    
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
