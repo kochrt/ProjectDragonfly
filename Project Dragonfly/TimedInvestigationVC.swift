@@ -184,6 +184,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
             
             self.investigation!.components.append(comp)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
+            self.disableButtons(disable: true)
         }))
     }
     
