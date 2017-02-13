@@ -21,7 +21,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
     fileprivate var chart: Chart?
     
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
-        return CGRect(x: 0, y: 0, width: containerBounds.size.width, height: containerBounds.size.height)
+        return CGRect(x: containerBounds.origin.x, y: containerBounds.origin.y, width: containerBounds.size.width, height: containerBounds.size.height)
     }
     
     func getMax(items: [(String, Double)]) -> Double {
@@ -34,9 +34,8 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
         return maxSize
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let investigationType = investigation.componentType
         
         items = investigation.getValues()
@@ -44,9 +43,8 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
         let chartConfig = BarsChartConfig(
             valsAxisConfig: ChartAxisConfig(from: 0, to: self.getMax(items: items) + 2, by: 1)
         )
-    
-        let frame = self.chartFrame(self.containerView.bounds)
         
+        let frame = self.chartFrame(self.containerView.frame)
         
         let chart = BarsChart(
             frame: frame,
@@ -60,7 +58,6 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
         
         self.view.addSubview(chart.view)
         self.chart = chart
-        // Do any additional setup after loading the view.
     }
 
     // Added to go back to the investigation page
