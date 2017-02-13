@@ -98,7 +98,7 @@ class Investigation: NSObject, NSCoding {
         var items : [(String ,Double)] = []
         
         switch componentType {
-        case .Counter:
+        case .Counter, .IntervalCounter:
             for component in components {
                 items += [(component.title!,Double((component as! Counter).count))]
             }
@@ -115,6 +115,20 @@ class Investigation: NSObject, NSCoding {
             //do nothing
         }
         return items
+    }
+    
+    func clone() -> Investigation {
+        
+        var components_clone = [Component]()
+        
+        for c in self.components {
+            components_clone.append(c.clone())
+        }
+    
+        let clone = Investigation(question: self.question, components: components_clone, title: self.title, category: self.category)
+        
+        return clone
+    
     }
 }
 
@@ -154,6 +168,7 @@ class Investigations {
         let cat = sortedCategories[path.section]
         return investigations[cat]![path.row]
     }
+    
     
     func deleteInvestigation(at indexPath: IndexPath) {
         deleteInvestigation(i: investigationForIndexPath(path: indexPath))
