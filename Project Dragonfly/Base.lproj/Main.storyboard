@@ -106,23 +106,23 @@
                         <viewControllerLayoutGuide type="bottom" id="YIE-BD-rn3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8JD-aw-JMG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="azI-Ti-URz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="16" y="16" width="343" height="571"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="azI-Ti-URz" secondAttribute="trailing" id="3OA-hp-UUC"/>
-                            <constraint firstItem="azI-Ti-URz" firstAttribute="bottom" secondItem="YIE-BD-rn3" secondAttribute="top" id="Yph-DH-Dm1"/>
-                            <constraint firstItem="azI-Ti-URz" firstAttribute="leading" secondItem="8JD-aw-JMG" secondAttribute="leading" id="gL0-Pc-Z5L"/>
-                            <constraint firstItem="azI-Ti-URz" firstAttribute="top" secondItem="IyO-FA-J7s" secondAttribute="bottom" id="vzV-V9-KTS"/>
+                            <constraint firstAttribute="trailing" secondItem="azI-Ti-URz" secondAttribute="trailing" constant="16" id="3OA-hp-UUC"/>
+                            <constraint firstItem="azI-Ti-URz" firstAttribute="bottom" secondItem="YIE-BD-rn3" secondAttribute="top" constant="-16" id="Yph-DH-Dm1"/>
+                            <constraint firstItem="azI-Ti-URz" firstAttribute="leading" secondItem="8JD-aw-JMG" secondAttribute="leading" constant="16" id="gL0-Pc-Z5L"/>
+                            <constraint firstItem="azI-Ti-URz" firstAttribute="top" secondItem="IyO-FA-J7s" secondAttribute="bottom" constant="16" id="vzV-V9-KTS"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Results" id="vGt-VE-bYS">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="WyM-Xy-DoM">
                             <connections>
@@ -136,32 +136,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bit-77-3pY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3502" y="382"/>
-        </scene>
-        <!--ShareVC-->
-        <scene sceneID="UsK-vE-7Ec">
-            <objects>
-                <viewController id="GDU-bB-YPo" customClass="ShareVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4ee-GT-f1Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="Obt-31-hv8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hLE-gp-tFg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OqU-PU-X5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4210" y="382"/>
+            <point key="canvasLocation" x="3501.5999999999999" y="381.85907046476763"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DXX-yJ-Pe4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqX-l6-g8U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="22D-7A-ylx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="22D-7A-ylx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.87701628200560855" green="0.98132258653640747" blue="0.9042252992498242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -270,7 +252,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOP-C1-fyL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kXo-hi-DV1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kXo-hi-DV1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -288,7 +270,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ooa-d2-I2a" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8fq-Da-KzG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8fq-Da-KzG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -306,7 +288,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xJZ-q7-4fw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P0O-w2-R61">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P0O-w2-R61">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
