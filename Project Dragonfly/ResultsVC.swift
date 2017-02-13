@@ -73,11 +73,10 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
     @IBAction func share(_ sender: Any) {
         let shareString = "Check out this investigation I made in the Dragonfly App!"
         
-        let shareController = UIActivityViewController(activityItems: [shareString], applicationActivities: nil)
+        let shareController = UIActivityViewController(activityItems: [shareString, getScreenshot()], applicationActivities: nil)
         if let popover = shareController.popoverPresentationController {
                 popover.barButtonItem = sender as? UIBarButtonItem
-            
-        present(shareController, animated: true, completion: nil)
+            present(shareController, animated: true, completion: nil)
         }
     }
     
