@@ -536,7 +536,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" id="i22-CE-Jja"/>
+                    <navigationItem key="navigationItem" id="i22-CE-Jja">
+                        <barButtonItem key="rightBarButtonItem" title="Clone" id="REz-Tb-aRT">
+                            <connections>
+                                <action selector="clone:" destination="tGP-GP-kP9" id="azk-dM-e1V"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoryLabel" destination="CTT-cQ-7bb" id="Zyk-1q-SzM"/>
                         <outlet property="dateLabel" destination="kQi-lw-Bdw" id="vdr-ML-FOF"/>
@@ -754,7 +760,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Yra-l8-Gun"/>
-                                    <barButtonItem title="Results" id="I96-Hl-XsV"/>
+                                    <barButtonItem title="Results" id="I96-Hl-XsV">
+                                        <connections>
+                                            <segue destination="xJZ-q7-4fw" kind="show" id="14u-mh-Rlh"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5qQ-iu-Cll"/>
                                 </items>
                             </toolbar>
@@ -806,7 +816,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" id="lz3-xz-bXt"/>
+                    <navigationItem key="navigationItem" id="lz3-xz-bXt">
+                        <barButtonItem key="rightBarButtonItem" title="Clone" id="KBb-i7-rG4">
+                            <connections>
+                                <action selector="clone:" destination="qtV-N3-2Gg" id="vWZ-dH-2Yt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoryLabel" destination="PHF-ze-KNd" id="qK1-Oy-FwE"/>
                         <outlet property="dateLabel" destination="z3C-Me-Rfz" id="zBl-eX-ms2"/>

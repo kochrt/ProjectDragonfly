@@ -31,6 +31,12 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
     
+    @IBAction func clone(_ sender: Any) {
+        var c = investigation.clone()
+        Investigations.instance.addInvestigation(investigation: c)
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func reset(_ sender: UIButton) {
         if timer.isValid {
             stopTimer()
