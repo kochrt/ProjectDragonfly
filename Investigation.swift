@@ -90,7 +90,9 @@ class Investigation: NSObject, NSCoding {
             return formatter.string(from: date)
         }
     }
-    
+    func getTime() -> Double {
+        return timerLength
+    }
     func getValues() -> [(String , Double)] {
         
         var items : [(String ,Double)] = []
@@ -106,7 +108,7 @@ class Investigation: NSObject, NSCoding {
             }
         case .IntervalCounter:
             for component in components{
-//                items += [(component.title!, Double((component as! IntervalCounter).count))]
+                items += [(component.title!, Double((component as! Counter).count))]
             }
         default:
             break
