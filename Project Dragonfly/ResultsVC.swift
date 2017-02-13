@@ -16,9 +16,9 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     var items : [(String ,Double)]!
     
-    
     @IBOutlet weak var containerView: UIView!
     fileprivate var chart: Chart?
+    @IBOutlet weak var titleLabel: UILabel!
     
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
         return CGRect(x: containerBounds.origin.x, y: containerBounds.origin.y, width: containerBounds.size.width, height: containerBounds.size.height)
@@ -45,12 +45,28 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
         )
         
         let frame = self.chartFrame(self.containerView.frame)
+        var componentUnits = ""
+        var nameOfComponent = ""
+        
+        switch investigationType.rawValue {
+        case "Counter":
+            componentUnits = ""
+            nameOfComponent = "Counter"
+        case "Stopwatch":
+            componentUnits = " (seconds)"
+            nameOfComponent = "Stopwatch"
+        case "Interval Counter":
+            componentUnits = " (seconds)"
+            nameOfComponent = "Interval Counter"
+        default:
+            break
+        }
         
         let chart = BarsChart(
             frame: frame,
             chartConfig: chartConfig,
-            xTitle: "Components",
-            yTitle: investigationType.rawValue,
+            xTitle: "Components Names",
+            yTitle: investigationType.rawValue + componentUnits,
             bars: items,
             color: UIColor.red,
             barWidth: 20
