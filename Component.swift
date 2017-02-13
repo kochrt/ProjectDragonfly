@@ -38,6 +38,11 @@ class Component: NSObject, NSCoding {
             return nil
         }
     }
+    
+    func clone() -> Component {
+        let clone = Component(title: self.title!)
+        return clone
+    }
 }
 
 class Counter: Component {
@@ -46,6 +51,15 @@ class Counter: Component {
     init() {
         self.count = 0
         super.init(title: "")
+    }
+    
+    override func clone() -> Counter {
+        /*
+            let c = Counter()
+            c.title = super.title
+        */
+        let c = super.clone() as! Counter
+        return c
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -69,6 +83,11 @@ class Stopwatch: Component {
     init() {
         self.time = 0.0
         super.init(title: "")
+    }
+    
+    override func clone() -> Stopwatch {
+        let c = super.clone() as! Stopwatch
+        return c
     }
     
     required init?(coder aDecoder: NSCoder) {
