@@ -20,6 +20,8 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     var startTime = TimeInterval()
     var timer = Timer()
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var timeButton: UIButton!
     @IBOutlet weak var timerPickerView: UIPickerView!
@@ -47,6 +49,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func startTimer() {
+        disableButtons(disable: false)
         let aSelector : Selector = #selector(TimedInvestigationVC.updateTime)
         self.timer = Timer.scheduledTimer(timeInterval: 0.99, target: self, selector: aSelector, userInfo: nil, repeats: true)
         startTime = NSDate.timeIntervalSinceReferenceDate
@@ -55,6 +58,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func stopTimer() {
+        disableButtons(disable: true)
         timer.invalidate()      // invalidate timer
         setButtonToStart(true)  // set button to look like start
         updated(date: Date())   // update the last modified date on the investigation
@@ -125,7 +129,16 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.selectRow(Int(seconds), inComponent: 2, animated: true)
     }
     
-
+    func disableButtons(disable: Bool) {
+        let cells = self.tableView.visibleCells
+        for cell in cells {
+            if cell is CounterTVCell {
+                let c = cell as! CounterTVCell
+                c.disableButtons(disable: disable)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -148,6 +161,7 @@ class TimedInvestigationVC: UIViewController, UITableViewDelegate, UITableViewDa
         timerPickerView.dataSource = self
         timerPickerView.delegate = self
         resetTimer()
+        disableButtons(disable: true)
     }
     
     func setupNewComponentAlert() {
