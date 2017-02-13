@@ -16,9 +16,9 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     var items : [(String ,Double)]!
     
-    
     @IBOutlet weak var containerView: UIView!
     fileprivate var chart: Chart?
+    @IBOutlet weak var titleLabel: UILabel!
     
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
         return CGRect(x: containerBounds.origin.x, y: containerBounds.origin.y, width: containerBounds.size.width, height: containerBounds.size.height)

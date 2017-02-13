@@ -96,7 +96,7 @@ class Investigation: NSObject, NSCoding {
         var items : [(String ,Double)] = []
         
         switch componentType {
-        case .Counter:
+        case .Counter, .IntervalCounter:
             for component in components {
                 items += [(component.title!,Double((component as! Counter).count))]
             }
@@ -104,13 +104,6 @@ class Investigation: NSObject, NSCoding {
             for component in components {
                 items += [(component.title!, Double((component as! Stopwatch).time))]
             }
-        case .IntervalCounter:
-            for component in components{
-//                items += [(component.title!, Double((component as! IntervalCounter).count))]
-            }
-        default:
-            break
-            //do nothing
         }
         return items
     }
