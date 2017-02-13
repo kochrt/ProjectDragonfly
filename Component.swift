@@ -54,11 +54,8 @@ class Counter: Component {
     }
     
     override func clone() -> Counter {
-        /*
-            let c = Counter()
-            c.title = super.title
-        */
-        let c = super.clone() as! Counter
+        let c = Counter()
+        c.title = title
         return c
     }
     
@@ -86,7 +83,8 @@ class Stopwatch: Component {
     }
     
     override func clone() -> Stopwatch {
-        let c = super.clone() as! Stopwatch
+        let c = Stopwatch()
+        c.title = title
         return c
     }
     
