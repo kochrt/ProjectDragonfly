@@ -12,8 +12,11 @@ class CounterTVCell: UITableViewCell, UITextFieldDelegate {
     
     var investigationController: InvestigationDelegate!
     
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var subtractButton: UIButton!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var countLabel: UILabel!
+    
     var counter: Counter! {
         didSet{
             nameField.text = counter.title!
@@ -51,6 +54,16 @@ class CounterTVCell: UITableViewCell, UITextFieldDelegate {
             return false
         }
         return true
+    }
+    
+    func disableButtons(disable: Bool) {
+        if(disable) {
+            addButton.isEnabled = false
+            subtractButton.isEnabled = false
+        } else {
+            addButton.isEnabled = true
+            subtractButton.isEnabled = true
+        }
     }
 
 }
