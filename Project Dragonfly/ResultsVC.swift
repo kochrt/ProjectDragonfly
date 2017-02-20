@@ -51,13 +51,13 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
         switch investigationType.rawValue {
         case "Counter":
             componentUnits = ""
-            titleLabel.text = "Counter"
+            titleLabel.text = investigation.title
         case "Stopwatch":
             componentUnits = " (seconds)"
-            titleLabel.text = "Stopwatch"
+            titleLabel.text = investigation.title
         case "Interval Counter":
             componentUnits = " (seconds)"
-            titleLabel.text = "Interval Counter " + String(investigation.getTime())
+            titleLabel.text =  investigation.title + " " + String(investigation.getTime())
         default:
             break
         }
