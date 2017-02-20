@@ -15,6 +15,9 @@
         <array key="WorkSans-Medium.ttf">
             <string>WorkSans-Medium</string>
         </array>
+        <array key="WorkSans-Regular.ttf">
+            <string>WorkSans-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Investigations-->
@@ -41,7 +44,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsQ-UO-jGw">
                                             <rect key="frame" x="15" y="32" width="216" height="20"/>
-                                            <fontDescription key="fontDescription" name="WorkSans-Medium" family="Work Sans" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -163,7 +166,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqX-l6-g8U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="22D-7A-ylx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="22D-7A-ylx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.87701628200560855" green="0.98132258653640747" blue="0.9042252992498242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -272,7 +275,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOP-C1-fyL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kXo-hi-DV1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kXo-hi-DV1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -290,7 +293,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ooa-d2-I2a" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8fq-Da-KzG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8fq-Da-KzG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -308,7 +311,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xJZ-q7-4fw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P0O-w2-R61">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P0O-w2-R61">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -391,22 +394,40 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruh-4Q-mSM">
                                                     <rect key="frame" x="305" y="14.5" width="30" height="30"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.52156862745098043" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Ruh-4Q-mSM" secondAttribute="height" multiplier="1:1" id="Rb8-hp-bMy"/>
                                                         <constraint firstAttribute="width" constant="30" id="f7q-5A-pZB"/>
                                                     </constraints>
-                                                    <state key="normal" title="+"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="add:" destination="SQK-Ho-XHz" eventType="touchUpInside" id="goz-Hi-IH5"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jC9-cY-46E">
                                                     <rect key="frame" x="227" y="15" width="30" height="28.5"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.52156862745098043" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="jC9-cY-46E" secondAttribute="height" multiplier="1:1" id="9PR-TO-kE6"/>
                                                         <constraint firstAttribute="width" constant="30" id="PJV-Lm-bgX"/>
                                                     </constraints>
-                                                    <state key="normal" title="-"/>
+                                                    <state key="normal" title="-">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="subtract:" destination="SQK-Ho-XHz" eventType="touchUpInside" id="Eny-U5-b7X"/>
                                                     </connections>
@@ -500,7 +521,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-kJ-dfm">
                                                     <rect key="frame" x="8" y="8" width="327" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="+"/>
+                                                    <color key="tintColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="pressed:" destination="oKS-q9-qB0" eventType="touchUpInside" id="u7N-sj-0bm"/>
                                                     </connections>
@@ -634,22 +658,40 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdM-T1-ZTR">
                                                     <rect key="frame" x="305" y="14.5" width="30" height="30"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="F3d-Cr-GzC"/>
                                                         <constraint firstAttribute="width" secondItem="jdM-T1-ZTR" secondAttribute="height" multiplier="1:1" id="pwM-Dh-iE5"/>
                                                     </constraints>
-                                                    <state key="normal" title="+"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="add:" destination="dnP-AM-hxz" eventType="touchUpInside" id="7K2-bS-7mC"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nk-4B-keJ">
                                                     <rect key="frame" x="227" y="15" width="30" height="28.5"/>
+                                                    <color key="backgroundColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="1nk-4B-keJ" secondAttribute="height" multiplier="1:1" id="SPT-FW-7oc"/>
                                                         <constraint firstAttribute="width" constant="30" id="Xmn-J2-RRr"/>
                                                     </constraints>
-                                                    <state key="normal" title="-"/>
+                                                    <state key="normal" title="-">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="subtract:" destination="dnP-AM-hxz" eventType="touchUpInside" id="H8d-iy-AQI"/>
                                                     </connections>
@@ -745,7 +787,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dX-br-s38">
                                                     <rect key="frame" x="8" y="8" width="327" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                    <state key="normal" title="+"/>
+                                                    <color key="tintColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="pressed:" destination="jZb-TZ-NBi" eventType="touchUpInside" id="ljh-hN-0el"/>
                                                     </connections>
