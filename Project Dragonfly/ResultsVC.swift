@@ -46,18 +46,18 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
         
         let frame = self.chartFrame(self.containerView.frame)
         var componentUnits = ""
-        var nameOfComponent = ""
+        
         
         switch investigationType.rawValue {
         case "Counter":
             componentUnits = ""
-            nameOfComponent = "Counter"
+            titleLabel.text = investigation.title
         case "Stopwatch":
             componentUnits = " (seconds)"
-            nameOfComponent = "Stopwatch"
+            titleLabel.text = investigation.title
         case "Interval Counter":
             componentUnits = " (seconds)"
-            nameOfComponent = "Interval Counter"
+            titleLabel.text =  investigation.title + " " + String(investigation.getTime())
         default:
             break
         }
