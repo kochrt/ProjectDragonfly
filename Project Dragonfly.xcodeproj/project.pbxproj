@@ -38,6 +38,7 @@
 		D4AE44F41E5B7CC500B91C95 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44EB1E5B7CC500B91C95 /* WorkSans-Regular.ttf */; };
 		D4AE44F51E5B7CC500B91C95 /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44EC1E5B7CC500B91C95 /* WorkSans-SemiBold.ttf */; };
 		D4AE44F61E5B7CC500B91C95 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44ED1E5B7CC500B91C95 /* WorkSans-Thin.ttf */; };
+		D4AE44F81E5B814800B91C95 /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AE44F71E5B814800B91C95 /* Styling.swift */; };
 		D4E2D5E61DF2252D00360D89 /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */; };
 		E0675B42C92D817F23DADA0A /* Pods_Project_DragonflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BBE4D81DAE76F767A955C3 /* Pods_Project_DragonflyUITests.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		D4AE44EB1E5B7CC500B91C95 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
 		D4AE44EC1E5B7CC500B91C95 /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		D4AE44ED1E5B7CC500B91C95 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
+		D4AE44F71E5B814800B91C95 /* Styling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
 		D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
 		D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_DragonflyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 				D492FEDC1DD149810052DBB0 /* Investigation.swift */,
 				D492FEDD1DD149810052DBB0 /* Component.swift */,
 				9F1828051DD5252E000D7BB6 /* ComponentEnum.swift */,
+				D4AE44F71E5B814800B91C95 /* Styling.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -563,6 +566,7 @@
 				D4519F8E1DAC4F7300FA274C /* InvestigationTVCell.swift in Sources */,
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
+				D4AE44F81E5B814800B91C95 /* Styling.swift in Sources */,
 				D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */,
 				D4112B4C1DFDC432009BF1B0 /* Styles.swift in Sources */,
 				D4E2D5E61DF2252D00360D89 /* ResultsVC.swift in Sources */,

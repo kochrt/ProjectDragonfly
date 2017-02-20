@@ -20,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.tintColor = UIColor.black
         appearance.barTintColor = UIColor(colorLiteralRed: 224.0/255.0, green: 250.0/255.0, blue: 231.0/255.0, alpha: 1.0)
         
-        let font = UIFont(name: "Work Sans", size: 17.0)!
-        
-        appearance.titleTextAttributes = [NSFontAttributeName: font]
+        appearance.titleTextAttributes = [NSFontAttributeName: Styling.HeaderFont]
         
         return true
     }
