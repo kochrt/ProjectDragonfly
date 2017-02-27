@@ -126,6 +126,8 @@ class Investigation: NSObject, NSCoding {
         }
     
         let clone = Investigation(question: self.question, components: components_clone, title: self.title, category: self.category)
+        clone.componentType = self.componentType
+        clone.title = clone.title + " (copy)"
         
         return clone
     
