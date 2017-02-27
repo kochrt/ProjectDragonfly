@@ -9,7 +9,9 @@
 import UIKit
 
 class CategoryManagementTVC: UITableViewController {
-
+    
+    let alert = UIAlertController(title: "Rename Category", message: "Edit the name of this category:", preferredStyle: .alert)
+    
     @IBAction
     func cancel() {
         dismiss(animated: true, completion: nil)
@@ -43,6 +45,14 @@ class CategoryManagementTVC: UITableViewController {
         return 64
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // present alert with category name
+        let cat = Investigations.instance.sortedCategories[indexPath.row]
+        setupRenameCategoryAlert(category: cat)
+        self.present(self.alert, animated: true, completion: nil)
+        
+    }
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return indexPath.row != 0
@@ -60,5 +70,19 @@ class CategoryManagementTVC: UITableViewController {
                 self.navigationItem.rightBarButtonItem = self.editButtonItem
             }
         }
+    }
+    
+    
+    func setupRenameCategoryAlert(category: String) {
+        alert.addTextField { (textField) in
+            //textField.placeholder = "Category name"
+            textField.text = category
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let textField = self.alert.textFields![0] // Force unwrapping because we know it exists.
+          Investigations.instance.renameCategory(newName: textField.text!, oldName: category)
+        }))
+        
     }
 }
