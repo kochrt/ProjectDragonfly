@@ -10,6 +10,8 @@ import UIKit
 
 class CategoryManagementTVC: UITableViewController {
     
+    let optionsSheet = UIAlertController(title:"My Alert", message:"This is an alert.", preferredStyle: .actionSheet)
+    
     @IBAction
     func cancel() {
         dismiss(animated: true, completion: nil)
@@ -85,5 +87,14 @@ class CategoryManagementTVC: UITableViewController {
             self.tableView.reloadData()
         }))
         return alert
+    }
+    
+    func setupOptionsSheet() {
+        
+        optionsSheet.addAction(UIAlertAction(title: "OK", style: .default, handler:{(_) in }));
+//        
+//        [alert addAction:defaultAction];
+//        [self presentViewController:alert animated:YES completion:nil];
+//        
     }
 }
