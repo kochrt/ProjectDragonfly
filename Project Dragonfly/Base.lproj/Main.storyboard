@@ -39,7 +39,6 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated: Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsQ-UO-jGw">
-                                            <rect key="frame" x="15" y="32" width="216" height="20"/>
                                             <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -379,7 +378,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruh-4Q-mSM">
-                                                    <rect key="frame" x="305" y="14.5" width="30" height="30"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.52156862745098043" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Ruh-4Q-mSM" secondAttribute="height" multiplier="1:1" id="Rb8-hp-bMy"/>
@@ -399,7 +397,6 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jC9-cY-46E">
-                                                    <rect key="frame" x="227" y="15" width="30" height="28.5"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.52156862745098043" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="jC9-cY-46E" secondAttribute="height" multiplier="1:1" id="9PR-TO-kE6"/>
@@ -631,7 +628,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdM-T1-ZTR">
-                                                    <rect key="frame" x="305" y="14.5" width="30" height="30"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="F3d-Cr-GzC"/>
@@ -651,7 +647,6 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nk-4B-keJ">
-                                                    <rect key="frame" x="227" y="15" width="30" height="28.5"/>
                                                     <color key="backgroundColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="1nk-4B-keJ" secondAttribute="height" multiplier="1:1" id="SPT-FW-7oc"/>

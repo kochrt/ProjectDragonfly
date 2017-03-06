@@ -214,4 +214,34 @@ class Investigations {
             investigations.removeValue(forKey: named)
         }
     }
+    
+    
+    func addCategory(name: String) {
+        sortedCategories.append(name)
+        sortedCategories.sort()
+        investigations[name] = []
+    }
+    
+    func renameCategory(old: String, new: String) {
+        addCategory(name: new)
+        investigations[new] = investigations[old]
+        sortedCategories.remove(at: sortedCategories.index(of: old)!)
+        investigations.removeValue(forKey: old)
+        if let array = investigations[new] {
+            for i in array {
+                i.category = new
+            }
+        }
+        
+    }
+    
+    func moveInvestigationToCategory(sourceCat: String, destCat: String, i: Investigation) {
+        if sortedCategories.contains(destCat) {
+            i.category = destCat
+            addInvestigation(investigation: i)
+            i.category = sourceCat
+            deleteInvestigation(i: i)
+        }
+    }
+    
 }
