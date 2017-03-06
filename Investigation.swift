@@ -66,9 +66,6 @@ class Investigation: NSObject, NSCoding {
     
     // MARK: NSCoding
     func encode(with aCoder: NSCoder) {
-        
-        print("encoding with time: \(timerLength)")
-        
         aCoder.encode(title, forKey: Keys.title)
         aCoder.encode(category, forKey: Keys.category)
         aCoder.encode(question, forKey: Keys.question)
@@ -117,15 +114,17 @@ class Investigation: NSObject, NSCoding {
         return info
     }
     
-    func clone() -> Investigation {
+    func clone(cloneWithData: Bool) -> Investigation {
         
         var components_clone = [Component]()
         
         for c in self.components {
-            components_clone.append(c.clone())
+            components_clone.append(c.clone(cloneWithData: cloneWithData))
         }
     
         let clone = Investigation(question: self.question, components: components_clone, title: self.title, category: self.category)
+        clone.componentType = self.componentType
+        clone.title = clone.title + " (copy)"
         
         return clone
     
@@ -192,7 +191,6 @@ class Investigations {
     }
     
     func saveInvestigations() {
-        print("saving investigations")
         var array = [Investigation]()
         for (_, arr) in investigations {
             array += arr
@@ -206,12 +204,56 @@ class Investigations {
         if let array = investigations[named] {
             for i in array {
                 i.category = Names.Uncategorized
-                addInvestigation(investigation: i)
+                let _ = addInvestigation(investigation: i)
             }
             sortedCategories.remove(at: sortedCategories.index(of: named)!)
             investigations.removeValue(forKey: named)
         }
     }
+    
+    func deleteCategoryAndInvestigations(named: String) {
+        //guard named != Names.Uncategorized else { return }
+        if(named == Names.Uncategorized) {
+            investigations[named] = [];
+        } else {
+            sortedCategories.remove(at: sortedCategories.index(of: named)!)
+            investigations.removeValue(forKey: named)
+        }
+    }
+    
+    func addCategory(name: String) {
+        if(!sortedCategories.contains(name)) {
+            sortedCategories.append(name)
+            sortedCategories.sort()
+            investigations[name] = []
+        }
+    }
+    
+    func renameCategory(old: String, new: String) {
+        addCategory(name: new)
+        moveAllInvestigationsInCategory(new: new, old: old)
+        sortedCategories.remove(at: sortedCategories.index(of: old)!)
+    }
+    
+    func moveAllInvestigationsInCategory(new: String, old: String) {
+        investigations[new]! += investigations[old]!
+        investigations[old] = []
+        if let array = investigations[new] {
+            for i in array {
+                i.category = new
+            }
+        }
+    }
+    
+    func moveInvestigationToCategory(sourceCat: String, destCat: String, i: Investigation) {
+        if sortedCategories.contains(destCat) {
+            i.category = destCat
+            addInvestigation(investigation: i)
+            i.category = sourceCat
+            deleteInvestigation(i: i)
+        }
+    }
+    
 }
 
 

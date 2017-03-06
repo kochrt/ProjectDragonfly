@@ -11,6 +11,11 @@ import DZNEmptyDataSet
 
 class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
+    struct Strings {
+        static let InvestigationDetail = "investigationDetail"
+        static let CreateInvestigation = "createInvestigation"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,13 +63,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
-        switch investigation.componentType {
-        case .Counter, .Stopwatch:
-        performSegue(withIdentifier: "investigationDetail", sender: investigation)
-            break
-        case .IntervalCounter:
-            performSegue(withIdentifier: "timedInvestigation", sender: investigation)
-        }
+        performSegue(withIdentifier: Strings.InvestigationDetail, sender: investigation)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -103,17 +102,12 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
-            case "investigationDetail":
+            case Strings.InvestigationDetail:
                 let vc = segue.destination as! InvestigationVC
                 if let investigation = sender as? Investigation {
                     vc.investigation = investigation
                 }
-            case "timedInvestigation":
-                let vc = segue.destination as! TimedInvestigationVC
-                if let investigation = sender as? Investigation {
-                    vc.investigation = investigation
-                }
-            case "createInvestigation":
+            case Strings.CreateInvestigation:
                 if let navcon = segue.destination as? UINavigationController {
                     if let create = navcon.visibleViewController as? NewInvestigationVC {
                         create.delegate = self
@@ -126,11 +120,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     // MARK: NewInvestigationDelegate
     func createdInvestigation(investigation: Investigation) {
-        if investigation.componentType == .IntervalCounter {
-            performSegue(withIdentifier: "timedInvestigation", sender: investigation)
-        } else {
-            performSegue(withIdentifier: "investigationDetail", sender: investigation)
-        }
+        performSegue(withIdentifier: Strings.InvestigationDetail, sender: investigation)
     }
     
     // MARK: Empty Data Set
@@ -148,7 +138,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     }
     
     func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
-        performSegue(withIdentifier: "createInvestigation", sender: self)
+        performSegue(withIdentifier: Strings.CreateInvestigation, sender: self)
     }
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
