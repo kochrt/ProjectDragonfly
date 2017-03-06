@@ -211,24 +211,38 @@ class Investigations {
         }
     }
     
+    func deleteCategoryAndInvestigations(named: String) {
+        //guard named != Names.Uncategorized else { return }
+        if(named == Names.Uncategorized) {
+            investigations[named] = [];
+        } else {
+            sortedCategories.remove(at: sortedCategories.index(of: named)!)
+            investigations.removeValue(forKey: named)
+        }
+    }
     
     func addCategory(name: String) {
-        sortedCategories.append(name)
-        sortedCategories.sort()
-        investigations[name] = []
+        if(!sortedCategories.contains(name)) {
+            sortedCategories.append(name)
+            sortedCategories.sort()
+            investigations[name] = []
+        }
     }
     
     func renameCategory(old: String, new: String) {
         addCategory(name: new)
-        investigations[new] = investigations[old]
+        moveAllInvestigationsInCategory(new: new, old: old)
         sortedCategories.remove(at: sortedCategories.index(of: old)!)
-        investigations.removeValue(forKey: old)
+    }
+    
+    func moveAllInvestigationsInCategory(new: String, old: String) {
+        investigations[new]! += investigations[old]!
+        investigations[old] = []
         if let array = investigations[new] {
             for i in array {
                 i.category = new
             }
         }
-        
     }
     
     func moveInvestigationToCategory(sourceCat: String, destCat: String, i: Investigation) {
