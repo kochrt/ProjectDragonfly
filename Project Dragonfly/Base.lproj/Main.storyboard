@@ -865,7 +865,6 @@
                                 <state key="normal" title="Category"/>
                                 <connections>
                                     <action selector="changeCategory:" destination="qtV-N3-2Gg" eventType="touchUpInside" id="XeY-iu-cdU"/>
-                                    <segue destination="Oc4-4p-StE" kind="presentation" identifier="editCategory" id="VbR-Gd-JSI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -926,7 +925,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VbR-Gd-JSI"/>
         <segue reference="14u-mh-Rlh"/>
     </inferredMetricsTieBreakers>
 </document>
