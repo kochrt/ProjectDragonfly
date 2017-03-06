@@ -38,7 +38,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func clone(_ sender: Any) {
-        let c = investigation.clone()
+        let c = investigation.clone(cloneWithData: false)
         let _ = Investigations.instance.addInvestigation(investigation: c)
         let _ = navigationController?.popViewController(animated: true)
     }

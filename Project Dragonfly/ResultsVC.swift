@@ -8,17 +8,19 @@
 
 import UIKit
 import MessageUI
-import SwiftCharts
+import Charts
 
-class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
+class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisValueFormatter {
 
     var investigation: Investigation!
     
     var items : [(String ,Double)]!
     
+    var dataEntries = [ChartDataEntry]()
+    
     @IBOutlet weak var containerView: UIView!
-    fileprivate var chart: Chart?
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var barChart: BarChartView!
     
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
         return CGRect(x: containerBounds.origin.x, y: containerBounds.origin.y, width: containerBounds.size.width, height: containerBounds.size.height)
@@ -36,48 +38,48 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let investigationType = investigation.componentType
+
+        let xaxis:XAxis = XAxis()
         
-        items = investigation.getValues()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        let chartConfig = BarsChartConfig(
-            valsAxisConfig: ChartAxisConfig(from: 0, to: self.getMax(items: items) + 2, by: 1)
-        )
-        
-        let frame = self.chartFrame(self.containerView.frame)
-        var componentUnits = ""
-        
-        
-        switch investigationType.rawValue {
-        case "Counter":
-            componentUnits = ""
-            titleLabel.text = investigation.title
-        case "Stopwatch":
-            componentUnits = " (seconds)"
-            titleLabel.text = investigation.title
-        case "Interval Counter":
-            componentUnits = " (seconds)"
-            titleLabel.text =  investigation.title + " " + String(investigation.getTime())
-        default:
-            break
+        var i = 0
+        for values in investigation.getInfo() {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values.value), data: values.name as AnyObject?)
+            dataEntries.append(dataEntry)
+            stringForValue(Double(i), axis: xaxis)
+            i += 1
         }
         
-        let chart = BarsChart(
-            frame: frame,
-            chartConfig: chartConfig,
-            xTitle: "Components Names",
-            yTitle: investigationType.rawValue + componentUnits,
-            bars: items,
-            color: UIColor.red,
-            barWidth: 20
-        )
+        xaxis.valueFormatter = self
+        barChart.xAxis.valueFormatter = xaxis.valueFormatter
         
-        self.view.addSubview(chart.view)
-        self.chart = chart
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Components")
+        chartDataSet.colors = [.green, .yellow, .red, .black, .blue, .brown, .cyan,.darkGray,.gray]
+        
+        // Create bar chart data with data set and array with values for x axis
+        let chartData = BarChartData(dataSets: [chartDataSet])
+        
+        
+        barChart.xAxis.labelPosition = .bottom
+        barChart.xAxis.valueFormatter = xaxis.valueFormatter
+        
+        if investigation.getInfo().count < 4 {
+            barChart.xAxis.labelRotationAngle = 0
+        }
+        else if investigation.getInfo().count > 4 && investigation.getInfo().count < 6 {
+            barChart.xAxis.labelRotationAngle = 10
+        }
+        else {
+            barChart.xAxis.labelRotationAngle = 45
+        }
+
+        barChart.xAxis.labelCount = investigation.getInfo().count
+        barChart.chartDescription?.text = "Bar Chart"
+        
+        barChart.data = chartData
     }
 
     // Added to go back to the investigation page
-    func cancel() {
+    @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
     }
     
@@ -142,8 +144,10 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate {
     }
     */
 
+    public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        
+        return investigation.getInfo()[Int(value)].name
+    }
 }
-
-
 
 

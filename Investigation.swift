@@ -5,6 +5,11 @@
 
 import Foundation
 
+struct ComponentInfo {
+    var value: Double
+    var name: String
+}
+
 class Investigation: NSObject, NSCoding {
     
     var title: String
@@ -90,36 +95,31 @@ class Investigation: NSObject, NSCoding {
     func getTime() -> Double {
         return timerLength
     }
-    func getValues() -> [(String , Double)] {
-        
-        var items : [(String ,Double)] = []
+    
+    func getInfo() -> [ComponentInfo] {
+        var info = [ComponentInfo]()
         
         switch componentType {
         case .Counter, .IntervalCounter:
-            for component in components {
-                items += [(component.title!,Double((component as! Counter).count))]
+            for value in components {
+                let temp = ComponentInfo(value: Double((value as! Counter).count), name: value.title!)
+                info.append(temp)
             }
         case .Stopwatch:
-            for component in components {
-                items += [(component.title!, Double((component as! Stopwatch).time))]
+            for value in components {
+                let temp = ComponentInfo(value: Double((value as! Stopwatch).time), name: value.title!)
+                info.append(temp)
             }
-        case .IntervalCounter:
-            for component in components{
-                items += [(component.title!, Double((component as! Counter).count))]
-            }
-        default:
-            break
-            //do nothing
         }
-        return items
+        return info
     }
     
-    func clone() -> Investigation {
+    func clone(cloneWithData: Bool) -> Investigation {
         
         var components_clone = [Component]()
         
         for c in self.components {
-            components_clone.append(c.clone())
+            components_clone.append(c.clone(cloneWithData: cloneWithData))
         }
     
         let clone = Investigation(question: self.question, components: components_clone, title: self.title, category: self.category)
@@ -255,3 +255,5 @@ class Investigations {
     }
     
 }
+
+
