@@ -127,9 +127,7 @@ class NewInvestigationVC: FormViewController {
                 print("already exists")
             } else {
                 print("new category")
-                Investigations.instance.sortedCategories.append(text)
-                Investigations.instance.investigations[text] = []
-                Investigations.instance.sortedCategories.sort()
+                Investigations.instance.addCategory(name: text)
                 catSection.append(ListCheckRow<String>(text) { row in
                     row.title = text
                     row.selectableValue = text

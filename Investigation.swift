@@ -215,19 +215,24 @@ class Investigations {
         }
     }
     
-    func renameCategory(newName: String, oldName: String) {
-        // create new cat with new name
-        sortedCategories.append(newName)
+    
+    func addCategory(name: String) {
+        sortedCategories.append(name)
         sortedCategories.sort()
-        // move investigations from old to new
-        if let array = investigations[oldName] {
+        investigations[name] = []
+    }
+    
+    func renameCategory(old: String, new: String) {
+        addCategory(name: new)
+        investigations[new] = investigations[old]
+        sortedCategories.remove(at: sortedCategories.index(of: old)!)
+        investigations.removeValue(forKey: old)
+        if let array = investigations[new] {
             for i in array {
-                moveInvestigationToCategory(sourceCat: oldName, destCat: newName, i: i)
+                i.category = new
             }
-            // delete old category from sortedCategories and from investigations
-            sortedCategories.remove(at: sortedCategories.index(of: oldName)!)
         }
-        investigations.removeValue(forKey: oldName)
+        
     }
     
     func moveInvestigationToCategory(sourceCat: String, destCat: String, i: Investigation) {
