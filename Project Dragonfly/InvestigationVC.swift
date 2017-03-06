@@ -34,13 +34,16 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var questionLabel: UILabel!
 
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
     @IBAction func clone(_ sender: Any) {
         let c = investigation.clone()
         let _ = Investigations.instance.addInvestigation(investigation: c)
         let _ = navigationController?.popViewController(animated: true)
+    }
+    @IBAction func changeCategory(_ sender: UIButton) {
+        print("change category")
     }
     
     override func viewDidLoad() {
@@ -52,7 +55,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         dateLabel.text = "Last Edited: \(investigation!.lastUpdated)"
         
         // Sets the category to the curent category name
-        categoryLabel.text = investigation?.category
+        categoryButton.setTitle(investigation?.category, for: .normal)
         questionLabel.text = investigation?.question
         
         tableView.dataSource = self
