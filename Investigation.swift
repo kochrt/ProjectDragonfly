@@ -61,9 +61,6 @@ class Investigation: NSObject, NSCoding {
     
     // MARK: NSCoding
     func encode(with aCoder: NSCoder) {
-        
-        print("encoding with time: \(timerLength)")
-        
         aCoder.encode(title, forKey: Keys.title)
         aCoder.encode(category, forKey: Keys.category)
         aCoder.encode(question, forKey: Keys.question)
@@ -194,7 +191,6 @@ class Investigations {
     }
     
     func saveInvestigations() {
-        print("saving investigations")
         var array = [Investigation]()
         for (_, arr) in investigations {
             array += arr
@@ -208,7 +204,7 @@ class Investigations {
         if let array = investigations[named] {
             for i in array {
                 i.category = Names.Uncategorized
-                addInvestigation(investigation: i)
+                let _ = addInvestigation(investigation: i)
             }
             sortedCategories.remove(at: sortedCategories.index(of: named)!)
             investigations.removeValue(forKey: named)
