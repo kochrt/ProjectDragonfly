@@ -48,7 +48,6 @@ class CategoryManagementTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // present alert with category name
         let cat = Investigations.instance.sortedCategories[indexPath.row]
-        //guard cat != Investigations.Names.Uncategorized else { return }
         let optionsSheet = setupOptionsSheet(category: cat, indexPath: indexPath)
         
         self.present(optionsSheet, animated: true, completion: nil)
