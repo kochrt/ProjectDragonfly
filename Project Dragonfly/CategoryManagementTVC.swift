@@ -48,7 +48,7 @@ class CategoryManagementTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // present alert with category name
         let cat = Investigations.instance.sortedCategories[indexPath.row]
-        guard cat != Investigations.Names.Uncategorized else { return }
+        //guard cat != Investigations.Names.Uncategorized else { return }
         let optionsSheet = setupOptionsSheet(category: cat, indexPath: indexPath)
         
         self.present(optionsSheet, animated: true, completion: nil)
@@ -90,11 +90,15 @@ class CategoryManagementTVC: UITableViewController {
     
     func setupOptionsSheet(category: String, indexPath: IndexPath) -> UIAlertController {
         let optionsSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        optionsSheet.addAction(UIAlertAction(title: "Rename category", style: .default, handler:{(_) in
-            let alert = self.setupRenameCategoryAlert(category: category, indexPath: indexPath)
-            self.present(alert, animated: true, completion: nil)
+        if(category != Investigations.Names.Uncategorized) {
+            optionsSheet.addAction(UIAlertAction(title: "Rename category", style: .default, handler:{(_) in
+                let alert = self.setupRenameCategoryAlert(category: category, indexPath: indexPath)
+                self.present(alert, animated: true, completion: nil)
+            }));
+        }
+        optionsSheet.addAction(UIAlertAction(title: "Move investigations to...", style: .default, handler:{(_) in
+            //Investigations.instance.moveAllInvestigationsInCategory(new: <#T##String#>, old: <#T##String#>)
         }));
-        optionsSheet.addAction(UIAlertAction(title: "Move investigations to...", style: .default, handler:{(_) in }));
         optionsSheet.addAction(UIAlertAction(title: "Delete", style: .default, handler:{(_) in
             let alert = self.setupDeleteAlert(category: category, indexPath: indexPath)
             self.present(alert, animated: true, completion: nil)
@@ -105,17 +109,24 @@ class CategoryManagementTVC: UITableViewController {
     
     func setupDeleteAlert(category: String, indexPath: IndexPath) -> UIAlertController {
         let alert = UIAlertController(title: "Delete Category and...", message: nil, preferredStyle: .actionSheet)
+        
         alert.addAction(UIAlertAction(title: "Delete investigations", style: .default, handler:{(_) in
             Investigations.instance.deleteCategoryAndInvestigations(named: category)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            if(category != Investigations.Names.Uncategorized) {
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            }
         }));
-        alert.addAction(UIAlertAction(title: "Move all to Uncategorized", style: .default, handler:{(_) in
-            Investigations.instance.deleteCategory(named: category)
-            self.tableView.beginUpdates()
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-            self.tableView.endUpdates()
-        }));
+        if(category != Investigations.Names.Uncategorized) {
+            alert.addAction(UIAlertAction(title: "Move all to Uncategorized", style: .default, handler:{(_) in
+                Investigations.instance.deleteCategory(named: category)
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+            }));
+        }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{(_) in }))
 
         return alert
