@@ -211,6 +211,11 @@ class Investigations {
         }
     }
     
+    func deleteCategoryAndInvestigations(named: String) {
+        guard named != Names.Uncategorized else { return }
+        sortedCategories.remove(at: sortedCategories.index(of: named)!)
+        investigations.removeValue(forKey: named)
+    }
     
     func addCategory(name: String) {
         if(!sortedCategories.contains(name)) {

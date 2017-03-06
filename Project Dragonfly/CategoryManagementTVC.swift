@@ -10,7 +10,7 @@ import UIKit
 
 class CategoryManagementTVC: UITableViewController {
     
-    let optionsSheet = UIAlertController(title:"My Alert", message:"This is an alert.", preferredStyle: .actionSheet)
+    
     
     @IBAction
     func cancel() {
@@ -49,8 +49,9 @@ class CategoryManagementTVC: UITableViewController {
         // present alert with category name
         let cat = Investigations.instance.sortedCategories[indexPath.row]
         guard cat != Investigations.Names.Uncategorized else { return }
-        let alert = setupRenameCategoryAlert(category: cat, indexPath: indexPath)
-        self.present(alert, animated: true, completion: nil)
+        let optionsSheet = setupOptionsSheet(category: cat, indexPath: indexPath)
+        
+        self.present(optionsSheet, animated: true, completion: nil)
     }
     
     // Override to support conditional editing of the table view.
@@ -76,25 +77,51 @@ class CategoryManagementTVC: UITableViewController {
     func setupRenameCategoryAlert(category: String, indexPath: IndexPath) -> UIAlertController {
         let alert = UIAlertController(title: "Rename Category", message: "Edit the name of this category:", preferredStyle: .alert)
         alert.addTextField { (textField) in
-            //textField.placeholder = "Category name"
             textField.text = category
         }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            let textField = alert.textFields![0] // Force unwrapping because we know it exists.
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in }))
+        alert.addAction(UIAlertAction(title: "Rename", style: .default, handler: { (_) in
+            let textField = alert.textFields![0]
             Investigations.instance.renameCategory(old: category, new: textField.text!)
-            //self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            self.tableView.reloadData()
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }))
         return alert
     }
     
-    func setupOptionsSheet() {
-        
-        optionsSheet.addAction(UIAlertAction(title: "OK", style: .default, handler:{(_) in }));
-//        
-//        [alert addAction:defaultAction];
-//        [self presentViewController:alert animated:YES completion:nil];
-//        
+    func setupOptionsSheet(category: String, indexPath: IndexPath) -> UIAlertController {
+        let optionsSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        optionsSheet.addAction(UIAlertAction(title: "Rename category", style: .default, handler:{(_) in
+            let alert = self.setupRenameCategoryAlert(category: category, indexPath: indexPath)
+            self.present(alert, animated: true, completion: nil)
+        }));
+        optionsSheet.addAction(UIAlertAction(title: "Move investigations to...", style: .default, handler:{(_) in }));
+        optionsSheet.addAction(UIAlertAction(title: "Delete", style: .default, handler:{(_) in
+            let alert = self.setupDeleteAlert(category: category, indexPath: indexPath)
+            self.present(alert, animated: true, completion: nil)
+        }));
+        optionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{(_) in }))
+        return optionsSheet
     }
+    
+    func setupDeleteAlert(category: String, indexPath: IndexPath) -> UIAlertController {
+        let alert = UIAlertController(title: "Delete Category and...", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Delete investigations", style: .default, handler:{(_) in
+            Investigations.instance.deleteCategoryAndInvestigations(named: category)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }));
+        alert.addAction(UIAlertAction(title: "Move all to Uncategorized", style: .default, handler:{(_) in
+            Investigations.instance.deleteCategory(named: category)
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            self.tableView.endUpdates()
+        }));
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{(_) in }))
+
+        return alert
+    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        //setupOptionsSheet()
+//    }
 }
