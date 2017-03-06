@@ -114,12 +114,12 @@ class Investigation: NSObject, NSCoding {
         return items
     }
     
-    func clone() -> Investigation {
+    func clone(cloneWithData: Bool) -> Investigation {
         
         var components_clone = [Component]()
         
         for c in self.components {
-            components_clone.append(c.clone())
+            components_clone.append(c.clone(cloneWithData: cloneWithData))
         }
     
         let clone = Investigation(question: self.question, components: components_clone, title: self.title, category: self.category)
