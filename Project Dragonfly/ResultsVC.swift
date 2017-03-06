@@ -22,8 +22,6 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var barChart: BarChartView!
     
-    
-    
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
         return CGRect(x: containerBounds.origin.x, y: containerBounds.origin.y, width: containerBounds.size.width, height: containerBounds.size.height)
     }
@@ -81,7 +79,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     }
 
     // Added to go back to the investigation page
-    func cancel() {
+    @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
     }
     
