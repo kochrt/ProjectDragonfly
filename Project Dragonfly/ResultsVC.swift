@@ -74,7 +74,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
 
         barChart.xAxis.labelCount = investigation.getInfo().count
         barChart.chartDescription?.text = "Bar Chart"
-        
+        barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
         barChart.data = chartData
     }
 
