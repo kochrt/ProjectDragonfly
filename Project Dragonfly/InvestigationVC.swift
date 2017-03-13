@@ -21,7 +21,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var timer = Timer()
     
     @IBOutlet weak var tableViewToQuestionContstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var tableViewToTimerConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var timerView: UIView!
@@ -81,8 +80,8 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func removeTimer() {
         timerView.isHidden = true
-        tableViewToTimerConstraint.isActive = !tableViewToTimerConstraint.isActive
-        tableViewToQuestionContstraint.isActive = !tableViewToQuestionContstraint.isActive
+        tableViewToTimerConstraint.isActive = false
+        tableViewToQuestionContstraint.isActive = true
         updateViewConstraints()
     }
     
