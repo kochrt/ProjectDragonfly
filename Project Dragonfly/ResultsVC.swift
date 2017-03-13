@@ -22,9 +22,10 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var chart: UIView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        barChart.delegate = self
+        
         picker.addTarget(self, action: #selector(chartType), for: .valueChanged)
         picker.selectedSegmentIndex = 1
         navigationItem.titleView = picker
@@ -32,8 +33,10 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     
     func chartType() {
         titleLabel.text = investigation.title
+        let barChart = BarChartView(frame: chart.frame)
+        
         if picker.selectedSegmentIndex == 0 {
-            barChartEnable()
+            barChartEnable(barChart: barChart)
         } else {
             pieChartEnable()
         }
@@ -66,8 +69,8 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         }
     }
 
-    func barChartEnable() {
-        
+    func barChartEnable(barChart: BarChartView) {
+        barChart.delegate = self
         let xaxis:XAxis = XAxis()
         
         var i = 0
@@ -78,27 +81,27 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         }
         
         xaxis.valueFormatter = self
-        chart.xAxis.valueFormatter = xaxis.valueFormatter
+        barChart.xAxis.valueFormatter = xaxis.valueFormatter
         
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
         
         // Create bar chart data with data set and array with values for x axis
-        let chartData = chartData(dataSets: [chartDataSet])
+        let chartData = BarChartData(dataSets: [chartDataSet])
         
         
-        chart.xAxis.labelPosition = .bottom
-        chart.xAxis.valueFormatter = xaxis.valueFormatter
-        chart.legend.enabled = false
+        barChart.xAxis.labelPosition = .bottom
+        barChart.xAxis.valueFormatter = xaxis.valueFormatter
+        barChart.legend.enabled = false
         
         if investigation.getInfo().count < 4 {
-            chart.xAxis.labelRotationAngle = 0
+            barChart.xAxis.labelRotationAngle = 0
         }
         else if investigation.getInfo().count > 4 && investigation.getInfo().count < 6 {
-            chart.xAxis.labelRotationAngle = 10
+            barChart.xAxis.labelRotationAngle = 10
         }
         else {
-            chart.xAxis.labelRotationAngle = 45
+            barChart.xAxis.labelRotationAngle = 45
         }
         
         barChart.xAxis.labelCount = investigation.getInfo().count
