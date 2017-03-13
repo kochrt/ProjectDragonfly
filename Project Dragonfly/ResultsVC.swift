@@ -12,15 +12,26 @@ import Charts
 
 class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisValueFormatter, ChartViewDelegate {
 
+    let picker = UISegmentedControl(items: ["   Bar    ", "   Pie    "])
+    
     var investigation: Investigation!
-    
     var items : [(String ,Double)]!
-    
     var dataEntries = [ChartDataEntry]()
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var barChart: BarChartView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        picker.addTarget(self, action: #selector(chartType), for: .valueChanged)
+        picker.selectedSegmentIndex = 0
+        navigationItem.titleView = picker
+    }
+    
+    func chartType() {
+        print(picker.selectedSegmentIndex)
+    }
     
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
         return CGRect(x: containerBounds.origin.x, y: containerBounds.origin.y, width: containerBounds.size.width, height: containerBounds.size.height)
