@@ -229,6 +229,13 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.investigation!.components.append(comp)
             self.tableView.insertRows(at: [indexPath], with: .automatic)
             self.disableButtons(disable: true)
+            /*if(self.investigation.components.count == 10) {
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.tableView.reloadRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+                //self.tableView.deleteRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .automatic)
+            }*/
         }))
     }
     
