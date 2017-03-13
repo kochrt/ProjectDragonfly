@@ -16,20 +16,30 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     
     var investigation: Investigation!
     var items : [(String ,Double)]!
-    var dataEntries = [ChartDataEntry]()
+    var barDataEntries = [ChartDataEntry]()
+    var pieDataEntries = [ChartDataEntry]()
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var chart: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         picker.addTarget(self, action: #selector(chartType), for: .valueChanged)
-        picker.selectedSegmentIndex = 0
+        picker.selectedSegmentIndex = 1
         navigationItem.titleView = picker
+        
     }
     
     func chartType() {
-        print(picker.selectedSegmentIndex)
+        titleLabel.text = investigation.title
+        let barChart = BarChartView(frame: chart.frame)
+        
+        if picker.selectedSegmentIndex == 0 {
+            barChartEnable(barChart: barChart)
+        } else {
+            pieChartEnable()
+        }
     }
     
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
@@ -48,48 +58,58 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    func pieChartEnable() {
+        var i = 0
+        for values in investigation.getInfo() {
+            let dataEntry = PieChartDataEntry(value: Double(i), label: values.name, data: Double(values.value) as AnyObject?)
+            pieDataEntries.append(dataEntry)
+            i += 1
+        }
+    }
 
-        chart.delegate = self
-        
+    func barChartEnable(barChart: BarChartView) {
+        barChart.delegate = self
         let xaxis:XAxis = XAxis()
         
         var i = 0
         for values in investigation.getInfo() {
-            let dataEntry = chartDataEntry(x: Double(i), y: Double(values.value), data: values.name as AnyObject?)
-            dataEntries.append(dataEntry)
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values.value), data: values.name as AnyObject?)
+            barDataEntries.append(dataEntry)
             i += 1
         }
         
         xaxis.valueFormatter = self
-        chart.xAxis.valueFormatter = xaxis.valueFormatter
+        barChart.xAxis.valueFormatter = xaxis.valueFormatter
         
-        let chartDataSet = chartDataSet(values: dataEntries, label: "Components")
+        let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
         
         // Create bar chart data with data set and array with values for x axis
-        let chartData = chartData(dataSets: [chartDataSet])
+        let chartData = BarChartData(dataSets: [chartDataSet])
         
         
-        chart.xAxis.labelPosition = .bottom
-        chart.xAxis.valueFormatter = xaxis.valueFormatter
-        chart.legend.enabled = false
+        barChart.xAxis.labelPosition = .bottom
+        barChart.xAxis.valueFormatter = xaxis.valueFormatter
+        barChart.legend.enabled = false
         
         if investigation.getInfo().count < 4 {
-            chart.xAxis.labelRotationAngle = 0
+            barChart.xAxis.labelRotationAngle = 0
         }
         else if investigation.getInfo().count > 4 && investigation.getInfo().count < 6 {
-            chart.xAxis.labelRotationAngle = 10
+            barChart.xAxis.labelRotationAngle = 10
         }
         else {
-            chart.xAxis.labelRotationAngle = 45
+            barChart.xAxis.labelRotationAngle = 45
         }
-
-        chart.xAxis.labelCount = investigation.getInfo().count
-        chart.chartDescription?.text = "Bar Chart"
-        chart.animate(xAxisDuration: 2, yAxisDuration: 2)
-        chart.data = chartData
+        
+        barChart.xAxis.labelCount = investigation.getInfo().count
+        barChart.chartDescription?.text = "Bar Chart"
+        barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
+        barChart.data = chartData
     }
-
+    
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print("Hello")
     }

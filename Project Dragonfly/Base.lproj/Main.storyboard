@@ -153,8 +153,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="barChart" destination="azI-Ti-URz" id="FAb-iP-3xJ"/>
-                        <outlet property="containerView" destination="azI-Ti-URz" id="yWS-So-2U8"/>
                         <outlet property="titleLabel" destination="dT5-xn-Wrz" id="Lzq-bF-oah"/>
                     </connections>
                 </viewController>
