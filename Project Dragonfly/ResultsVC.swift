@@ -61,6 +61,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         
         barChart.xAxis.labelPosition = .bottom
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
+        barChart.legend.enabled = false
         
         if investigation.getInfo().count < 4 {
             barChart.xAxis.labelRotationAngle = 0
