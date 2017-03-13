@@ -38,9 +38,8 @@ class NewInvestigationVC: FormViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     func setupForm() {
-        let detailSection = Section()
-        detailSection.append(TextRow() { row in
-            row.title = "Title"
+        let titleSection = Section("Title")
+        titleSection.append(TextRow() { row in
             row.placeholder = "My Investigation"
             row.onChange({ (text) in
                 if let title = text.value {
@@ -49,7 +48,10 @@ class NewInvestigationVC: FormViewController {
                 self.checkInvestigation()
             })
         })
-        detailSection.append(TextRow() { row in
+        form.append(titleSection)
+        
+        let questionSection = Section("Question")
+        questionSection.append(TextAreaRow() { row in
             row.title = "Question"
             row.placeholder = "Why are there no squirrels anymore?"
             row.onChange({ (text) in
@@ -59,7 +61,7 @@ class NewInvestigationVC: FormViewController {
                 self.checkInvestigation()
             })
         })
-        form.append(detailSection)
+        form.append(questionSection)
         
         let toolSection = SelectableSection<ListCheckRow<String>>("Which tool do you need?", selectionType: .singleSelection(enableDeselection: false))
         

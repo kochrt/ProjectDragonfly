@@ -894,7 +894,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="lz3-xz-bXt">
-                        <barButtonItem key="rightBarButtonItem" title="Clone" id="KBb-i7-rG4">
+                        <barButtonItem key="rightBarButtonItem" title="Copy" id="KBb-i7-rG4">
                             <connections>
                                 <action selector="clone:" destination="qtV-N3-2Gg" id="vWZ-dH-2Yt"/>
                             </connections>
@@ -920,6 +920,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DhX-MN-y9h"/>
+        <segue reference="44E-Cb-AxR"/>
     </inferredMetricsTieBreakers>
 </document>
