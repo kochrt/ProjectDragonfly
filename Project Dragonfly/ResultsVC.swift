@@ -19,9 +19,8 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     var barDataEntries = [ChartDataEntry]()
     var pieDataEntries = [ChartDataEntry]()
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var barChart: BarChartView!
+    @IBOutlet weak var chart: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,27 +78,27 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         }
         
         xaxis.valueFormatter = self
-        barChart.xAxis.valueFormatter = xaxis.valueFormatter
+        chart.xAxis.valueFormatter = xaxis.valueFormatter
         
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
         
         // Create bar chart data with data set and array with values for x axis
-        let chartData = BarChartData(dataSets: [chartDataSet])
+        let chartData = chartData(dataSets: [chartDataSet])
         
         
-        barChart.xAxis.labelPosition = .bottom
-        barChart.xAxis.valueFormatter = xaxis.valueFormatter
-        barChart.legend.enabled = false
+        chart.xAxis.labelPosition = .bottom
+        chart.xAxis.valueFormatter = xaxis.valueFormatter
+        chart.legend.enabled = false
         
         if investigation.getInfo().count < 4 {
-            barChart.xAxis.labelRotationAngle = 0
+            chart.xAxis.labelRotationAngle = 0
         }
         else if investigation.getInfo().count > 4 && investigation.getInfo().count < 6 {
-            barChart.xAxis.labelRotationAngle = 10
+            chart.xAxis.labelRotationAngle = 10
         }
         else {
-            barChart.xAxis.labelRotationAngle = 45
+            chart.xAxis.labelRotationAngle = 45
         }
         
         barChart.xAxis.labelCount = investigation.getInfo().count
