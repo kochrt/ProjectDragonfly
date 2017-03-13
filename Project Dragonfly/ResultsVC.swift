@@ -24,13 +24,11 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         picker.addTarget(self, action: #selector(chartType), for: .valueChanged)
         picker.selectedSegmentIndex = 1
         navigationItem.titleView = picker
-        
     }
-    
+
     func chartType() {
         titleLabel.text = investigation.title
         let barChart = BarChartView(frame: chart.frame)
