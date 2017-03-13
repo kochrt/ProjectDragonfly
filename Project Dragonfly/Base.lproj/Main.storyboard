@@ -117,30 +117,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="azI-Ti-URz" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="16" width="343" height="571"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT5-xn-Wrz">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                                <rect key="frame" x="16" y="36.5" width="343" height="550.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="dT5-xn-Wrz" firstAttribute="top" secondItem="azI-Ti-URz" secondAttribute="top" id="3gk-dE-y3O"/>
-                                    <constraint firstItem="dT5-xn-Wrz" firstAttribute="leading" secondItem="azI-Ti-URz" secondAttribute="leading" id="75d-3o-d0d"/>
-                                    <constraint firstAttribute="trailing" secondItem="dT5-xn-Wrz" secondAttribute="trailing" id="j3K-Vd-vU3"/>
-                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT5-xn-Wrz">
+                                <rect key="frame" x="16" y="8" width="343" height="20.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dT5-xn-Wrz" firstAttribute="leading" secondItem="8JD-aw-JMG" secondAttribute="leading" constant="16" id="0GZ-a3-C3c"/>
+                            <constraint firstItem="dT5-xn-Wrz" firstAttribute="top" secondItem="8JD-aw-JMG" secondAttribute="top" constant="8" id="2cW-lC-MxY"/>
                             <constraint firstAttribute="trailing" secondItem="azI-Ti-URz" secondAttribute="trailing" constant="16" id="3OA-hp-UUC"/>
+                            <constraint firstAttribute="trailing" secondItem="dT5-xn-Wrz" secondAttribute="trailing" constant="16" id="94g-0H-fC2"/>
+                            <constraint firstItem="azI-Ti-URz" firstAttribute="top" secondItem="dT5-xn-Wrz" secondAttribute="bottom" constant="8" symbolic="YES" id="Jcz-6r-JLq"/>
                             <constraint firstItem="azI-Ti-URz" firstAttribute="bottom" secondItem="YIE-BD-rn3" secondAttribute="top" constant="-16" id="Yph-DH-Dm1"/>
                             <constraint firstItem="azI-Ti-URz" firstAttribute="leading" secondItem="8JD-aw-JMG" secondAttribute="leading" constant="16" id="gL0-Pc-Z5L"/>
-                            <constraint firstItem="azI-Ti-URz" firstAttribute="top" secondItem="IyO-FA-J7s" secondAttribute="bottom" constant="16" id="vzV-V9-KTS"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -171,7 +167,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqX-l6-g8U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="22D-7A-ylx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="22D-7A-ylx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.87701628200560855" green="0.98132258653640747" blue="0.9042252992498242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -280,7 +276,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOP-C1-fyL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kXo-hi-DV1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kXo-hi-DV1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -298,7 +294,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ooa-d2-I2a" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8fq-Da-KzG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8fq-Da-KzG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -316,7 +312,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xJZ-q7-4fw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P0O-w2-R61">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P0O-w2-R61">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -925,6 +921,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="14u-mh-Rlh"/>
+        <segue reference="DhX-MN-y9h"/>
     </inferredMetricsTieBreakers>
 </document>
