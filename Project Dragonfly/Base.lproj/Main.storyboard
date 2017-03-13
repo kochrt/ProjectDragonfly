@@ -153,6 +153,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="chart" destination="azI-Ti-URz" id="Vy3-ay-NdW"/>
                         <outlet property="titleLabel" destination="dT5-xn-Wrz" id="Lzq-bF-oah"/>
                     </connections>
                 </viewController>
