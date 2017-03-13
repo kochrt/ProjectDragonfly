@@ -229,9 +229,9 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.investigation!.components.append(comp)
             if(self.investigation.components.count == 10) {
                 self.tableView.beginUpdates()
-                self.tableView.insertRows(at: [indexPath], with: .automatic)
                 self.tableView.deleteRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .fade)
-                self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                self.tableView.insertRows(at: [indexPath], with: .automatic)
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 self.tableView.endUpdates()
             }
             else {
@@ -346,6 +346,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func addComponent() {
+        self.alert.textFields?[0].text = "";
         self.present(self.alert, animated: true, completion: nil)
     }
 }
