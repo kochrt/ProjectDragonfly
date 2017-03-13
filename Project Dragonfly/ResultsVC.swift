@@ -16,7 +16,8 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     
     var investigation: Investigation!
     var items : [(String ,Double)]!
-    var dataEntries = [ChartDataEntry]()
+    var barDataEntries = [ChartDataEntry]()
+    var pieDataEntries = [ChartDataEntry]()
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,13 +25,19 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        barChart.delegate = self
         picker.addTarget(self, action: #selector(chartType), for: .valueChanged)
-        picker.selectedSegmentIndex = 0
+        picker.selectedSegmentIndex = 1
         navigationItem.titleView = picker
     }
     
     func chartType() {
-        print(picker.selectedSegmentIndex)
+        titleLabel.text = investigation.title
+        if picker.selectedSegmentIndex == 0 {
+            barChartEnable()
+        } else {
+            pieChartEnable()
+        }
     }
     
     func chartFrame(_ containerBounds: CGRect) -> CGRect {
@@ -49,22 +56,32 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+    }
+    
+    func pieChartEnable() {
+        var i = 0
+        for values in investigation.getInfo() {
+            let dataEntry = PieChartDataEntry(value: Double(i), label: values.name, data: Double(values.value) as AnyObject?)
+            pieDataEntries.append(dataEntry)
+            i += 1
+        }
+    }
 
-        barChart.delegate = self
+    func barChartEnable() {
         
         let xaxis:XAxis = XAxis()
         
         var i = 0
         for values in investigation.getInfo() {
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values.value), data: values.name as AnyObject?)
-            dataEntries.append(dataEntry)
+            barDataEntries.append(dataEntry)
             i += 1
         }
         
         xaxis.valueFormatter = self
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Components")
+        let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
         
         // Create bar chart data with data set and array with values for x axis
@@ -84,13 +101,13 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         else {
             barChart.xAxis.labelRotationAngle = 45
         }
-
+        
         barChart.xAxis.labelCount = investigation.getInfo().count
         barChart.chartDescription?.text = "Bar Chart"
         barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
         barChart.data = chartData
     }
-
+    
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print("Hello")
     }
