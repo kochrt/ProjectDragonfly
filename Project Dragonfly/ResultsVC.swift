@@ -26,6 +26,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         picker.addTarget(self, action: #selector(chartType), for: .valueChanged)
         picker.selectedSegmentIndex = 0
         navigationItem.titleView = picker
+        
     }
     
     func chartType() {
