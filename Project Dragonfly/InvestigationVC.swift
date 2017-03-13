@@ -228,17 +228,20 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             comp.title = textField.text!
             
             self.investigation!.components.append(comp)
-            self.tableView.insertRows(at: [indexPath], with: .automatic)
-            self.disableButtons(disable: true)
-            /*if(self.investigation.components.count == 10) {
+            if(self.investigation.components.count == 10) {
                 self.tableView.beginUpdates()
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
-                self.tableView.reloadRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .automatic)
+                self.tableView.insertRows(at: [indexPath], with: .automatic)
+                self.tableView.deleteRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .fade)
+                self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 self.tableView.endUpdates()
-                //self.tableView.deleteRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .automatic)
-            }*/
+            }
+            else {
+                self.tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+            self.disableButtons(disable: true)
         }))
     }
+    
     
     // MARK: pickerview stuff
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -273,6 +276,9 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     // MARK: tableview stuff
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(investigation!.components.count == 10) {
+            return investigation!.components.count
+        }
         return investigation!.components.count + 1
     }
     
@@ -311,6 +317,14 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             investigation.components.remove(at: indexPath.row)
+            // had 10 comps, deleted one, now have 9, need to insert the add comp button cell
+            /*if(investigation.components.count == 9) {
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.insertRows(at: [IndexPath(row: tableView.visibleCells.count, section: 0)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                tableView.endUpdates()
+            }*/
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
