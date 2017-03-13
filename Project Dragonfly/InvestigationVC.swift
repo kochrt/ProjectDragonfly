@@ -21,6 +21,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var timer = Timer()
     
     @IBOutlet weak var tableViewToQuestionContstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var tableViewToTimerConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var timerView: UIView!
