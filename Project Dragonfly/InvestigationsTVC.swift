@@ -11,6 +11,7 @@ import DZNEmptyDataSet
 
 class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
+    var nonEmptyCategoryNames = Investigations.instance.getNonEmptyCategories()
     struct Strings {
         static let InvestigationDetail = "investigationDetail"
         static let CreateInvestigation = "createInvestigation"
@@ -28,13 +29,15 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Investigations.instance.saveInvestigations()
+        nonEmptyCategoryNames = Investigations.instance.getNonEmptyCategories()
+
         tableView.reloadData()
     }
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Investigations.instance.sortedCategories.count
+        return nonEmptyCategoryNames.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +50,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         cell.investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
         return cell
     }
+
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         
@@ -54,7 +58,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Returns the title of the section and places the investigation in the correct section
-        return Investigations.instance.sortedCategories[section]
+        return nonEmptyCategoryNames[section]
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

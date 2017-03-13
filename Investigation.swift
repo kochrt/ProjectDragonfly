@@ -147,6 +147,23 @@ class Investigations {
     // Dictionary of category to investigation
     var investigations = [String : [Investigation]]()
     var sortedCategories = [String]()
+
+    
+    func getNonEmptyCategories() ->[String] {
+        
+        var tmpCategoryNames = [String]()
+        for name in sortedCategories{
+            
+            if (investigations[name]?.count != 0) {
+                tmpCategoryNames.append(name)
+            }
+        }
+        print(tmpCategoryNames)
+        //todo: sort alphabetically
+        tmpCategoryNames.sort()
+        return tmpCategoryNames
+        
+    }
     
     // Adds investigation and category
     func addInvestigation(investigation: Investigation) -> IndexPath {
