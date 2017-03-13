@@ -22,7 +22,6 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var chart: UIView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
