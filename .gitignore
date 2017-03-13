@@ -2,3 +2,4 @@
 **/*.xcuserstate
 **.xcworkspace/xcuserdata
 Pods/Pods.xcodeproj/xcuserdata
+Pods/Target\ Support\ Files/Charts
