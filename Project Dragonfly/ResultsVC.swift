@@ -10,7 +10,7 @@ import UIKit
 import MessageUI
 import Charts
 
-class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisValueFormatter {
+class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisValueFormatter, ChartViewDelegate {
 
     var investigation: Investigation!
     
@@ -39,13 +39,14 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
+        barChart.delegate = self
+        
         let xaxis:XAxis = XAxis()
         
         var i = 0
         for values in investigation.getInfo() {
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(values.value), data: values.name as AnyObject?)
             dataEntries.append(dataEntry)
-            stringForValue(Double(i), axis: xaxis)
             i += 1
         }
         
@@ -53,7 +54,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "Components")
-        chartDataSet.colors = [.green, .yellow, .red, .black, .blue, .brown, .cyan,.darkGray,.gray]
+        chartDataSet.colors = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
         
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
@@ -79,6 +80,10 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         barChart.data = chartData
     }
 
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print("Hello")
+    }
+    
     // Added to go back to the investigation page
     @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
