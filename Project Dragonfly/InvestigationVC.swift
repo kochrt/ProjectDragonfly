@@ -317,14 +317,16 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if editingStyle == .delete {
             investigation.components.remove(at: indexPath.row)
             // had 10 comps, deleted one, now have 9, need to insert the add comp button cell
-            /*if(investigation.components.count == 9) {
+            if(investigation.components.count == 9) {
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.insertRows(at: [IndexPath(row: tableView.visibleCells.count, section: 0)], with: .automatic)
                 tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 tableView.endUpdates()
-            }*/
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            else {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
     }
     
