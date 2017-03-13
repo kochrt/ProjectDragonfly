@@ -49,8 +49,10 @@ class CategoryManagementTVC: UITableViewController {
         // present alert with category name
         let cat = Investigations.instance.sortedCategories[indexPath.row]
         let optionsSheet = setupOptionsSheet(category: cat, indexPath: indexPath)
-        
-        self.present(optionsSheet, animated: true, completion: nil)
+        // this prevents the optionsSheet from requiring 2 clicks before appearing, now only needs one click/tap
+        DispatchQueue.main.async(execute: {
+            self.present(optionsSheet, animated: true, completion: nil)
+        })
     }
     
     // Override to support conditional editing of the table view.
@@ -82,7 +84,8 @@ class CategoryManagementTVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Rename", style: .default, handler: { (_) in
             let textField = alert.textFields![0]
             Investigations.instance.renameCategory(old: category, new: textField.text!)
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            // must use reloadData because renaming categories can cause reordering in the table
+            self.tableView.reloadData()
         }))
         return alert
     }
