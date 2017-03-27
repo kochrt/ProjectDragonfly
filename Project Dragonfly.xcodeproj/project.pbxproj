@@ -13,7 +13,6 @@
 		9F57ABD21DED06AA001BB221 /* StopwatchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */; };
 		9FA585981DFA1C1B00357C19 /* InvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA585971DFA1C1B00357C19 /* InvestigationVC.swift */; };
 		B2C8BF8AA3A42A6E14604AB9 /* Pods_Project_DragonflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE474D868CFED750DA21EE /* Pods_Project_DragonflyTests.framework */; };
-		D4015EF21E3FF3D0000CDEEC /* ShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4015EF11E3FF3D0000CDEEC /* ShareVC.swift */; };
 		D4112B4A1DFDBE7E009BF1B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4112B491DFDBE7E009BF1B0 /* Assets.xcassets */; };
 		D4112B4C1DFDC432009BF1B0 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4112B4B1DFDC432009BF1B0 /* Styles.swift */; };
 		D4112B4E1DFDC860009BF1B0 /* AddComponentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4112B4D1DFDC860009BF1B0 /* AddComponentTVCell.swift */; };
@@ -28,6 +27,10 @@
 		D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */; };
 		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
 		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
+		D49EE99A1E89A56900BD52B1 /* ResultsTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9991E89A56900BD52B1 /* ResultsTabBarVC.swift */; };
+		D49EE99C1E89B03B00BD52B1 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE99B1E89B03B00BD52B1 /* ChartVC.swift */; };
+		D49EE99F1E89B1A100BD52B1 /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE99E1E89B1A100BD52B1 /* BarChartVC.swift */; };
+		D49EE9A11E89B1FC00BD52B1 /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9A01E89B1FC00BD52B1 /* PieChartVC.swift */; };
 		D4AE44EE1E5B7CC500B91C95 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E51E5B7CC500B91C95 /* WorkSans-Black.ttf */; };
 		D4AE44EF1E5B7CC500B91C95 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E61E5B7CC500B91C95 /* WorkSans-Bold.ttf */; };
 		D4AE44F01E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E71E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf */; };
@@ -72,7 +75,6 @@
 		9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchTVCell.swift; sourceTree = "<group>"; };
 		9FA585971DFA1C1B00357C19 /* InvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvestigationVC.swift; sourceTree = "<group>"; };
 		BB1D1D215A4B6B9DAE2F9C4F /* Pods-Project Dragonfly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.debug.xcconfig"; sourceTree = "<group>"; };
-		D4015EF11E3FF3D0000CDEEC /* ShareVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareVC.swift; sourceTree = "<group>"; };
 		D4112B491DFDBE7E009BF1B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4112B4B1DFDC432009BF1B0 /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		D4112B4D1DFDC860009BF1B0 /* AddComponentTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddComponentTVCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,10 @@
 		D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInvestigationVC.swift; sourceTree = "<group>"; };
 		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
 		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		D49EE9991E89A56900BD52B1 /* ResultsTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTabBarVC.swift; sourceTree = "<group>"; };
+		D49EE99B1E89B03B00BD52B1 /* ChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
+		D49EE99E1E89B1A100BD52B1 /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
+		D49EE9A01E89B1FC00BD52B1 /* PieChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartVC.swift; sourceTree = "<group>"; };
 		D4AE44E51E5B7CC500B91C95 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
 		D4AE44E61E5B7CC500B91C95 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
 		D4AE44E71E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -230,7 +236,7 @@
 		D4993C081DFCB5050034C54C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D4015EF11E3FF3D0000CDEEC /* ShareVC.swift */,
+				D49EE99D1E89B10500BD52B1 /* Results */,
 				D4E2D5E51DF2252D00360D89 /* ResultsVC.swift */,
 				D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */,
 				9FA585971DFA1C1B00357C19 /* InvestigationVC.swift */,
@@ -249,6 +255,17 @@
 				9F57ABD11DED06AA001BB221 /* StopwatchTVCell.swift */,
 			);
 			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		D49EE99D1E89B10500BD52B1 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				D49EE99B1E89B03B00BD52B1 /* ChartVC.swift */,
+				D49EE99E1E89B1A100BD52B1 /* BarChartVC.swift */,
+				D49EE9A01E89B1FC00BD52B1 /* PieChartVC.swift */,
+				D49EE9991E89A56900BD52B1 /* ResultsTabBarVC.swift */,
+			);
+			name = Results;
 			sourceTree = "<group>";
 		};
 		D4AE44E41E5B7C7C00B91C95 /* Assets */ = {
@@ -563,13 +580,16 @@
 				D4519F8E1DAC4F7300FA274C /* InvestigationTVCell.swift in Sources */,
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
 				D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */,
+				D49EE99C1E89B03B00BD52B1 /* ChartVC.swift in Sources */,
 				D4AE44F81E5B814800B91C95 /* Styling.swift in Sources */,
 				D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */,
+				D49EE9A11E89B1FC00BD52B1 /* PieChartVC.swift in Sources */,
 				D4112B4C1DFDC432009BF1B0 /* Styles.swift in Sources */,
 				D4E2D5E61DF2252D00360D89 /* ResultsVC.swift in Sources */,
 				D4112B4E1DFDC860009BF1B0 /* AddComponentTVCell.swift in Sources */,
 				9F57ABD01DED069F001BB221 /* CounterTVCell.swift in Sources */,
-				D4015EF21E3FF3D0000CDEEC /* ShareVC.swift in Sources */,
+				D49EE99F1E89B1A100BD52B1 /* BarChartVC.swift in Sources */,
+				D49EE99A1E89A56900BD52B1 /* ResultsTabBarVC.swift in Sources */,
 				9FA585981DFA1C1B00357C19 /* InvestigationVC.swift in Sources */,
 				D4519F5E1DAC4AA400FA274C /* AppDelegate.swift in Sources */,
 				9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */,

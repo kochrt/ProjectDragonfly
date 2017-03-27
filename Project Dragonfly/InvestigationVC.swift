@@ -45,6 +45,9 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBAction func changeCategory(_ sender: UIButton) {
         print("change category")
     }
+    @IBAction func results(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "results", sender: investigation)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -336,7 +339,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if let navcon = segue.destination as? UINavigationController {
             destination = navcon.visibleViewController
         }
-        if let dest = destination as? ResultsVC {
+        if let dest = destination as? ResultsTabBarVC {
             dest.investigation = investigation
         }
     }
@@ -344,7 +347,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func updated(date: Date) {
         if let i = investigation {
             i.date = date
-            dateLabel.text = "Last Edited: \(i.lastUpdated)"
+            dateLabel.text = "Last used: \(i.lastUpdated)"
         }
     }
     

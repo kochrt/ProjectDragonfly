@@ -14,7 +14,7 @@ class InvestigationTVCell: UITableViewCell {
     var investigation: Investigation? {
         didSet {
             nameLabel.text = investigation?.title
-            dateLabel.text = "Last updated: \(investigation!.lastUpdated)"
+            dateLabel.text = "Last used: \(investigation!.lastUpdated)"
             setComponentString()
         }
     }
