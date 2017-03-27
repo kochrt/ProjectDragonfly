@@ -12,9 +12,6 @@ import Charts
 class ChartVC: UIViewController {
     @IBOutlet weak var chartTitle: UILabel!
     @IBOutlet weak var chartView: ChartViewBase!
-    var investigation: Investigation! {
-        didSet {
-            print("CHARTVC")
-        }
-    }
+    var investigation: Investigation!
+    var colors: [NSUIColor] = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
 }

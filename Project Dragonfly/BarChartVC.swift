@@ -11,7 +11,7 @@ import Charts
 
 class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
 
-    var colors: [NSUIColor] = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
+    //var colors: [NSUIColor] = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
     var barDataEntries = [ChartDataEntry]()
     
     override func viewDidLoad() {
@@ -22,7 +22,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
     }
 
     func barChartEnable(barChart: BarChartView) {
-        func barChartEnable(barChart: BarChartView) {
             chartTitle.text = investigation.title
             barChart.delegate = self
             let xaxis:XAxis = XAxis()
@@ -59,10 +58,9 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
             }
             
             barChart.xAxis.labelCount = investigation.getInfo().count
-            barChart.chartDescription?.text = "Bar Chart"
+            barChart.chartDescription?.text = ""
             barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
             barChart.data = chartData
-        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
