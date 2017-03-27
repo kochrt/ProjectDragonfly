@@ -9,6 +9,7 @@
 import UIKit
 
 class CategoryManagementTVC: UITableViewController {
+    let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
     
     @IBAction
@@ -17,6 +18,22 @@ class CategoryManagementTVC: UITableViewController {
     }
     
     @IBAction func addCategory(_ sender: Any) {
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setupNewCategoryAlert() {
+        alert.addTextField { (textField) in
+            textField.placeholder = "Category name"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            let text = self.alert.textFields![0].text! // Force unwrapping because we know it exists.
+            
+            if (!Investigations.instance.sortedCategories.contains(text)) {
+                Investigations.instance.addCategory(name: text)
+                self.tableView.reloadData()
+            }
+        }))
     }
     
     // MARK: - Table view data source
@@ -118,5 +135,9 @@ class CategoryManagementTVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{(_) in }))
 
         return alert
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNewCategoryAlert()
     }
 }
