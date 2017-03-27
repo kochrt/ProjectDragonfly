@@ -28,7 +28,7 @@ class NewInvestigationVC: FormViewController {
         checkInvestigation()
         checkUncategorized()
     }
-
+    
     @IBOutlet weak var createButton: UIBarButtonItem!
     
     @IBAction func create(_ sender: UIBarButtonItem) {
