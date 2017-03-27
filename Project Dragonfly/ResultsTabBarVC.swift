@@ -19,7 +19,6 @@ class ResultsTabBarVC: UITabBarController {
                 chartVC.investigation = investigation
             }
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
