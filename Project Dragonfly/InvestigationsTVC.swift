@@ -36,11 +36,11 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Investigations.instance.nonEmptyCategoryNames.count
+        return Investigations.instance.getNonEmptyCategories().count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let cat = Investigations.instance.nonEmptyCategoryNames[section]
+        let cat = Investigations.instance.getNonEmptyCategories()[section]
         return Investigations.instance.investigations[cat]!.count
     }
     
@@ -59,7 +59,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Returns the title of the section and places the investigation in the correct section
-        return Investigations.instance.nonEmptyCategoryNames[section]
+        return Investigations.instance.getNonEmptyCategories()[section]
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
