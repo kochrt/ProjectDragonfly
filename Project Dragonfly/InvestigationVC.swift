@@ -71,6 +71,12 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categoryButton.setTitle(investigation?.category, for: .normal)
+    }
+    
+    
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if investigation.componentType != .IntervalCounter {
