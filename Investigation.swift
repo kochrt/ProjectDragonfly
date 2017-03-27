@@ -149,6 +149,17 @@ class Investigations {
     var sortedCategories = [String]()
     var nonEmptyCategoryNames = [String]()
 
+    func getNonEmptyCategories() -> [String]{
+        
+        var tmpCategoryNames = [String]()
+        for name in investigations.keys.sorted(){
+            
+            if (investigations[name]?.count != 0) {
+                tmpCategoryNames.append(name)
+            }
+        }
+        return tmpCategoryNames
+    }
     
     func setNonEmptyCategories() {
         
@@ -204,6 +215,7 @@ class Investigations {
     func restoreInvestigations() {
         if let data = UserDefaults.standard.object(forKey: "investigations") as? Data {
             
+            //embrace the horrible naming
             if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : [Investigation]] {
                 for (key, arr) in tigations{
                     addCategory(name: key)
