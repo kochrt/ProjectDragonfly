@@ -230,10 +230,10 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             self.investigation!.components.append(comp)
             if(self.investigation.components.count == 10) {
                 self.tableView.beginUpdates()
-                self.tableView.deleteRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .fade)
+                self.tableView.deleteRows(at: [IndexPath(row: self.tableView.visibleCells.count, section: 0)], with: .automatic)
                 self.tableView.insertRows(at: [indexPath], with: .automatic)
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 self.tableView.endUpdates()
+                self.tableView.reloadData()
             }
             else {
                 self.tableView.insertRows(at: [indexPath], with: .automatic)
@@ -318,14 +318,16 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if editingStyle == .delete {
             investigation.components.remove(at: indexPath.row)
             // had 10 comps, deleted one, now have 9, need to insert the add comp button cell
-            /*if(investigation.components.count == 9) {
+            if(investigation.components.count == 9) {
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.insertRows(at: [IndexPath(row: tableView.visibleCells.count, section: 0)], with: .automatic)
-                tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 tableView.endUpdates()
-            }*/
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.reloadData()
+            }
+            else {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
     }
     
