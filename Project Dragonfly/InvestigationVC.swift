@@ -30,8 +30,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var timeButton: UIButton!
     @IBOutlet weak var timerPickerView: UIPickerView!
     
-    @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var questionLabel: UILabel!
 
     @IBOutlet weak var categoryButton: UIButton!
@@ -54,8 +52,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         setupNewComponentAlert()
         setupTimerDataSource()
-        
-        dateLabel.text = "Last Edited: \(investigation!.lastUpdated)"
         
         // Sets the category to the curent category name
         categoryButton.setTitle(investigation?.category, for: .normal)
@@ -347,7 +343,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func updated(date: Date) {
         if let i = investigation {
             i.date = date
-            dateLabel.text = "Last used: \(i.lastUpdated)"
         }
     }
     
