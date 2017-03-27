@@ -343,7 +343,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func updated(date: Date) {
         if let i = investigation {
             i.date = date
-            dateLabel.text = "Last used: \(i.lastUpdated)"
         }
     }
     
