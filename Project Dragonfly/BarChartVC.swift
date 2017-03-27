@@ -18,7 +18,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         super.viewDidLoad()
         let barChart = chartView as! BarChartView
         barChartEnable(barChart: barChart)
-        print("BAR")
         // Do any additional setup after loading the view.
     }
 
