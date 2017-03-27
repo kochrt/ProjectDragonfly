@@ -203,20 +203,27 @@ class Investigations {
     
     func restoreInvestigations() {
         if let data = UserDefaults.standard.object(forKey: "investigations") as? Data {
-            if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Investigation] {
-                for investigation in tigations {
-                    let _ = addInvestigation(investigation: investigation)
+            
+            if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : [Investigation]] {
+                for (key, arr) in tigations{
+                    addCategory(name: key)
+                    for tigation in arr {
+                        addInvestigation(investigation: tigation)
+                    }
                 }
             }
+            sortedCategories = investigations.keys.sorted()
+            //if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : [Investigation]]{
+                
+                //for investigation in tigations {
+                //    let _ = addInvestigation(investigation: investigation)
+                //}
+            //}
         }
     }
     
     func saveInvestigations() {
-        var array = [Investigation]()
-        for (_, arr) in investigations {
-            array += arr
-        }
-        let data = NSKeyedArchiver.archivedData(withRootObject: array)
+        let data = NSKeyedArchiver.archivedData(withRootObject: investigations)
         UserDefaults.standard.set(data, forKey: "investigations")
     }
     

@@ -31,6 +31,7 @@
 		D49EE99C1E89B03B00BD52B1 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE99B1E89B03B00BD52B1 /* ChartVC.swift */; };
 		D49EE99F1E89B1A100BD52B1 /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE99E1E89B1A100BD52B1 /* BarChartVC.swift */; };
 		D49EE9A11E89B1FC00BD52B1 /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9A01E89B1FC00BD52B1 /* PieChartVC.swift */; };
+		D49EE9A31E89B67500BD52B1 /* CategoriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9A21E89B67500BD52B1 /* CategoriesTVC.swift */; };
 		D4AE44EE1E5B7CC500B91C95 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E51E5B7CC500B91C95 /* WorkSans-Black.ttf */; };
 		D4AE44EF1E5B7CC500B91C95 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E61E5B7CC500B91C95 /* WorkSans-Bold.ttf */; };
 		D4AE44F01E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E71E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf */; };
@@ -99,6 +100,7 @@
 		D49EE99B1E89B03B00BD52B1 /* ChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		D49EE99E1E89B1A100BD52B1 /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
 		D49EE9A01E89B1FC00BD52B1 /* PieChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartVC.swift; sourceTree = "<group>"; };
+		D49EE9A21E89B67500BD52B1 /* CategoriesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTVC.swift; sourceTree = "<group>"; };
 		D4AE44E51E5B7CC500B91C95 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
 		D4AE44E61E5B7CC500B91C95 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
 		D4AE44E71E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				9FA585971DFA1C1B00357C19 /* InvestigationVC.swift */,
 				D42773BE1DE3C03E00A1D775 /* CategoryManagementTVC.swift */,
 				D4519F8B1DAC4BB900FA274C /* InvestigationsTVC.swift */,
+				D49EE9A21E89B67500BD52B1 /* CategoriesTVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4519F8C1DAC4BB900FA274C /* InvestigationsTVC.swift in Sources */,
+				D49EE9A31E89B67500BD52B1 /* CategoriesTVC.swift in Sources */,
 				D42773BF1DE3C03E00A1D775 /* CategoryManagementTVC.swift in Sources */,
 				D4519F8E1DAC4F7300FA274C /* InvestigationTVCell.swift in Sources */,
 				D492FEE01DD149810052DBB0 /* Component.swift in Sources */,
