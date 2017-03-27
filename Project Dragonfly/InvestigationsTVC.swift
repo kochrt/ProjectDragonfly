@@ -11,6 +11,7 @@ import DZNEmptyDataSet
 
 class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
+    
     struct Strings {
         static let InvestigationDetail = "investigationDetail"
         static let CreateInvestigation = "createInvestigation"
@@ -28,24 +29,29 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Investigations.instance.saveInvestigations()
+
         tableView.reloadData()
     }
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Investigations.instance.sortedCategories.count
+        return Investigations.instance.nonEmptyCategoryNames.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Investigations.instance.investigations[Investigations.instance.sortedCategories[section]]!.count
+        let cat = Investigations.instance.nonEmptyCategoryNames[section]
+        return Investigations.instance.investigations[cat]!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTVCell
+        //print(indexPath)
+        print(Investigations.instance.investigations)
         cell.investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
         return cell
     }
+
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         
@@ -53,7 +59,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Returns the title of the section and places the investigation in the correct section
-        return Investigations.instance.sortedCategories[section]
+        return Investigations.instance.nonEmptyCategoryNames[section]
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
