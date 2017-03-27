@@ -18,6 +18,8 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     var items : [(String ,Double)]!
     var barDataEntries = [ChartDataEntry]()
     var pieDataEntries = [ChartDataEntry]()
+    var pieChart = PieChartView()
+    var colors: [NSUIColor] = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var chart: UIView!
@@ -30,7 +32,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
     }
 
     func chartType() {
-        titleLabel.text = investigation.title
+        
         let barChart = BarChartView(frame: chart.frame)
         
         if picker.selectedSegmentIndex == 0 {
@@ -58,16 +60,32 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         super.viewDidLayoutSubviews()
     }
     
+    // Change to make it show up on Rob's page thing
     func pieChartEnable() {
+        titleLabel.text = investigation.title
         var i = 0
         for values in investigation.getInfo() {
             let dataEntry = PieChartDataEntry(value: Double(i), label: values.name, data: Double(values.value) as AnyObject?)
             pieDataEntries.append(dataEntry)
             i += 1
         }
+        
+        let pieDataSet = PieChartDataSet(values: pieDataEntries, label: "")
+        pieDataSet.sliceSpace = 4.0
+        
+        pieDataSet.colors = colors
+        
+        let data = PieChartData(dataSet: pieDataSet)
+        
+        data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 9.0))
+        data.setValueTextColor(UIColor.black)
+        
+        pieChart.data = data
     }
 
+    // Change to make it show up on Rob's page thing
     func barChartEnable(barChart: BarChartView) {
+        titleLabel.text = investigation.title
         barChart.delegate = self
         let xaxis:XAxis = XAxis()
         
@@ -82,7 +100,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
-        chartDataSet.colors = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
+        chartDataSet.colors = colors
         
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
