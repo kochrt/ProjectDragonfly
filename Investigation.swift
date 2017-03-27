@@ -147,9 +147,10 @@ class Investigations {
     // Dictionary of category to investigation
     var investigations = [String : [Investigation]]()
     var sortedCategories = [String]()
+    var nonEmptyCategoryNames = [String]()
 
     
-    func getNonEmptyCategories() ->[String] {
+    func setNonEmptyCategories() {
         
         var tmpCategoryNames = [String]()
         for name in sortedCategories{
@@ -158,10 +159,9 @@ class Investigations {
                 tmpCategoryNames.append(name)
             }
         }
-        print(tmpCategoryNames)
-        //todo: sort alphabetically
+        //print(tmpCategoryNames)
         tmpCategoryNames.sort()
-        return tmpCategoryNames
+        nonEmptyCategoryNames = tmpCategoryNames
         
     }
     
@@ -170,18 +170,21 @@ class Investigations {
         let cat = investigation.category
         if let _ = investigations[cat] {
             investigations[cat]!.append(investigation)
+            setNonEmptyCategories()
             return IndexPath(row: investigations[cat]!.count - 1, section: sortedCategories.index(of: cat)!)
         } else {
             // New category
-            investigations[cat] = [investigation]
-            sortedCategories.append(cat)
-            sortedCategories.sort()
+            addCategory(name: cat)
+            investigations[cat]!.append(investigation)
+            setNonEmptyCategories()
             return IndexPath(row: 0, section: sortedCategories.index(of: cat)!)
         }
     }
     
     func investigationForIndexPath(path: IndexPath) -> Investigation {
-        let cat = sortedCategories[path.section]
+        print(nonEmptyCategoryNames)
+        let cat = nonEmptyCategoryNames[path.section]
+        print(cat)
         return investigations[cat]![path.row]
     }
     
@@ -195,6 +198,7 @@ class Investigations {
         if let section = investigations[cat] {
             investigations[cat] = section.filter { $0 != i }
         }
+        setNonEmptyCategories()
     }
     
     func restoreInvestigations() {
@@ -226,6 +230,7 @@ class Investigations {
             sortedCategories.remove(at: sortedCategories.index(of: named)!)
             investigations.removeValue(forKey: named)
         }
+        setNonEmptyCategories()
     }
     
     func deleteCategoryAndInvestigations(named: String) {
@@ -236,6 +241,7 @@ class Investigations {
             sortedCategories.remove(at: sortedCategories.index(of: named)!)
             investigations.removeValue(forKey: named)
         }
+        setNonEmptyCategories()
     }
     
     func addCategory(name: String) {
@@ -244,12 +250,14 @@ class Investigations {
             sortedCategories.sort()
             investigations[name] = []
         }
+        setNonEmptyCategories()
     }
     
     func renameCategory(old: String, new: String) {
         addCategory(name: new)
         moveAllInvestigationsInCategory(new: new, old: old)
         sortedCategories.remove(at: sortedCategories.index(of: old)!)
+        setNonEmptyCategories()
     }
     
     func moveAllInvestigationsInCategory(new: String, old: String) {
@@ -260,6 +268,7 @@ class Investigations {
                 i.category = new
             }
         }
+        setNonEmptyCategories()
     }
     
     func moveInvestigationToCategory(sourceCat: String, destCat: String, i: Investigation) {
@@ -269,6 +278,7 @@ class Investigations {
             i.category = sourceCat
             deleteInvestigation(i: i)
         }
+        setNonEmptyCategories()
     }
     
 }
