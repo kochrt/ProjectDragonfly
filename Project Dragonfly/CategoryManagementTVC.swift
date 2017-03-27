@@ -11,10 +11,12 @@ import UIKit
 class CategoryManagementTVC: UITableViewController {
     
     
-    
     @IBAction
     func cancel() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addCategory(_ sender: Any) {
     }
     
     // MARK: - Table view data source
