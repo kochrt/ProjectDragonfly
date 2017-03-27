@@ -297,6 +297,7 @@ class Investigations {
             addInvestigation(investigation: i)
             i.category = sourceCat
             deleteInvestigation(i: i)
+            i.category = destCat
         }
         setNonEmptyCategories()
     }
