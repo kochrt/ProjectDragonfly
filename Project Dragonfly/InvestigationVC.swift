@@ -337,13 +337,14 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         if let dest = destination as? ResultsTabBarVC {
             dest.investigation = investigation
+        } else if let dest = destination as? ChooseCategoryVC {
+            dest.investigation = investigation
         }
     }
     
     func updated(date: Date) {
         if let i = investigation {
             i.date = date
-            dateLabel.text = "Last used: \(i.lastUpdated)"
         }
     }
     

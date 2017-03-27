@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lZ-zO-feD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5324" y="708.39580209895053"/>
+            <point key="canvasLocation" x="4382" y="716"/>
         </scene>
         <!--Bar-->
         <scene sceneID="mhQ-i7-LVa">
@@ -606,7 +606,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dX-br-s38">
-                                                    <rect key="frame" x="8" y="8" width="327" height="44"/>
+                                                    <rect key="frame" x="8" y="8" width="327" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="tintColor" red="0.20000000000000001" green="0.52156862749999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="+">
@@ -657,7 +657,7 @@
                                 <state key="normal" title="Category"/>
                                 <connections>
                                     <action selector="changeCategory:" destination="qtV-N3-2Gg" eventType="touchUpInside" id="XeY-iu-cdU"/>
-                                    <segue destination="kaa-sz-cxi" kind="presentation" id="F1h-tA-2zs"/>
+                                    <segue destination="kaa-sz-cxi" kind="presentation" identifier="chooseCategory" id="F1h-tA-2zs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -712,21 +712,37 @@
             </objects>
             <point key="canvasLocation" x="2177" y="382"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Choose CategoryVC-->
         <scene sceneID="9pp-BU-prh">
             <objects>
-                <tableViewController id="2Nc-9c-yci" sceneMemberID="viewController">
+                <tableViewController id="2Nc-9c-yci" customClass="ChooseCategoryVC" customModule="Project_Dragonfly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OCH-L5-516">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pT5-e0-jil">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="category" textLabel="AkT-vh-ltD" detailTextLabel="UjT-Eb-tfa" style="IBUITableViewCellStyleSubtitle" id="Do5-kZ-oKv">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pT5-e0-jil" id="kg8-ri-Iv0">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Do5-kZ-oKv" id="sqE-dU-e5k">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AkT-vh-ltD">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UjT-Eb-tfa">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -746,7 +762,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kaa-sz-cxi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jep-g6-vNi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jep-g6-vNi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

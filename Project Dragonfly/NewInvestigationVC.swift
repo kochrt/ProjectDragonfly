@@ -27,7 +27,6 @@ class NewInvestigationVC: FormViewController {
         setupNewCategoryAlert()
         checkInvestigation()
         checkUncategorized()
-        
     }
 
     @IBOutlet weak var createButton: UIBarButtonItem!
@@ -36,7 +35,6 @@ class NewInvestigationVC: FormViewController {
         addInvestigationToCategory()
     }
     
-
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     func checkUncategorized() {
