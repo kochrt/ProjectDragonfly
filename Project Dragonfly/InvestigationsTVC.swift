@@ -43,7 +43,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         let cat = Investigations.instance.nonEmptyCategoryNames[section]
         return Investigations.instance.investigations[cat]!.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTVCell

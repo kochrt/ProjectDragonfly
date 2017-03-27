@@ -26,6 +26,8 @@ class NewInvestigationVC: FormViewController {
         setupForm()
         setupNewCategoryAlert()
         checkInvestigation()
+        checkUncategorized()
+        
     }
 
     @IBOutlet weak var createButton: UIBarButtonItem!
@@ -37,10 +39,15 @@ class NewInvestigationVC: FormViewController {
 
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
+    func checkUncategorized() {
+        let catSection = self.form.sectionBy(tag: "Categories")!
+        let row: ListCheckRow<String> = catSection.rowBy(tag: Investigations.Names.Uncategorized)!
+        row.didSelect()
+    }
+    
     func setupForm() {
-        let detailSection = Section()
-        detailSection.append(TextRow() { row in
-            row.title = "Title"
+        let titleSection = Section("Title")
+        titleSection.append(TextRow() { row in
             row.placeholder = "My Investigation"
             row.onChange({ (text) in
                 if let title = text.value {
@@ -49,7 +56,10 @@ class NewInvestigationVC: FormViewController {
                 self.checkInvestigation()
             })
         })
-        detailSection.append(TextRow() { row in
+        form.append(titleSection)
+        
+        let questionSection = Section("Question")
+        questionSection.append(TextAreaRow() { row in
             row.title = "Question"
             row.placeholder = "Why are there no squirrels anymore?"
             row.onChange({ (text) in
@@ -59,7 +69,7 @@ class NewInvestigationVC: FormViewController {
                 self.checkInvestigation()
             })
         })
-        form.append(detailSection)
+        form.append(questionSection)
         
         let toolSection = SelectableSection<ListCheckRow<String>>("Which tool do you need?", selectionType: .singleSelection(enableDeselection: false))
         
@@ -86,7 +96,7 @@ class NewInvestigationVC: FormViewController {
 
         let newCatSection = Section()
         newCatSection.append(ButtonRow() { row in
-            row.title = "Create new category"
+            row.title = "Create New Category"
             row.onCellSelection({ (cell, row) in
                 self.present(self.alert, animated: true, completion: nil)
                 self.checkInvestigation()
@@ -123,7 +133,7 @@ class NewInvestigationVC: FormViewController {
             
             if (Investigations.instance.sortedCategories.contains(text)) {
                 let row: ListCheckRow<String> = catSection.rowBy(tag: text)!
-                row.select()
+                row.didSelect()
                 print("already exists")
             } else {
                 print("new category")
@@ -134,6 +144,8 @@ class NewInvestigationVC: FormViewController {
                     row.value = nil
                     row.tag = text
                 })
+                let row: ListCheckRow<String> = catSection.rowBy(tag: text)!
+                row.didSelect()
             }
         }))
     }
