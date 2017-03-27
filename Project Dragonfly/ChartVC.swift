@@ -12,5 +12,9 @@ import Charts
 class ChartVC: UIViewController {
     @IBOutlet weak var chartTitle: UILabel!
     @IBOutlet weak var chartView: ChartViewBase!
-    var investigation: Investigation!
+    var investigation: Investigation! {
+        didSet {
+            print("CHARTVC")
+        }
+    }
 }
