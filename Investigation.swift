@@ -290,8 +290,9 @@ class Investigations {
         setNonEmptyCategories()
     }
     
-    func moveInvestigationToCategory(sourceCat: String, destCat: String, i: Investigation) {
+    func moveInvestigationToCategory(destCat: String, i: Investigation) {
         if sortedCategories.contains(destCat) {
+            let sourceCat = i.category
             i.category = destCat
             addInvestigation(investigation: i)
             i.category = sourceCat
