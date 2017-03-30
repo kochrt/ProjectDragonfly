@@ -10,8 +10,7 @@ import UIKit
 import DZNEmptyDataSet
 
 class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
-    
-    
+
     struct Strings {
         static let InvestigationDetail = "investigationDetail"
         static let CreateInvestigation = "createInvestigation"
@@ -97,22 +96,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         }
     }
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

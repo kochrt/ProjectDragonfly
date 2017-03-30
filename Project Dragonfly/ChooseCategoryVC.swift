@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol ChooseCategoryDelegate {
+    func categoryChosen()
+}
+
 class ChooseCategoryVC: CategoriesTVC {
 
     var investigation: Investigation!
+
     var category: String! = ""
+
+    var delegate: ChooseCategoryDelegate!
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -19,6 +26,7 @@ class ChooseCategoryVC: CategoriesTVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cat: String = (tableView.cellForRow(at: indexPath)?.textLabel?.text)!
+
         if(investigation != nil) {
             Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
         } else {
@@ -26,6 +34,11 @@ class ChooseCategoryVC: CategoriesTVC {
         }
         
         dismiss(animated: true, completion: nil)
+
+        Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
+        dismiss(animated: true, completion: {
+            self.delegate?.categoryChosen()
+        })
     }
     
 //    override func viewDidLoad() {
