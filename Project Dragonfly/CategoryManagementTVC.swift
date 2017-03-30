@@ -23,6 +23,11 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNewCategoryAlert()
+    }
+    
     @IBAction func addCategory(_ sender: Any) {
         self.present(alert, animated: true, completion: nil)
     }
@@ -122,11 +127,6 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         return alert
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupNewCategoryAlert()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var destination = segue.destination as? UIViewController
         if let navcon = segue.destination as? UINavigationController {
@@ -138,6 +138,8 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         }
     }
     
-   
     
+    func categoryChosen() {
+        tableView.reloadData()
+    }
 }
