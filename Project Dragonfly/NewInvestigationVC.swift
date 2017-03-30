@@ -91,22 +91,10 @@ class NewInvestigationVC: FormViewController {
         }
         form.append(toolSection)
         
-
-        let newCatSection = Section()
-        newCatSection.append(ButtonRow() { row in
-            row.title = "Create New Category"
-            row.onCellSelection({ (cell, row) in
-                self.present(self.alert, animated: true, completion: nil)
-                self.checkInvestigation()
-            })
-            
-        })
-        form.append(newCatSection)
-        
         let categorySection = SelectableSection<ListCheckRow<String>>("Choose a category:", selectionType: .singleSelection(enableDeselection: false))
         categorySection.tag = "Categories"
 
-        for cat in Investigations.instance.sortedCategories {
+        for cat in Investigations.instance.investigations.keys.sorted() {
             categorySection.append(ListCheckRow<String>(cat) { row in
                 row.title = cat
                 row.selectableValue = cat
@@ -118,6 +106,17 @@ class NewInvestigationVC: FormViewController {
             self.investigation.category = row.value!
         }
         form.append(categorySection)
+        
+        let newCatSection = Section()
+        newCatSection.append(ButtonRow() { row in
+            row.title = "Create New Category"
+            row.onCellSelection({ (cell, row) in
+                self.present(self.alert, animated: true, completion: nil)
+                self.checkInvestigation()
+            })
+            
+        })
+        form.append(newCatSection)
     }
     
     func setupNewCategoryAlert() {
@@ -129,7 +128,7 @@ class NewInvestigationVC: FormViewController {
             let text = self.alert.textFields![0].text! // Force unwrapping because we know it exists.
             let catSection = self.form.sectionBy(tag: "Categories")!
             
-            if (Investigations.instance.sortedCategories.contains(text)) {
+            if (Investigations.instance.investigations.keys.contains(text)) {
                 let row: ListCheckRow<String> = catSection.rowBy(tag: text)!
                 row.didSelect()
                 print("already exists")

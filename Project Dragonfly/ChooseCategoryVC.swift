@@ -27,5 +27,5 @@ class ChooseCategoryVC: CategoriesTVC {
         
         dismiss(animated: true, completion: nil)
     }
-    
+
 }

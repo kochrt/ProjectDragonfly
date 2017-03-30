@@ -15,13 +15,13 @@ class CategoriesTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = Investigations.instance.sortedCategories.count
+        let count = Investigations.instance.investigations.keys.sorted().count
         return count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as UITableViewCell
-        let cat = Investigations.instance.sortedCategories[indexPath.row]
+        let cat = Investigations.instance.investigations.keys.sorted()[indexPath.row]
         cell.textLabel?.text = cat
         let count = Investigations.instance.investigations[cat]!.count
         cell.detailTextLabel?.text = "\(count) investigation\(count > 1 || count == 0 ? "s" : "")"

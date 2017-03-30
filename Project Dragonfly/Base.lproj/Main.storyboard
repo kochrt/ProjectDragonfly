@@ -524,7 +524,7 @@
                                                     <rect key="frame" x="8" y="15" width="211" height="29"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <connections>
                                                         <action selector="nameInput:" destination="dnP-AM-hxz" eventType="editingDidEnd" id="MrD-89-5OC"/>
                                                     </connections>
@@ -562,7 +562,7 @@
                                                     <rect key="frame" x="8" y="14" width="189" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     <connections>
                                                         <action selector="nameFieldInput:" destination="U8V-wG-a7N" eventType="editingDidEnd" id="3IV-d4-BjE"/>
                                                     </connections>
@@ -785,6 +785,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pqz-6k-F2G"/>
+        <segue reference="F1h-tA-2zs"/>
     </inferredMetricsTieBreakers>
 </document>
