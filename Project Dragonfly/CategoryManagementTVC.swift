@@ -17,6 +17,11 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNewCategoryAlert()
+    }
+    
     @IBAction func addCategory(_ sender: Any) {
         self.present(alert, animated: true, completion: nil)
     }
@@ -114,8 +119,8 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         return alert
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupNewCategoryAlert()
+    func categoryChosen() {
+        
     }
+    
 }
