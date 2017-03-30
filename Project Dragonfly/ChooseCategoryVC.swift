@@ -27,25 +27,14 @@ class ChooseCategoryVC: CategoriesTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cat: String = (tableView.cellForRow(at: indexPath)?.textLabel?.text)!
 
-        if(investigation != nil) {
+        if (investigation != nil) {
             Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
         } else {
             Investigations.instance.moveAllInvestigationsInCategory(new: cat, old: category)
         }
         
-        dismiss(animated: true, completion: nil)
-
-        Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
         dismiss(animated: true, completion: {
             self.delegate?.categoryChosen()
         })
     }
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.delegate?.backFromCamera()
-//    }
-    
-    
-
 }
