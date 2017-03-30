@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryManagementTVC: CategoriesTVC {
+class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     
     let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
@@ -113,6 +113,7 @@ class CategoryManagementTVC: CategoriesTVC {
 
         return alert
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNewCategoryAlert()

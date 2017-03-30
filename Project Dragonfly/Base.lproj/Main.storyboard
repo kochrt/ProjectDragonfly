@@ -402,64 +402,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaA-W8-OLP">
-                                <rect key="frame" x="16" y="129" width="343" height="136"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyq-hf-msn">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="64" id="1So-IE-22l"/>
-                                        </constraints>
-                                    </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWJ-9o-h9G">
-                                        <rect key="frame" x="0.0" y="72" width="163.5" height="64"/>
-                                        <color key="backgroundColor" red="0.044120422899999998" green="0.78517518195432101" blue="0.45871414310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="timerButton:" destination="qtV-N3-2Gg" eventType="touchUpInside" id="Gbg-kc-ILQ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpy-Y7-vPo">
-                                        <rect key="frame" x="171.5" y="72" width="163.5" height="64"/>
-                                        <color key="backgroundColor" white="0.64102741974739386" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" title="Reset">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="reset:" destination="qtV-N3-2Gg" eventType="touchUpInside" id="GsQ-pC-h9d"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWI-TF-5Ts">
+                                <rect key="frame" x="0.0" y="64" width="375" height="28"/>
+                                <color key="backgroundColor" white="0.95203609231077591" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Dpy-Y7-vPo" firstAttribute="width" secondItem="zWJ-9o-h9G" secondAttribute="width" id="7mJ-KV-g36"/>
-                                    <constraint firstAttribute="bottom" secondItem="zWJ-9o-h9G" secondAttribute="bottom" id="FSO-gJ-rnT"/>
-                                    <constraint firstItem="Eyq-hf-msn" firstAttribute="top" secondItem="MaA-W8-OLP" secondAttribute="top" id="Ic9-ZI-flS"/>
-                                    <constraint firstAttribute="trailing" secondItem="Dpy-Y7-vPo" secondAttribute="trailing" constant="8" id="KHE-9e-QI5"/>
-                                    <constraint firstItem="zWJ-9o-h9G" firstAttribute="top" secondItem="Eyq-hf-msn" secondAttribute="bottom" constant="8" symbolic="YES" id="kv5-hf-oxq"/>
-                                    <constraint firstAttribute="bottom" secondItem="Dpy-Y7-vPo" secondAttribute="bottom" id="pfP-wA-jtm"/>
-                                    <constraint firstItem="zWJ-9o-h9G" firstAttribute="leading" secondItem="MaA-W8-OLP" secondAttribute="leading" id="plm-Th-pLG"/>
-                                    <constraint firstItem="Eyq-hf-msn" firstAttribute="leading" secondItem="MaA-W8-OLP" secondAttribute="leading" id="poF-Yg-cOE"/>
-                                    <constraint firstItem="Eyq-hf-msn" firstAttribute="width" secondItem="MaA-W8-OLP" secondAttribute="width" id="rt1-V2-i4j"/>
-                                    <constraint firstItem="Dpy-Y7-vPo" firstAttribute="height" secondItem="zWJ-9o-h9G" secondAttribute="height" id="ruz-87-KkQ"/>
-                                    <constraint firstItem="Dpy-Y7-vPo" firstAttribute="leading" secondItem="zWJ-9o-h9G" secondAttribute="trailing" constant="8" symbolic="YES" id="yWT-Hx-DyB"/>
-                                    <constraint firstItem="zWJ-9o-h9G" firstAttribute="height" secondItem="Eyq-hf-msn" secondAttribute="height" id="zcX-Q7-eao"/>
+                                    <constraint firstAttribute="height" constant="28" id="Rw3-OJ-klM"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" title="Category"/>
+                                <connections>
+                                    <segue destination="kaa-sz-cxi" kind="presentation" identifier="chooseCategory" id="F1h-tA-2zs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCb-8P-ndy">
+                                <rect key="frame" x="16" y="100" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" tag="20" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KI8-ih-7ya">
                                 <rect key="frame" x="16" y="281" width="343" height="342"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -468,7 +427,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnP-AM-hxz" id="zRy-bz-s4k">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="58.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00n-sp-1YO">
@@ -555,7 +514,7 @@
                                         <rect key="frame" x="0.0" y="87" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U8V-wG-a7N" id="T1Y-mg-bqb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GdU-mq-8yu">
@@ -605,7 +564,7 @@
                                         <rect key="frame" x="0.0" y="147" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jZb-TZ-NBi" id="Wzb-Pa-S9Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dX-br-s38">
@@ -645,23 +604,64 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5qQ-iu-Cll"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCb-8P-ndy">
-                                <rect key="frame" x="16" y="100" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWI-TF-5Ts">
-                                <rect key="frame" x="0.0" y="64" width="375" height="28"/>
-                                <color key="backgroundColor" white="0.95203609231077591" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MaA-W8-OLP">
+                                <rect key="frame" x="16" y="129" width="343" height="136"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyq-hf-msn">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="1So-IE-22l"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWJ-9o-h9G">
+                                        <rect key="frame" x="0.0" y="72" width="163.5" height="64"/>
+                                        <color key="backgroundColor" red="0.044120422899999998" green="0.78517518195432101" blue="0.45871414310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="timerButton:" destination="qtV-N3-2Gg" eventType="touchUpInside" id="Gbg-kc-ILQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dpy-Y7-vPo">
+                                        <rect key="frame" x="171.5" y="72" width="163.5" height="64"/>
+                                        <color key="backgroundColor" white="0.64102741974739386" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="reset:" destination="qtV-N3-2Gg" eventType="touchUpInside" id="GsQ-pC-h9d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="Rw3-OJ-klM"/>
+                                    <constraint firstItem="Dpy-Y7-vPo" firstAttribute="width" secondItem="zWJ-9o-h9G" secondAttribute="width" id="7mJ-KV-g36"/>
+                                    <constraint firstAttribute="bottom" secondItem="zWJ-9o-h9G" secondAttribute="bottom" id="FSO-gJ-rnT"/>
+                                    <constraint firstItem="Eyq-hf-msn" firstAttribute="top" secondItem="MaA-W8-OLP" secondAttribute="top" id="Ic9-ZI-flS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dpy-Y7-vPo" secondAttribute="trailing" constant="8" id="KHE-9e-QI5"/>
+                                    <constraint firstItem="zWJ-9o-h9G" firstAttribute="top" secondItem="Eyq-hf-msn" secondAttribute="bottom" constant="8" symbolic="YES" id="kv5-hf-oxq"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dpy-Y7-vPo" secondAttribute="bottom" id="pfP-wA-jtm"/>
+                                    <constraint firstItem="zWJ-9o-h9G" firstAttribute="leading" secondItem="MaA-W8-OLP" secondAttribute="leading" id="plm-Th-pLG"/>
+                                    <constraint firstItem="Eyq-hf-msn" firstAttribute="leading" secondItem="MaA-W8-OLP" secondAttribute="leading" id="poF-Yg-cOE"/>
+                                    <constraint firstItem="Eyq-hf-msn" firstAttribute="width" secondItem="MaA-W8-OLP" secondAttribute="width" id="rt1-V2-i4j"/>
+                                    <constraint firstItem="Dpy-Y7-vPo" firstAttribute="height" secondItem="zWJ-9o-h9G" secondAttribute="height" id="ruz-87-KkQ"/>
+                                    <constraint firstItem="Dpy-Y7-vPo" firstAttribute="leading" secondItem="zWJ-9o-h9G" secondAttribute="trailing" constant="8" symbolic="YES" id="yWT-Hx-DyB"/>
+                                    <constraint firstItem="zWJ-9o-h9G" firstAttribute="height" secondItem="Eyq-hf-msn" secondAttribute="height" id="zcX-Q7-eao"/>
                                 </constraints>
-                                <state key="normal" title="Category"/>
-                                <connections>
-                                    <segue destination="kaa-sz-cxi" kind="presentation" identifier="chooseCategory" id="F1h-tA-2zs"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

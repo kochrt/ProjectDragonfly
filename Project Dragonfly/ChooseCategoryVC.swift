@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol ChooseCategoryDelegate {
+    func categoryChosen()
+}
+
 class ChooseCategoryVC: CategoriesTVC {
 
     var investigation: Investigation!
+    var delegate: ChooseCategoryDelegate!
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -19,7 +24,9 @@ class ChooseCategoryVC: CategoriesTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cat: String = (tableView.cellForRow(at: indexPath)?.textLabel?.text)!
         Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.delegate?.categoryChosen()
+        })
     }
 
 }
