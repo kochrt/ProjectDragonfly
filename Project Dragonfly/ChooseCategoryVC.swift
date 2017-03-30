@@ -11,6 +11,7 @@ import UIKit
 class ChooseCategoryVC: CategoriesTVC {
 
     var investigation: Investigation!
+    var category: String! = ""
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -18,7 +19,12 @@ class ChooseCategoryVC: CategoriesTVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cat: String = (tableView.cellForRow(at: indexPath)?.textLabel?.text)!
-        Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
+        if(investigation != nil) {
+            Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
+        } else {
+            Investigations.instance.moveAllInvestigationsInCategory(new: cat, old: category)
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
