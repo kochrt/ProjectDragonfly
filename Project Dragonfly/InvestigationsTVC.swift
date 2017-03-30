@@ -79,7 +79,19 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         if editingStyle == .delete {
             // Delete the row from the data source
             Investigations.instance.deleteInvestigation(at: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            if(tableView.numberOfRows(inSection: indexPath.section) == 1){
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                var indexSet = IndexSet()
+                indexSet.insert(indexPath.section)
+                tableView.deleteSections(indexSet, with: .fade)
+                tableView.endUpdates()
+                
+            } else {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }

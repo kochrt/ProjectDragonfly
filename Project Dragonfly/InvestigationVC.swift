@@ -30,8 +30,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var timeButton: UIButton!
     @IBOutlet weak var timerPickerView: UIPickerView!
     
-    @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var questionLabel: UILabel!
 
     @IBOutlet weak var categoryButton: UIButton!
@@ -42,9 +40,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let _ = Investigations.instance.addInvestigation(investigation: c)
         let _ = navigationController?.popViewController(animated: true)
     }
-    @IBAction func changeCategory(_ sender: UIButton) {
-        print("change category")
-    }
+    
     @IBAction func results(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "results", sender: investigation)
     }
@@ -54,8 +50,6 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         setupNewComponentAlert()
         setupTimerDataSource()
-        
-        dateLabel.text = "Last Edited: \(investigation!.lastUpdated)"
         
         // Sets the category to the curent category name
         categoryButton.setTitle(investigation?.category, for: .normal)
@@ -74,6 +68,12 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         disableButtons(disable: true)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        categoryButton.setTitle(investigation?.category, for: .normal)
+    }
+    
     
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -341,13 +341,14 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         if let dest = destination as? ResultsTabBarVC {
             dest.investigation = investigation
+        } else if let dest = destination as? ChooseCategoryVC {
+            dest.investigation = investigation
         }
     }
     
     func updated(date: Date) {
         if let i = investigation {
             i.date = date
-            dateLabel.text = "Last used: \(i.lastUpdated)"
         }
     }
     
