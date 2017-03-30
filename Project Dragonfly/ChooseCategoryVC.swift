@@ -32,20 +32,11 @@ class ChooseCategoryVC: CategoriesTVC {
         } else {
             Investigations.instance.moveAllInvestigationsInCategory(new: cat, old: category)
         }
-        
-        dismiss(animated: true, completion: nil)
 
-        Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
+        
         dismiss(animated: true, completion: {
             self.delegate?.categoryChosen()
         })
     }
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.delegate?.backFromCamera()
-//    }
-    
-    
 
 }

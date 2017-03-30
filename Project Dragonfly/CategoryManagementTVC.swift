@@ -9,6 +9,10 @@
 import UIKit
 
 class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
+    internal func categoryChosen() {
+        
+    }
+
     
     let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
