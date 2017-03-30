@@ -30,8 +30,21 @@ class ResultsTabBarVC: UITabBarController {
         dismiss(animated: true, completion: nil)
     }
     
-    // TODO
     @IBAction func share(_ sender: UIBarButtonItem) {
-        
+        if let chartVC = selectedViewController as? ChartVC {
+            let (string, image) = chartVC.share()
+            var items = [Any]()
+            if let s = string {
+                items.append(s)
+            }
+            if let i = image {
+                items.append(i)
+            }
+            let shareController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            if let popover = shareController.popoverPresentationController {
+                popover.barButtonItem = sender as? UIBarButtonItem
+                present(shareController, animated: true, completion: nil)
+            }
+        }
     }
 }

@@ -9,9 +9,17 @@
 import UIKit
 import Charts
 
-class ChartVC: UIViewController {
+protocol Share {
+    func share() -> (String?, UIImage?)
+}
+
+class ChartVC: UIViewController, Share {
     @IBOutlet weak var chartTitle: UILabel!
     @IBOutlet weak var chartView: ChartViewBase!
     var investigation: Investigation!
     var colors: [NSUIColor] = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
+    
+    func share() -> (String?, UIImage?) {
+        return (nil, nil)
+    }
 }

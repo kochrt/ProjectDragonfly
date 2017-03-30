@@ -21,5 +21,5 @@ class ChooseCategoryVC: CategoriesTVC {
         Investigations.instance.moveInvestigationToCategory(destCat: cat, i: investigation)
         dismiss(animated: true, completion: nil)
     }
-    
+
 }
