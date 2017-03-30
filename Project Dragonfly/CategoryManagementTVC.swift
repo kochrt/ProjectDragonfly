@@ -29,7 +29,7 @@ class CategoryManagementTVC: CategoriesTVC {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             let text = self.alert.textFields![0].text! // Force unwrapping because we know it exists.
             
-            if (!Investigations.instance.sortedCategories.contains(text)) {
+            if (!Investigations.instance.investigations.keys.sorted().contains(text)) {
                 Investigations.instance.addCategory(name: text)
                 self.tableView.reloadData()
             }
@@ -40,7 +40,7 @@ class CategoryManagementTVC: CategoriesTVC {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // present alert with category name
-        let cat = Investigations.instance.sortedCategories[indexPath.row]
+        let cat = Investigations.instance.investigations.keys.sorted()[indexPath.row]
         let optionsSheet = setupOptionsSheet(category: cat, indexPath: indexPath)
         // this prevents the optionsSheet from requiring 2 clicks before appearing, now only needs one click/tap
         DispatchQueue.main.async(execute: {
