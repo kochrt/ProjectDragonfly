@@ -182,13 +182,13 @@ class Investigations {
         if let _ = investigations[cat] {
             investigations[cat]!.append(investigation)
             setNonEmptyCategories()
-            return IndexPath(row: investigations[cat]!.count - 1, section: sortedCategories.index(of: cat)!)
+            return IndexPath(row: investigations[cat]!.count - 1, section: investigations.keys.sorted().index(of: cat)!)
         } else {
             // New category
             addCategory(name: cat)
             investigations[cat]!.append(investigation)
             setNonEmptyCategories()
-            return IndexPath(row: 0, section: sortedCategories.index(of: cat)!)
+            return IndexPath(row: 0, section: investigations.keys.sorted().index(of: cat)!)
         }
     }
     
