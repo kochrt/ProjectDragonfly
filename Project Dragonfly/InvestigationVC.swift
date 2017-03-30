@@ -40,9 +40,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         let _ = Investigations.instance.addInvestigation(investigation: c)
         let _ = navigationController?.popViewController(animated: true)
     }
-    @IBAction func changeCategory(_ sender: UIButton) {
-        print("change category")
-    }
+    
     @IBAction func results(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "results", sender: investigation)
     }
