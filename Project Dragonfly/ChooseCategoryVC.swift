@@ -33,6 +33,7 @@ class ChooseCategoryVC: CategoriesTVC {
             Investigations.instance.moveAllInvestigationsInCategory(new: cat, old: category)
         }
         dismiss(animated: true, completion: {
+            print("in dismiss")
             self.delegate?.categoryChosen()
         })
     }
