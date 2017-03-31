@@ -134,7 +134,6 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         }
     }
     
-    
     func categoryChosen() {
         tableView.reloadData()
     }
