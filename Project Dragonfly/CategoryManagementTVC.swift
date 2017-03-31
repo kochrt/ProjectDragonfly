@@ -22,6 +22,7 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNewCategoryAlert()
+        
     }
     
     @IBAction func addCategory(_ sender: Any) {
@@ -91,7 +92,6 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         optionsSheet.addAction(UIAlertAction(title: "Move investigations to...", style: .default, handler:{ (_) in
             self.category = category;
             self.performSegue(withIdentifier: "moveToCategory", sender: self)
-            self.tableView.reloadData()
         }));
         
         optionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{(_) in }))
@@ -131,10 +131,13 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         if let dest = destination as? ChooseCategoryVC {
             dest.investigation = nil
             dest.category = self.category
+            dest.delegate = self
         }
     }
     
     func categoryChosen() {
+        print("in chosen")
         tableView.reloadData()
+        print("in chosen")
     }
 }
