@@ -20,7 +20,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var startTime = TimeInterval()
     var timer = Timer()
     
-    @IBOutlet weak var tableViewToQuestionContstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewToBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var tableViewToTimerConstraint: NSLayoutConstraint!
     
@@ -85,12 +85,11 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func removeTimer() {
         timerView.isHidden = true
         tableViewToTimerConstraint.isActive = false
-        tableViewToQuestionContstraint.isActive = true
+        tableViewToBottomConstraint.isActive = true
         updateViewConstraints()
     }
     
     // MARK: *** Timed Counter methods ***
-    
     @IBAction func reset(_ sender: UIButton) {
         guard investigation.componentType == .IntervalCounter
             else { return }
