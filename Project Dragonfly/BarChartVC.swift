@@ -11,7 +11,6 @@ import Charts
 
 class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
 
-    //var colors: [NSUIColor] = [.green, .yellow, .red, .magenta, .blue, .brown, .cyan, .darkGray, .gray, .purple]
     var barDataEntries = [ChartDataEntry]()
     
     override func viewDidLoad() {
@@ -23,6 +22,8 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
     func barChartEnable(barChart: BarChartView) {
         chartTitle.text = investigation.question
         barChart.delegate = self
+        
+        
         let xaxis:XAxis = XAxis()
         
         let info = investigation.getInfo()
@@ -34,7 +35,10 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         }
         
         xaxis.valueFormatter = self
+        
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
+        
+        
         
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = colors
@@ -42,7 +46,7 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
         
-        barChart.xAxis.labelPosition = .bottom
+        barChart.xAxis.labelPosition = .bothSided
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         barChart.legend.enabled = false
         
@@ -56,19 +60,38 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
             barChart.xAxis.labelRotationAngle = 45
         }
         
+        barChart.drawBordersEnabled = false
+        barChart.xAxis.drawGridLinesEnabled = false
         barChart.xAxis.labelCount = info.count
         barChart.chartDescription?.text = ""
         barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
-        barChart.leftAxis.calculate(min: 3, max: 10)
-        barChart.rightAxis.calculate(min: 3, max: 10)
+        barChart.drawValueAboveBarEnabled = true
         barChart.data = chartData
         
-//        barChart.rightAxis = false
     }
     
-    override func share() -> (String?, UIImage?) {
-        // TODO
-        return (nil, nil)
+    @IBAction func share(_ sender: Any) {
+        let shareString = "Check out this investigation I made in the Dragonfly App!"
+        
+        let shareController = UIActivityViewController(activityItems: [shareString, getScreenshot()], applicationActivities: nil)
+        if let popover = shareController.popoverPresentationController {
+            popover.barButtonItem = sender as? UIBarButtonItem
+            present(shareController, animated: true, completion: nil)
+        }
+    }
+    
+    func getScreenshot() -> UIImage {
+        // grab reference to the view you'd like to capture
+        let wholeScreen = self.view!
+        
+        // define the size and grab a UIImage from it
+        UIGraphicsBeginImageContextWithOptions(wholeScreen.bounds.size, wholeScreen.isOpaque, 0.0);
+        
+        wholeScreen.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let screengrab = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return screengrab!
     }
 
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
