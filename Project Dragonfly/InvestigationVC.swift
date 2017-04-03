@@ -8,7 +8,11 @@
 
 import UIKit
 
-class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, InvestigationDelegate {
+class InvestigationVC:
+    UIViewController, UITableViewDelegate,
+    UITableViewDataSource, UIPickerViewDelegate,
+    UIPickerViewDataSource, InvestigationDelegate,
+    UITextFieldDelegate {
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -61,12 +65,22 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = false
         
+        questionTextField.delegate = self
+        
         setFieldsFromInvestigation()
         
         timerPickerView.dataSource = self
         timerPickerView.delegate = self
         resetTimer()
         disableButtons(disable: true)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
