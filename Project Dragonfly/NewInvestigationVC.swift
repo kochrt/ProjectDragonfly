@@ -15,7 +15,7 @@ protocol NewInvestigationDelegate {
 }
 
 class NewInvestigationVC: FormViewController {
-
+     let titleLimit = 10
      let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
     var investigation = Investigation(question: "", components: [], title: "", category: Investigations.Names.Uncategorized)
@@ -37,6 +37,7 @@ class NewInvestigationVC: FormViewController {
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
+    
     func checkUncategorized() {
         let catSection = self.form.sectionBy(tag: "Categories")!
         let row: ListCheckRow<String> = catSection.rowBy(tag: Investigations.Names.Uncategorized)!
@@ -47,12 +48,24 @@ class NewInvestigationVC: FormViewController {
         let titleSection = Section("Title")
         titleSection.append(TextRow() { row in
             row.placeholder = "My Investigation"
-            row.onChange({ (text) in
-                if let title = text.value {
-                    self.investigation.title = title
+            row.add(rule: RuleMaxLength(maxLength: UInt(20)))
+            
+            row.validationOptions = .validatesOnChange
+            row.cellUpdate {cell, row in
+                print(row.isValid)
+                if(!row.isValid){
+                    cell.textField.text = self.investigation.title
+                    if(cell.textField.text?.characters.count == 1) {
+                        cell.textField.text = ""
+                    }
+                    
+                } else {
+                    if let title = cell.textField.text {
+                        self.investigation.title = title
+                    }
+                    self.checkInvestigation()
                 }
-                self.checkInvestigation()
-            })
+            }
         })
         form.append(titleSection)
         
