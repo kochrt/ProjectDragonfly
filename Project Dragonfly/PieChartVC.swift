@@ -24,7 +24,7 @@ class PieChartVC: ChartVC {
         chartTitle.text = investigation.title
         var i = 0
         for values in investigation.getInfo() {
-            let dataEntry = PieChartDataEntry(value: Double(i), label: values.name, data: Double(values.value) as AnyObject?)
+            let dataEntry = PieChartDataEntry(value: Double(values.value), label: values.name, data: Double(i) as AnyObject?)
             pieDataEntries.append(dataEntry)
             i += 1
         }
@@ -40,6 +40,9 @@ class PieChartVC: ChartVC {
         data.setValueTextColor(UIColor.black)
         
         pieChart.data = data
+        pieChart.animate(yAxisDuration: 1.4, easingOption: ChartEasingOption.easeInCubic)
+        
+//        pieChart.extraTopOffset = 20.0;
     }
     
     override func share() -> (String?, UIImage?) {

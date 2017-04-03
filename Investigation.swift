@@ -36,6 +36,8 @@ class Investigation: NSObject, NSCoding {
         self.componentType = .Counter
     }
     
+    
+    
     required init(coder decoder: NSCoder) {
         if let data = decoder.decodeObject(forKey: Keys.components) as? Data {
             if let comps = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Component] {
@@ -114,6 +116,8 @@ class Investigation: NSObject, NSCoding {
         return info
     }
     
+    //clone function which parameterizes the option to clone the data of its components
+    //or to clone a version of itself with "reset" component data.
     func clone(cloneWithData: Bool) -> Investigation {
         
         var components_clone = [Component]()
@@ -121,7 +125,7 @@ class Investigation: NSObject, NSCoding {
         for c in self.components {
             components_clone.append(c.clone(cloneWithData: cloneWithData))
         }
-    
+        
         let clone = Investigation(question: self.question, components: components_clone, title: self.title, category: self.category)
         clone.componentType = self.componentType
         clone.title = clone.title + " (copy)"
@@ -129,8 +133,19 @@ class Investigation: NSObject, NSCoding {
         return clone
     
     }
+    
+    func setTitle(newTitle: String){
+        title = newTitle
+    }
+    
+    func setQuestion(newQuestion: String){
+        question = newQuestion
+    }
 }
 
+
+// This class represents our collection of our categories, investigations associated with them,
+// and the functions to manipulate/organize them
 class Investigations {
     static let instance = Investigations()
     
@@ -141,16 +156,14 @@ class Investigations {
     init() {
         let uncat = Names.Uncategorized
         investigations[uncat] = []
-        sortedCategories.append(uncat)
     }
     
-    // Dictionary of category to investigation
+    //Dictionary that maps category name to a list of investigations
+    //effectively contains all data for the app
     var investigations = [String : [Investigation]]()
-    var sortedCategories = [String]()
-    var nonEmptyCategoryNames = [String]()
-
+    
+    //solution for not displaying empty categories on the investigaiton page
     func getNonEmptyCategories() -> [String]{
-        
         var tmpCategoryNames = [String]()
         for name in investigations.keys.sorted(){
             
@@ -161,41 +174,22 @@ class Investigations {
         return tmpCategoryNames
     }
     
-    func setNonEmptyCategories() {
-        
-        var tmpCategoryNames = [String]()
-        for name in sortedCategories{
-            
-            if (investigations[name]?.count != 0) {
-                tmpCategoryNames.append(name)
-            }
-        }
-        //print(tmpCategoryNames)
-        tmpCategoryNames.sort()
-        nonEmptyCategoryNames = tmpCategoryNames
-        
-    }
-    
     // Adds investigation and category
     func addInvestigation(investigation: Investigation) -> IndexPath {
         let cat = investigation.category
         if let _ = investigations[cat] {
             investigations[cat]!.append(investigation)
-            setNonEmptyCategories()
             return IndexPath(row: investigations[cat]!.count - 1, section: investigations.keys.sorted().index(of: cat)!)
         } else {
             // New category
             addCategory(name: cat)
             investigations[cat]!.append(investigation)
-            setNonEmptyCategories()
             return IndexPath(row: 0, section: investigations.keys.sorted().index(of: cat)!)
         }
     }
     
     func investigationForIndexPath(path: IndexPath) -> Investigation {
-        print(nonEmptyCategoryNames)
-        let cat = nonEmptyCategoryNames[path.section]
-        print(cat)
+        let cat = getNonEmptyCategories()[path.section]
         return investigations[cat]![path.row]
     }
     
@@ -209,12 +203,17 @@ class Investigations {
         if let section = investigations[cat] {
             investigations[cat] = section.filter { $0 != i }
         }
-        setNonEmptyCategories()
     }
     
+    //This function saves our our String:[Investigation] dictionary to a local file
+    func saveInvestigations() {
+        let data = NSKeyedArchiver.archivedData(withRootObject: investigations)
+        UserDefaults.standard.set(data, forKey: "investigations")
+    }
+    
+    //This takes the data from the aforementioned local file and loads it back into a String:[Investigation] dictionary.
     func restoreInvestigations() {
         if let data = UserDefaults.standard.object(forKey: "investigations") as? Data {
-            
             //embrace the horrible naming
             if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : [Investigation]] {
                 for (key, arr) in tigations{
@@ -224,21 +223,10 @@ class Investigations {
                     }
                 }
             }
-            sortedCategories = investigations.keys.sorted()
-            //if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : [Investigation]]{
-                
-                //for investigation in tigations {
-                //    let _ = addInvestigation(investigation: investigation)
-                //}
-            //}
         }
     }
     
-    func saveInvestigations() {
-        let data = NSKeyedArchiver.archivedData(withRootObject: investigations)
-        UserDefaults.standard.set(data, forKey: "investigations")
-    }
-    
+    //MOVES INVESTIGATIONS TO UNCATEGORIZED
     func deleteCategory(named: String) {
         guard named != Names.Uncategorized else { return }
         if let array = investigations[named] {
@@ -246,10 +234,8 @@ class Investigations {
                 i.category = Names.Uncategorized
                 let _ = addInvestigation(investigation: i)
             }
-            sortedCategories.remove(at: sortedCategories.index(of: named)!)
             investigations.removeValue(forKey: named)
         }
-        setNonEmptyCategories()
     }
     
     func deleteCategoryAndInvestigations(named: String) {
@@ -257,26 +243,19 @@ class Investigations {
         if(named == Names.Uncategorized) {
             investigations[named] = [];
         } else {
-            sortedCategories.remove(at: sortedCategories.index(of: named)!)
             investigations.removeValue(forKey: named)
         }
-        setNonEmptyCategories()
     }
     
     func addCategory(name: String) {
-        if(!sortedCategories.contains(name)) {
-            sortedCategories.append(name)
-            sortedCategories.sort()
+        if(!investigations.keys.contains(name)) {
             investigations[name] = []
         }
-        setNonEmptyCategories()
     }
     
     func renameCategory(old: String, new: String) {
         addCategory(name: new)
         moveAllInvestigationsInCategory(new: new, old: old)
-        sortedCategories.remove(at: sortedCategories.index(of: old)!)
-        setNonEmptyCategories()
     }
     
     func moveAllInvestigationsInCategory(new: String, old: String) {
@@ -295,11 +274,10 @@ class Investigations {
                 i.category = new
             }
         }
-        setNonEmptyCategories()
     }
     
     func moveInvestigationToCategory(destCat: String, i: Investigation) {
-        if sortedCategories.contains(destCat) {
+        if investigations.keys.contains(destCat) {
             let sourceCat = i.category
             i.category = destCat
             addInvestigation(investigation: i)
@@ -307,9 +285,6 @@ class Investigations {
             deleteInvestigation(i: i)
             i.category = destCat
         }
-        setNonEmptyCategories()
     }
     
 }
-
-
