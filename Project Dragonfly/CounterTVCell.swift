@@ -60,9 +60,15 @@ class CounterTVCell: UITableViewCell, UITextFieldDelegate {
         if(disable) {
             addButton.isEnabled = false
             subtractButton.isEnabled = false
+            
+            addButton.backgroundColor = UIColor(red: 163/255.0, green: 163/255.0, blue: 163/255.0, alpha: 1.0)
+            subtractButton.backgroundColor = UIColor(red: 163/255.0, green: 163/255.0, blue: 163/255.0, alpha: 1.0)
         } else {
             addButton.isEnabled = true
             subtractButton.isEnabled = true
+            
+            addButton.backgroundColor = UIColor(red: 51/255.0, green: 133/255.0, blue: 204/255.0, alpha: 1.0)
+            subtractButton.backgroundColor = UIColor(red: 51/255.0, green: 133/255.0, blue: 204/255.0, alpha: 1.0)
         }
     }
 

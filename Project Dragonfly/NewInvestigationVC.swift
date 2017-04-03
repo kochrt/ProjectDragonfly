@@ -52,7 +52,7 @@ class NewInvestigationVC: FormViewController {
             
             row.validationOptions = .validatesOnChange
             row.cellUpdate {cell, row in
-                print(row.isValid)
+                
                 if(!row.isValid){
                     cell.textField.text = self.investigation.title
                     if(cell.textField.text?.characters.count == 1) {
