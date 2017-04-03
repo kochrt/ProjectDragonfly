@@ -116,6 +116,8 @@ class Investigation: NSObject, NSCoding {
         return info
     }
     
+    //clone function which parameterizes the option to clone the data of its components
+    //or to clone a version of itself with "reset" component data.
     func clone(cloneWithData: Bool) -> Investigation {
         
         var components_clone = [Component]()
@@ -123,7 +125,7 @@ class Investigation: NSObject, NSCoding {
         for c in self.components {
             components_clone.append(c.clone(cloneWithData: cloneWithData))
         }
-    
+        
         let clone = Investigation(question: self.question, components: components_clone, title: self.title, category: self.category)
         clone.componentType = self.componentType
         clone.title = clone.title + " (copy)"
@@ -141,6 +143,9 @@ class Investigation: NSObject, NSCoding {
     }
 }
 
+
+// This class represents our collection of our categories, investigations associated with them,
+// and the functions to manipulate/organize them
 class Investigations {
     static let instance = Investigations()
     
@@ -153,13 +158,9 @@ class Investigations {
         investigations[uncat] = []
     }
     
-    // Dictionary of category to investigation
+    //Dictionary that maps category name to a list of investigations
+    //effectively contains all data for the app
     var investigations = [String : [Investigation]]()
-    
-    //sorted categories was used at one point but we are phasing it out
-    //var sortedCategories = [String]()
-    //var nonEmptyCategoryNames = [String]()
-
     
     //solution for not displaying empty categories on the investigaiton page
     func getNonEmptyCategories() -> [String]{
@@ -204,6 +205,13 @@ class Investigations {
         }
     }
     
+    //This function saves our our String:[Investigation] dictionary to a local file
+    func saveInvestigations() {
+        let data = NSKeyedArchiver.archivedData(withRootObject: investigations)
+        UserDefaults.standard.set(data, forKey: "investigations")
+    }
+    
+    //This takes the data from the aforementioned local file and loads it back into a String:[Investigation] dictionary.
     func restoreInvestigations() {
         if let data = UserDefaults.standard.object(forKey: "investigations") as? Data {
             //embrace the horrible naming
@@ -218,11 +226,7 @@ class Investigations {
         }
     }
     
-    func saveInvestigations() {
-        let data = NSKeyedArchiver.archivedData(withRootObject: investigations)
-        UserDefaults.standard.set(data, forKey: "investigations")
-    }
-    
+    //MOVES INVESTIGATIONS TO UNCATEGORIZED
     func deleteCategory(named: String) {
         guard named != Names.Uncategorized else { return }
         if let array = investigations[named] {
@@ -284,5 +288,3 @@ class Investigations {
     }
     
 }
-
-
