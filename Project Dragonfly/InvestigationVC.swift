@@ -12,7 +12,11 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
-    var investigation: Investigation!
+    var investigation: Investigation! {
+        didSet {
+            setFieldsFromInvestigation()
+        }
+    }
     
     var pickerDataSource = Array(repeating: [String](), count: 3)
     
@@ -30,7 +34,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var timeButton: UIButton!
     @IBOutlet weak var timerPickerView: UIPickerView!
     
-    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionTextField: UITextField!
 
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
@@ -51,22 +55,18 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         setupNewComponentAlert()
         setupTimerDataSource()
         
-        // Sets the category to the curent category name
-        categoryButton.setTitle(investigation?.category, for: .normal)
-        questionLabel.text = investigation?.question
-        
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = false
-        navigationItem.title = investigation?.title
+        
+        setFieldsFromInvestigation()
         
         timerPickerView.dataSource = self
         timerPickerView.delegate = self
         resetTimer()
         disableButtons(disable: true)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +80,12 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if investigation.componentType != .IntervalCounter {
             removeTimer()
         }
+    }
+    
+    func setFieldsFromInvestigation() {
+        questionTextField?.text = investigation.question
+        categoryButton?.setTitle(investigation.category, for: .normal)
+        navigationItem.title = investigation.title
     }
     
     func removeTimer() {
