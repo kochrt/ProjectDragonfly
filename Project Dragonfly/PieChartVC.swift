@@ -45,9 +45,28 @@ class PieChartVC: ChartVC {
 //        pieChart.extraTopOffset = 20.0;
     }
     
-    override func share() -> (String?, UIImage?) {
-        // TODO
-        return (nil, nil)
+    @IBAction func share(_ sender: Any) {
+        let shareString = "Check out this investigation I made in the Dragonfly App!"
+        
+        let shareController = UIActivityViewController(activityItems: [shareString, getScreenshot()], applicationActivities: nil)
+        if let popover = shareController.popoverPresentationController {
+            popover.barButtonItem = sender as? UIBarButtonItem
+            present(shareController, animated: true, completion: nil)
+        }
+    }
+    
+    func getScreenshot() -> UIImage {
+        // grab reference to the view you'd like to capture
+        let wholeScreen = self.view!
+        
+        // define the size and grab a UIImage from it
+        UIGraphicsBeginImageContextWithOptions(wholeScreen.bounds.size, wholeScreen.isOpaque, 0.0);
+        
+        wholeScreen.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let screengrab = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return screengrab!
     }
 
 }
