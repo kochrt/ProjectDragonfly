@@ -36,6 +36,8 @@ class Investigation: NSObject, NSCoding {
         self.componentType = .Counter
     }
     
+    
+    
     required init(coder decoder: NSCoder) {
         if let data = decoder.decodeObject(forKey: Keys.components) as? Data {
             if let comps = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Component] {
@@ -129,6 +131,14 @@ class Investigation: NSObject, NSCoding {
         return clone
     
     }
+    
+    func setTitle(newTitle: String){
+        title = newTitle
+    }
+    
+    func setQuestion(newQuestion: String){
+        question = newQuestion
+    }
 }
 
 class Investigations {
@@ -214,7 +224,6 @@ class Investigations {
     
     func restoreInvestigations() {
         if let data = UserDefaults.standard.object(forKey: "investigations") as? Data {
-            
             //embrace the horrible naming
             if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : [Investigation]] {
                 for (key, arr) in tigations{
@@ -225,12 +234,6 @@ class Investigations {
                 }
             }
             sortedCategories = investigations.keys.sorted()
-            //if let tigations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : [Investigation]]{
-                
-                //for investigation in tigations {
-                //    let _ = addInvestigation(investigation: investigation)
-                //}
-            //}
         }
     }
     
