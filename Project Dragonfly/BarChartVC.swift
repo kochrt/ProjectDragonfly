@@ -59,7 +59,11 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         barChart.xAxis.labelCount = info.count
         barChart.chartDescription?.text = ""
         barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
+        barChart.leftAxis.calculate(min: 3, max: 10)
+        barChart.rightAxis.calculate(min: 3, max: 10)
         barChart.data = chartData
+        
+//        barChart.rightAxis = false
     }
     
     override func share() -> (String?, UIImage?) {
