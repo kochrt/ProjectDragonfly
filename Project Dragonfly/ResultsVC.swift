@@ -150,7 +150,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         }
     }
     
-    func getScreenshot() ->  UIImage{
+    func getScreenshot() -> UIImage {
         // grab reference to the view you'd like to capture
         let wholeScreen = self.view!
         
@@ -164,40 +164,7 @@ class ResultsVC: UIViewController, MFMailComposeViewControllerDelegate, IAxisVal
         return screengrab!
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        
-        mailComposerVC.setToRecipients(["kochrt@miamioh.edu"])
-        mailComposerVC.setSubject("Share Experiment Test")
-        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
-        
-        return mailComposerVC
-    }
-    
-    func showSendMailErrorAlert() {
-        //  let sendMailErrorController = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.")
-        //  sendMailErrorController.show()
-    }
-    
-    // MARK: MFMailComposeViewControllerDelegate Method
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        
         return investigation.getInfo()[Int(value)].name
     }
 }

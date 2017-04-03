@@ -283,7 +283,15 @@ class Investigations {
     }
     
     func moveAllInvestigationsInCategory(new: String, old: String) {
-        investigations[new]! += investigations[old]!
+        if(new == old) {
+            return
+        }
+        if investigations[new] != nil {
+            investigations[new]! += investigations[old]!
+        }
+        else {
+            investigations[new] = investigations[old]!
+        }
         investigations[old] = []
         if let array = investigations[new] {
             for i in array {

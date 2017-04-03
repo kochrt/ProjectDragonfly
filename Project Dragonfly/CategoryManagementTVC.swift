@@ -8,13 +8,21 @@
 
 import UIKit
 
-class CategoryManagementTVC: CategoriesTVC {
+class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     
     let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
+    
+    var category: String = ""
     
     @IBAction
     func cancel() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNewCategoryAlert()
+        
     }
     
     @IBAction func addCategory(_ sender: Any) {
@@ -81,8 +89,9 @@ class CategoryManagementTVC: CategoriesTVC {
                 self.present(alert, animated: true, completion: nil)
             }));
         }
-        optionsSheet.addAction(UIAlertAction(title: "Move investigations to...", style: .default, handler:{(_) in
-            //Investigations.instance.moveAllInvestigationsInCategory(new: <#T##String#>, old: <#T##String#>)
+        optionsSheet.addAction(UIAlertAction(title: "Move investigations to...", style: .default, handler:{ (_) in
+            self.category = category;
+            self.performSegue(withIdentifier: "moveToCategory", sender: self)
         }));
         
         optionsSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{(_) in }))
@@ -113,8 +122,22 @@ class CategoryManagementTVC: CategoriesTVC {
 
         return alert
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupNewCategoryAlert()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var destination = segue.destination as? UIViewController
+        if let navcon = segue.destination as? UINavigationController {
+            destination = navcon.visibleViewController
+        }
+        if let dest = destination as? ChooseCategoryVC {
+            dest.investigation = nil
+            dest.category = self.category
+            dest.delegate = self
+        }
+    }
+    
+    func categoryChosen() {
+        print("in chosen")
+        tableView.reloadData()
+        print("in chosen")
     }
 }

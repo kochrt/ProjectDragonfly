@@ -91,18 +91,6 @@ class NewInvestigationVC: FormViewController {
         }
         form.append(toolSection)
         
-
-        let newCatSection = Section()
-        newCatSection.append(ButtonRow() { row in
-            row.title = "Create New Category"
-            row.onCellSelection({ (cell, row) in
-                self.present(self.alert, animated: true, completion: nil)
-                self.checkInvestigation()
-            })
-            
-        })
-        form.append(newCatSection)
-        
         let categorySection = SelectableSection<ListCheckRow<String>>("Choose a category:", selectionType: .singleSelection(enableDeselection: false))
         categorySection.tag = "Categories"
 
@@ -118,6 +106,17 @@ class NewInvestigationVC: FormViewController {
             self.investigation.category = row.value!
         }
         form.append(categorySection)
+        
+        let newCatSection = Section()
+        newCatSection.append(ButtonRow() { row in
+            row.title = "Create New Category"
+            row.onCellSelection({ (cell, row) in
+                self.present(self.alert, animated: true, completion: nil)
+                self.checkInvestigation()
+            })
+            
+        })
+        form.append(newCatSection)
     }
     
     func setupNewCategoryAlert() {
