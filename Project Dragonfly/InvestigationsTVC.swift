@@ -16,8 +16,12 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         static let CreateInvestigation = "createInvestigation"
     }
     
+    let infoAlert = UIAlertController(title: "Hello!", message: "Welcome to the Dragonfly app! This app is used to investigate your environment.", preferredStyle: .alert)
+    
     @IBAction func help(_ sender: Any) {
+        self.present(infoAlert, animated: true, completion: nil)
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,8 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.tableView.emptyDataSetDelegate = self
         
         self.tableView.tableFooterView = UIView()
+        setupInfoAlert()
+        self.present(infoAlert, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +63,12 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         
     }
 
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Styles.SecondaryColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Returns the title of the section and places the investigation in the correct section
         return Investigations.instance.getNonEmptyCategories()[section]
@@ -147,6 +159,12 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
         return -20.0
+    }
+    
+    // MARK: Alert setup
+    func setupInfoAlert() {
+        infoAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in }))
+        
     }
 }
 

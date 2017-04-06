@@ -31,6 +31,22 @@ class ChartVC: UIViewController, Share {
         UIColor(red: 150/250, green: 97/250, blue: 219/250, alpha: 1)]
     
     func share() -> (String?, UIImage?) {
-        return (nil, nil)
+        let shareStr = "Check out this investion I made in the Dragonfly App!\n\(investigation.question)"
+        return (shareStr, getScreenshot())
     }
+    
+    func getScreenshot() -> UIImage {
+        // grab reference to the view you'd like to capture
+        let wholeScreen = self.view!
+        
+        // define the size and grab a UIImage from it
+        UIGraphicsBeginImageContextWithOptions(wholeScreen.bounds.size, wholeScreen.isOpaque, 0.0);
+        
+        wholeScreen.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let screengrab = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return screengrab!
+    }
+
 }
