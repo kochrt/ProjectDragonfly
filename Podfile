@@ -11,7 +11,6 @@ target 'Project Dragonfly' do
   pod 'DZNEmptyDataSet'
   pod 'FontAwesome.swift'
   pod 'Charts'
-  pod 'Instructions', '~> 0.5'
 
   target 'Project DragonflyTests' do
     inherit! :search_paths
