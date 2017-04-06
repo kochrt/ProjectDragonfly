@@ -24,7 +24,6 @@ class InvestigationTVCell: UITableViewCell {
     @IBOutlet weak var componentLabel: UILabel!
 
     func setComponentString() {
-        let string: String
         componentLabel.font = UIFont.fontAwesome(ofSize: 18)
         componentLabel.text = investigation?.componentType.fontAwesomeString
     }

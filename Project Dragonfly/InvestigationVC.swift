@@ -8,7 +8,11 @@
 
 import UIKit
 
-class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, InvestigationDelegate {
+class InvestigationVC:
+    UIViewController, UITableViewDelegate,
+    UITableViewDataSource, UIPickerViewDelegate,
+    UIPickerViewDataSource, InvestigationDelegate,
+    UITextFieldDelegate {
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -61,12 +65,24 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.tableFooterView = UIView()
         tableView.alwaysBounceVertical = false
         
+        questionTextField.delegate = self
+        
         setFieldsFromInvestigation()
         
         timerPickerView.dataSource = self
         timerPickerView.delegate = self
         resetTimer()
         disableButtons(disable: true)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "\n" {
+            textField.resignFirstResponder()
+            investigation.question = textField.text ?? investigation.question
+            textField.text = investigation.question
+            return false
+        }
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -213,6 +229,7 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         guard investigation.componentType == .IntervalCounter
             else { return }
         let cells = self.tableView.visibleCells
+        
         for cell in cells {
             if cell is CounterTVCell {
                 let c = cell as! CounterTVCell
@@ -307,6 +324,10 @@ class InvestigationVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell.selectionStyle = .none
             cell.counter = comp
             cell.investigationController = self
+            if(investigation!.componentType == .IntervalCounter) {
+                cell.disableButtons(disable: !timer.isValid)
+            }
+            
             return cell
         case .Stopwatch :
             let comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch

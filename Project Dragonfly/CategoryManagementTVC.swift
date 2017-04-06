@@ -79,8 +79,13 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     func setupOptionsSheet(category: String, indexPath: IndexPath) -> UIAlertController {
         let optionsSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         optionsSheet.addAction(UIAlertAction(title: "Delete", style: .destructive, handler:{(_) in
-            let alert = self.setupDeleteAlert(category: category, indexPath: indexPath)
-            self.present(alert, animated: true, completion: nil)
+            if(Investigations.instance.investigations[category]?.count == 0) {
+                Investigations.instance.deleteCategory(named: category)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                let alert = self.setupDeleteAlert(category: category, indexPath: indexPath)
+                self.present(alert, animated: true, completion: nil)
+            }
         }));
         
         if(category != Investigations.Names.Uncategorized) {

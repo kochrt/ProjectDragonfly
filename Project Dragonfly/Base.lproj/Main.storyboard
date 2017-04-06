@@ -9,6 +9,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -90,11 +91,18 @@
                                 <segue destination="Ooa-d2-I2a" kind="presentation" id="tUC-sh-uCj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p">
-                            <connections>
-                                <segue destination="aOP-C1-fyL" kind="presentation" identifier="createInvestigation" id="5oh-Y2-avr"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="3vQ-Bn-w4p">
+                                <connections>
+                                    <segue destination="aOP-C1-fyL" kind="presentation" identifier="createInvestigation" id="5oh-Y2-avr"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="?" style="done" id="3ar-fn-M7u">
+                                <connections>
+                                    <action selector="help:" destination="MXp-QZ-b3U" id="4Kr-9T-xMb"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="qtV-N3-2Gg" kind="show" identifier="investigationDetail" id="sjA-qU-XgT"/>
@@ -137,7 +145,7 @@
                             <constraint firstItem="jWI-jA-GHd" firstAttribute="top" secondItem="kjR-8X-WqI" secondAttribute="bottom" constant="8" symbolic="YES" id="yDA-0Y-mTc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pie" id="IJI-tq-t2L"/>
+                    <tabBarItem key="tabBarItem" title="Pie" image="pie" selectedImage="pie" id="IJI-tq-t2L"/>
                     <connections>
                         <outlet property="chartTitle" destination="jWI-jA-GHd" id="gWD-1N-9oy"/>
                         <outlet property="chartView" destination="07N-aG-zjb" id="m8J-md-698"/>
@@ -181,7 +189,7 @@
                             <constraint firstItem="lBy-ms-IrB" firstAttribute="leading" secondItem="1V5-Re-QRF" secondAttribute="leadingMargin" id="wjf-vr-dGq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bar" id="6oa-hq-wHt"/>
+                    <tabBarItem key="tabBarItem" title="Bar" image="bar" selectedImage="bar" id="6oa-hq-wHt"/>
                     <connections>
                         <outlet property="chartTitle" destination="tTF-Dt-bh1" id="aGv-nN-9WA"/>
                         <outlet property="chartView" destination="lBy-ms-IrB" id="0QE-dm-8Bi"/>
@@ -335,7 +343,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Manage Categories" id="SBM-gd-SZX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RRf-eh-ogg">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="RRf-eh-ogg">
                             <connections>
                                 <action selector="cancel" destination="Oc4-4p-StE" id="BPh-c3-9Nv"/>
                             </connections>
@@ -413,7 +421,7 @@
                                     <segue destination="kaa-sz-cxi" kind="presentation" identifier="chooseCategory" id="F1h-tA-2zs"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" tag="20" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KI8-ih-7ya">
+                            <tableView clipsSubviews="YES" tag="20" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KI8-ih-7ya">
                                 <rect key="frame" x="12" y="138" width="351" height="324.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -686,7 +694,7 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Yra-l8-Gun"/>
-                                    <barButtonItem title="Results" id="I96-Hl-XsV">
+                                    <barButtonItem image="bar" id="I96-Hl-XsV">
                                         <connections>
                                             <action selector="results:" destination="qtV-N3-2Gg" id="LQ9-6p-xTr"/>
                                         </connections>
@@ -698,7 +706,7 @@
                                 <rect key="frame" x="12" y="100" width="351" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -732,11 +740,14 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="lz3-xz-bXt">
-                        <barButtonItem key="rightBarButtonItem" title="Copy" id="KBb-i7-rG4">
-                            <connections>
-                                <action selector="clone:" destination="qtV-N3-2Gg" id="vWZ-dH-2Yt"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Copy" id="KBb-i7-rG4">
+                                <connections>
+                                    <action selector="clone:" destination="qtV-N3-2Gg" id="vWZ-dH-2Yt"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="?" style="done" id="qey-2R-SDU"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryButton" destination="BWI-TF-5Ts" id="N1j-mF-y2o"/>
@@ -825,7 +836,11 @@
             <point key="canvasLocation" x="2177" y="1072"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bar" width="16" height="16"/>
+        <image name="pie" width="16" height="16"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F1h-tA-2zs"/>
+        <segue reference="pqz-6k-F2G"/>
     </inferredMetricsTieBreakers>
 </document>

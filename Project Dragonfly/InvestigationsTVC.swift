@@ -16,6 +16,9 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         static let CreateInvestigation = "createInvestigation"
     }
     
+    @IBAction func help(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,8 +48,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "investigation", for: indexPath) as! InvestigationTVCell
-        //print(indexPath)
-        print(Investigations.instance.investigations)
         cell.investigation = Investigations.instance.investigationForIndexPath(path: indexPath)
         return cell
     }
@@ -106,6 +107,9 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
                 let vc = segue.destination as! InvestigationVC
                 if let investigation = sender as? Investigation {
                     vc.investigation = investigation
+                    let backItem = UIBarButtonItem()
+                    backItem.title = "Back"
+                    navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
                 }
             case Strings.CreateInvestigation:
                 if let navcon = segue.destination as? UINavigationController {

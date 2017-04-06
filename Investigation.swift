@@ -36,8 +36,6 @@ class Investigation: NSObject, NSCoding {
         self.componentType = .Counter
     }
     
-    
-    
     required init(coder decoder: NSCoder) {
         if let data = decoder.decodeObject(forKey: Keys.components) as? Data {
             if let comps = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Component] {
