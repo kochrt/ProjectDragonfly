@@ -46,7 +46,7 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
         
-        barChart.xAxis.labelPosition = .bothSided
+        barChart.xAxis.labelPosition = .bottom
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         barChart.legend.enabled = false
         
@@ -66,6 +66,7 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         barChart.chartDescription?.text = ""
         barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
         barChart.drawValueAboveBarEnabled = true
+                
         barChart.data = chartData
         
     }
