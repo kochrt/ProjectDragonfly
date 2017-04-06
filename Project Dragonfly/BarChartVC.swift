@@ -80,20 +80,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
             present(shareController, animated: true, completion: nil)
         }
     }
-    
-    func getScreenshot() -> UIImage {
-        // grab reference to the view you'd like to capture
-        let wholeScreen = self.view!
-        
-        // define the size and grab a UIImage from it
-        UIGraphicsBeginImageContextWithOptions(wholeScreen.bounds.size, wholeScreen.isOpaque, 0.0);
-        
-        wholeScreen.layer.render(in: UIGraphicsGetCurrentContext()!)
-        
-        let screengrab = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return screengrab!
-    }
 
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         return investigation.getInfo()[Int(value)].name
