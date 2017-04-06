@@ -137,7 +137,7 @@
                             <constraint firstItem="jWI-jA-GHd" firstAttribute="top" secondItem="kjR-8X-WqI" secondAttribute="bottom" constant="8" symbolic="YES" id="yDA-0Y-mTc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pie" image="pie-chart-black" selectedImage="pie-chart-black" id="IJI-tq-t2L"/>
+                    <tabBarItem key="tabBarItem" title="Pie" image="pie" selectedImage="pie" id="IJI-tq-t2L"/>
                     <connections>
                         <outlet property="chartTitle" destination="jWI-jA-GHd" id="gWD-1N-9oy"/>
                         <outlet property="chartView" destination="07N-aG-zjb" id="m8J-md-698"/>
@@ -181,7 +181,7 @@
                             <constraint firstItem="lBy-ms-IrB" firstAttribute="leading" secondItem="1V5-Re-QRF" secondAttribute="leadingMargin" id="wjf-vr-dGq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bar" selectedImage="bar-chart-black" id="6oa-hq-wHt"/>
+                    <tabBarItem key="tabBarItem" title="Bar" image="bar" selectedImage="bar" id="6oa-hq-wHt"/>
                     <connections>
                         <outlet property="chartTitle" destination="tTF-Dt-bh1" id="aGv-nN-9WA"/>
                         <outlet property="chartView" destination="lBy-ms-IrB" id="0QE-dm-8Bi"/>
@@ -686,7 +686,7 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Yra-l8-Gun"/>
-                                    <barButtonItem title="Results" id="I96-Hl-XsV">
+                                    <barButtonItem image="bar" id="I96-Hl-XsV">
                                         <connections>
                                             <action selector="results:" destination="qtV-N3-2Gg" id="LQ9-6p-xTr"/>
                                         </connections>
@@ -826,8 +826,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bar-chart-black" width="256" height="256"/>
-        <image name="pie-chart-black" width="16" height="16"/>
+        <image name="bar" width="16" height="16"/>
+        <image name="pie" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="F1h-tA-2zs"/>
