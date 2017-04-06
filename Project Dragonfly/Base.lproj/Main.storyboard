@@ -343,7 +343,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Manage Categories" id="SBM-gd-SZX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RRf-eh-ogg">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="RRf-eh-ogg">
                             <connections>
                                 <action selector="cancel" destination="Oc4-4p-StE" id="BPh-c3-9Nv"/>
                             </connections>
@@ -841,6 +841,6 @@
         <image name="pie" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F1h-tA-2zs"/>
+        <segue reference="pqz-6k-F2G"/>
     </inferredMetricsTieBreakers>
 </document>
