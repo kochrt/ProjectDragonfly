@@ -227,6 +227,7 @@ class InvestigationVC:
         guard investigation.componentType == .IntervalCounter
             else { return }
         let cells = self.tableView.visibleCells
+        
         for cell in cells {
             if cell is CounterTVCell {
                 let c = cell as! CounterTVCell
@@ -321,6 +322,7 @@ class InvestigationVC:
             cell.selectionStyle = .none
             cell.counter = comp
             cell.investigationController = self
+            cell.disableButtons(disable: !timer.isValid)
             return cell
         case .Stopwatch :
             let comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
