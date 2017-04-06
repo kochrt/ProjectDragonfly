@@ -16,6 +16,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         static let CreateInvestigation = "createInvestigation"
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
