@@ -9,6 +9,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -90,11 +91,18 @@
                                 <segue destination="Ooa-d2-I2a" kind="presentation" id="tUC-sh-uCj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3vQ-Bn-w4p">
-                            <connections>
-                                <segue destination="aOP-C1-fyL" kind="presentation" identifier="createInvestigation" id="5oh-Y2-avr"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="3vQ-Bn-w4p">
+                                <connections>
+                                    <segue destination="aOP-C1-fyL" kind="presentation" identifier="createInvestigation" id="5oh-Y2-avr"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="?" style="done" id="3ar-fn-M7u">
+                                <connections>
+                                    <action selector="help:" destination="MXp-QZ-b3U" id="4Kr-9T-xMb"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="qtV-N3-2Gg" kind="show" identifier="investigationDetail" id="sjA-qU-XgT"/>
@@ -732,11 +740,14 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="lz3-xz-bXt">
-                        <barButtonItem key="rightBarButtonItem" title="Copy" id="KBb-i7-rG4">
-                            <connections>
-                                <action selector="clone:" destination="qtV-N3-2Gg" id="vWZ-dH-2Yt"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Copy" id="KBb-i7-rG4">
+                                <connections>
+                                    <action selector="clone:" destination="qtV-N3-2Gg" id="vWZ-dH-2Yt"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="?" style="done" id="qey-2R-SDU"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryButton" destination="BWI-TF-5Ts" id="N1j-mF-y2o"/>
