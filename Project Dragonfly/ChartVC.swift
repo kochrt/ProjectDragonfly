@@ -25,7 +25,7 @@ class ChartVC: UIViewController, Share {
         UIColor(red: 172/250, green: 189/250, blue: 201/250, alpha: 1),
         UIColor(red: 51/250, green: 133/250, blue: 204/250, alpha: 1),
         UIColor(red: 240/250, green: 133/250, blue: 71/250, alpha: 1),
-        UIColor(red: 0, green: 0, blue: 0, alpha: 1),
+        UIColor(red: 149/250, green: 149/250, blue: 149/250, alpha: 1),
         UIColor(red: 66/250, green: 88/250, blue: 102/250, alpha: 1),
         UIColor(red: 153/250, green: 76/250, blue: 0, alpha: 1),
         UIColor(red: 150/250, green: 97/250, blue: 219/250, alpha: 1)]
