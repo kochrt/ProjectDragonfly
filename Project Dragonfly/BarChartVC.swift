@@ -42,13 +42,23 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = colors
+        chartDataSet.axisDependency = .right
+        
+        
+        barChart.rightAxis.axisMinimum = 0
+        barChart.leftAxis.axisMinimum = 0
+        barChart.leftAxis.granularity = 1
+        barChart.rightAxis.granularity = 1  
+        barChart.leftAxis.axisMaximum = chartDataSet.yMax + 1
+        barChart.rightAxis.axisMaximum = chartDataSet.yMax + 1
         
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
         
-        barChart.xAxis.labelPosition = .bothSided
+        barChart.xAxis.labelPosition = .bottom
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         barChart.legend.enabled = false
+        
         
         if info.count < 4 {
             barChart.xAxis.labelRotationAngle = 0
@@ -62,12 +72,15 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         
         barChart.drawBordersEnabled = false
         barChart.xAxis.drawGridLinesEnabled = false
+        barChart.xAxis.drawAxisLineEnabled = false
         barChart.xAxis.labelCount = info.count
         barChart.chartDescription?.text = ""
         barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
         barChart.drawValueAboveBarEnabled = true
-        barChart.data = chartData
         
+        
+        barChart.data = chartData
+        print(barChart.rightAxis.isAxisMinCustom)
     }
     
     @IBAction func share(_ sender: Any) {
@@ -78,20 +91,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
             popover.barButtonItem = sender as? UIBarButtonItem
             present(shareController, animated: true, completion: nil)
         }
-    }
-    
-    func getScreenshot() -> UIImage {
-        // grab reference to the view you'd like to capture
-        let wholeScreen = self.view!
-        
-        // define the size and grab a UIImage from it
-        UIGraphicsBeginImageContextWithOptions(wholeScreen.bounds.size, wholeScreen.isOpaque, 0.0);
-        
-        wholeScreen.layer.render(in: UIGraphicsGetCurrentContext()!)
-        
-        let screengrab = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return screengrab!
     }
 
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
