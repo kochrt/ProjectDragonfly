@@ -31,7 +31,7 @@ class ChartVC: UIViewController, Share {
         UIColor(red: 150/250, green: 97/250, blue: 219/250, alpha: 1)]
     
     func share() -> (String?, UIImage?) {
-        let shareStr = "Check out this investion I made in the Dragonfly App!\n\(investigation.question)"
+        let shareStr = "Check out this investigation I made in the Dragonfly App! Question:\(investigation.question)"
         return (shareStr, getScreenshot())
     }
     
