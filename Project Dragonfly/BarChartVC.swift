@@ -82,16 +82,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         barChart.data = chartData
         print(barChart.rightAxis.isAxisMinCustom)
     }
-    
-    @IBAction func share(_ sender: Any) {
-        let shareString = "Check out this investigation I made in the Dragonfly App!"
-        
-        let shareController = UIActivityViewController(activityItems: [shareString, getScreenshot()], applicationActivities: nil)
-        if let popover = shareController.popoverPresentationController {
-            popover.barButtonItem = sender as? UIBarButtonItem
-            present(shareController, animated: true, completion: nil)
-        }
-    }
 
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         return investigation.getInfo()[Int(value)].name
