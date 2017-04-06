@@ -42,6 +42,15 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = colors
+        chartDataSet.axisDependency = .right
+        
+        
+        barChart.rightAxis.axisMinimum = 0
+        barChart.leftAxis.axisMinimum = 0
+        barChart.leftAxis.granularity = 1
+        barChart.rightAxis.granularity = 1  
+        barChart.leftAxis.axisMaximum = chartDataSet.yMax + 1
+        barChart.rightAxis.axisMaximum = chartDataSet.yMax + 1
         
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
@@ -49,6 +58,7 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         barChart.xAxis.labelPosition = .bottom
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         barChart.legend.enabled = false
+        
         
         if info.count < 4 {
             barChart.xAxis.labelRotationAngle = 0
@@ -62,13 +72,15 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         
         barChart.drawBordersEnabled = false
         barChart.xAxis.drawGridLinesEnabled = false
+        barChart.xAxis.drawAxisLineEnabled = false
         barChart.xAxis.labelCount = info.count
         barChart.chartDescription?.text = ""
         barChart.animate(xAxisDuration: 2, yAxisDuration: 2)
         barChart.drawValueAboveBarEnabled = true
-                
-        barChart.data = chartData
         
+        
+        barChart.data = chartData
+        print(barChart.rightAxis.isAxisMinCustom)
     }
     
     @IBAction func share(_ sender: Any) {
