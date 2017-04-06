@@ -322,7 +322,10 @@ class InvestigationVC:
             cell.selectionStyle = .none
             cell.counter = comp
             cell.investigationController = self
-            cell.disableButtons(disable: !timer.isValid)
+            if(investigation!.componentType == .IntervalCounter) {
+                cell.disableButtons(disable: !timer.isValid)
+            }
+            
             return cell
         case .Stopwatch :
             let comp: Stopwatch = investigation!.components[indexPath.row] as! Stopwatch
