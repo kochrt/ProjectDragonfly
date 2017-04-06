@@ -57,6 +57,12 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         
     }
 
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = Styles.SecondaryColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Returns the title of the section and places the investigation in the correct section
         return Investigations.instance.getNonEmptyCategories()[section]
