@@ -45,15 +45,6 @@ class PieChartVC: ChartVC {
 //        pieChart.extraTopOffset = 20.0;
     }
     
-    @IBAction func share(_ sender: Any) {
-        let shareString = "Check out this investigation I made in the Dragonfly App!"
-        
-        let shareController = UIActivityViewController(activityItems: [shareString, getScreenshot()], applicationActivities: nil)
-        if let popover = shareController.popoverPresentationController {
-            popover.barButtonItem = sender as? UIBarButtonItem
-            present(shareController, animated: true, completion: nil)
-        }
-    }
     
     
 }
