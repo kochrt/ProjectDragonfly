@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "585E18E797451075F85C526C191400E51A76DBC4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "15146749308F7667D8B3B84ACEE4A7A838940EE0" : 9223372036854775807,
+    "585E18E797451075F85C526C191400E51A76DBC4" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "80AD17E5-C039-4383-8210-F0E9878EDC6C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "15146749308F7667D8B3B84ACEE4A7A838940EE0" : "iOS\/Instructions\/",
+    "585E18E797451075F85C526C191400E51A76DBC4" : "ProjectDragonfly\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Project Dragonfly",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Project Dragonfly.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ephread\/Instructions",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "15146749308F7667D8B3B84ACEE4A7A838940EE0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kochrt\/ProjectDragonfly.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "585E18E797451075F85C526C191400E51A76DBC4"
+    }
+  ]
+}

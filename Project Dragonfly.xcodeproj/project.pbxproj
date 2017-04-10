@@ -27,6 +27,8 @@
 		D47BF2881DDA3EE40056D784 /* NewInvestigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */; };
 		D492FEDF1DD149810052DBB0 /* Investigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDC1DD149810052DBB0 /* Investigation.swift */; };
 		D492FEE01DD149810052DBB0 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = D492FEDD1DD149810052DBB0 /* Component.swift */; };
+		D49D180C1E9C2442007EB7B0 /* Instructions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49D18031E9C231C007EB7B0 /* Instructions.framework */; };
+		D49D180D1E9C2442007EB7B0 /* Instructions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D49D18031E9C231C007EB7B0 /* Instructions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D49EE99A1E89A56900BD52B1 /* ResultsTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9991E89A56900BD52B1 /* ResultsTabBarVC.swift */; };
 		D49EE99C1E89B03B00BD52B1 /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE99B1E89B03B00BD52B1 /* ChartVC.swift */; };
 		D49EE99F1E89B1A100BD52B1 /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE99E1E89B1A100BD52B1 /* BarChartVC.swift */; };
@@ -61,7 +63,49 @@
 			remoteGlobalIDString = D4519F591DAC4AA400FA274C;
 			remoteInfo = "Project Dragonfly";
 		};
+		D49D18021E9C231C007EB7B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49D17FC1E9C231C007EB7B0 /* Instructions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64FB2E91BB6CA8A0081E5B6;
+			remoteInfo = Instructions;
+		};
+		D49D18041E9C231C007EB7B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49D17FC1E9C231C007EB7B0 /* Instructions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6417E331D291A8A004D13EA;
+			remoteInfo = InstructionsAppExtensions;
+		};
+		D49D18061E9C231C007EB7B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49D17FC1E9C231C007EB7B0 /* Instructions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64FB2F31BB6CA8A0081E5B6;
+			remoteInfo = InstructionsTests;
+		};
+		D49D180E1E9C2442007EB7B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49D17FC1E9C231C007EB7B0 /* Instructions.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C64FB2E81BB6CA8A0081E5B6;
+			remoteInfo = Instructions;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D49D18101E9C2443007EB7B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D49D180D1E9C2442007EB7B0 /* Instructions.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		10321776282900C2050329BC /* Pods-Project Dragonfly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +140,7 @@
 		D47BF2871DDA3EE40056D784 /* NewInvestigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewInvestigationVC.swift; sourceTree = "<group>"; };
 		D492FEDC1DD149810052DBB0 /* Investigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Investigation.swift; sourceTree = "<group>"; };
 		D492FEDD1DD149810052DBB0 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		D49D17FC1E9C231C007EB7B0 /* Instructions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Instructions.xcodeproj; path = ../iOS/Instructions/Instructions.xcodeproj; sourceTree = "<group>"; };
 		D49EE9991E89A56900BD52B1 /* ResultsTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTabBarVC.swift; sourceTree = "<group>"; };
 		D49EE99B1E89B03B00BD52B1 /* ChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		D49EE99E1E89B1A100BD52B1 /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
@@ -121,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24FE4FF80F49FA9CB76CAF2A /* Pods_Project_Dragonfly.framework in Frameworks */,
+				D49D180C1E9C2442007EB7B0 /* Instructions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +226,7 @@
 		D4519F511DAC4AA400FA274C = {
 			isa = PBXGroup;
 			children = (
+				D49D17FC1E9C231C007EB7B0 /* Instructions.xcodeproj */,
 				D4519F5C1DAC4AA400FA274C /* Project Dragonfly */,
 				D4519F711DAC4AA400FA274C /* Project DragonflyTests */,
 				D4519F7C1DAC4AA400FA274C /* Project DragonflyUITests */,
@@ -268,6 +315,16 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		D49D17FD1E9C231C007EB7B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D49D18031E9C231C007EB7B0 /* Instructions.framework */,
+				D49D18051E9C231C007EB7B0 /* InstructionsAppExtensions.framework */,
+				D49D18071E9C231C007EB7B0 /* InstructionsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D49EE99D1E89B10500BD52B1 /* Results */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,10 +365,12 @@
 				D4519F581DAC4AA400FA274C /* Resources */,
 				13DCAA50AC13C221C4DC30B3 /* [CP] Embed Pods Frameworks */,
 				0B38EB339B838D286B2278DA /* [CP] Copy Pods Resources */,
+				D49D18101E9C2443007EB7B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D49D180F1E9C2442007EB7B0 /* PBXTargetDependency */,
 			);
 			name = "Project Dragonfly";
 			productName = "Project Dragonfly";
@@ -398,6 +457,12 @@
 			mainGroup = D4519F511DAC4AA400FA274C;
 			productRefGroup = D4519F5B1DAC4AA400FA274C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D49D17FD1E9C231C007EB7B0 /* Products */;
+					ProjectRef = D49D17FC1E9C231C007EB7B0 /* Instructions.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D4519F591DAC4AA400FA274C /* Project Dragonfly */,
@@ -406,6 +471,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D49D18031E9C231C007EB7B0 /* Instructions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Instructions.framework;
+			remoteRef = D49D18021E9C231C007EB7B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D49D18051E9C231C007EB7B0 /* InstructionsAppExtensions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = InstructionsAppExtensions.framework;
+			remoteRef = D49D18041E9C231C007EB7B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D49D18071E9C231C007EB7B0 /* InstructionsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = InstructionsTests.xctest;
+			remoteRef = D49D18061E9C231C007EB7B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D4519F581DAC4AA400FA274C /* Resources */ = {
@@ -637,6 +726,11 @@
 			isa = PBXTargetDependency;
 			target = D4519F591DAC4AA400FA274C /* Project Dragonfly */;
 			targetProxy = D4519F7A1DAC4AA400FA274C /* PBXContainerItemProxy */;
+		};
+		D49D180F1E9C2442007EB7B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Instructions;
+			targetProxy = D49D180E1E9C2442007EB7B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

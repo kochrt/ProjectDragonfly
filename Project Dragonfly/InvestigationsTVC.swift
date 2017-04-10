@@ -8,9 +8,17 @@
 
 import UIKit
 import DZNEmptyDataSet
+import Instructions
 
-class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachMarksControllerDataSource {
 
+    var coachMarksController: CoachMarksController?
+    var isFirstTime: Bool {
+        get {
+            return true
+        }
+    }
+    
     struct Strings {
         static let InvestigationDetail = "investigationDetail"
         static let CreateInvestigation = "createInvestigation"
@@ -22,7 +30,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.present(infoAlert, animated: true, completion: nil)
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,15 +37,55 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.tableView.emptyDataSetDelegate = self
         
         self.tableView.tableFooterView = UIView()
-        setupInfoAlert()
-        self.present(infoAlert, animated: true, completion: nil)
+//        setupInfoAlert()
+//        self.present(infoAlert, animated: true, completion: nil)
+        
+        if isFirstTime {
+            coachMarksController = CoachMarksController()
+            self.coachMarksController?.dataSource = self
+            self.coachMarksController?.overlay.allowTap = true
+            
+            let skipView = CoachMarkSkipDefaultView()
+            skipView.setTitle("Skip", for: .normal)
+            
+            self.coachMarksController?.skipView = skipView
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Investigations.instance.saveInvestigations()
-
+        
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if isFirstTime {
+            self.coachMarksController?.startOn(self)
+        }
+    }
+    
+    // MARK: CoachMarks
+    
+    /// Asks for the number of coach marks to display.
+    ///
+    /// - Parameter coachMarksController: the coach mark controller requesting
+    ///                                   the information.
+    ///
+    /// - Returns: the number of coach marks to display.
+    func numberOfCoachMarks(for coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkAt index: Int) -> CoachMark {
+        return coachMarksController.helper.makeCoachMark()
+    }
+    
+    func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        let views = coachMarksController.helper.makeDefaultCoachViews(hintText: "hello")
+        return (views.bodyView, views.arrowView)
     }
     
     // MARK: - Table view data source
