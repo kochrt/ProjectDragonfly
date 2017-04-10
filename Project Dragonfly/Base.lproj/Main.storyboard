@@ -126,8 +126,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWI-jA-GHd">
-                                <rect key="frame" x="145" y="72" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWI-jA-GHd">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -140,6 +140,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jWI-jA-GHd" firstAttribute="centerX" secondItem="07N-aG-zjb" secondAttribute="centerX" id="38q-Ox-ka1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jWI-jA-GHd" secondAttribute="trailing" id="7QF-15-qO3"/>
+                            <constraint firstItem="jWI-jA-GHd" firstAttribute="leading" secondItem="WXS-56-uT1" secondAttribute="leadingMargin" id="95V-Zi-XaY"/>
                             <constraint firstItem="SWi-KK-s1P" firstAttribute="top" secondItem="07N-aG-zjb" secondAttribute="bottom" constant="8" symbolic="YES" id="Amj-Gz-BUu"/>
                             <constraint firstItem="07N-aG-zjb" firstAttribute="leading" secondItem="WXS-56-uT1" secondAttribute="leadingMargin" id="DND-QT-VYk"/>
                             <constraint firstItem="07N-aG-zjb" firstAttribute="top" secondItem="jWI-jA-GHd" secondAttribute="bottom" constant="8" symbolic="YES" id="GbZ-zZ-pUj"/>
@@ -169,8 +171,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Dt-bh1">
-                                <rect key="frame" x="145" y="72" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTF-Dt-bh1">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -185,7 +187,9 @@
                             <constraint firstItem="tTF-Dt-bh1" firstAttribute="top" secondItem="7md-3n-4Xg" secondAttribute="bottom" constant="8" symbolic="YES" id="3DR-W4-pUq"/>
                             <constraint firstItem="lBy-ms-IrB" firstAttribute="top" secondItem="tTF-Dt-bh1" secondAttribute="bottom" constant="8" symbolic="YES" id="C7R-wp-rzJ"/>
                             <constraint firstItem="LBV-iJ-10l" firstAttribute="top" secondItem="lBy-ms-IrB" secondAttribute="bottom" constant="8" symbolic="YES" id="H8i-gN-azM"/>
+                            <constraint firstItem="tTF-Dt-bh1" firstAttribute="leading" secondItem="1V5-Re-QRF" secondAttribute="leadingMargin" id="IMn-b7-SQ5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lBy-ms-IrB" secondAttribute="trailing" id="czb-IO-xJQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tTF-Dt-bh1" secondAttribute="trailing" id="hXK-1D-YND"/>
                             <constraint firstItem="lBy-ms-IrB" firstAttribute="centerX" secondItem="tTF-Dt-bh1" secondAttribute="centerX" id="usO-4M-Muu"/>
                             <constraint firstItem="tTF-Dt-bh1" firstAttribute="centerX" secondItem="1V5-Re-QRF" secondAttribute="centerX" id="wZi-5v-w75"/>
                             <constraint firstItem="lBy-ms-IrB" firstAttribute="leading" secondItem="1V5-Re-QRF" secondAttribute="leadingMargin" id="wjf-vr-dGq"/>
@@ -205,7 +209,7 @@
         <scene sceneID="VPv-ua-3Df">
             <objects>
                 <navigationController id="phP-hC-tgn" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="eCh-Ft-tIu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="eCh-Ft-tIu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.069892458810000002" green="0.3450934974" blue="0.74743994530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -253,7 +257,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sqX-l6-g8U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="22D-7A-ylx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="22D-7A-ylx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -371,7 +375,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aOP-C1-fyL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="kXo-hi-DV1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="kXo-hi-DV1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.069892458810000002" green="0.3450934974" blue="0.74743994530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -390,7 +394,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ooa-d2-I2a" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="8fq-Da-KzG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="8fq-Da-KzG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.086522944399999996" green="0.52510127309999999" blue="0.35112308980000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -830,7 +834,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kaa-sz-cxi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="jep-g6-vNi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="jep-g6-vNi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.086522944399999996" green="0.52510127309999999" blue="0.35112308980000001" alpha="1" colorSpace="calibratedRGB"/>

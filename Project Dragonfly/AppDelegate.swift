@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let appearance = UINavigationBar.appearance()
         appearance.tintColor = UIColor.white
-//        appearance.barTintColor = Styles.PrimaryColor
         
         appearance.titleTextAttributes = [NSFontAttributeName: Styling.HeaderFont]
         
