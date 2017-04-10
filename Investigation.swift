@@ -213,7 +213,7 @@ class Investigations {
                 for (key, arr) in tigations{
                     addCategory(name: key)
                     for tigation in arr {
-                        addInvestigation(investigation: tigation)
+                        _ = addInvestigation(investigation: tigation)
                     }
                 }
             }
@@ -274,7 +274,7 @@ class Investigations {
         if investigations.keys.contains(destCat) {
             let sourceCat = i.category
             i.category = destCat
-            addInvestigation(investigation: i)
+            _ = addInvestigation(investigation: i)
             i.category = sourceCat
             deleteInvestigation(i: i)
             i.category = destCat

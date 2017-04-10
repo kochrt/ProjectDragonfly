@@ -144,9 +144,7 @@ class NewInvestigationVC: FormViewController {
             if (Investigations.instance.investigations.keys.contains(text)) {
                 let row: ListCheckRow<String> = catSection.rowBy(tag: text)!
                 row.didSelect()
-                print("already exists")
             } else {
-                print("new category")
                 Investigations.instance.addCategory(name: text)
                 catSection.append(ListCheckRow<String>(text) { row in
                     row.title = text
@@ -185,7 +183,7 @@ class NewInvestigationVC: FormViewController {
     
     func addInvestigationToCategory(){
         investigation.date = Date()
-        Investigations.instance.addInvestigation(investigation: investigation)
+        _ = Investigations.instance.addInvestigation(investigation: investigation)
         dismiss(animated: true, completion: {
             self.delegate?.createdInvestigation(investigation: self.investigation)
         })

@@ -14,6 +14,8 @@ class InvestigationVC:
     UIPickerViewDataSource, InvestigationDelegate,
     UITextFieldDelegate {
     
+    var viewed: Bool = false
+    
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
     var activeField: UITextField?
@@ -23,6 +25,21 @@ class InvestigationVC:
             setFieldsFromInvestigation()
         }
     }
+    
+    func saveVars(){
+        UserDefaults.standard.set(viewed, forKey: "investigationVCViewed")
+    }
+    
+    func restoreVars(){
+        if let data = UserDefaults.standard.bool(forKey: "investigationVCViewed") as? Bool {
+            viewed = data
+        }
+    }
+    
+    func hasSeen() -> Bool {
+       return UserDefaults.standard.bool(forKey: "investigationVCViewed")
+    }
+
     
     var pickerDataSource = Array(repeating: [String](), count: 3)
     
@@ -61,6 +78,10 @@ class InvestigationVC:
         setupNewComponentAlert()
         setupTimerDataSource()
         
+        if(hasSeen()){
+            print("Investigation page not seen")
+        }
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -77,9 +98,12 @@ class InvestigationVC:
         disableButtons(disable: true)
         registerForKeyboardNotifications()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deregisterFromKeyboardNotifications()
+        viewed = true
+        saveVars()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

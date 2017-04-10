@@ -20,6 +20,13 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
     }
 
     func barChartEnable(barChart: BarChartView) {
+        if investigation.componentType == .IntervalCounter {
+            chartTitle.text = investigation.question + "(" + String(investigation.getTime()) + " seconds.)"
+        } else if investigation.componentType == .Counter {
+            chartTitle.text = investigation.question
+        } else if investigation.componentType == .Stopwatch {
+            chartTitle.text = investigation.question + "(" + String(investigation.getTime()) + " seconds.)"
+        }
         chartTitle.text = investigation.question
         barChart.delegate = self
         
@@ -38,8 +45,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
         
-        
-        
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = colors
         chartDataSet.axisDependency = .right
@@ -51,6 +56,10 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         barChart.rightAxis.granularity = 1
         barChart.leftAxis.axisMaximum = chartDataSet.yMax + 2
         barChart.rightAxis.axisMaximum = chartDataSet.yMax + 2
+        
+        barChart.leftAxis.drawAxisLineEnabled = false
+        barChart.rightAxis.drawAxisLineEnabled = false
+    
         
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
@@ -80,7 +89,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         
         
         barChart.data = chartData
-        print(barChart.rightAxis.isAxisMinCustom)
     }
 
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {

@@ -129,9 +129,9 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destination = segue.destination as? UIViewController
+        var destination = segue.destination as UIViewController
         if let navcon = segue.destination as? UINavigationController {
-            destination = navcon.visibleViewController
+            destination = navcon.visibleViewController!
         }
         if let dest = destination as? ChooseCategoryVC {
             dest.investigation = nil
@@ -141,8 +141,6 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     }
     
     func categoryChosen() {
-        print("in chosen")
         tableView.reloadData()
-        print("in chosen")
     }
 }
