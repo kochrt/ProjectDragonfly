@@ -141,8 +141,6 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     }
     
     func categoryChosen() {
-        print("in chosen")
         tableView.reloadData()
-        print("in chosen")
     }
 }

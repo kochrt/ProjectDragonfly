@@ -42,7 +42,7 @@ class ResultsTabBarVC: UITabBarController {
             }
             let shareController = UIActivityViewController(activityItems: items, applicationActivities: nil)
             if let popover = shareController.popoverPresentationController {
-                popover.barButtonItem = sender as? UIBarButtonItem
+                popover.barButtonItem = sender as UIBarButtonItem
                 present(shareController, animated: true, completion: nil)
             }
         }

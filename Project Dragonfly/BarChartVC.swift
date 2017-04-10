@@ -20,6 +20,13 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
     }
 
     func barChartEnable(barChart: BarChartView) {
+        if investigation.componentType == .IntervalCounter {
+            chartTitle.text = investigation.question + "(" + String(investigation.getTime()) + " seconds.)"
+        } else if investigation.componentType == .Counter {
+            chartTitle.text = investigation.question
+        } else if investigation.componentType == .Stopwatch {
+            chartTitle.text = investigation.question + "(" + String(investigation.getTime()) + " seconds.)"
+        }
         chartTitle.text = investigation.question
         barChart.delegate = self
         
@@ -37,8 +44,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         xaxis.valueFormatter = self
         
         barChart.xAxis.valueFormatter = xaxis.valueFormatter
-        
-        
         
         let chartDataSet = BarChartDataSet(values: barDataEntries, label: "")
         chartDataSet.colors = colors
@@ -80,7 +85,6 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         
         
         barChart.data = chartData
-        print(barChart.rightAxis.isAxisMinCustom)
     }
 
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
