@@ -18,11 +18,7 @@ class Investigation: NSObject, NSCoding {
     var componentType: ComponentEnum
     var components: [Component]
     var date: Date
-    var timerLength: Double = 0.0 {
-        didSet {
-            print("did set timerLength: \(timerLength)")
-        }
-    }
+    var timerLength: Double = 0.0
     
     override var description: String { get { return "\(title): \(category)" } }
     
