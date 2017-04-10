@@ -46,7 +46,14 @@ class PieChartVC: ChartVC, ChartViewDelegate {
         
         pieChart.data = data
         pieChart.animate(yAxisDuration: 1.4, easingOption: ChartEasingOption.easeInCubic)
-        pieChart.centerText = String(investigation.getTime()) + " seconds"
+        
+        if investigation.componentType == .IntervalCounter {
+            pieChart.centerText = String(investigation.getTime()) + " seconds"
+        } else if investigation.componentType == .Counter {
+            chartTitle.text = investigation.question
+        } else if investigation.componentType == .Stopwatch {
+            pieChart.centerText = String(investigation.getTime()) + " seconds"
+        }
         
     }
     

@@ -14,13 +14,32 @@ class InvestigationVC:
     UIPickerViewDataSource, InvestigationDelegate,
     UITextFieldDelegate {
     
+    var viewed: Bool = false
+    
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
+    
+    var activeField: UITextField?
     
     var investigation: Investigation! {
         didSet {
             setFieldsFromInvestigation()
         }
     }
+    
+    func saveVars(){
+        UserDefaults.standard.set(viewed, forKey: "investigationVCViewed")
+    }
+    
+    func restoreVars(){
+        if let data = UserDefaults.standard.bool(forKey: "investigationVCViewed") as? Bool {
+            viewed = data
+        }
+    }
+    
+    func hasSeen() -> Bool {
+       return UserDefaults.standard.bool(forKey: "investigationVCViewed")
+    }
+
     
     var pickerDataSource = Array(repeating: [String](), count: 3)
     
@@ -59,6 +78,10 @@ class InvestigationVC:
         setupNewComponentAlert()
         setupTimerDataSource()
         
+        if(hasSeen()){
+            print("Investigation page not seen")
+        }
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -73,6 +96,14 @@ class InvestigationVC:
         timerPickerView.delegate = self
         resetTimer()
         disableButtons(disable: true)
+        registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        deregisterFromKeyboardNotifications()
+        viewed = true
+        saveVars()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -382,9 +413,66 @@ class InvestigationVC:
         self.alert.textFields?[0].text = "";
         self.present(self.alert, animated: true, completion: nil)
     }
+    
+    // MARK: Keyboard stuff
+    func setActiveField(textField: UITextField) {
+        activeField = textField
+        print("set investigation.activeField")
+    }
+    
+    func registerForKeyboardNotifications(){
+        //Adding notifies on keyboard appearing
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func deregisterFromKeyboardNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification){
+        print("keyboard was shown")
+        //Need to calculate keyboard exact size due to Apple suggestions
+        self.tableView.isScrollEnabled = true
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        
+        self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+        
+        var aRect : CGRect = self.view.frame
+        print(aRect.size.height)
+        aRect.size.height -= keyboardSize!.height
+        print(aRect.size.height)
+        if let activeField = self.activeField {
+            if (!aRect.contains(activeField.frame.origin)){
+                self.tableView.scrollRectToVisible(activeField.frame, animated: true)
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification){
+        //Once keyboard disappears, restore original positions
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        //self.tableView.contentInset = contentInsets
+        self.tableView.scrollIndicatorInsets = contentInsets
+        var aRect : CGRect = self.view.frame
+        print(aRect.size.height)
+        aRect.size.height -= keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!
+//        
+//        //self.view.endEditing(true)
+//        self.tableView.isScrollEnabled = true
+    }
 }
 
 protocol InvestigationDelegate {
     func updated(date: Date)
     func addComponent()
+    func setActiveField(textField: UITextField)
+    
 }

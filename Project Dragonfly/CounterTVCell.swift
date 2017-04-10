@@ -55,6 +55,11 @@ class CounterTVCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("in textFieldDidBeginEditing")
+        investigationController.setActiveField(textField: textField)
+    }
+    
     func disableButtons(disable: Bool) {
         if(disable) {
             addButton.isEnabled = false

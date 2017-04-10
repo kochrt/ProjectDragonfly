@@ -15,7 +15,10 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     var coachMarksController: CoachMarksController?
     var isFirstTime: Bool {
         get {
-            return true
+            return UserDefaults.standard.bool(forKey: "investigationsTVCViewed")
+        }
+        set {
+            UserDefaults.standard.set(true, forKey: "investigationsTVCViewed")
         }
     }
     
@@ -29,12 +32,20 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     @IBAction func help(_ sender: Any) {
         self.present(infoAlert, animated: true, completion: nil)
     }
+    
+    func saveVars(){
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
+        
+        if isFirstTime {
+            print("InvestigationsTVC not seen")
+        }
         
         self.tableView.tableFooterView = UIView()
 //        setupInfoAlert()

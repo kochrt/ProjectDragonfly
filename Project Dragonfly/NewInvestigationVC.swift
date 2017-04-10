@@ -183,7 +183,7 @@ class NewInvestigationVC: FormViewController {
     
     func addInvestigationToCategory(){
         investigation.date = Date()
-        Investigations.instance.addInvestigation(investigation: investigation)
+        _ = Investigations.instance.addInvestigation(investigation: investigation)
         dismiss(animated: true, completion: {
             self.delegate?.createdInvestigation(investigation: self.investigation)
         })
