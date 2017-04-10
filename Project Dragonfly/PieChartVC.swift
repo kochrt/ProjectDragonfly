@@ -24,6 +24,8 @@ class PieChartVC: ChartVC, ChartViewDelegate {
     func pieChartEnable(pieChart: PieChartView) {
         pieChart.delegate = self
         chartTitle.text = investigation.question
+        
+        
         var i = 0
         for values in investigation.getInfo() {
             let dataEntry = PieChartDataEntry(value: Double(values.value), label: values.name, data: Double(i) as AnyObject?)
@@ -39,17 +41,14 @@ class PieChartVC: ChartVC, ChartViewDelegate {
         let data = PieChartData(dataSet: pieDataSet)
         
         data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 13.0))
-        data.setValueTextColor(UIColor.black)
+        data.setValueTextColor(UIColor.white)
         pieChart.drawEntryLabelsEnabled = false
         
         pieChart.data = data
         pieChart.animate(yAxisDuration: 1.4, easingOption: ChartEasingOption.easeInCubic)
+        pieChart.centerText = String(investigation.getTime()) + " seconds"
         
     }
-    
-//    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-//        centerText = "Test"
-//    }
     
     @IBAction func share(_ sender: Any) {
         let shareString = "Check out this investigation I made in the Dragonfly App!"
