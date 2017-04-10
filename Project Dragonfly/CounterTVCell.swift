@@ -56,7 +56,6 @@ class CounterTVCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("in textFieldDidBeginEditing")
         investigationController.setActiveField(textField: textField)
     }
     
