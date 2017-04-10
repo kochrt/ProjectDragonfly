@@ -57,6 +57,10 @@ class BarChartVC: ChartVC, IAxisValueFormatter, ChartViewDelegate {
         barChart.leftAxis.axisMaximum = chartDataSet.yMax + 2
         barChart.rightAxis.axisMaximum = chartDataSet.yMax + 2
         
+        barChart.leftAxis.drawAxisLineEnabled = false
+        barChart.rightAxis.drawAxisLineEnabled = false
+    
+        
         // Create bar chart data with data set and array with values for x axis
         let chartData = BarChartData(dataSets: [chartDataSet])
         
