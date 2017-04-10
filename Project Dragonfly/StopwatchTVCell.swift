@@ -96,7 +96,6 @@ class StopwatchTVCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(string)
         if string == "\n" {
             textField.resignFirstResponder()
             return false
