@@ -18,11 +18,7 @@ class Investigation: NSObject, NSCoding {
     var componentType: ComponentEnum
     var components: [Component]
     var date: Date
-    var timerLength: Double = 0.0 {
-        didSet {
-            print("did set timerLength: \(timerLength)")
-        }
-    }
+    var timerLength: Double = 0.0
     
     override var description: String { get { return "\(title): \(category)" } }
     
@@ -217,7 +213,7 @@ class Investigations {
                 for (key, arr) in tigations{
                     addCategory(name: key)
                     for tigation in arr {
-                        addInvestigation(investigation: tigation)
+                        _ = addInvestigation(investigation: tigation)
                     }
                 }
             }
@@ -278,7 +274,7 @@ class Investigations {
         if investigations.keys.contains(destCat) {
             let sourceCat = i.category
             i.category = destCat
-            addInvestigation(investigation: i)
+            _ = addInvestigation(investigation: i)
             i.category = sourceCat
             deleteInvestigation(i: i)
             i.category = destCat
