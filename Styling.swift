@@ -20,17 +20,18 @@ struct Styling {
         static let Primary = UIColor(colorLiteralRed: 51/255.0, green: 133/255.0, blue: 204/255.0, alpha: 1.0)
         static let Secondary = UIColor(colorLiteralRed: 24/255.0, green: 175/255.01, blue: 140/255.0, alpha: 1.0)
         
-        var resultColors: [UIColor] = [
-            UIColor(red: 24, green: 175, blue: 140, alpha: 1),
-            UIColor(red: 44, green: 58, blue: 68, alpha:1),
-            UIColor(red: 231, green: 110, blue: 114, alpha: 1),
-            UIColor(red: 172, green: 189, blue: 201, alpha: 1),
-            UIColor(red: 51, green: 133, blue: 204, alpha: 1),
-            UIColor(red: 240, green: 133, blue: 71, alpha: 1),
-            UIColor(red: 149, green: 149, blue: 149, alpha: 1),
-            UIColor(red: 66, green: 88, blue: 102, alpha: 1),
-            UIColor(red: 153, green: 76, blue: 0, alpha: 1),
-            UIColor(red: 150, green: 97, blue: 219, alpha: 1)]
+        static let resultColors: [UIColor] = [
+            UIColor(red: 24/255, green: 175/255, blue: 140/255, alpha: 1),
+            UIColor(red: 44/255, green: 58/255, blue: 68/255, alpha:1),
+            UIColor(red: 231/255, green: 110/255, blue: 114/255, alpha: 1),
+            UIColor(red: 172/255, green: 189/255, blue: 201/255, alpha: 1),
+            UIColor(red: 51/255, green: 133/255, blue: 204/255, alpha: 1),
+            UIColor(red: 240/255, green: 133/255, blue: 71/255, alpha: 1),
+            UIColor(red: 149/255, green: 149/255, blue: 149/255, alpha: 1),
+            UIColor(red: 66/255, green: 88/255, blue: 102/255, alpha: 1),
+            UIColor(red: 153/255, green: 76/255, blue: 0/255, alpha: 1),
+            UIColor(red: 150/255, green: 97/255, blue: 219/255, alpha: 1)
+        ]
     }
     
 
