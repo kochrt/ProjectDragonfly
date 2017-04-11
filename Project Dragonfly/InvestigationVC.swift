@@ -96,12 +96,18 @@ class InvestigationVC:
         timerPickerView.delegate = self
         resetTimer()
         disableButtons(disable: true)
-        registerForKeyboardNotifications()
+        if(investigation.componentType != .IntervalCounter) {
+            registerForKeyboardNotifications()
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        deregisterFromKeyboardNotifications()
+        if(investigation.componentType != .IntervalCounter) {
+            deregisterFromKeyboardNotifications()
+        }
+        
         viewed = true
         saveVars()
     }
@@ -417,7 +423,6 @@ class InvestigationVC:
     // MARK: Keyboard stuff
     func setActiveField(textField: UITextField) {
         activeField = textField
-        print("set investigation.activeField")
     }
     
     func registerForKeyboardNotifications(){
@@ -433,20 +438,16 @@ class InvestigationVC:
     }
     
     func keyboardWasShown(notification: NSNotification){
-        print("keyboard was shown")
         //Need to calculate keyboard exact size due to Apple suggestions
-        self.tableView.isScrollEnabled = true
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!, 0.0)
         
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
         
         var aRect : CGRect = self.view.frame
-        print(aRect.size.height)
         aRect.size.height -= keyboardSize!.height
-        print(aRect.size.height)
         if let activeField = self.activeField {
             if (!aRect.contains(activeField.frame.origin)){
                 self.tableView.scrollRectToVisible(activeField.frame, animated: true)
@@ -458,15 +459,11 @@ class InvestigationVC:
         //Once keyboard disappears, restore original positions
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
-        //self.tableView.contentInset = contentInsets
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0 , 0.0)
+        self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
         var aRect : CGRect = self.view.frame
-        print(aRect.size.height)
         aRect.size.height -= keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!
-//        
-//        //self.view.endEditing(true)
-//        self.tableView.isScrollEnabled = true
     }
 }
 
