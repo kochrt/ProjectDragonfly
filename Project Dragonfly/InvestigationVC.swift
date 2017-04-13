@@ -396,9 +396,9 @@ class InvestigationVC:
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destination = segue.destination as? UIViewController
+        var destination = segue.destination as UIViewController
         if let navcon = segue.destination as? UINavigationController {
-            destination = navcon.visibleViewController
+            destination = navcon.visibleViewController!
         }
         if let dest = destination as? ResultsTabBarVC {
             dest.investigation = investigation

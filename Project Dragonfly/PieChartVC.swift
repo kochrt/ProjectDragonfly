@@ -34,6 +34,7 @@ class PieChartVC: ChartVC, ChartViewDelegate {
         }
         
         let pieDataSet = PieChartDataSet(values: pieDataEntries, label: "")
+        pieChart.chartDescription?.text = ""
         pieDataSet.sliceSpace = 4.0
         
         pieDataSet.colors = colors
