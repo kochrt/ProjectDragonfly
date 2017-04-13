@@ -21,6 +21,7 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         setupNewCategoryAlert()
         
     }
@@ -36,10 +37,12 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             let text = self.alert.textFields![0].text! // Force unwrapping because we know it exists.
-            
-            if (!Investigations.instance.investigations.keys.sorted().contains(text)) {
+            let sortedCategories = Investigations.instance.investigations.keys.sorted()
+            if (sortedCategories.contains(text)) {
                 Investigations.instance.addCategory(name: text)
-                self.tableView.reloadData()
+                let i = sortedCategories.index(of: text)
+                self.tableView.insertRows(at: [IndexPath(row: i!, section: 0)], with: .automatic)
+                //self.tableView.reloadData()
             }
         }))
     }
