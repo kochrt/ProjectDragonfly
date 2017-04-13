@@ -11,8 +11,6 @@ import DZNEmptyDataSet
 
 class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
-    var viewed: Bool = false
-
     struct Strings {
         static let InvestigationDetail = "investigationDetail"
         static let CreateInvestigation = "createInvestigation"
@@ -23,48 +21,23 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     @IBAction func help(_ sender: Any) {
         self.present(infoAlert, animated: true, completion: nil)
     }
-    
-    func saveVars(){
-        UserDefaults.standard.set(viewed, forKey: "investigationsTVCViewed")
-    }
-    
-    func restoreVars(){
-        if let data = UserDefaults.standard.bool(forKey: "investigationsTVCViewed") as? Bool {
-            viewed = data
-        }
-    }
-    
-    func hasSeen() -> Bool {
-        if let _ = UserDefaults.standard.bool(forKey: "investigationsTVCViewed") as? Bool{
-            return true
-        }
-        return false
-    }
-    
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         
-        if(hasSeen()){
-            print("InvestigationsTVC not seen")
-        }
         
         self.tableView.tableFooterView = UIView()
-        setupInfoAlert()
-        self.present(infoAlert, animated: true, completion: nil)
-        viewed = true
-        saveVars()
+//        setupInfoAlert()
+//        self.present(infoAlert, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Investigations.instance.saveInvestigations()
-
+        
         tableView.reloadData()
     }
     

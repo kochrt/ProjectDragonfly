@@ -1,10 +1,10 @@
 PODS:
-  - Charts (3.0.1):
-    - Charts/Core (= 3.0.1)
-  - Charts/Core (3.0.1)
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
   - DZNEmptyDataSet (1.8.1)
-  - Eureka (2.0.0-beta.1)
-  - FontAwesome.swift (1.0.0)
+  - Eureka (2.0.1)
+  - FontAwesome.swift (1.1.1)
 
 DEPENDENCIES:
   - Charts
@@ -13,10 +13,10 @@ DEPENDENCIES:
   - FontAwesome.swift
 
 SPEC CHECKSUMS:
-  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
-  FontAwesome.swift: 2d32a3d62195343c2004b7c9043294ed2948553a
+  Eureka: ae837bb1dfae0c07bc1bda7aeef87876eeb537c2
+  FontAwesome.swift: f4ff5a9199dc3b510eba5bb377e834f159aef358
 
 PODFILE CHECKSUM: 3fdd28c6387ad5a2cb2d28d2a7a2dfbc3afe631e
 

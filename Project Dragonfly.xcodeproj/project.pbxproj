@@ -63,6 +63,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D49D18101E9C2443007EB7B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		10321776282900C2050329BC /* Pods-Project Dragonfly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Dragonfly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Dragonfly/Pods-Project Dragonfly.release.xcconfig"; sourceTree = "<group>"; };
 		11A5AA8B2F0FB8976D3E8A41 /* Pods-Project DragonflyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project DragonflyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project DragonflyUITests/Pods-Project DragonflyUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -308,6 +321,7 @@
 				D4519F581DAC4AA400FA274C /* Resources */,
 				13DCAA50AC13C221C4DC30B3 /* [CP] Embed Pods Frameworks */,
 				0B38EB339B838D286B2278DA /* [CP] Copy Pods Resources */,
+				D49D18101E9C2443007EB7B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
