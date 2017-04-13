@@ -14,6 +14,8 @@ class InvestigationVC:
     UIPickerViewDataSource, InvestigationDelegate,
     UITextFieldDelegate {
     
+    var questionLimit = 140
+    
     var viewed: Bool = false
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
@@ -113,11 +115,12 @@ class InvestigationVC:
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
             textField.resignFirstResponder()
-            investigation.question = textField.text ?? investigation.question
-            textField.text = investigation.question
-            return false
         }
-        return true
+        investigation.question = textField.text ?? investigation.question
+        textField.text = investigation.question
+        guard let text = textField.text else { return true }
+        let newLength = (text.characters.count) + string.characters.count - range.length
+        return newLength <= questionLimit
     }
     
     override func viewWillAppear(_ animated: Bool) {
