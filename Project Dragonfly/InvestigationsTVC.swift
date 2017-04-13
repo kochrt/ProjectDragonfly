@@ -32,10 +32,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     @IBAction func help(_ sender: Any) {
         self.present(infoAlert, animated: true, completion: nil)
     }
-    
-    func saveVars(){
-        
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +57,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
             
             self.coachMarksController?.skipView = skipView
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
