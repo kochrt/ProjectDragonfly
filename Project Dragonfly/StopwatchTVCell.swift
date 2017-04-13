@@ -50,6 +50,10 @@ class StopwatchTVCell: UITableViewCell, UITextFieldDelegate {
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        investigationController.setActiveField(textField: textField)
+    }
+    
     func updateTime() {
         
         let currentTime = NSDate.timeIntervalSinceReferenceDate

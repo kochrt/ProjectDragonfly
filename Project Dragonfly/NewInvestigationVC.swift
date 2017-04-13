@@ -15,8 +15,9 @@ protocol NewInvestigationDelegate {
 }
 
 class NewInvestigationVC: FormViewController {
-     let titleLimit = 10
-     let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
+    let titleLimit : UInt = 20
+    let questionLimit : UInt = 140
+    let alert = UIAlertController(title: "New Category", message: "Enter a category name", preferredStyle: .alert)
     
     var investigation = Investigation(question: "", components: [], title: "", category: Investigations.Names.Uncategorized)
     var delegate: NewInvestigationDelegate? 
@@ -48,7 +49,7 @@ class NewInvestigationVC: FormViewController {
         let titleSection = Section("Title")
         titleSection.append(TextRow() { row in
             row.placeholder = "My Investigation"
-            row.add(rule: RuleMaxLength(maxLength: UInt(20)))
+            row.add(rule: RuleMaxLength(maxLength: titleLimit))
             
             row.validationOptions = .validatesOnChange
             row.cellUpdate {cell, row in
@@ -72,13 +73,22 @@ class NewInvestigationVC: FormViewController {
         let questionSection = Section("Question")
         questionSection.append(TextAreaRow() { row in
             row.title = "Question"
-            row.placeholder = "Why are there no squirrels anymore?"
-            row.onChange({ (text) in
-                if let question = text.value {
-                    self.investigation.question = question
+            row.placeholder = "Are there more squirrels on oaks than on maples?"
+            row.add(rule: RuleMaxLength(maxLength: questionLimit))
+            row.validationOptions = .validatesOnChange
+            row.cellUpdate { cell, row in
+                if(!row.isValid){
+                    cell.textView.text = self.investigation.question
+                    if(cell.textView.text.characters.count == 1) {
+                        cell.textView.text = ""
+                    }
+                } else {
+                    if let question = cell.textView.text {
+                        self.investigation.question = question
+                    }
+                    self.checkInvestigation()
                 }
-                self.checkInvestigation()
-            })
+            }
         })
         form.append(questionSection)
         

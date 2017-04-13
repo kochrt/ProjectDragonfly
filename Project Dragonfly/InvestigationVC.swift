@@ -14,6 +14,8 @@ class InvestigationVC:
     UIPickerViewDataSource, InvestigationDelegate,
     UITextFieldDelegate {
     
+    var questionLimit = 140
+    
     var viewed: Bool = false
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
@@ -96,12 +98,16 @@ class InvestigationVC:
         timerPickerView.delegate = self
         resetTimer()
         disableButtons(disable: true)
+        
         registerForKeyboardNotifications()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         deregisterFromKeyboardNotifications()
+        
         viewed = true
         saveVars()
     }
@@ -109,11 +115,12 @@ class InvestigationVC:
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
             textField.resignFirstResponder()
-            investigation.question = textField.text ?? investigation.question
-            textField.text = investigation.question
-            return false
         }
-        return true
+        investigation.question = textField.text ?? investigation.question
+        textField.text = investigation.question
+        guard let text = textField.text else { return true }
+        let newLength = (text.characters.count) + string.characters.count - range.length
+        return newLength <= questionLimit
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -392,9 +399,9 @@ class InvestigationVC:
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var destination = segue.destination as? UIViewController
+        var destination = segue.destination as UIViewController
         if let navcon = segue.destination as? UINavigationController {
-            destination = navcon.visibleViewController
+            destination = navcon.visibleViewController!
         }
         if let dest = destination as? ResultsTabBarVC {
             dest.investigation = investigation
@@ -414,10 +421,10 @@ class InvestigationVC:
         self.present(self.alert, animated: true, completion: nil)
     }
     
-    // MARK: Keyboard stuff
+    // MARK: Keyboard stuff - this scrolls the table view so that editing fields low on the screen
+    // doesn't cause the fields to be covered by the keyboard
     func setActiveField(textField: UITextField) {
         activeField = textField
-        print("set investigation.activeField")
     }
     
     func registerForKeyboardNotifications(){
@@ -433,20 +440,21 @@ class InvestigationVC:
     }
     
     func keyboardWasShown(notification: NSNotification){
-        print("keyboard was shown")
         //Need to calculate keyboard exact size due to Apple suggestions
-        self.tableView.isScrollEnabled = true
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        var contentInsets : UIEdgeInsets
+        if(investigation.componentType == .IntervalCounter) {
+            contentInsets = UIEdgeInsetsMake(0.0, 0.0, 10.0 + (self.navigationController?.toolbar.frame.size.height)!, 0.0)
+        } else {
+            contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!, 0.0)
+        }
         
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
         
         var aRect : CGRect = self.view.frame
-        print(aRect.size.height)
         aRect.size.height -= keyboardSize!.height
-        print(aRect.size.height)
         if let activeField = self.activeField {
             if (!aRect.contains(activeField.frame.origin)){
                 self.tableView.scrollRectToVisible(activeField.frame, animated: true)
@@ -458,15 +466,15 @@ class InvestigationVC:
         //Once keyboard disappears, restore original positions
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
-        //self.tableView.contentInset = contentInsets
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0 , 0.0)
+        self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
         var aRect : CGRect = self.view.frame
-        print(aRect.size.height)
-        aRect.size.height -= keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!
-//        
-//        //self.view.endEditing(true)
-//        self.tableView.isScrollEnabled = true
+        if(investigation.componentType == .IntervalCounter) {
+            aRect.size.height -= 10.0 - (self.navigationController?.toolbar.frame.size.height)!
+        } else {
+            aRect.size.height -= keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!
+        }
     }
 }
 
