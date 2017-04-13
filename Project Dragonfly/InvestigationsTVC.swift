@@ -9,7 +9,7 @@
 import UIKit
 import DZNEmptyDataSet
 
-class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CoachMarksControllerDataSource {
+class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     struct Strings {
         static let InvestigationDetail = "investigationDetail"
@@ -39,13 +39,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         Investigations.instance.saveInvestigations()
         
         tableView.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if isFirstTime {
-            self.coachMarksController?.startOn(self)
-        }
     }
     
     // MARK: - Table view data source
