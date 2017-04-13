@@ -155,6 +155,11 @@ class Investigations {
     //Dictionary that maps category name to a list of investigations
     //effectively contains all data for the app
     var investigations = [String : [Investigation]]()
+    var sortedCategories: [String] {
+        get {
+            return investigations.keys.sorted(by: { $0.lowercased() < $1.lowercased() })
+        }
+    }
     
     //solution for not displaying empty categories on the investigaiton page
     func getNonEmptyCategories() -> [String]{
@@ -250,6 +255,7 @@ class Investigations {
     func renameCategory(old: String, new: String) {
         addCategory(name: new)
         moveAllInvestigationsInCategory(new: new, old: old)
+        deleteCategoryAndInvestigations(named: old)
     }
     
     func moveAllInvestigationsInCategory(new: String, old: String) {
