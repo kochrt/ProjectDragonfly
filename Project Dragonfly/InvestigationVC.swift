@@ -96,17 +96,15 @@ class InvestigationVC:
         timerPickerView.delegate = self
         resetTimer()
         disableButtons(disable: true)
-        if(investigation.componentType != .IntervalCounter) {
-            registerForKeyboardNotifications()
-        }
+        
+        registerForKeyboardNotifications()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if(investigation.componentType != .IntervalCounter) {
-            deregisterFromKeyboardNotifications()
-        }
+        
+        deregisterFromKeyboardNotifications()
         
         viewed = true
         saveVars()
@@ -420,7 +418,8 @@ class InvestigationVC:
         self.present(self.alert, animated: true, completion: nil)
     }
     
-    // MARK: Keyboard stuff
+    // MARK: Keyboard stuff - this scrolls the table view so that editing fields low on the screen
+    // doesn't cause the fields to be covered by the keyboard
     func setActiveField(textField: UITextField) {
         activeField = textField
     }
@@ -441,7 +440,12 @@ class InvestigationVC:
         //Need to calculate keyboard exact size due to Apple suggestions
         var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!, 0.0)
+        var contentInsets : UIEdgeInsets
+        if(investigation.componentType == .IntervalCounter) {
+            contentInsets = UIEdgeInsetsMake(0.0, 0.0, 10.0 + (self.navigationController?.toolbar.frame.size.height)!, 0.0)
+        } else {
+            contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!, 0.0)
+        }
         
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
@@ -463,7 +467,11 @@ class InvestigationVC:
         self.tableView.contentInset = contentInsets
         self.tableView.scrollIndicatorInsets = contentInsets
         var aRect : CGRect = self.view.frame
-        aRect.size.height -= keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!
+        if(investigation.componentType == .IntervalCounter) {
+            aRect.size.height -= 10.0 - (self.navigationController?.toolbar.frame.size.height)!
+        } else {
+            aRect.size.height -= keyboardSize!.height - (self.navigationController?.toolbar.frame.size.height)!
+        }
     }
 }
 
