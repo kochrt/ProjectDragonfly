@@ -10,6 +10,11 @@ import UIKit
 
 class CategoriesTVC: UITableViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
