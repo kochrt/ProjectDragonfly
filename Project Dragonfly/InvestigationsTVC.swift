@@ -18,7 +18,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
             return UserDefaults.standard.bool(forKey: "investigationsTVCViewed")
         }
         set {
-            UserDefaults.standard.set(true, forKey: "investigationsTVCViewed")
+            UserDefaults.standard.set(newValue, forKey: "investigationsTVCViewed")
         }
     }
     
