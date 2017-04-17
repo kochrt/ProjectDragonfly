@@ -14,7 +14,7 @@ class TutorialAlertVC {
         
         let paragraphStyle = NSMutableParagraphStyle()
         let messageText = NSMutableAttributedString(
-            string: "\nWelcome to the Dragonfly app!\n\n This app is used to investigate your environment. \n\n Simply create an investigation to get started (click the plus in the upper right corner). ",
+            string: "\n" + messages.joined(separator: "\n\n"),
             attributes: [
                 NSParagraphStyleAttributeName: paragraphStyle,
                 NSFontAttributeName : UIFont.preferredFont(forTextStyle: UIFontTextStyle.body),
