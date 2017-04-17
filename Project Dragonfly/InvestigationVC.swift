@@ -100,9 +100,7 @@ class InvestigationVC:
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         deregisterFromKeyboardNotifications()
-        
         isFirstTime = false
     }
     
