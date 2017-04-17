@@ -70,7 +70,7 @@ class InvestigationVC:
     }
     
     @IBAction func tutorial(_ sender: Any) {
-        
+        self.present(infoAlert!, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -82,6 +82,7 @@ class InvestigationVC:
         infoAlert = TutorialAlertVC.create(title: investigation.componentType.rawValue, messages: infoStrings)
         if(isFirstTime) {
             self.present(infoAlert!, animated: true, completion: nil)
+            isFirstTime = false
             print("Investigation page not seen")
         }
         
@@ -101,7 +102,6 @@ class InvestigationVC:
         disableButtons(disable: true)
         
         registerForKeyboardNotifications()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

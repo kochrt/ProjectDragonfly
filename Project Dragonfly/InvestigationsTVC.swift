@@ -40,12 +40,10 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
-        //setupInfoAlert()
+        
         infoAlert = TutorialAlertVC.create(title: "Hello!", messages: infoStrings)
         if(isFirstTime) {
-            infoAlert = TutorialAlertVC.create(title: "Hello!", messages: infoStrings)
             self.present(infoAlert!, animated: true, completion: nil)
-            //self.performSegue(withIdentifier: "InvestigationsTutorial", sender: self)
             isFirstTime = false
         }
     }
