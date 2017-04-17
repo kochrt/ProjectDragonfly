@@ -19,7 +19,7 @@ class InvestigationVC:
     var infoAlert: UIAlertController?
     var infoStrings : [String] = []
 
-    var isFirstTime: Bool {
+    var isNotFirstTime: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "investigationVCViewed")
         }
@@ -80,9 +80,9 @@ class InvestigationVC:
         setupTimerDataSource()
         
         infoAlert = TutorialAlertVC.create(title: investigation.componentType.rawValue, messages: infoStrings)
-        if(isFirstTime) {
+        if(!isNotFirstTime) {
             self.present(infoAlert!, animated: true, completion: nil)
-            isFirstTime = false
+            isNotFirstTime = false
             print("Investigation page not seen")
         }
         
@@ -107,7 +107,7 @@ class InvestigationVC:
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deregisterFromKeyboardNotifications()
-        isFirstTime = false
+        isNotFirstTime = false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

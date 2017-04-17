@@ -17,7 +17,7 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     var infoAlert: UIAlertController?
     let infoStrings: [String] = ["Tap on a category to open the category menu.", "Use delete to delete the selected category and either delete its investigations or move them to uncategorized.", "Use Rename Category to edit the name of the selected category.", "Move investigations to.. moves the investigations in the category to the category you choose.", "Uncategorized cannot be deleted."]
     
-    var isFirstTime: Bool {
+    var isNotFirstTime: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "categoryMngmntTVCViewed")
         }
@@ -32,7 +32,7 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     }
     
     @IBAction func tutorial(_ sender: Any) {
-        
+        self.present(infoAlert!, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -40,9 +40,9 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         tableView.tableFooterView = UIView()
         setupNewCategoryAlert()
         infoAlert = TutorialAlertVC.create(title: "Managing Categories", messages: infoStrings)
-        if(isFirstTime) {
+        if(!isNotFirstTime) {
             self.present(infoAlert!, animated: true, completion: nil)
-            isFirstTime = false
+            isNotFirstTime = false
         }
     }
     
