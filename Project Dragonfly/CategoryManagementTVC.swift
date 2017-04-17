@@ -14,6 +14,8 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
     
     var category: String = ""
     
+    let infoStrings : [String] = ["Tap on a category to open the category menu.", "Use delete to delete the selected category and either delete its investigations or move them to uncategorized.", "Use Rename Category to edit the name of the selected category.", "Move investigations to.. moves the investigations in the category to the category you choose.", "Uncategorized cannot be deleted."]
+    
     @IBAction
     func cancel() {
         dismiss(animated: true, completion: nil)
