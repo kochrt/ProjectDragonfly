@@ -4,13 +4,22 @@ The Project Dragonfly Investigative App is an iOS application used by children t
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+For future maintenance and development, first clone the repo with the link above. Our Project utilizes public iOS projects 
+
+```
+$ git clone <link above>
+$ gem install cocoapods
+-- CD to the cloned Directory -- 
+$ pod install
+```
 
 ### Prerequisites
 
 \>= XCode 8.0
 
 \>= Swift 3
+
+\>= Cocoapods 1.1.1
 
 ```
 Give examples
