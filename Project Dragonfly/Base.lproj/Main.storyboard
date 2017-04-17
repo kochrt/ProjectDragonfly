@@ -108,7 +108,6 @@
                     </navigationItem>
                     <connections>
                         <segue destination="qtV-N3-2Gg" kind="show" identifier="investigationDetail" id="sjA-qU-XgT"/>
-                        <segue destination="gIo-bs-yhM" kind="presentation" identifier="investigationsTutorial" id="KBP-jL-hhZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pti-aB-Lhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -773,7 +772,6 @@
                         <outlet property="timerPickerView" destination="Eyq-hf-msn" id="I26-aM-XLR"/>
                         <outlet property="timerView" destination="MaA-W8-OLP" id="RNd-hW-TTp"/>
                         <segue destination="phP-hC-tgn" kind="presentation" identifier="results" id="6EI-DJ-zuq"/>
-                        <segue destination="Dqv-3v-9qL" kind="presentation" identifier="investigationTutorial" id="jLF-DY-eyF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJt-Sp-0JO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -831,38 +829,6 @@
             </objects>
             <point key="canvasLocation" x="2841" y="1072"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="aGA-mT-nGp">
-            <objects>
-                <viewController id="gIo-bs-yhM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IRs-7z-21J"/>
-                        <viewControllerLayoutGuide type="bottom" id="uax-SJ-nht"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ARz-6Z-xUe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmw-8b-JrC">
-                                <rect key="frame" x="166" y="20" width="44" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C3-6r-ZVK">
-                                <rect key="frame" x="148" y="607" width="78" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Get started"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qqb-W8-5kF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1428" y="1072"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="BNo-Aw-jIw">
             <objects>
@@ -881,24 +847,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocf-Ui-XBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2177" y="1072"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hSU-wy-Rae">
-            <objects>
-                <viewController id="Dqv-3v-9qL" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SxV-fV-VFk"/>
-                        <viewControllerLayoutGuide type="bottom" id="e4Y-mB-IQt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1fh-3X-COs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="86a-7h-gOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2177" y="1749"/>
         </scene>
     </scenes>
     <resources>

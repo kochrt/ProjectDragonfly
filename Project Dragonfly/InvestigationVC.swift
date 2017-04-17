@@ -21,7 +21,7 @@ class InvestigationVC:
             return UserDefaults.standard.bool(forKey: "investigationVCViewed")
         }
         set {
-            UserDefaults.standard.set(viewed, forKey: "investigationVCViewed")
+            UserDefaults.standard.set(newValue, forKey: "investigationVCViewed")
         }
     }
     
@@ -99,9 +99,6 @@ class InvestigationVC:
         super.viewWillDisappear(animated)
         
         deregisterFromKeyboardNotifications()
-        
-        viewed = true
-        saveVars()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
