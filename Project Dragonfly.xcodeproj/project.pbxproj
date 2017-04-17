@@ -33,6 +33,7 @@
 		D49EE9A11E89B1FC00BD52B1 /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9A01E89B1FC00BD52B1 /* PieChartVC.swift */; };
 		D49EE9A31E89B67500BD52B1 /* CategoriesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9A21E89B67500BD52B1 /* CategoriesTVC.swift */; };
 		D49EE9A51E89BC4400BD52B1 /* ChooseCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49EE9A41E89BC4400BD52B1 /* ChooseCategoryVC.swift */; };
+		D4AD48521EA5549300729502 /* TutorialAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AD48511EA5549300729502 /* TutorialAlertVC.swift */; };
 		D4AE44EE1E5B7CC500B91C95 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E51E5B7CC500B91C95 /* WorkSans-Black.ttf */; };
 		D4AE44EF1E5B7CC500B91C95 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E61E5B7CC500B91C95 /* WorkSans-Bold.ttf */; };
 		D4AE44F01E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4AE44E71E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf */; };
@@ -115,6 +116,7 @@
 		D49EE9A01E89B1FC00BD52B1 /* PieChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartVC.swift; sourceTree = "<group>"; };
 		D49EE9A21E89B67500BD52B1 /* CategoriesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTVC.swift; sourceTree = "<group>"; };
 		D49EE9A41E89BC4400BD52B1 /* ChooseCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCategoryVC.swift; sourceTree = "<group>"; };
+		D4AD48511EA5549300729502 /* TutorialAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialAlertVC.swift; sourceTree = "<group>"; };
 		D4AE44E51E5B7CC500B91C95 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
 		D4AE44E61E5B7CC500B91C95 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
 		D4AE44E71E5B7CC500B91C95 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		D4993C081DFCB5050034C54C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D4AD48511EA5549300729502 /* TutorialAlertVC.swift */,
 				D439C8CE1E92ED5C006504FA /* TableViews */,
 				D49EE99D1E89B10500BD52B1 /* Results */,
 				D49EE9A41E89BC4400BD52B1 /* ChooseCategoryVC.swift */,
@@ -620,6 +623,7 @@
 				D49EE9A51E89BC4400BD52B1 /* ChooseCategoryVC.swift in Sources */,
 				9F1828061DD5252E000D7BB6 /* ComponentEnum.swift in Sources */,
 				9F57ABD21DED06AA001BB221 /* StopwatchTVCell.swift in Sources */,
+				D4AD48521EA5549300729502 /* TutorialAlertVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

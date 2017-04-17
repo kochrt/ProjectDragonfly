@@ -15,7 +15,6 @@ class InvestigationVC:
     UITextFieldDelegate {
     
     var questionLimit = 140
-    
 
     var isFirstTime: Bool {
         get {
@@ -73,7 +72,7 @@ class InvestigationVC:
         setupNewComponentAlert()
         setupTimerDataSource()
         
-        if(isFirstTime){
+        if(isFirstTime) {
             self.performSegue(withIdentifier: "InvestigationTutorial", sender: self)
             print("Investigation page not seen")
         }
@@ -118,7 +117,6 @@ class InvestigationVC:
         super.viewWillAppear(animated)
         categoryButton.setTitle(investigation?.category, for: .normal)
     }
-    
     
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()

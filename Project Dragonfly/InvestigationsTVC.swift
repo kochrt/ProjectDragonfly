@@ -16,7 +16,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         static let CreateInvestigation = "createInvestigation"
     }
     
-    
     let infoAlert = UIAlertController(title: "Hello!", message: "", preferredStyle: .alert) //"Welcome to the Dragonfly app!\n\n \u{2022}This app is used to investigate your environment. Simply create an investigation to get started.", preferredStyle: .alert)
     
     //[NSString stringWithFormat: @"%C line 1.\n %C line 2,\n %C line 3", (unichar) 0x2022, (unichar) 0x2022, (unichar) 0x2022]
