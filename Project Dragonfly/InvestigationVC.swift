@@ -16,6 +16,7 @@ class InvestigationVC:
     
     var questionLimit = 140
     
+
     var isFirstTime: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "investigationVCViewed")
@@ -73,6 +74,7 @@ class InvestigationVC:
         setupTimerDataSource()
         
         if(isFirstTime){
+            self.performSegue(withIdentifier: "InvestigationTutorial", sender: self)
             print("Investigation page not seen")
         }
         
@@ -97,8 +99,8 @@ class InvestigationVC:
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         deregisterFromKeyboardNotifications()
+        isFirstTime = false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
