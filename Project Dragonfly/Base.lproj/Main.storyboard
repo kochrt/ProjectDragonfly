@@ -356,11 +356,18 @@
                                 <action selector="cancel" destination="Oc4-4p-StE" id="BPh-c3-9Nv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LDE-PR-pUd">
-                            <connections>
-                                <action selector="addCategory:" destination="Oc4-4p-StE" id="cqd-gb-3vz"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="LDE-PR-pUd">
+                                <connections>
+                                    <action selector="addCategory:" destination="Oc4-4p-StE" id="cqd-gb-3vz"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="?" id="2bJ-9e-Bw0">
+                                <connections>
+                                    <action selector="tutorial:" destination="Oc4-4p-StE" id="kpi-Y5-foW"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <segue destination="kaa-sz-cxi" kind="presentation" identifier="moveToCategory" id="pqz-6k-F2G"/>
@@ -858,6 +865,6 @@
         <image name="pie" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F1h-tA-2zs"/>
+        <segue reference="pqz-6k-F2G"/>
     </inferredMetricsTieBreakers>
 </document>
