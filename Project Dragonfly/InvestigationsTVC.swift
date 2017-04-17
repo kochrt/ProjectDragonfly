@@ -16,7 +16,25 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         static let CreateInvestigation = "createInvestigation"
     }
     
-    let infoAlert = UIAlertController(title: "Hello!", message: "Welcome to the Dragonfly app! This app is used to investigate your environment.", preferredStyle: .alert)
+    var viewed : Bool = false
+    let infoAlert = UIAlertController(title: "Hello!", message: "Welcome to the Dragonfly app!\n This app is used to investigate your environment. Simply create an investigation to get started.", preferredStyle: .alert)
+    
+    
+    func saveVars(){
+        UserDefaults.standard.set(viewed, forKey: "investigationTVCViewed")
+    }
+    
+    func restoreVars(){
+        if let data = UserDefaults.standard.bool(forKey: "investigationTVCViewed") as? Bool {
+            viewed = data
+        }
+    }
+    
+    func hasSeen() -> Bool {
+        return UserDefaults.standard.bool(forKey: "investigationTVCViewed")
+    }
+    
+    
     
     @IBAction func help(_ sender: Any) {
         self.present(infoAlert, animated: true, completion: nil)
@@ -24,14 +42,17 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        restoreVars()
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
-        
-        
         self.tableView.tableFooterView = UIView()
-//        setupInfoAlert()
-//        self.present(infoAlert, animated: true, completion: nil)
+        setupInfoAlert()
+        if(!hasSeen()) {
+            self.present(infoAlert, animated: true, completion: nil)
+            viewed = true
+            saveVars()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

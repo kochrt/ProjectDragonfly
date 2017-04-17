@@ -17,7 +17,6 @@ class InvestigationVC:
     var questionLimit = 140
     
     var viewed: Bool = false
-    
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
     var activeField: UITextField?
