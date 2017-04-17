@@ -16,17 +16,17 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         static let CreateInvestigation = "createInvestigation"
     }
     
-    var viewed : Bool = false
-    let infoAlert = UIAlertController(title: "Hello!", message: "Welcome to the Dragonfly app!\n This app is used to investigate your environment. Simply create an investigation to get started.", preferredStyle: .alert)
     
+    let infoAlert = UIAlertController(title: "Hello!", message: "", preferredStyle: .alert) //"Welcome to the Dragonfly app!\n\n \u{2022}This app is used to investigate your environment. Simply create an investigation to get started.", preferredStyle: .alert)
     
-    func saveVars(){
-        UserDefaults.standard.set(viewed, forKey: "investigationTVCViewed")
-    }
+    //[NSString stringWithFormat: @"%C line 1.\n %C line 2,\n %C line 3", (unichar) 0x2022, (unichar) 0x2022, (unichar) 0x2022]
     
-    func restoreVars(){
-        if let data = UserDefaults.standard.bool(forKey: "investigationTVCViewed") as? Bool {
-            viewed = data
+    var isFirstTime: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "investigationTVCViewed")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "investigationTVCViewed")
         }
     }
     
@@ -37,17 +37,15 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        restoreVars()
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
         setupInfoAlert()
-        if(!viewed) {
-            //self.present(infoAlert, animated: true, completion: nil)
-            self.performSegue(withIdentifier: "InvestigationsTutorial", sender: self)
-            viewed = true
-            saveVars()
+        if(isFirstTime) {
+            self.present(infoAlert, animated: true, completion: nil)
+            //self.performSegue(withIdentifier: "InvestigationsTutorial", sender: self)
+            isFirstTime = false
         }
     }
     
@@ -180,7 +178,20 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     // MARK: Alert setup
     func setupInfoAlert() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .left
+        let messageText = NSMutableAttributedString(
+                string: "\nWelcome to the Dragonfly app!\n\n This app is used to investigate your environment. \n\n Simply create an investigation to get started (click the plus in the upper right corner). ",
+                attributes: [
+                NSParagraphStyleAttributeName: paragraphStyle,
+                NSFontAttributeName : UIFont.preferredFont(forTextStyle: UIFontTextStyle.body),
+                NSForegroundColorAttributeName : UIColor.black
+            ])
+        
+        infoAlert.setValue(messageText, forKey: "attributedMessage")
+        
         infoAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in }))
+        
         
     }
 }

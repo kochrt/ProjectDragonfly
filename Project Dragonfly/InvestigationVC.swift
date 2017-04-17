@@ -16,7 +16,16 @@ class InvestigationVC:
     
     var questionLimit = 140
     
-    var viewed: Bool = false
+
+    var isFirstTime: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "investigationVCViewed")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "investigationVCViewed")
+        }
+    }
+    
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
     var activeField: UITextField?
@@ -26,21 +35,6 @@ class InvestigationVC:
             setFieldsFromInvestigation()
         }
     }
-    
-    func saveVars(){
-        UserDefaults.standard.set(viewed, forKey: "investigationVCViewed")
-    }
-    
-    func restoreVars(){
-        if let data = UserDefaults.standard.bool(forKey: "investigationVCViewed") as? Bool {
-            viewed = data
-        }
-    }
-    
-    func hasSeen() -> Bool {
-       return UserDefaults.standard.bool(forKey: "investigationVCViewed")
-    }
-
     
     var pickerDataSource = Array(repeating: [String](), count: 3)
     
@@ -79,8 +73,8 @@ class InvestigationVC:
         setupNewComponentAlert()
         setupTimerDataSource()
         
-        if(hasSeen()){
-            
+        if(isFirstTime){
+            self.performSegue(withIdentifier: "InvestigationTutorial", sender: self)
             print("Investigation page not seen")
         }
         
@@ -108,8 +102,7 @@ class InvestigationVC:
         
         deregisterFromKeyboardNotifications()
         
-        viewed = true
-        saveVars()
+        isFirstTime = false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
