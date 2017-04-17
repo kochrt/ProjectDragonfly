@@ -758,7 +758,11 @@
                                     <action selector="clone:" destination="qtV-N3-2Gg" id="vWZ-dH-2Yt"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="?" style="done" id="qey-2R-SDU"/>
+                            <barButtonItem title="?" style="done" id="qey-2R-SDU">
+                                <connections>
+                                    <action selector="tutorial:" destination="qtV-N3-2Gg" id="jk6-Qg-fls"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

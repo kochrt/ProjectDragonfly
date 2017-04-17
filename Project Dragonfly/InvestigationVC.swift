@@ -69,6 +69,10 @@ class InvestigationVC:
         performSegue(withIdentifier: "results", sender: investigation)
     }
     
+    @IBAction func tutorial(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         infoStrings = investigation.componentType.instructions
