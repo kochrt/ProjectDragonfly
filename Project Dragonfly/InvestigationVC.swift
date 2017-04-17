@@ -15,6 +15,8 @@ class InvestigationVC:
     UITextFieldDelegate {
     
     var questionLimit = 140
+    
+    var infoStrings : [String] = []
 
     var isFirstTime: Bool {
         get {
@@ -68,7 +70,7 @@ class InvestigationVC:
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        infoStrings = investigation.componentType.instructions
         setupNewComponentAlert()
         setupTimerDataSource()
         

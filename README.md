@@ -1,6 +1,6 @@
 # Project Dragonfly
 
-One Paragraph of project description goes here
+The Project Dragonfly Investigative App is an iOS application used by children to conduct basic scientific experiments. The users  use various tools to collect data. These collections of data are organized into investigations which are further organized into investigation categories. Each investigation can can use a single "type" of tool (currently a counter, stopwatch, and timed counter). Data within an investigation can be visualized into charts. Investigations can be shared via email, text, twitter, etc. This project was written in Swift 3 and Developed in XCode 8.0. 
 
 ## Getting Started
 
@@ -8,7 +8,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+\>= XCode 8.0
+
+\>= Swift 3
 
 ```
 Give examples
@@ -58,9 +60,6 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
