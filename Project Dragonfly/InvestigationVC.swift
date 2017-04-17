@@ -16,7 +16,14 @@ class InvestigationVC:
     
     var questionLimit = 140
     
-    var viewed: Bool = false
+    var isFirstTime: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "investigationVCViewed")
+        }
+        set {
+            UserDefaults.standard.set(viewed, forKey: "investigationVCViewed")
+        }
+    }
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -27,21 +34,6 @@ class InvestigationVC:
             setFieldsFromInvestigation()
         }
     }
-    
-    func saveVars(){
-        UserDefaults.standard.set(viewed, forKey: "investigationVCViewed")
-    }
-    
-    func restoreVars(){
-        if let data = UserDefaults.standard.bool(forKey: "investigationVCViewed") as? Bool {
-            viewed = data
-        }
-    }
-    
-    func hasSeen() -> Bool {
-       return UserDefaults.standard.bool(forKey: "investigationVCViewed")
-    }
-
     
     var pickerDataSource = Array(repeating: [String](), count: 3)
     
@@ -80,7 +72,7 @@ class InvestigationVC:
         setupNewComponentAlert()
         setupTimerDataSource()
         
-        if(hasSeen()){
+        if(isFirstTime){
             print("Investigation page not seen")
         }
         
