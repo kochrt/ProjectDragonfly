@@ -31,6 +31,10 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func tutorial(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
