@@ -8,9 +8,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
->= XCode 8.0
+\>= XCode 8.0
 
->= Swift 3
+\>= Swift 3
 
 ```
 Give examples
