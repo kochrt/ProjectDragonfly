@@ -16,6 +16,7 @@ class InvestigationVC:
     
     var questionLimit = 140
     
+    var infoAlert: UIAlertController?
     var infoStrings : [String] = []
 
     var isFirstTime: Bool {
@@ -74,8 +75,9 @@ class InvestigationVC:
         setupNewComponentAlert()
         setupTimerDataSource()
         
+        infoAlert = TutorialAlertVC.create(title: investigation.componentType.rawValue, messages: infoStrings)
         if(isFirstTime) {
-            self.performSegue(withIdentifier: "InvestigationTutorial", sender: self)
+            self.present(infoAlert!, animated: true, completion: nil)
             print("Investigation page not seen")
         }
         
