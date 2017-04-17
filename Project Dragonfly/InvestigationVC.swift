@@ -80,6 +80,7 @@ class InvestigationVC:
         setupTimerDataSource()
         
         if(hasSeen()){
+            
             print("Investigation page not seen")
         }
         

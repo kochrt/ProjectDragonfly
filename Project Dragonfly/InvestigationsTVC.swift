@@ -30,11 +30,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         }
     }
     
-    func hasSeen() -> Bool {
-        return UserDefaults.standard.bool(forKey: "investigationTVCViewed")
-    }
-    
-    
     
     @IBAction func help(_ sender: Any) {
         self.present(infoAlert, animated: true, completion: nil)
@@ -48,8 +43,9 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
         setupInfoAlert()
-        if(!hasSeen()) {
-            self.present(infoAlert, animated: true, completion: nil)
+        if(!viewed) {
+            //self.present(infoAlert, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "InvestigationsTutorial", sender: self)
             viewed = true
             saveVars()
         }
