@@ -18,7 +18,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     let infoStrings = ["Welcome to the Dragonfly app!", "This app is used to investigate your environment.", "Simply create an investigation to get started.", "(Click the plus button in the upper right corner.)"]
     
-    let infoAlert = UIAlertController(title: "Hello!", message: "", preferredStyle: .alert)
+    var infoAlert : UIAlertController? = nil
     
     var isFirstTime: Bool {
         get {
@@ -31,7 +31,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     
     @IBAction func help(_ sender: Any) {
-        self.present(infoAlert, animated: true, completion: nil)
+        self.present(infoAlert!, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
@@ -40,9 +40,11 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
-        setupInfoAlert()
+        //setupInfoAlert()
+        infoAlert = TutorialAlertVC.create(title: "Hello!", messages: infoStrings)
         if(isFirstTime) {
-            self.present(infoAlert, animated: true, completion: nil)
+            infoAlert = TutorialAlertVC.create(title: "Hello!", messages: infoStrings)
+            self.present(infoAlert!, animated: true, completion: nil)
             //self.performSegue(withIdentifier: "InvestigationsTutorial", sender: self)
             isFirstTime = false
         }
@@ -176,7 +178,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     }
     
     // MARK: Alert setup
-    func setupInfoAlert() {
+    /*func setupInfoAlert() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .left
         let messageText = NSMutableAttributedString(
@@ -192,6 +194,6 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         infoAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in }))
         
         
-    }
+    }*/
 }
 
