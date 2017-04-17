@@ -37,9 +37,10 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in }))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             let text = self.alert.textFields![0].text! // Force unwrapping because we know it exists.
-            let sortedCategories = Investigations.instance.investigations.keys.sorted()
-            if (sortedCategories.contains(text)) {
+            var sortedCategories = Investigations.instance.sortedCategories
+            if (!sortedCategories.contains(text)) {
                 Investigations.instance.addCategory(name: text)
+                sortedCategories = Investigations.instance.sortedCategories
                 let i = sortedCategories.index(of: text)
                 self.tableView.insertRows(at: [IndexPath(row: i!, section: 0)], with: .automatic)
                 //self.tableView.reloadData()
@@ -51,7 +52,7 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // present alert with category name
-        let cat = Investigations.instance.investigations.keys.sorted()[indexPath.row]
+        let cat = Investigations.instance.sortedCategories[indexPath.row]
         let optionsSheet = setupOptionsSheet(category: cat, indexPath: indexPath)
         // this prevents the optionsSheet from requiring 2 clicks before appearing, now only needs one click/tap
         DispatchQueue.main.async(execute: {
