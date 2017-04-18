@@ -42,7 +42,7 @@ class CategoryManagementTVC: CategoriesTVC, ChooseCategoryDelegate {
         infoAlert = TutorialAlertVC.create(title: "Managing Categories", messages: infoStrings)
         if(!isNotFirstTime) {
             self.present(infoAlert!, animated: true, completion: nil)
-            isNotFirstTime = false
+            isNotFirstTime = true
         }
     }
     

@@ -19,14 +19,33 @@ class InvestigationVC:
     var infoAlert: UIAlertController?
     var infoStrings : [String] = []
 
-    var isNotFirstTime: Bool {
+    var isNotFirstTimeCount: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: "investigationVCViewed")
+            return UserDefaults.standard.bool(forKey: "investigationVCCounterViewed")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "investigationVCViewed")
+            UserDefaults.standard.set(newValue, forKey: "investigationVCCounterViewed")
         }
     }
+    
+    var isNotFirstTimeStopwatch: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "investigationVCStopwatchViewed")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "investigationVCStopwatchViewed")
+        }
+    }
+    
+    var isNotFirstTimeInterval: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "investigationVCIntervalViewed")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "investigationVCIntervalViewed")
+        }
+    }
+    
     
     let alert = UIAlertController(title: "New Component", message: "Enter a name for this component:", preferredStyle: .alert)
     
@@ -80,11 +99,27 @@ class InvestigationVC:
         setupTimerDataSource()
         
         infoAlert = TutorialAlertVC.create(title: investigation.componentType.rawValue, messages: infoStrings)
-        if(!isNotFirstTime) {
-            self.present(infoAlert!, animated: true, completion: nil)
-            isNotFirstTime = false
-            print("Investigation page not seen")
+        switch(investigation.componentType) {
+        case .Counter:
+            if(!isNotFirstTimeCount) {
+                self.present(infoAlert!, animated: true, completion: nil)
+                isNotFirstTimeCount = true
+            }
+            break
+        case .IntervalCounter:
+            if(!isNotFirstTimeInterval) {
+                self.present(infoAlert!, animated: true, completion: nil)
+                isNotFirstTimeInterval = true
+            }
+            break
+        case .Stopwatch:
+            if(!isNotFirstTimeStopwatch) {
+                self.present(infoAlert!, animated: true, completion: nil)
+                isNotFirstTimeStopwatch = true
+            }
+            break
         }
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -107,7 +142,6 @@ class InvestigationVC:
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deregisterFromKeyboardNotifications()
-        isNotFirstTime = false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

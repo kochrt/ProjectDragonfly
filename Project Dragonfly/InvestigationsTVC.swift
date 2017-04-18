@@ -40,11 +40,12 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
+        //print("TVC \(isNotFirstTime)")
         
         infoAlert = TutorialAlertVC.create(title: "Hello!", messages: infoStrings)
         if(!isNotFirstTime) {
             self.present(infoAlert!, animated: true, completion: nil)
-            isNotFirstTime = false
+            isNotFirstTime = true
         }
     }
     
