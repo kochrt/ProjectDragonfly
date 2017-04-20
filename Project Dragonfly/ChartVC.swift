@@ -14,17 +14,26 @@ protocol Share {
 }
 
 class ChartVC: UIViewController, Share {
+
+    // Outlet for chart title on each result page.
     @IBOutlet weak var chartTitle: UILabel!
+
+    // Outlet for the view of the chart.
     @IBOutlet weak var chartView: ChartViewBase!
+
+    // Variable for the investigations
     var investigation: Investigation!
     
+    // Colors for the graph components
     var colors: [UIColor] = Styling.Colors.resultColors
     
+    // Share function for each graph.
     func share() -> (String?, UIImage?) {
         let shareStr = "Check out this investigation I made in the Dragonfly App: \(investigation.question)"
         return (shareStr, getScreenshot())
     }
     
+    // Function to get a screenshot of the graph page.
     func getScreenshot() -> UIImage {
         // grab reference to the view you'd like to capture
         let wholeScreen = self.view!
@@ -40,3 +49,4 @@ class ChartVC: UIViewController, Share {
     }
 
 }
+
