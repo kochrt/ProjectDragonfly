@@ -44,6 +44,9 @@ End with an example of getting some data out of the system or using it for a lit
 
 #### TestFlight Deployment
 
+## Style and Practices
+
+Style within the app follows https://dragonflyworkshops.org/about/styleguide#
 
 ## Built With
 
