@@ -61,6 +61,9 @@ Gage Laufenberg
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
+Pods on Cocoapods
+* Martin Barreto and Mathias Claassen -- Eureka
+* dzenbot, https://github.com/dzenbot -- DZNEmptyDataSet
+* Thi Doan -- FontAwesome.swift
+* Daniel Cohen Gindi and Philipp Jahoda, Charts
 * etc
