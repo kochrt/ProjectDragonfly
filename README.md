@@ -7,7 +7,7 @@ The Project Dragonfly Investigative App is an iOS application used by children t
 For future maintenance and development, clone the repo with the link above. Our Project utilizes public iOS projects from Cocoapods. To properly import these into the project, you must first have a up-to-date version of Cocoapods. 
 
 ```
-$ git clone <link above>
+$ git clone https://github.com/kochrt/ProjectDragonfly.git
 $ gem install cocoapods
 -- cd to the cloned repository -- 
 $ pod install
