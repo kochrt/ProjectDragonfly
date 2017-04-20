@@ -50,15 +50,16 @@ Style within the app follows https://dragonflyworkshops.org/about/styleguide#
 
 ## Built With
 
+Charts https://cocoapods.org/pods/Charts
+DZNEmptyDataSet https://cocoapods.org/pods/DZNEmptyDataSet
+Eureka https://cocoapods.org/pods/Eureka
+FontAwesome https://cocoapods.org/pods/FontAwesome.swift
 
 ## Authors
 
 Rob Koch
-
 Marian Willard
-
 Zach Eldemire
-
 Gage Laufenberg
 
 ## License
