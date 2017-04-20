@@ -1,10 +1,10 @@
 # Project Dragonfly
 
-The Project Dragonfly Investigative App is an iOS application used by children to conduct basic scientific experiments. The users  use various tools to collect data. These collections of data are organized into investigations which are further organized into investigation categories. Each investigation can can use a single "type" of tool (currently a counter, stopwatch, and timed counter). Data within an investigation can be visualized into charts. Investigations can be shared via email, text, twitter, etc. This project was written in Swift 3 and Developed in XCode 8.0. 
+The Project Dragonfly Investigative App is an iOS application used by children to conduct basic scientific experiments. The users  use various tools to collect data. These collections of data are organized into investigations which are further organized into investigation categories. Each investigation can can use a single "type" of tool (currently a counter, stopwatch, and timed counter). Data within an investigation can be visualized into charts. Investigations can be shared via email, text, twitter, etc. This project was written in Swift 3 and developed in XCode 8.0. 
 
 ## Getting Started
 
-For future maintenance and development, clone the repo with the link above. Our Project utilizes public iOS projects from Cocoapods. To properly import these into the project, you must first have a up-to-date version of Cocoapods. 
+For future maintenance and development, clone the repo with the link above. Our Project utilizes public iOS projects from Cocoapods. To properly import these into the project, you must first have an up-to-date version of Cocoapods. 
 
 ```
 $ git clone https://github.com/kochrt/ProjectDragonfly.git
