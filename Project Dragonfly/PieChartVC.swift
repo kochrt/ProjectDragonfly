@@ -51,7 +51,7 @@ class PieChartVC: ChartVC, ChartViewDelegate {
         let pieDataSet = PieChartDataSet(values: pieDataEntries, label: "")
 
         // The space in pixels between the pie-slices
-        pieDataSet.sliceSpace = 4.0
+        pieDataSet.sliceSpace = 0.0
 
         // Set the color of slices to the colors defined in ChartVC.
         pieDataSet.colors = colors
