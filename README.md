@@ -9,7 +9,7 @@ For future maintenance and development, first clone the repo with the link above
 ```
 $ git clone <link above>
 $ gem install cocoapods
--- CD to the cloned Directory -- 
+$ cd ProjectDragonfly/
 $ pod install
 ```
 
@@ -20,10 +20,6 @@ $ pod install
 \>= Swift 3
 
 \>= Cocoapods 1.1.1
-
-```
-Give examples
-```
 
 ### Installing
 
