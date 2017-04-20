@@ -9,7 +9,7 @@ For future maintenance and development, clone the repo with the link above. Our 
 ```
 $ git clone https://github.com/kochrt/ProjectDragonfly.git
 $ gem install cocoapods
--- cd to the cloned repository -- 
+$ cd ProjectDragonfly/ 
 $ pod install
 ```
 
