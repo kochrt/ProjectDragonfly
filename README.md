@@ -56,7 +56,10 @@ Eureka https://cocoapods.org/pods/Eureka
 FontAwesome https://cocoapods.org/pods/FontAwesome.swift
 
 ## Archive and Submit
-[](/images/buildversion.png)
+![](images/buildversion.png)
+![](images/buildversion.png)
+![](images/buildversion.png)
+![](images/buildversion.png)
 
 ## Authors
 
