@@ -20,7 +20,7 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
     
     var infoAlert : UIAlertController? = nil
     
-    var isFirstTime: Bool {
+    var isNotFirstTime: Bool {
         get {
             return UserDefaults.standard.bool(forKey: "investigationTVCViewed")
         }
@@ -40,13 +40,12 @@ class InvestigationsTVC: UITableViewController, NewInvestigationDelegate, DZNEmp
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         self.tableView.tableFooterView = UIView()
-        //setupInfoAlert()
+        //print("TVC \(isNotFirstTime)")
+        
         infoAlert = TutorialAlertVC.create(title: "Hello!", messages: infoStrings)
-        if(isFirstTime) {
-            infoAlert = TutorialAlertVC.create(title: "Hello!", messages: infoStrings)
+        if(!isNotFirstTime) {
             self.present(infoAlert!, animated: true, completion: nil)
-            //self.performSegue(withIdentifier: "InvestigationsTutorial", sender: self)
-            isFirstTime = false
+            isNotFirstTime = true
         }
     }
     
