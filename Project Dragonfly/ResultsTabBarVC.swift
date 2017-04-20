@@ -26,10 +26,12 @@ class ResultsTabBarVC: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Button to get you back to the collection slide.
     @IBAction func done(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    // Share function.
     @IBAction func share(_ sender: UIBarButtonItem) {
         if let chartVC = selectedViewController as? ChartVC {
             let (string, image) = chartVC.share()
