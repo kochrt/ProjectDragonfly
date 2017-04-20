@@ -56,10 +56,15 @@ Eureka https://cocoapods.org/pods/Eureka
 FontAwesome https://cocoapods.org/pods/FontAwesome.swift
 
 ## Archive and Submit
+In order to export as an archive for Testflight testing or App Store submission, make sure you have `Generic iOS Device` selected and that you increment the build and version numbers
+![](images/buildtype.png)
 ![](images/buildversion.png)
-![](images/buildversion.png)
-![](images/buildversion.png)
-![](images/buildversion.png)
+
+Select `Product` -> `Archive`
+![](images/archive.png)
+
+Assuming there are no errors, the app will be archived and can then be uploaded to the app store for submission or testing via iTunes Connect. This screen can also be accessed from `Window` -> `Organizer`.
+![](images/archives.png)
 
 ## Authors
 
